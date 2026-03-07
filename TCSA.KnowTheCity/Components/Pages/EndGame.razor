@@ -1,0 +1,77 @@
+@page "/results/{GameResultId:int}"
+@using TCSA.KnowTheCity.Services
+
+<MudContainer MaxWidth="MaxWidth.Small">
+    @if (gameResult is null)
+    {
+        <MudProgressCircular Indeterminate="true" Class="d-flex mx-auto mt-8" />
+    }
+    else
+    {
+        <MudText Typo="Typo.h4" Align="Align.Center" GutterBottom="true">
+            @(gameResult.CorrectCount == gameResult.TotalCount ? "?? Perfect Score!" : "Quiz Complete!")
+        </MudText>
+
+        <MudText Typo="Typo.h6" Align="Align.Center" Class="mb-2">
+            You got <b>@gameResult.CorrectCount</b> out of <b>@gameResult.TotalCount</b> landmarks
+        </MudText>
+
+        <MudText Typo="Typo.body2" Align="Align.Center" Color="Color.Secondary" Class="mb-4">
+            @gameResult.City · @gameResult.PlayedAt.ToString("MMM dd, yyyy HH:mm")
+        </MudText>
+
+        <MudDivider Class="mb-4" />
+
+        <MudList T="string">
+            @foreach (var item in gameResult.Items)
+            {
+                <MudListItem Icon="@(item.IsCorrect ? Icons.Material.Filled.CheckCircle : Icons.Material.Filled.Cancel)"
+                             IconColor="@(item.IsCorrect ? Color.Success : Color.Error)">
+                    <MudStack Row="true" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
+                        <MudText>@item.Landmark</MudText>
+                        @if (!item.IsCorrect)
+                        {
+                            <MudChip T="string" Size="Size.Small" Color="Color.Error" Variant="Variant.Outlined">
+                                @item.Label
+                            </MudChip>
+                        }
+                    </MudStack>
+                </MudListItem>
+            }
+        </MudList>
+
+        <MudDivider Class="mb-4 mt-2" />
+
+        <MudGrid>
+            <MudItem xs="6">
+                <MudButton Variant="Variant.Outlined" Color="Color.Primary"
+                           FullWidth="true" Href="@($"/quiz/{gameResult.City}")"
+                           StartIcon="@Icons.Material.Filled.Replay">
+                    Play Again
+                </MudButton>
+            </MudItem>
+            <MudItem xs="6">
+                <MudButton Variant="Variant.Filled" Color="Color.Primary"
+                           FullWidth="true" Href="/"
+                           StartIcon="@Icons.Material.Filled.Home">
+                    Home
+                </MudButton>
+            </MudItem>
+        </MudGrid>
+    }
+</MudContainer>
+
+@code {
+    [Parameter]
+    public int GameResultId { get; set; }
+
+    [Inject]
+    private IGameService GameService { get; set; } = default!;
+
+    private GameResult? gameResult;
+
+    protected override async Task OnInitializedAsync()
+    {
+        gameResult = await GameService.GetGameResultAsync(GameResultId);
+    }
+}

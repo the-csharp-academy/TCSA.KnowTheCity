@@ -7,7 +7,21 @@
 <MudSnackbarProvider />
 
 <MudLayout>
-    <MudMainContent Class="pa-4">
+    <MudAppBar Color="Color.Surface" Elevation="2" Dense="true">
+        <MudIconButton Icon="@Icons.Material.Filled.Home"
+                       Variant="Variant.Filled"
+                       Color="Color.Primary"
+                       Href="/" />
+        <MudSpacer />
+        <MudText Typo="Typo.h6">Know The City</MudText>
+        <MudSpacer />
+        <MudIconButton Icon="@Icons.Material.Filled.History"
+                       Variant="Variant.Filled"
+                       Color="Color.Primary"
+                       Href="/history" />
+    </MudAppBar>
+
+    <MudMainContent Class="pa-4 mt-2">
         @Body
     </MudMainContent>
 </MudLayout>

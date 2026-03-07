@@ -1,5 +1,8 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using MudBlazor.Services;
+using TCSA.KnowTheCity.Data;
+using TCSA.KnowTheCity.Services;
 
 namespace TCSA.KnowTheCity
 {
@@ -18,12 +21,27 @@ namespace TCSA.KnowTheCity
             builder.Services.AddMauiBlazorWebView();
             builder.Services.AddMudServices();
 
+            var dbPath = Path.Combine(FileSystem.AppDataDirectory, "knowthecity.db");
+            builder.Services.AddDbContextFactory<KnowTheCityDbContext>(options =>
+                options.UseSqlite($"Data Source={dbPath}"));
+
+            builder.Services.AddScoped<IGameService, GameService>();
+
 #if DEBUG
-    		builder.Services.AddBlazorWebViewDeveloperTools();
-    		builder.Logging.AddDebug();
+            builder.Services.AddBlazorWebViewDeveloperTools();
+            builder.Logging.AddDebug();
 #endif
 
-            return builder.Build();
+            var app = builder.Build();
+
+            using var scope = app.Services.CreateScope();
+            var db = scope.ServiceProvider
+                .GetRequiredService<IDbContextFactory<KnowTheCityDbContext>>()
+                .CreateDbContext();
+            //db.Database.EnsureDeleted();
+            //db.Database.EnsureCreated();
+
+            return app;
         }
     }
 }

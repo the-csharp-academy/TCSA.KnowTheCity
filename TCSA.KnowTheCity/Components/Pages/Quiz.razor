@@ -1,40 +1,11 @@
 @page "/quiz/{CityName}"
 @using System.Timers
 @using TCSA.KnowTheCity.Helpers
+@using TCSA.KnowTheCity.Models
+@using TCSA.KnowTheCity.Services
 @implements IDisposable
 
-@if (quizFinished)
-{
-    <MudContainer MaxWidth="MaxWidth.Small">
-        <MudText Typo="Typo.h4" Align="Align.Center" GutterBottom="true">
-            @(correctCount == landmarks.Count ? "?? Perfect Score!" : "Quiz Complete!")
-        </MudText>
-        <MudText Typo="Typo.h6" Align="Align.Center" Class="mb-4">
-            You got <b>@correctCount</b> out of <b>@landmarks.Count</b> landmarks for <b>@CityName</b>!
-        </MudText>
-
-        <MudList T="string">
-            @foreach (var result in results)
-            {
-                <MudListItem Icon="@(result.IsCorrect ? Icons.Material.Filled.CheckCircle : Icons.Material.Filled.Cancel)"
-                             IconColor="@(result.IsCorrect ? Color.Success : Color.Error)">
-                    <MudText>
-                        @result.Landmark
-                        @if (!result.IsCorrect)
-                        {
-                            <MudText Typo="Typo.caption" Color="Color.Error"> — @result.Label</MudText>
-                        }
-                    </MudText>
-                </MudListItem>
-            }
-        </MudList>
-
-        <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="mt-4" FullWidth="true" Href="/">
-            Back to Cities
-        </MudButton>
-    </MudContainer>
-}
-else
+@if (!quizFinished && landmarks.Count > 0 && currentIndex < landmarks.Count)
 {
     <MudContainer MaxWidth="MaxWidth.Small">
         <MudText Typo="Typo.h4" Align="Align.Center" GutterBottom="true">@CityName</MudText>
@@ -95,8 +66,14 @@ else
     [Parameter]
     public string CityName { get; set; } = "";
 
+    [Inject]
+    private IGameService GameService { get; set; } = default!;
+
+    [Inject]
+    private NavigationManager Navigation { get; set; } = default!;
+
     private List<string> landmarks = [];
-    private List<QuizResult> results = [];
+    private List<GameResultItem> results = [];
     private int currentIndex;
     private int correctCount;
     private string currentGuess = "";
@@ -105,8 +82,6 @@ else
     private int timeRemaining = 60;
     private bool quizFinished;
     private Timer? timer;
-
-    private record QuizResult(string Landmark, bool IsCorrect, string Label = "");
 
     protected override void OnInitialized()
     {
@@ -119,14 +94,19 @@ else
 
     private async void OnTimerElapsed(object? sender, ElapsedEventArgs e)
     {
+        if (quizFinished)
+            return;
+
         timeRemaining--;
 
         if (timeRemaining <= 0)
         {
-            FinishQuiz();
+            await InvokeAsync(FinishQuizAsync);
         }
-
-        await InvokeAsync(StateHasChanged);
+        else
+        {
+            await InvokeAsync(StateHasChanged);
+        }
     }
 
     private void HandleKeyDown(KeyboardEventArgs e)
@@ -137,7 +117,7 @@ else
         }
     }
 
-    private void SubmitGuess()
+    private async void SubmitGuess()
     {
         if (string.IsNullOrWhiteSpace(currentGuess) || quizFinished)
             return;
@@ -147,52 +127,66 @@ else
 
         if (isCorrect)
         {
-            results.Add(new(expected, true));
+            results.Add(new() { Landmark = expected, IsCorrect = true });
             correctCount++;
             feedbackMessage = $"Correct! {expected}";
             feedbackSeverity = Severity.Success;
         }
         else
         {
-            results.Add(new(expected, false, "wrong answer"));
+            results.Add(new() { Landmark = expected, IsCorrect = false, Label = "wrong answer" });
             feedbackMessage = $"Wrong! The answer was: {expected}";
             feedbackSeverity = Severity.Error;
         }
 
         currentGuess = "";
-        MoveToNext();
+        await MoveToNextAsync();
     }
 
-    private void SkipLandmark()
+    private async void SkipLandmark()
     {
         var expected = landmarks[currentIndex];
-        results.Add(new(expected, false, "skipped"));
+        results.Add(new() { Landmark = expected, IsCorrect = false, Label = "skipped" });
         feedbackMessage = $"The answer was: {expected}";
         feedbackSeverity = Severity.Warning;
         currentGuess = "";
-        MoveToNext();
+        await MoveToNextAsync();
     }
 
-    private void MoveToNext()
+    private async Task MoveToNextAsync()
     {
         currentIndex++;
 
         if (currentIndex >= landmarks.Count)
         {
-            FinishQuiz();
+            await FinishQuizAsync();
         }
     }
 
-    private void FinishQuiz()
+    private async Task FinishQuizAsync()
     {
+        if (quizFinished)
+            return;
+
         quizFinished = true;
         timer?.Stop();
 
-        // Fill in any remaining landmarks as timed out (if timer ran out)
         for (var i = results.Count; i < landmarks.Count; i++)
         {
-            results.Add(new(landmarks[i], false, "timed out"));
+            results.Add(new() { Landmark = landmarks[i], IsCorrect = false, Label = "timed out" });
         }
+
+        var gameResult = new GameResult
+        {
+            City = CityName,
+            CorrectCount = correctCount,
+            TotalCount = landmarks.Count,
+            PlayedAt = DateTime.Now,
+            Items = results
+        };
+
+        var id = await GameService.SaveGameResultAsync(gameResult);
+        Navigation.NavigateTo($"/results/{id}");
     }
 
     public void Dispose()

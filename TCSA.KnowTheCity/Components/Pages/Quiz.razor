@@ -3,19 +3,38 @@
 @using TCSA.KnowTheCity.Helpers
 @using TCSA.KnowTheCity.Models
 @using TCSA.KnowTheCity.Services
-@implements IDisposable
+@implements IAsyncDisposable
 
 @if (!quizFinished && landmarks.Count > 0 && currentIndex < landmarks.Count)
 {
-    <MudContainer MaxWidth="MaxWidth.Small">
-        <MudText Typo="Typo.h4" Align="Align.Center" GutterBottom="true">@CityName</MudText>
+    <MudContainer MaxWidth="MaxWidth.Medium">
+        <MudPaper 
+            Elevation="6" 
+            Class="py-4 px-20 mt-10 rounded-xl overflow-hidden">              
 
-        <MudText Typo="Typo.h3" Align="Align.Center"
-                 Color="@(timeRemaining <= 10 ? Color.Error : Color.Default)"
-                 Class="mb-2"
-                 Style="@(timeRemaining <= 10 ? "animation: pulse 1s infinite;" : "")">
-            ?? @timeRemaining s
-        </MudText>
+            <MudStack AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween" Class="mb-5">
+                <MudStack Row="true" Spacing="2" AlignItems="AlignItems.Center">
+                    <MudChip T="string" 
+                             Color="Color.Success" 
+                             Variant="Variant.Filled" 
+                             Size="Size.Large">
+                        Quiz @(currentIndex + 1)/@landmarks.Count
+                    </MudChip>
+                    <MudChip T="string"
+                             Color="@(timeRemaining <= 10 ? Color.Error : Color.Warning)"
+                             Variant="Variant.Filled"
+                             Icon="@Icons.Material.Filled.Timer"
+                             Size="Size.Large">
+                        @TimeSpan.FromSeconds(timeRemaining).ToString("m\\:ss")
+                    </MudChip>
+                    <MudChip T="string" 
+                             Color="Color.Secondary" 
+                             Variant="Variant.Filled"
+                             Size="Size.Large">
+                        Score: @correctCount
+                    </MudChip>
+                </MudStack>
+            </MudStack>
 
         <MudProgressLinear Color="@(timeRemaining <= 10 ? Color.Error : Color.Primary)"
                            Value="@((timeRemaining / 60.0) * 100)"
@@ -25,40 +44,41 @@
             Landmark @(currentIndex + 1) of @landmarks.Count
         </MudText>
 
-        <MudCard Elevation="2" Class="mb-4">
-            <MudCardMedia Image="@CityData.GetLandmarkImagePath(CityName, landmarks[currentIndex])" Height="620" />
-        </MudCard>
+            <div style="border-radius:16px; overflow:hidden;">
+                <MudCardMedia Image="@CityData.GetLandmarkImagePath(CityName, landmarks[currentIndex])"
+                              Height="400" />
+            </div>
 
-        <MudGrid Class="mb-3">
-            <MudItem xs="9">
-                <MudTextField @bind-Value="currentGuess"
-                              Label="Name this landmark..."
-                              Variant="Variant.Outlined"
-                              Immediate="true"
-                              OnKeyDown="HandleKeyDown" />
-            </MudItem>
-            <MudItem xs="3" Class="d-flex align-end">
-                <MudButton Variant="Variant.Filled" Color="Color.Primary"
-                           FullWidth="true" OnClick="SubmitGuess"
-                           Style="height:56px;">
-                    Submit
-                </MudButton>
-            </MudItem>
-        </MudGrid>
+            <MudTextField @bind-Value="currentGuess"
+                          Label="Name this landmark..."
+                          Variant="Variant.Outlined"
+                          Immediate="true"
+                          OnKeyDown="HandleKeyDown" />
 
-        <MudButton Variant="Variant.Outlined" Color="Color.Warning"
-                   FullWidth="true" OnClick="SkipLandmark"
-                   StartIcon="@Icons.Material.Filled.SkipNext"
-                   Class="mb-3">
-            I Don't Know
-        </MudButton>
+            <MudGrid Class="mb-3">
+                <MudItem xs="6">
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary"
+                               FullWidth="true" OnClick="SubmitGuess"
+                               Style="height:56px;">
+                        Answer
+                    </MudButton>
+                </MudItem>
+                <MudItem xs="6">
+                    <MudButton Variant="Variant.Filled" Color="Color.Error"
+                               FullWidth="true" OnClick="SkipLandmark"
+                               Style="height:56px;">
+                        Next
+                    </MudButton>
+                </MudItem>
+            </MudGrid>
 
-        @if (!string.IsNullOrEmpty(feedbackMessage))
+            @if (!string.IsNullOrEmpty(feedbackMessage))
         {
             <MudAlert Severity="@feedbackSeverity" Class="mb-3" Variant="Variant.Filled" Dense="true">
                 @feedbackMessage
             </MudAlert>
         }
+        </MudPaper>
     </MudContainer>
 }
 
@@ -109,15 +129,15 @@
         }
     }
 
-    private void HandleKeyDown(KeyboardEventArgs e)
+    private async void HandleKeyDown(KeyboardEventArgs e)
     {
         if (e.Key == "Enter")
         {
-            SubmitGuess();
+            await SubmitGuess();
         }
     }
 
-    private async void SubmitGuess()
+    private async Task SubmitGuess()
     {
         if (string.IsNullOrWhiteSpace(currentGuess) || quizFinished)
             return;
@@ -143,7 +163,7 @@
         await MoveToNextAsync();
     }
 
-    private async void SkipLandmark()
+    private async Task SkipLandmark()
     {
         var expected = landmarks[currentIndex];
         results.Add(new() { Landmark = expected, IsCorrect = false, Label = "skipped" });
@@ -189,9 +209,10 @@
         Navigation.NavigateTo($"/results/{id}");
     }
 
-    public void Dispose()
+    public ValueTask DisposeAsync()
     {
         timer?.Stop();
         timer?.Dispose();
+        return ValueTask.CompletedTask;
     }
 }

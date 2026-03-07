@@ -33,6 +33,12 @@ public static class CityData
         return $"img/landmarks/{city}-{landmark}.png";
     }
 
+    public static string GetCityImagePath(string cityName)
+    {
+        var city = NormalizeForPath(cityName);
+        return $"img/cities/{city}.png";
+    }
+
     private static string NormalizeForPath(string value)
     {
         var alphanumericOnly = NonAlphanumericRegex.Replace(value, "");

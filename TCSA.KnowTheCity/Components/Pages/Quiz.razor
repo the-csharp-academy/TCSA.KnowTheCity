@@ -22,7 +22,7 @@
                         @result.Landmark
                         @if (!result.IsCorrect)
                         {
-                            <MudText Typo="Typo.caption" Color="Color.Error"> — skipped</MudText>
+                            <MudText Typo="Typo.caption" Color="Color.Error"> — @result.Label</MudText>
                         }
                     </MudText>
                 </MudListItem>
@@ -106,7 +106,7 @@ else
     private bool quizFinished;
     private Timer? timer;
 
-    private record QuizResult(string Landmark, bool IsCorrect);
+    private record QuizResult(string Landmark, bool IsCorrect, string Label = "");
 
     protected override void OnInitialized()
     {
@@ -151,25 +151,26 @@ else
             correctCount++;
             feedbackMessage = $"Correct! {expected}";
             feedbackSeverity = Severity.Success;
-            MoveToNext();
         }
         else
         {
-            feedbackMessage = "That's not right. Try again or skip!";
+            results.Add(new(expected, false, "wrong answer"));
+            feedbackMessage = $"Wrong! The answer was: {expected}";
             feedbackSeverity = Severity.Error;
         }
 
         currentGuess = "";
+        MoveToNext();
     }
 
     private void SkipLandmark()
     {
         var expected = landmarks[currentIndex];
-        results.Add(new(expected, false));
+        results.Add(new(expected, false, "skipped"));
         feedbackMessage = $"The answer was: {expected}";
         feedbackSeverity = Severity.Warning;
-        MoveToNext();
         currentGuess = "";
+        MoveToNext();
     }
 
     private void MoveToNext()
@@ -187,10 +188,10 @@ else
         quizFinished = true;
         timer?.Stop();
 
-        // Fill in any remaining landmarks as skipped (if timer ran out)
+        // Fill in any remaining landmarks as timed out (if timer ran out)
         for (var i = results.Count; i < landmarks.Count; i++)
         {
-            results.Add(new(landmarks[i], false));
+            results.Add(new(landmarks[i], false, "timed out"));
         }
     }
 

@@ -1,22 +1,25 @@
 ﻿@page "/"
 @using TCSA.KnowTheCity.Helpers
 
-<MudText Typo="Typo.h4" GutterBottom="true">Know The City</MudText>
-<MudText Typo="Typo.body1" Class="mb-4">Select a city to start the landmark quiz!</MudText>
+<MudContainer>
+    <MudText Typo="Typo.body1" Class="mb-4">Select a city to start the landmark quiz!</MudText>
 
-<MudGrid>
-    @foreach (var city in CityData.Cities)
-    {
-        <MudItem xs="6" sm="4" md="3">
-            <MudCard Elevation="3" Class="city-card" @onclick="() => NavigateToQuiz(city.Name)" Style="cursor:pointer;">
-                <MudCardMedia Image="@CityData.GetLandmarkImagePath(city.Name, city.Name)" Height="140" />
-                <MudCardContent Class="d-flex justify-center">
-                    <MudText Typo="Typo.h6">@city.Name</MudText>
-                </MudCardContent>
-            </MudCard>
-        </MudItem>
-    }
-</MudGrid>
+    <MudGrid>
+        @foreach (var city in CityData.Cities)
+        {
+            <MudItem xs="6" sm="4" md="3">
+                <MudCard Elevation="3" 
+                    Class="city-card" @onclick="() => NavigateToQuiz(city.Name)" 
+                    Style="cursor:pointer;">
+                    <MudCardMedia Image="@CityData.GetCityImagePath(city.Name)" Height="200" />
+                    <MudCardContent Class="d-flex justify-center">
+                        <MudText Typo="Typo.h6">@city.Name</MudText>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+        }
+    </MudGrid>
+</MudContainer>
 
 @code {
     [Inject]

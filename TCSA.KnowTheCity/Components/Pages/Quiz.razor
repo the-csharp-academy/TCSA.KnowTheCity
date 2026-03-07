@@ -1,0 +1,202 @@
+@page "/quiz/{CityName}"
+@using System.Timers
+@using TCSA.KnowTheCity.Helpers
+@implements IDisposable
+
+@if (quizFinished)
+{
+    <MudContainer MaxWidth="MaxWidth.Small">
+        <MudText Typo="Typo.h4" Align="Align.Center" GutterBottom="true">
+            @(correctCount == landmarks.Count ? "?? Perfect Score!" : "Quiz Complete!")
+        </MudText>
+        <MudText Typo="Typo.h6" Align="Align.Center" Class="mb-4">
+            You got <b>@correctCount</b> out of <b>@landmarks.Count</b> landmarks for <b>@CityName</b>!
+        </MudText>
+
+        <MudList T="string">
+            @foreach (var result in results)
+            {
+                <MudListItem Icon="@(result.IsCorrect ? Icons.Material.Filled.CheckCircle : Icons.Material.Filled.Cancel)"
+                             IconColor="@(result.IsCorrect ? Color.Success : Color.Error)">
+                    <MudText>
+                        @result.Landmark
+                        @if (!result.IsCorrect)
+                        {
+                            <MudText Typo="Typo.caption" Color="Color.Error"> — skipped</MudText>
+                        }
+                    </MudText>
+                </MudListItem>
+            }
+        </MudList>
+
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="mt-4" FullWidth="true" Href="/">
+            Back to Cities
+        </MudButton>
+    </MudContainer>
+}
+else
+{
+    <MudContainer MaxWidth="MaxWidth.Small">
+        <MudText Typo="Typo.h4" Align="Align.Center" GutterBottom="true">@CityName</MudText>
+
+        <MudText Typo="Typo.h3" Align="Align.Center"
+                 Color="@(timeRemaining <= 10 ? Color.Error : Color.Default)"
+                 Class="mb-2"
+                 Style="@(timeRemaining <= 10 ? "animation: pulse 1s infinite;" : "")">
+            ?? @timeRemaining s
+        </MudText>
+
+        <MudProgressLinear Color="@(timeRemaining <= 10 ? Color.Error : Color.Primary)"
+                           Value="@((timeRemaining / 60.0) * 100)"
+                           Class="mb-4" Rounded="true" Size="Size.Large" />
+
+        <MudText Typo="Typo.subtitle1" Align="Align.Center" Class="mb-2">
+            Landmark @(currentIndex + 1) of @landmarks.Count
+        </MudText>
+
+        <MudCard Elevation="2" Class="mb-4">
+            <MudCardMedia Image="@CityData.GetLandmarkImagePath(CityName, landmarks[currentIndex])" Height="220" />
+        </MudCard>
+
+        <MudGrid Class="mb-3">
+            <MudItem xs="9">
+                <MudTextField @bind-Value="currentGuess"
+                              Label="Name this landmark..."
+                              Variant="Variant.Outlined"
+                              Immediate="true"
+                              OnKeyDown="HandleKeyDown" />
+            </MudItem>
+            <MudItem xs="3" Class="d-flex align-end">
+                <MudButton Variant="Variant.Filled" Color="Color.Primary"
+                           FullWidth="true" OnClick="SubmitGuess"
+                           Style="height:56px;">
+                    Submit
+                </MudButton>
+            </MudItem>
+        </MudGrid>
+
+        <MudButton Variant="Variant.Outlined" Color="Color.Warning"
+                   FullWidth="true" OnClick="SkipLandmark"
+                   StartIcon="@Icons.Material.Filled.SkipNext"
+                   Class="mb-3">
+            I Don't Know
+        </MudButton>
+
+        @if (!string.IsNullOrEmpty(feedbackMessage))
+        {
+            <MudAlert Severity="@feedbackSeverity" Class="mb-3" Variant="Variant.Filled" Dense="true">
+                @feedbackMessage
+            </MudAlert>
+        }
+    </MudContainer>
+}
+
+@code {
+    [Parameter]
+    public string CityName { get; set; } = "";
+
+    private List<string> landmarks = [];
+    private List<QuizResult> results = [];
+    private int currentIndex;
+    private int correctCount;
+    private string currentGuess = "";
+    private string feedbackMessage = "";
+    private Severity feedbackSeverity = Severity.Info;
+    private int timeRemaining = 60;
+    private bool quizFinished;
+    private Timer? timer;
+
+    private record QuizResult(string Landmark, bool IsCorrect);
+
+    protected override void OnInitialized()
+    {
+        landmarks = CityData.GetLandmarks(CityName);
+
+        timer = new Timer(1000);
+        timer.Elapsed += OnTimerElapsed;
+        timer.Start();
+    }
+
+    private async void OnTimerElapsed(object? sender, ElapsedEventArgs e)
+    {
+        timeRemaining--;
+
+        if (timeRemaining <= 0)
+        {
+            FinishQuiz();
+        }
+
+        await InvokeAsync(StateHasChanged);
+    }
+
+    private void HandleKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            SubmitGuess();
+        }
+    }
+
+    private void SubmitGuess()
+    {
+        if (string.IsNullOrWhiteSpace(currentGuess) || quizFinished)
+            return;
+
+        var expected = landmarks[currentIndex];
+        var isCorrect = string.Equals(expected, currentGuess.Trim(), StringComparison.OrdinalIgnoreCase);
+
+        if (isCorrect)
+        {
+            results.Add(new(expected, true));
+            correctCount++;
+            feedbackMessage = $"Correct! {expected}";
+            feedbackSeverity = Severity.Success;
+            MoveToNext();
+        }
+        else
+        {
+            feedbackMessage = "That's not right. Try again or skip!";
+            feedbackSeverity = Severity.Error;
+        }
+
+        currentGuess = "";
+    }
+
+    private void SkipLandmark()
+    {
+        var expected = landmarks[currentIndex];
+        results.Add(new(expected, false));
+        feedbackMessage = $"The answer was: {expected}";
+        feedbackSeverity = Severity.Warning;
+        MoveToNext();
+        currentGuess = "";
+    }
+
+    private void MoveToNext()
+    {
+        currentIndex++;
+
+        if (currentIndex >= landmarks.Count)
+        {
+            FinishQuiz();
+        }
+    }
+
+    private void FinishQuiz()
+    {
+        quizFinished = true;
+        timer?.Stop();
+
+        // Fill in any remaining landmarks as skipped (if timer ran out)
+        for (var i = results.Count; i < landmarks.Count; i++)
+        {
+            results.Add(new(landmarks[i], false));
+        }
+    }
+
+    public void Dispose()
+    {
+        timer?.Stop();
+        timer?.Dispose();
+    }
+}

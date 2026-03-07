@@ -30,7 +30,7 @@ public static class CityData
     {
         var city = NormalizeForPath(cityName);
         var landmark = NormalizeForPath(landmarkName);
-        return $"images/{city}-{landmark}.png";
+        return $"img/landmarks/{city}-{landmark}.png";
     }
 
     private static string NormalizeForPath(string value)

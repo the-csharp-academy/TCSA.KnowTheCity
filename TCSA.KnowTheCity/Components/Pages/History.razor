@@ -23,6 +23,18 @@
                     }
                 </MudSelect>
 
+                <MudDatePicker Label="From Date"
+                               Variant="Variant.Outlined"
+                               @bind-Date="fromDate"
+                               Clearable="true"
+                               Class="mb-4" />
+
+                <MudDatePicker Label="To Date"
+                               Variant="Variant.Outlined"
+                               @bind-Date="toDate"
+                               Clearable="true"
+                               Class="mb-4" />
+
                 <MudButton Variant="Variant.Filled"
                            Color="Color.Primary"
                            FullWidth="true"
@@ -83,6 +95,8 @@
 
     private List<GameResult> gameResults = [];
     private string? selectedCity;
+    private DateTime? fromDate;
+    private DateTime? toDate;
 
     private readonly List<string> availableCities = CityData.Cities.Select(c => c.Name).ToList();
 
@@ -99,11 +113,13 @@
     private async Task ClearSearch()
     {
         selectedCity = null;
+        fromDate = null;
+        toDate = null;
         await LoadResultsAsync();
     }
 
     private async Task LoadResultsAsync()
     {
-        gameResults = await GameService.GetGameHistoryAsync(selectedCity);
+        gameResults = await GameService.GetGameHistoryAsync(selectedCity, fromDate, toDate);
     }
 }

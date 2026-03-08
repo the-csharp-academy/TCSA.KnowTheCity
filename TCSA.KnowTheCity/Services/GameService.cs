@@ -22,12 +22,14 @@ public class GameService(IDbContextFactory<KnowTheCityDbContext> dbFactory) : IG
             .FirstOrDefaultAsync(g => g.Id == id);
     }
 
-    public async Task<List<GameResult>> GetGameHistoryAsync(string? cityName = null)
+    public async Task<List<GameResult>> GetGameHistoryAsync(string? cityName = null, DateTime? fromDate = null, DateTime? toDate = null)
     {
         await using var db = await dbFactory.CreateDbContextAsync();
 
         return await db.GameResults
             .Where(g => cityName == null || g.City == cityName)
+            .Where(g => fromDate == null || g.PlayedAt >= fromDate.Value)
+            .Where(g => toDate == null || g.PlayedAt <= toDate.Value.AddDays(1).AddTicks(-1))
             .OrderByDescending(g => g.PlayedAt)
             .ToListAsync();
     }

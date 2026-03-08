@@ -1,0 +1,80 @@
+@page "/study/{CityName}"
+@using TCSA.KnowTheCity.Core.Helpers
+
+<MudContainer MaxWidth="MaxWidth.Medium">
+    <MudPaper Elevation="6" Class="py-4 px-20 mt-10 rounded-xl overflow-hidden">
+
+        <MudStack AlignItems="AlignItems.Center" Class="mb-5">
+            <MudChip T="string"
+                     Color="Color.Primary"
+                     Variant="Variant.Filled"
+                     Size="Size.Large">
+                @CityName — @(currentIndex + 1) / @landmarks.Count
+            </MudChip>
+        </MudStack>
+
+        <MudText Typo="Typo.subtitle1" Align="Align.Center" Class="mb-2">
+            @landmarks[currentIndex]
+        </MudText>
+
+        <div style="border-radius:16px; overflow:hidden;">
+            <MudCardMedia Image="@CityDataHelper.GetLandmarkImagePath(CityName, landmarks[currentIndex])"
+                          Height="400" />
+        </div>
+
+        <MudGrid Class="mt-4 mb-3">
+            @if (currentIndex > 0)
+            {
+                <MudItem xs="6">
+                    <MudButton Variant="Variant.Filled"
+                               Color="Color.Secondary"
+                               FullWidth="true"
+                               StartIcon="@Icons.Material.Filled.ArrowBack"
+                               OnClick="Previous"
+                               Style="height:56px;">
+                        Previous
+                    </MudButton>
+                </MudItem>
+            }
+            @if (currentIndex < landmarks.Count - 1)
+            {
+                <MudItem xs="@(currentIndex > 0 ? 6 : 12)">
+                    <MudButton Variant="Variant.Filled"
+                               Color="Color.Primary"
+                               FullWidth="true"
+                               EndIcon="@Icons.Material.Filled.ArrowForward"
+                               OnClick="Next"
+                               Style="height:56px;">
+                        Next
+                    </MudButton>
+                </MudItem>
+            }
+        </MudGrid>
+
+    </MudPaper>
+</MudContainer>
+
+@code {
+    [Parameter]
+    public string CityName { get; set; } = "";
+
+    private List<string> landmarks = [];
+    private int currentIndex;
+
+    protected override void OnInitialized()
+    {
+        landmarks = CityDataHelper.GetLandmarks(CityName);
+    }
+
+    private void Previous()
+    {
+        if (currentIndex > 0)
+            currentIndex--;
+    }
+
+    private void Next()
+    {
+        if (currentIndex < landmarks.Count - 1)
+            currentIndex++;
+    }
+}

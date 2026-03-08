@@ -1,5 +1,5 @@
 @page "/history"
-@using TCSA.KnowTheCity.Helpers
+@using TCSA.KnowTheCity.Core.Helpers
 @using TCSA.KnowTheCity.Services
 
 <MudContainer Class="mt-5" MaxWidth="MaxWidth.Large">
@@ -98,7 +98,7 @@
     private DateTime? fromDate;
     private DateTime? toDate;
 
-    private readonly List<string> availableCities = CityData.Cities.Select(c => c.Name).ToList();
+    private readonly List<string> availableCities = CityDataHelper.Cities.Select(c => c.Name).ToList();
 
     protected override async Task OnInitializedAsync()
     {

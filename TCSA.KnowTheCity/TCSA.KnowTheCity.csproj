@@ -74,4 +74,8 @@
 		<PackageReference Include="MudBlazor" Version="9.0.0" />
     </ItemGroup>
 
+    <ItemGroup>
+        <ProjectReference Include="..\TCSA.KnowTheCity.Core\TCSA.KnowTheCity.Core.csproj" />
+    </ItemGroup>
+
 </Project>

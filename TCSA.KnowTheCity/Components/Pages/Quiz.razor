@@ -1,6 +1,6 @@
 @page "/quiz/{CityName}"
 @using System.Timers
-@using TCSA.KnowTheCity.Helpers
+@using TCSA.KnowTheCity.Core.Helpers
 @using TCSA.KnowTheCity.Models
 @using TCSA.KnowTheCity.Services
 @implements IAsyncDisposable
@@ -45,7 +45,7 @@
         </MudText>
 
             <div style="border-radius:16px; overflow:hidden;">
-                <MudCardMedia Image="@CityData.GetLandmarkImagePath(CityName, landmarks[currentIndex])"
+                <MudCardMedia Image="@CityDataHelper.GetLandmarkImagePath(CityName, landmarks[currentIndex])"
                               Height="400" />
             </div>
 
@@ -105,7 +105,7 @@
 
     protected override void OnInitialized()
     {
-        landmarks = CityData.GetLandmarks(CityName);
+        landmarks = CityDataHelper.GetLandmarks(CityName);
 
         timer = new Timer(1000);
         timer.Elapsed += OnTimerElapsed;

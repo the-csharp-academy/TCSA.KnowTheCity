@@ -1,9 +1,11 @@
-namespace TCSA.KnowTheCity.Helpers;
+namespace TCSA.KnowTheCity.Core.Helpers;
 
+using System.Globalization;
+using System.Text;
 using System.Text.RegularExpressions;
 using TCSA.KnowTheCity.Models;
 
-public static class CityData
+public static class CityDataHelper
 {
     private static readonly Regex NonAlphanumericRegex = new("[^a-zA-Z0-9]", RegexOptions.Compiled);
 
@@ -56,6 +58,7 @@ public static class CityData
             [
                 new() { Name = "Tokyo Tower" },
                 new() { Name = "Senso-ji" },
+                new() { Name = "Senso-ji" },
                 new() { Name = "Shibuya Crossing" },
                 new() { Name = "Meiji Shrine" },
                 new() { Name = "Tokyo Skytree" }
@@ -97,6 +100,7 @@ public static class CityData
     /// Builds an image path following the pattern: {city}-{landmark}.png
     /// where landmark is lowercased with spaces/special characters removed.
     /// Example: ("Paris", "Eiffel Tower") => "img/landmarks/paris-eiffeltower.png"
+    /// Example: ("Paris", "Sacré-Cœur")   => "img/landmarks/paris-sacrecoeur.png"
     /// </summary>
     public static string GetLandmarkImagePath(string cityName, string landmarkName)
     {
@@ -111,9 +115,29 @@ public static class CityData
         return $"img/cities/{city}.png";
     }
 
-    private static string NormalizeForPath(string value)
+    public static string NormalizeForPath(string value)
     {
-        var alphanumericOnly = NonAlphanumericRegex.Replace(value, "");
+        // Step 1: handle ligatures and multi-char equivalents that NFD cannot decompose
+        var expanded = value
+            .Replace("œ", "oe", StringComparison.Ordinal)
+            .Replace("Œ", "oe", StringComparison.Ordinal)
+            .Replace("æ", "ae", StringComparison.Ordinal)
+            .Replace("Æ", "ae", StringComparison.Ordinal)
+            .Replace("ß", "ss", StringComparison.Ordinal);
+
+        // Step 2: NFD decomposition separates base letters from diacritics (é -> e + ?)
+        var normalized = expanded.Normalize(NormalizationForm.FormD);
+
+        // Step 3: keep only ASCII base letters — diacritic combining marks are NonSpacingMark category
+        var asciiOnly = new StringBuilder(normalized.Length);
+        foreach (var ch in normalized)
+        {
+            if (CharUnicodeInfo.GetUnicodeCategory(ch) != UnicodeCategory.NonSpacingMark)
+                asciiOnly.Append(ch);
+        }
+
+        // Step 4: strip anything that is still not alphanumeric, then lowercase
+        var alphanumericOnly = NonAlphanumericRegex.Replace(asciiOnly.ToString(), "");
         return alphanumericOnly.ToLowerInvariant();
     }
 }

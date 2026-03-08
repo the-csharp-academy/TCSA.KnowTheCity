@@ -10,10 +10,10 @@
     <MudContainer MaxWidth="MaxWidth.Medium">
         <MudPaper 
             Elevation="6" 
-            Class="py-4 px-20 mt-10 rounded-xl overflow-hidden">              
+            Class="py-4 px-20 rounded-xl overflow-hidden">              
 
-            <MudStack AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween" Class="mb-5">
-                <MudStack Row="true" Spacing="2" AlignItems="AlignItems.Center">
+            <MudStack AlignItems="AlignItems.Start" Justify="Justify.SpaceBetween" Class="mb-3">
+                <MudStack Row="true" Spacing="5" AlignItems="AlignItems.Center">
                     <MudChip T="string" 
                              Color="Color.Success" 
                              Variant="Variant.Filled" 
@@ -33,6 +33,12 @@
                              Size="Size.Large">
                         Score: @correctCount
                     </MudChip>
+                    @if (!string.IsNullOrEmpty(feedbackMessage))
+                    {
+                        <MudAlert Severity="@feedbackSeverity" Variant="Variant.Filled" NoIcon Dense="true">
+                            @feedbackMessage
+                        </MudAlert>
+                    }
                 </MudStack>
             </MudStack>
 
@@ -67,24 +73,17 @@
                     <MudButton Variant="Variant.Filled" Color="Color.Error"
                                FullWidth="true" OnClick="SkipLandmark"
                                Style="height:56px;">
-                        Next
+                        Skip
                     </MudButton>
                 </MudItem>
             </MudGrid>
-
-            @if (!string.IsNullOrEmpty(feedbackMessage))
-        {
-            <MudAlert Severity="@feedbackSeverity" Class="mb-3" Variant="Variant.Filled" Dense="true">
-                @feedbackMessage
-            </MudAlert>
-        }
         </MudPaper>
     </MudContainer>
 }
 
 @code {
     [Parameter]
-    public string CityName { get; set; } = "";
+    public string CityName { get; set; } = string.Empty;
 
     [Inject]
     private IGameService GameService { get; set; } = default!;
@@ -96,8 +95,8 @@
     private List<GameResultItem> results = [];
     private int currentIndex;
     private int correctCount;
-    private string currentGuess = "";
-    private string feedbackMessage = "";
+    private string currentGuess = string.Empty;
+    private string feedbackMessage = string.Empty;
     private Severity feedbackSeverity = Severity.Info;
     private int timeRemaining = 60;
     private bool quizFinished;
@@ -106,6 +105,7 @@
     protected override void OnInitialized()
     {
         landmarks = CityDataHelper.GetLandmarks(CityName);
+        landmarks = [.. landmarks.OrderBy(_ => Random.Shared.Next())];
 
         timer = new Timer(1000);
         timer.Elapsed += OnTimerElapsed;
@@ -168,8 +168,8 @@
         var expected = landmarks[currentIndex];
         results.Add(new() { Landmark = expected, IsCorrect = false, Label = "skipped" });
         feedbackMessage = $"The answer was: {expected}";
-        feedbackSeverity = Severity.Warning;
-        currentGuess = "";
+        feedbackSeverity = Severity.Error;
+        currentGuess = string.Empty;
         await MoveToNextAsync();
     }
 

@@ -1,8 +1,7 @@
 namespace TCSA.KnowTheCity.Helpers;
 
 using System.Text.RegularExpressions;
-
-public record CityInfo(string Name, List<string> Landmarks);
+using TCSA.KnowTheCity.Models;
 
 public static class CityData
 {
@@ -10,21 +9,94 @@ public static class CityData
 
     public static readonly List<CityInfo> Cities =
     [
-        new("Paris", ["Eiffel Tower", "Louvre Museum", "Notre-Dame", "Arc de Triomphe", "Sacré-Cœur"]),
-        new("London", ["Big Ben", "Tower Bridge", "Buckingham Palace", "London Eye", "Tower of London"]),
-        new("New York", ["Statue of Liberty", "Empire State Building", "Central Park", "Brooklyn Bridge", "Times Square"]),
-        new("Tokyo", ["Tokyo Tower", "Senso-ji", "Shibuya Crossing", "Meiji Shrine", "Tokyo Skytree"]),
-        new("Dubai", ["Burj Khalifa", "Palm Jumeirah", "Dubai Mall", "Burj Al Arab", "Dubai Frame"]),
-        new("Beijing", ["Great Wall", "Forbidden City", "Temple of Heaven", "Tiananmen Square", "Summer Palace"])
+        new()
+        {
+            Name = "Paris",
+            Country = Country.France,
+            Landmarks =
+            [
+                new() { Name = "Eiffel Tower" },
+                new() { Name = "Louvre Museum" },
+                new() { Name = "Notre-Dame" },
+                new() { Name = "Arc de Triomphe" },
+                new() { Name = "Sacré-Cœur" }
+            ]
+        },
+        new()
+        {
+            Name = "London",
+            Country = Country.UnitedKingdom,
+            Landmarks =
+            [
+                new() { Name = "Big Ben" },
+                new() { Name = "Tower Bridge" },
+                new() { Name = "Buckingham Palace" },
+                new() { Name = "London Eye" },
+                new() { Name = "Tower of London" }
+            ]
+        },
+        new()
+        {
+            Name = "New York",
+            Country = Country.UnitedStates,
+            Landmarks =
+            [
+                new() { Name = "Statue of Liberty" },
+                new() { Name = "Empire State Building" },
+                new() { Name = "Central Park" },
+                new() { Name = "Brooklyn Bridge" },
+                new() { Name = "Times Square" }
+            ]
+        },
+        new()
+        {
+            Name = "Tokyo",
+            Country = Country.Japan,
+            Landmarks =
+            [
+                new() { Name = "Tokyo Tower" },
+                new() { Name = "Senso-ji" },
+                new() { Name = "Shibuya Crossing" },
+                new() { Name = "Meiji Shrine" },
+                new() { Name = "Tokyo Skytree" }
+            ]
+        },
+        new()
+        {
+            Name = "Dubai",
+            Country = Country.UnitedArabEmirates,
+            Landmarks =
+            [
+                new() { Name = "Burj Khalifa" },
+                new() { Name = "Palm Jumeirah" },
+                new() { Name = "Dubai Mall" },
+                new() { Name = "Burj Al Arab" },
+                new() { Name = "Dubai Frame" }
+            ]
+        },
+        new()
+        {
+            Name = "Beijing",
+            Country = Country.China,
+            Landmarks =
+            [
+                new() { Name = "Great Wall" },
+                new() { Name = "Forbidden City" },
+                new() { Name = "Temple of Heaven" },
+                new() { Name = "Tiananmen Square" },
+                new() { Name = "Summer Palace" }
+            ]
+        }
     ];
 
     public static List<string> GetLandmarks(string cityName) =>
-        Cities.FirstOrDefault(c => c.Name == cityName)?.Landmarks ?? [];
+        Cities.FirstOrDefault(c => c.Name == cityName)
+            ?.Landmarks.Select(l => l.Name).ToList() ?? [];
 
     /// <summary>
     /// Builds an image path following the pattern: {city}-{landmark}.png
     /// where landmark is lowercased with spaces/special characters removed.
-    /// Example: ("Paris", "Eiffel Tower") => "images/paris-eiffeltower.png"
+    /// Example: ("Paris", "Eiffel Tower") => "img/landmarks/paris-eiffeltower.png"
     /// </summary>
     public static string GetLandmarkImagePath(string cityName, string landmarkName)
     {

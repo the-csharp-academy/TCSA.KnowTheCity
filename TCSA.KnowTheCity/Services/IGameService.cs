@@ -6,5 +6,5 @@ public interface IGameService
 {
     Task<int> SaveGameResultAsync(GameResult gameResult);
     Task<GameResult?> GetGameResultAsync(int id);
-    Task<List<GameResult>> GetGameHistoryAsync();
+    Task<List<GameResult>> GetGameHistoryAsync(string? cityName = null);
 }

@@ -1,37 +1,80 @@
 @page "/history"
+@using TCSA.KnowTheCity.Helpers
 @using TCSA.KnowTheCity.Services
 
-<MudContainer MaxWidth="MaxWidth.Small">
-    <MudText Typo="Typo.h4" GutterBottom="true">Game History</MudText>
+<MudContainer Class="mt-5" MaxWidth="MaxWidth.Large">
+    <MudGrid>
 
-    @if (gameResults.Count == 0)
-    {
-        <MudAlert Severity="Severity.Info" Variant="Variant.Outlined" Class="mt-4">
-            No games played yet. Go play a quiz!
-        </MudAlert>
-    }
-    else
-    {
-        <MudTable Items="@gameResults" Hover="true" Striped="true" Elevation="2">
-            <HeaderContent>
-                <MudTh>Date</MudTh>
-                <MudTh>City</MudTh>
-                <MudTh>Score</MudTh>
-            </HeaderContent>
-            <RowTemplate>
-                <MudTd DataLabel="Date">@context.PlayedAt.ToString("MM/dd/yyyy HH:mm")</MudTd>
-                <MudTd DataLabel="City">@context.City</MudTd>
-                <MudTd DataLabel="Score">
-                    <MudChip T="string"
-                             Color="@(context.CorrectCount == context.TotalCount ? Color.Success : Color.Default)"
-                             Variant="Variant.Filled"
-                             Size="Size.Small">
-                        @context.Score
-                    </MudChip>
-                </MudTd>
-            </RowTemplate>
-        </MudTable>
-    }
+        <!-- Left: Search panel -->
+        <MudItem xs="12" sm="4" md="3">
+            <MudPaper Elevation="2" Class="pa-4">
+                <MudText Typo="Typo.h6" GutterBottom="true">Search</MudText>
+
+                <MudSelect T="string"
+                           Label="City"
+                           Variant="Variant.Outlined"
+                           @bind-Value="selectedCity"
+                           Clearable="true"
+                           Dense="true"
+                           Class="mb-4">
+                    @foreach (var city in availableCities)
+                    {
+                        <MudSelectItem Value="@city">@city</MudSelectItem>
+                    }
+                </MudSelect>
+
+                <MudButton Variant="Variant.Filled"
+                           Color="Color.Primary"
+                           FullWidth="true"
+                           OnClick="ApplySearch"
+                           StartIcon="@Icons.Material.Filled.Search">
+                    Search
+                </MudButton>
+
+                <MudButton Variant="Variant.Outlined"
+                           Color="Color.Secondary"
+                           FullWidth="true"
+                           OnClick="ClearSearch"
+                           StartIcon="@Icons.Material.Filled.Clear"
+                           Class="mt-2">
+                    Clear
+                </MudButton>
+            </MudPaper>
+        </MudItem>
+
+        <!-- Right: Results -->
+        <MudItem xs="12" sm="8" md="9">
+            @if (gameResults.Count == 0)
+            {
+                <MudAlert Severity="Severity.Info" Variant="Variant.Outlined">
+                    No games found. Try a different search or go play a quiz!
+                </MudAlert>
+            }
+            else
+            {
+                <MudTable Items="@gameResults" Hover="true" Striped="true" Elevation="2">
+                    <HeaderContent>
+                        <MudTh>Date</MudTh>
+                        <MudTh>City</MudTh>
+                        <MudTh>Score</MudTh>
+                    </HeaderContent>
+                    <RowTemplate>
+                        <MudTd DataLabel="Date">@context.PlayedAt.ToString("MM/dd/yyyy HH:mm")</MudTd>
+                        <MudTd DataLabel="City">@context.City</MudTd>
+                        <MudTd DataLabel="Score">
+                            <MudChip T="string"
+                                     Color="@(context.CorrectCount == context.TotalCount ? Color.Success : Color.Default)"
+                                     Variant="Variant.Filled"
+                                     Size="Size.Small">
+                                @context.Score
+                            </MudChip>
+                        </MudTd>
+                    </RowTemplate>
+                </MudTable>
+            }
+        </MudItem>
+
+    </MudGrid>
 </MudContainer>
 
 @code {
@@ -39,9 +82,28 @@
     private IGameService GameService { get; set; } = default!;
 
     private List<GameResult> gameResults = [];
+    private string? selectedCity;
+
+    private readonly List<string> availableCities = CityData.Cities.Select(c => c.Name).ToList();
 
     protected override async Task OnInitializedAsync()
     {
-        gameResults = await GameService.GetGameHistoryAsync();
+        await LoadResultsAsync();
+    }
+
+    private async Task ApplySearch()
+    {
+        await LoadResultsAsync();
+    }
+
+    private async Task ClearSearch()
+    {
+        selectedCity = null;
+        await LoadResultsAsync();
+    }
+
+    private async Task LoadResultsAsync()
+    {
+        gameResults = await GameService.GetGameHistoryAsync(selectedCity);
     }
 }

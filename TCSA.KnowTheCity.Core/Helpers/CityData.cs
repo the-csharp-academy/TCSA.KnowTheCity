@@ -13,81 +13,86 @@ public static class CityDataHelper
     [
         new()
         {
+            Id = "paris-fr",
             Name = "Paris",
             Country = Country.France,
             Landmarks =
             [
-                new() { Name = "Eiffel Tower" },
-                new() { Name = "Louvre Museum" },
-                new() { Name = "Notre-Dame" },
-                new() { Name = "Arc de Triomphe" },
-                new() { Name = "Sacré-Cœur" }
+                new() { Id = "eiffel-tower",    Name = "Eiffel Tower" },
+                new() { Id = "louvre-museum",   Name = "Louvre Museum" },
+                new() { Id = "notre-dame",      Name = "Notre-Dame" },
+                new() { Id = "arc-de-triomphe", Name = "Arc de Triomphe" },
+                new() { Id = "sacre-coeur",     Name = "Sacré-Cœur" }
             ]
         },
         new()
         {
+            Id = "london-uk",
             Name = "London",
             Country = Country.UnitedKingdom,
             Landmarks =
             [
-                new() { Name = "Big Ben" },
-                new() { Name = "Tower Bridge" },
-                new() { Name = "Buckingham Palace" },
-                new() { Name = "London Eye" },
-                new() { Name = "Tower of London" }
+                new() { Id = "big-ben",            Name = "Big Ben" },
+                new() { Id = "tower-bridge",       Name = "Tower Bridge" },
+                new() { Id = "buckingham-palace",  Name = "Buckingham Palace" },
+                new() { Id = "london-eye",         Name = "London Eye" },
+                new() { Id = "tower-of-london",    Name = "Tower of London" }
             ]
         },
         new()
         {
+            Id = "newyork-us",
             Name = "New York",
             Country = Country.UnitedStates,
             Landmarks =
             [
-                new() { Name = "Statue of Liberty" },
-                new() { Name = "Empire State Building" },
-                new() { Name = "Central Park" },
-                new() { Name = "Brooklyn Bridge" },
-                new() { Name = "Times Square" }
+                new() { Id = "statue-of-liberty",    Name = "Statue of Liberty" },
+                new() { Id = "empire-state-building", Name = "Empire State Building" },
+                new() { Id = "central-park",         Name = "Central Park" },
+                new() { Id = "brooklyn-bridge",      Name = "Brooklyn Bridge" },
+                new() { Id = "times-square",         Name = "Times Square" }
             ]
         },
         new()
         {
+            Id = "tokyo-jp",
             Name = "Tokyo",
             Country = Country.Japan,
             Landmarks =
             [
-                new() { Name = "Tokyo Tower" },
-                new() { Name = "Senso-ji" },
-                new() { Name = "Senso-ji" },
-                new() { Name = "Shibuya Crossing" },
-                new() { Name = "Meiji Shrine" },
-                new() { Name = "Tokyo Skytree" }
+                new() { Id = "tokyo-tower",    Name = "Tokyo Tower" },
+                new() { Id = "senso-ji",       Name = "Senso-ji" },
+                new() { Id = "shibuya-crossing", Name = "Shibuya Crossing" },
+                new() { Id = "meiji-shrine",   Name = "Meiji Shrine" },
+                new() { Id = "tokyo-skytree",  Name = "Tokyo Skytree" }
             ]
         },
         new()
         {
+            Id = "dubai-uae",
             Name = "Dubai",
             Country = Country.UnitedArabEmirates,
             Landmarks =
             [
-                new() { Name = "Burj Khalifa" },
-                new() { Name = "Palm Jumeirah" },
-                new() { Name = "Dubai Mall" },
-                new() { Name = "Burj Al Arab" },
-                new() { Name = "Dubai Frame" }
+                new() { Id = "burj-khalifa",  Name = "Burj Khalifa" },
+                new() { Id = "palm-jumeirah", Name = "Palm Jumeirah" },
+                new() { Id = "dubai-mall",    Name = "Dubai Mall" },
+                new() { Id = "burj-al-arab",  Name = "Burj Al Arab" },
+                new() { Id = "dubai-frame",   Name = "Dubai Frame" }
             ]
         },
         new()
         {
+            Id = "beijing-ch",
             Name = "Beijing",
             Country = Country.China,
             Landmarks =
             [
-                new() { Name = "Great Wall" },
-                new() { Name = "Forbidden City" },
-                new() { Name = "Temple of Heaven" },
-                new() { Name = "Tiananmen Square" },
-                new() { Name = "Summer Palace" }
+                new() { Id = "great-wall",       Name = "Great Wall" },
+                new() { Id = "forbidden-city",   Name = "Forbidden City" },
+                new() { Id = "temple-of-heaven", Name = "Temple of Heaven" },
+                new() { Id = "tiananmen-square", Name = "Tiananmen Square" },
+                new() { Id = "summer-palace",    Name = "Summer Palace" }
             ]
         }
     ];

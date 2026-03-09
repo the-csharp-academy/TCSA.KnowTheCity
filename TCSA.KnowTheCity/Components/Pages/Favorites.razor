@@ -1,0 +1,119 @@
+@page "/favorites"
+@using TCSA.KnowTheCity.Core.Helpers
+@using TCSA.KnowTheCity.Models
+@using TCSA.KnowTheCity.Services
+
+<MudContainer Class="mt-5" MaxWidth="MaxWidth.Large">
+    <MudGrid>
+
+        <!-- Left: Favourite Cities -->
+        <MudItem xs="12" sm="6">
+            <MudPaper Elevation="2" Class="pa-4">
+                <MudText Typo="Typo.h6" GutterBottom="true">
+                    <MudIcon Icon="@Icons.Material.Filled.Favorite" Class="mr-2" />
+                    Favourite Cities
+                </MudText>
+
+                <MudDivider Class="mb-3" />
+
+                @if (favoriteCities.Count == 0)
+                {
+                    <MudAlert Severity="Severity.Info" Variant="Variant.Outlined" Dense="true">
+                        No favourite cities yet.
+                    </MudAlert>
+                }
+                else
+                {
+                    @foreach (var city in favoriteCities)
+                    {
+                        var cityName = CityDataHelper.Cities.FirstOrDefault(c => c.Id == city.CityId)?.Name ?? city.CityId;
+                        <MudListItem T="string" Class="px-0">
+                            <MudStack Row="true" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
+                                <MudText>@cityName</MudText>
+                                <MudIconButton Icon="@Icons.Material.Filled.Delete"
+                                               Color="Color.Error"
+                                               Size="Size.Small"
+                                               OnClick="() => RemoveFavoriteCityAsync(city.CityId)" />
+                            </MudStack>
+                        </MudListItem>
+                        <MudDivider />
+                    }
+                }
+            </MudPaper>
+        </MudItem>
+
+        <!-- Right: Favourite Landmarks -->
+        <MudItem xs="12" sm="6">
+            <MudPaper Elevation="2" Class="pa-4">
+                <MudText Typo="Typo.h6" GutterBottom="true">
+                    <MudIcon Icon="@Icons.Material.Filled.Place" Class="mr-2" />
+                    Favourite Landmarks
+                </MudText>
+
+                <MudDivider Class="mb-3" />
+
+                @if (favoriteLandmarks.Count == 0)
+                {
+                    <MudAlert Severity="Severity.Info" Variant="Variant.Outlined" Dense="true">
+                        No favourite landmarks yet.
+                    </MudAlert>
+                }
+                else
+                {
+                    @foreach (var landmark in favoriteLandmarks)
+                    {
+                        var city = CityDataHelper.Cities.FirstOrDefault(c => c.Id == landmark.CityId);
+                        var landmarkName = city?.Landmarks.FirstOrDefault(l => l.Id == landmark.LandmarkId)?.Name ?? landmark.LandmarkId;
+                        var cityName = city?.Name ?? landmark.CityId;
+
+                        <MudListItem T="string" Class="px-0">
+                            <MudStack Row="true" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
+                                <MudStack Spacing="0">
+                                    <MudText>@landmarkName</MudText>
+                                    <MudText Typo="Typo.caption" Color="Color.Secondary">@cityName</MudText>
+                                </MudStack>
+                                <MudIconButton Icon="@Icons.Material.Filled.Delete"
+                                               Color="Color.Error"
+                                               Size="Size.Small"
+                                               OnClick="() => RemoveFavoriteLandmarkAsync(landmark.CityId, landmark.LandmarkId)" />
+                            </MudStack>
+                        </MudListItem>
+                        <MudDivider />
+                    }
+                }
+            </MudPaper>
+        </MudItem>
+
+    </MudGrid>
+</MudContainer>
+
+@code {
+    [Inject]
+    private IFavoriteService FavoriteService { get; set; } = default!;
+
+    private List<FavoriteCity> favoriteCities = [];
+    private List<FavoriteLandmark> favoriteLandmarks = [];
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadFavoritesAsync();
+    }
+
+    private async Task LoadFavoritesAsync()
+    {
+        favoriteCities = await FavoriteService.GetFavoriteCitiesAsync();
+        favoriteLandmarks = await FavoriteService.GetFavoriteLandmarksAsync();
+    }
+
+    private async Task RemoveFavoriteCityAsync(string cityId)
+    {
+        await FavoriteService.RemoveFavoriteCityAsync(cityId);
+        favoriteCities.RemoveAll(f => f.CityId == cityId);
+    }
+
+    private async Task RemoveFavoriteLandmarkAsync(string cityId, string landmarkId)
+    {
+        await FavoriteService.RemoveFavoriteLandmarkAsync(cityId, landmarkId);
+        favoriteLandmarks.RemoveAll(f => f.CityId == cityId && f.LandmarkId == landmarkId);
+    }
+}

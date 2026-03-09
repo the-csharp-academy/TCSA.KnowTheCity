@@ -1,4 +1,6 @@
 @page "/results/{GameResultId:int}"
+@using TCSA.KnowTheCity.Core.Helpers
+@using TCSA.KnowTheCity.Models
 @using TCSA.KnowTheCity.Services
 
 <MudContainer MaxWidth="MaxWidth.Small">
@@ -25,16 +27,28 @@
         <MudList T="string">
             @foreach (var item in gameResult.Items)
             {
+                var landmarkId = cityInfo?.Landmarks.FirstOrDefault(l => l.Name == item.Landmark)?.Id;
+                var isFav = landmarkId is not null && favoriteLandmarkKeys.Contains((cityInfo!.Id, landmarkId));
+
                 <MudListItem Icon="@(item.IsCorrect ? Icons.Material.Filled.CheckCircle : Icons.Material.Filled.Cancel)"
                              IconColor="@(item.IsCorrect ? Color.Success : Color.Error)">
                     <MudStack Row="true" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
                         <MudText>@item.Landmark</MudText>
-                        @if (!item.IsCorrect)
-                        {
-                            <MudChip T="string" Size="Size.Small" Color="Color.Error" Variant="Variant.Outlined">
-                                @item.Label
-                            </MudChip>
-                        }
+                        <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
+                            @if (!item.IsCorrect)
+                            {
+                                <MudChip T="string" Size="Size.Small" Color="Color.Error" Variant="Variant.Outlined">
+                                    @item.Label
+                                </MudChip>
+                            }
+                            @if (landmarkId is not null)
+                            {
+                                <MudIconButton Icon="@(isFav ? Icons.Material.Filled.Favorite : Icons.Material.Outlined.FavoriteBorder)"
+                                               Color="@(isFav ? Color.Error : Color.Default)"
+                                               Size="Size.Small"
+                                               OnClick="() => ToggleFavoriteLandmarkAsync(landmarkId)" />
+                            }
+                        </MudStack>
                     </MudStack>
                 </MudListItem>
             }
@@ -68,10 +82,43 @@
     [Inject]
     private IGameService GameService { get; set; } = default!;
 
+    [Inject]
+    private IFavoriteService FavoriteService { get; set; } = default!;
+
     private GameResult? gameResult;
+    private CityInfo? cityInfo;
+    private HashSet<(string CityId, string LandmarkId)> favoriteLandmarkKeys = [];
 
     protected override async Task OnInitializedAsync()
     {
         gameResult = await GameService.GetGameResultAsync(GameResultId);
+
+        if (gameResult is not null)
+        {
+            cityInfo = CityDataHelper.Cities.FirstOrDefault(c => c.Name == gameResult.City);
+
+            if (cityInfo is not null)
+            {
+                var favorites = await FavoriteService.GetFavoriteLandmarksAsync(cityInfo.Id);
+                favoriteLandmarkKeys = [.. favorites.Select(f => (f.CityId, f.LandmarkId))];
+            }
+        }
+    }
+
+    private async Task ToggleFavoriteLandmarkAsync(string landmarkId)
+    {
+        if (cityInfo is null) return;
+
+        var key = (cityInfo.Id, landmarkId);
+        if (favoriteLandmarkKeys.Contains(key))
+        {
+            await FavoriteService.RemoveFavoriteLandmarkAsync(cityInfo.Id, landmarkId);
+            favoriteLandmarkKeys.Remove(key);
+        }
+        else
+        {
+            await FavoriteService.AddFavoriteLandmarkAsync(cityInfo.Id, landmarkId);
+            favoriteLandmarkKeys.Add(key);
+        }
     }
 }

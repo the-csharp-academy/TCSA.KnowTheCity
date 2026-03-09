@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using MudBlazor.Services;
+using TCSA.KnowTheCity.Core.Helpers;
 using TCSA.KnowTheCity.Data;
 using TCSA.KnowTheCity.Services;
 
@@ -27,6 +28,7 @@ public static class MauiProgram
 
         builder.Services.AddScoped<IGameService, GameService>();
         builder.Services.AddScoped<IFavoriteService, FavoriteService>();
+        builder.Services.AddScoped<ICityService, CityService>();
 
 #if DEBUG
         builder.Services.AddBlazorWebViewDeveloperTools();
@@ -43,6 +45,17 @@ public static class MauiProgram
         db.Database.EnsureDeleted();
         db.Database.EnsureCreated();
 
+        SeedCatalog(db);
+
         return app;
+    }
+
+    private static void SeedCatalog(KnowTheCityDbContext db)
+    {
+        if (db.Cities.Any())
+            return;
+
+        db.Cities.AddRange(CityDataHelper.SeedData);
+        db.SaveChanges();
     }
 }

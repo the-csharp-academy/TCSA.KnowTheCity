@@ -43,10 +43,10 @@ public class CityDataHelperTests
 
     // ── GetCityImagePath ──────────────────────────────────────────────────────
 
-    [Test]
-    public void GetCityImagePath_Paris_ReturnsCorrectPath()
+    [TestCase("New York", "newyork")]
+    public void GetCityImagePath_Paris_ReturnsCorrectPath(string city, string result)
     {
-        var path = CityDataHelper.GetCityImagePath("Paris");
-        Assert.That(path, Is.EqualTo("img/cities/paris.png"));
+        var path = CityDataHelper.GetCityImagePath(city);
+        Assert.That(path, Is.EqualTo($"img/cities/{result}.png"));
     }
 }

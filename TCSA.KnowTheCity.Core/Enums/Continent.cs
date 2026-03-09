@@ -1,4 +1,4 @@
-﻿namespace TCSA.KnowTheCity.Models;
+﻿namespace TCSA.KnowTheCity.Core.Enums;
 
 public enum Continent
 {

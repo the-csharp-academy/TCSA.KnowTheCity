@@ -1,6 +1,5 @@
 @page "/favorites"
-@using TCSA.KnowTheCity.Core.Helpers
-@using TCSA.KnowTheCity.Models
+@using TCSA.KnowTheCity.Core.Models
 @using TCSA.KnowTheCity.Services
 
 <MudContainer Class="mt-5" MaxWidth="MaxWidth.Large">
@@ -16,7 +15,7 @@
 
                 <MudDivider Class="mb-3" />
 
-                @if (favoriteCities.Count == 0)
+                @if (_favoriteCities.Count == 0)
                 {
                     <MudAlert Severity="Severity.Info" Variant="Variant.Outlined" Dense="true">
                         No favourite cities yet.
@@ -24,9 +23,9 @@
                 }
                 else
                 {
-                    @foreach (var city in favoriteCities)
+                    @foreach (var city in _favoriteCities)
                     {
-                        var cityName = CityDataHelper.Cities.FirstOrDefault(c => c.Id == city.CityId)?.Name ?? city.CityId;
+                        var cityName = _cities.FirstOrDefault(c => c.Id == city.CityId)?.Name ?? city.CityId.ToString();
                         <MudListItem T="string" Class="px-0">
                             <MudStack Row="true" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
                                 <MudText>@cityName</MudText>
@@ -52,7 +51,7 @@
 
                 <MudDivider Class="mb-3" />
 
-                @if (favoriteLandmarks.Count == 0)
+                @if (_favoriteLandmarks.Count == 0)
                 {
                     <MudAlert Severity="Severity.Info" Variant="Variant.Outlined" Dense="true">
                         No favourite landmarks yet.
@@ -60,11 +59,11 @@
                 }
                 else
                 {
-                    @foreach (var landmark in favoriteLandmarks)
+                    @foreach (var landmark in _favoriteLandmarks)
                     {
-                        var city = CityDataHelper.Cities.FirstOrDefault(c => c.Id == landmark.CityId);
-                        var landmarkName = city?.Landmarks.FirstOrDefault(l => l.Id == landmark.LandmarkId)?.Name ?? landmark.LandmarkId;
-                        var cityName = city?.Name ?? landmark.CityId;
+                        var city = _cities.FirstOrDefault(c => c.Id == landmark.CityId);
+                        var landmarkName = city?.Landmarks.FirstOrDefault(l => l.Id == landmark.LandmarkId)?.Name ?? landmark.LandmarkId.ToString();
+                        var cityName = city?.Name ?? landmark.CityId.ToString();
 
                         <MudListItem T="string" Class="px-0">
                             <MudStack Row="true" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
@@ -91,29 +90,34 @@
     [Inject]
     private IFavoriteService FavoriteService { get; set; } = default!;
 
-    private List<FavoriteCity> favoriteCities = [];
-    private List<FavoriteLandmark> favoriteLandmarks = [];
+    [Inject]
+    private ICityService CityService { get; set; } = default!;
+
+    private List<City> _cities = [];
+    private List<FavoriteCity> _favoriteCities = [];
+    private List<FavoriteLandmark> _favoriteLandmarks = [];
 
     protected override async Task OnInitializedAsync()
     {
+        _cities = await CityService.GetCitiesAsync();
         await LoadFavoritesAsync();
     }
 
     private async Task LoadFavoritesAsync()
     {
-        favoriteCities = await FavoriteService.GetFavoriteCitiesAsync();
-        favoriteLandmarks = await FavoriteService.GetFavoriteLandmarksAsync();
+        _favoriteCities = await FavoriteService.GetFavoriteCitiesAsync();
+        _favoriteLandmarks = await FavoriteService.GetFavoriteLandmarksAsync();
     }
 
-    private async Task RemoveFavoriteCityAsync(string cityId)
+    private async Task RemoveFavoriteCityAsync(int cityId)
     {
         await FavoriteService.RemoveFavoriteCityAsync(cityId);
-        favoriteCities.RemoveAll(f => f.CityId == cityId);
+        _favoriteCities.RemoveAll(f => f.CityId == cityId);
     }
 
-    private async Task RemoveFavoriteLandmarkAsync(string cityId, string landmarkId)
+    private async Task RemoveFavoriteLandmarkAsync(int cityId, int landmarkId)
     {
         await FavoriteService.RemoveFavoriteLandmarkAsync(cityId, landmarkId);
-        favoriteLandmarks.RemoveAll(f => f.CityId == cityId && f.LandmarkId == landmarkId);
+        _favoriteLandmarks.RemoveAll(f => f.CityId == cityId && f.LandmarkId == landmarkId);
     }
 }

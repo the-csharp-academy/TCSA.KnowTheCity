@@ -1,10 +1,12 @@
-namespace TCSA.KnowTheCity.Models;
+namespace TCSA.KnowTheCity.Core.Models;
 
 public class GameResultItem
 {
     public int Id { get; set; }
     public int GameResultId { get; set; }
-    public string Landmark { get; set; } = string.Empty;
+    public int LandmarkId { get; set; }
+
+    public Landmark Landmark { get; set; } = default!;
     public bool IsCorrect { get; set; }
     public string Label { get; set; } = string.Empty;
 

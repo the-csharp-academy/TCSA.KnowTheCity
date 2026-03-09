@@ -1,5 +1,5 @@
 @page "/history"
-@using TCSA.KnowTheCity.Core.Helpers
+@using TCSA.KnowTheCity.Core.Models
 @using TCSA.KnowTheCity.Services
 
 <MudContainer Class="mt-5" MaxWidth="MaxWidth.Large">
@@ -10,28 +10,28 @@
             <MudPaper Elevation="2" Class="pa-4">
                 <MudText Typo="Typo.h6" GutterBottom="true">Search</MudText>
 
-                <MudSelect T="string"
+                <MudSelect T="int?"
                            Label="City"
                            Variant="Variant.Outlined"
-                           @bind-Value="selectedCity"
+                           @bind-Value="_selectedCityId"
                            Clearable="true"
                            Dense="true"
                            Class="mb-4">
-                    @foreach (var city in availableCities)
+                    @foreach (var city in _availableCities)
                     {
-                        <MudSelectItem Value="@city">@city</MudSelectItem>
+                        <MudSelectItem Value="@((int?)city.Id)">@city.Name</MudSelectItem>
                     }
                 </MudSelect>
 
                 <MudDatePicker Label="From Date"
                                Variant="Variant.Outlined"
-                               @bind-Date="fromDate"
+                               @bind-Date="_fromDate"
                                Clearable="true"
                                Class="mb-4" />
 
                 <MudDatePicker Label="To Date"
                                Variant="Variant.Outlined"
-                               @bind-Date="toDate"
+                               @bind-Date="_toDate"
                                Clearable="true"
                                Class="mb-4" />
 
@@ -56,7 +56,7 @@
 
         <!-- Right: Results -->
         <MudItem xs="12" sm="8" md="9">
-            @if (gameResults.Count == 0)
+            @if (_gameResults.Count == 0)
             {
                 <MudAlert Severity="Severity.Info" Variant="Variant.Outlined">
                     No games found. Try a different search or go play a quiz!
@@ -64,7 +64,7 @@
             }
             else
             {
-                <MudTable Items="@gameResults" Hover="true" Striped="true" Elevation="2">
+                <MudTable Items="@_gameResults" Hover="true" Striped="true" Elevation="2">
                     <HeaderContent>
                         <MudTh>Date</MudTh>
                         <MudTh>City</MudTh>
@@ -72,7 +72,7 @@
                     </HeaderContent>
                     <RowTemplate>
                         <MudTd DataLabel="Date">@context.PlayedAt.ToString("MM/dd/yyyy HH:mm")</MudTd>
-                        <MudTd DataLabel="City">@context.City</MudTd>
+                        <MudTd DataLabel="City">@context.City.Name</MudTd>
                         <MudTd DataLabel="Score">
                             <MudChip T="string"
                                      Color="@(context.CorrectCount == context.TotalCount ? Color.Success : Color.Default)"
@@ -93,15 +93,18 @@
     [Inject]
     private IGameService GameService { get; set; } = default!;
 
-    private List<GameResult> gameResults = [];
-    private string? selectedCity;
-    private DateTime? fromDate;
-    private DateTime? toDate;
+    [Inject]
+    private ICityService CityService { get; set; } = default!;
 
-    private readonly List<string> availableCities = CityDataHelper.Cities.Select(c => c.Name).ToList();
+    private List<GameResult> _gameResults = [];
+    private List<City> _availableCities = [];
+    private int? _selectedCityId;
+    private DateTime? _fromDate;
+    private DateTime? _toDate;
 
     protected override async Task OnInitializedAsync()
     {
+        _availableCities = await CityService.GetCitiesAsync();
         await LoadResultsAsync();
     }
 
@@ -112,14 +115,17 @@
 
     private async Task ClearSearch()
     {
-        selectedCity = null;
-        fromDate = null;
-        toDate = null;
+        _selectedCityId = null;
+        _fromDate = null;
+        _toDate = null;
         await LoadResultsAsync();
     }
 
     private async Task LoadResultsAsync()
     {
-        gameResults = await GameService.GetGameHistoryAsync(selectedCity, fromDate, toDate);
+        if (_selectedCityId != null)
+        {
+            _gameResults = await GameService.GetGameHistoryAsync(_selectedCityId.Value, _fromDate, _toDate);
+        }
     }
 }

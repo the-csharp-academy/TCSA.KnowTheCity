@@ -1,8 +1,8 @@
-namespace TCSA.KnowTheCity.Models;
+namespace TCSA.KnowTheCity.Core.Models;
 
 public class FavoriteCity
 {
     public int Id { get; set; }
-    public string CityId { get; set; } = string.Empty;
+    public int CityId { get; set; }
     public DateTime CreatedAt { get; set; }
 }

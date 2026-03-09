@@ -1,17 +1,19 @@
 @page "/study"
 @using TCSA.KnowTheCity.Core.Helpers
+@using TCSA.KnowTheCity.Core.Models
+@using TCSA.KnowTheCity.Services
 
 <MudContainer>
     <MudText Typo="Typo.body1" Class="mb-4">Select a city to study its landmarks!</MudText>
 
     <MudGrid>
-        @foreach (var city in CityDataHelper.Cities)
+        @foreach (var city in _cities)
         {
             <MudItem xs="6" sm="4" md="3">
                 <MudCard Elevation="3"
                          Class="city-card"
                          Style="cursor:pointer;"
-                         @onclick="() => NavigateToStudy(city.Name)">
+                         @onclick="() => NavigateToStudy(city.Id)">
                     <MudCardMedia Image="@CityDataHelper.GetCityImagePath(city.Name)" Height="200" />
                     <MudCardContent Class="d-flex justify-center">
                         <MudText Typo="Typo.h6">@city.Name</MudText>
@@ -26,5 +28,15 @@
     [Inject]
     private NavigationManager Navigation { get; set; } = default!;
 
-    private void NavigateToStudy(string cityName) => Navigation.NavigateTo($"study/{cityName}");
+    [Inject]
+    private ICityService CityService { get; set; } = default!;
+
+    private List<City> _cities = [];
+
+    protected override async Task OnInitializedAsync()
+    {
+        _cities = await CityService.GetCitiesAsync();
+    }
+
+    private void NavigateToStudy(int cityId) => Navigation.NavigateTo($"study/{cityId}");
 }

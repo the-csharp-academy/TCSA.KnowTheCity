@@ -1,15 +1,17 @@
 ﻿@page "/"
 @using TCSA.KnowTheCity.Core.Helpers
+@using TCSA.KnowTheCity.Core.Models
+@using TCSA.KnowTheCity.Services
 
 <MudContainer>
     <MudText Typo="Typo.body1" Class="mb-4">Select a city to start the landmark quiz!</MudText>
 
     <MudGrid>
-        @foreach (var city in CityDataHelper.Cities)
+        @foreach (var city in _cities)
         {
             <MudItem xs="6" sm="4" md="3">
                 <MudCard Elevation="3" 
-                    Class="city-card" @onclick="() => NavigateToQuiz(city.Name)" 
+                    Class="city-card" @onclick="() => NavigateToQuiz(city.Id)" 
                     Style="cursor:pointer;">
                     <MudCardMedia Image="@CityDataHelper.GetCityImagePath(city.Name)" Height="200" />
                     <MudCardContent Class="d-flex justify-center">
@@ -23,7 +25,17 @@
 
 @code {
     [Inject]
+    private ICityService CityService { get; set; } = default!;
+
+    [Inject]
     private NavigationManager Navigation { get; set; } = default!;
 
-    private void NavigateToQuiz(string cityName) => Navigation.NavigateTo($"quiz/{cityName}");
+    private List<City> _cities = [];
+
+    protected override async Task OnInitializedAsync()
+    {
+        _cities = await CityService.GetCitiesAsync();
+    }
+
+    private void NavigateToQuiz(int cityId) => Navigation.NavigateTo($"quiz/{cityId}");
 }

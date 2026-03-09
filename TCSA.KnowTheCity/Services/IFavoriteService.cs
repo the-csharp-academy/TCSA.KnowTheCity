@@ -1,4 +1,4 @@
-using TCSA.KnowTheCity.Models;
+using TCSA.KnowTheCity.Core.Models;
 
 namespace TCSA.KnowTheCity.Services;
 
@@ -6,11 +6,11 @@ public interface IFavoriteService
 {
     // Cities
     Task<List<FavoriteCity>> GetFavoriteCitiesAsync();
-    Task AddFavoriteCityAsync(string cityId);
-    Task RemoveFavoriteCityAsync(string cityId);
+    Task AddFavoriteCityAsync(int cityId);
+    Task RemoveFavoriteCityAsync(int cityId);
 
     // Landmarks
-    Task<List<FavoriteLandmark>> GetFavoriteLandmarksAsync(string? cityId = null);
-    Task AddFavoriteLandmarkAsync(string cityId, string landmarkId);
-    Task RemoveFavoriteLandmarkAsync(string cityId, string landmarkId);
+    Task<List<FavoriteLandmark>> GetFavoriteLandmarksAsync(int? cityId = null);
+    Task AddFavoriteLandmarkAsync(int cityId, int landmarkId);
+    Task RemoveFavoriteLandmarkAsync(int cityId, int landmarkId);
 }

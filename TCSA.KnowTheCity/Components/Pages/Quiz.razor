@@ -1,61 +1,62 @@
-@page "/quiz/{CityName}"
+@page "/quiz/{CityId:int}"
 @using System.Timers
 @using TCSA.KnowTheCity.Core.Helpers
-@using TCSA.KnowTheCity.Models
+@using TCSA.KnowTheCity.Core.Models
 @using TCSA.KnowTheCity.Services
 @implements IAsyncDisposable
 
-@if (!quizFinished && landmarks.Count > 0 && currentIndex < landmarks.Count)
+@if (!_quizFinished && _landmarks.Count > 0 && _currentIndex < _landmarks.Count)
 {
     <MudContainer MaxWidth="MaxWidth.Medium">
-        <MudPaper 
-            Elevation="6" 
-            Class="py-4 px-20 rounded-xl overflow-hidden">              
+        <MudPaper
+            Elevation="6"
+            Class="py-4 px-20 rounded-xl overflow-hidden">
 
             <MudStack AlignItems="AlignItems.Start" Justify="Justify.SpaceBetween" Class="mb-3">
                 <MudStack Row="true" Spacing="5" AlignItems="AlignItems.Center">
-                    <MudChip T="string" 
-                             Color="Color.Success" 
-                             Variant="Variant.Filled" 
+                    <MudChip T="string"
+                             Color="Color.Success"
+                             Variant="Variant.Filled"
                              Size="Size.Large">
-                        Quiz @(currentIndex + 1)/@landmarks.Count
+                        Quiz @(_currentIndex + 1)/@_landmarks.Count
                     </MudChip>
                     <MudChip T="string"
-                             Color="@(timeRemaining <= 10 ? Color.Error : Color.Warning)"
+                             Color="@(_timeRemaining <= 10 ? Color.Error : Color.Warning)"
                              Variant="Variant.Filled"
                              Icon="@Icons.Material.Filled.Timer"
                              Size="Size.Large">
-                        @TimeSpan.FromSeconds(timeRemaining).ToString("m\\:ss")
+                        @TimeSpan.FromSeconds(_timeRemaining).ToString("m\\:ss")
                     </MudChip>
-                    <MudChip T="string" 
-                             Color="Color.Secondary" 
+                    <MudChip T="string"
+                             Color="Color.Secondary"
                              Variant="Variant.Filled"
                              Size="Size.Large">
-                        Score: @correctCount
+                        Score: @_correctCount
                     </MudChip>
-                    @if (!string.IsNullOrEmpty(feedbackMessage))
+                    @if (!string.IsNullOrEmpty(_feedbackMessage))
                     {
-                        <MudAlert Severity="@feedbackSeverity" Variant="Variant.Filled" NoIcon Dense="true">
-                            @feedbackMessage
+                        <MudAlert Severity="@_feedbackSeverity" Variant="Variant.Filled" NoIcon Dense="true">
+                            @_feedbackMessage
                         </MudAlert>
                     }
                 </MudStack>
             </MudStack>
 
-        <MudProgressLinear Color="@(timeRemaining <= 10 ? Color.Error : Color.Primary)"
-                           Value="@((timeRemaining / 60.0) * 100)"
-                           Class="mb-4" Rounded="true" Size="Size.Large" />
+                <MudProgressLinear Color="@(_timeRemaining <= 10 ? Color.Error : Color.Primary)"
+                               Value="@((_timeRemaining / 60.0) * 100)"
+                               Class="mb-4" Rounded="true" Size="Size.Large" />
 
-        <MudText Typo="Typo.subtitle1" Align="Align.Center" Class="mb-2">
-            Landmark @(currentIndex + 1) of @landmarks.Count
-        </MudText>
+            <MudText Typo="Typo.subtitle1" Align="Align.Center" Class="mb-2">
+                Landmark @(_currentIndex + 1) of @_landmarks.Count
+            </MudText>
 
             <div style="border-radius:16px; overflow:hidden;">
-                <MudCardMedia Image="@CityDataHelper.GetLandmarkImagePath(CityName, landmarks[currentIndex])"
+                <MudCardMedia 
+                              Image="@CityDataHelper.GetLandmarkImagePath(_cityName, _landmarks[_currentIndex].Name)"
                               Height="400" />
             </div>
 
-            <MudTextField @bind-Value="currentGuess"
+            <MudTextField @bind-Value="_currentGuess"
                           Label="Name this landmark..."
                           Variant="Variant.Outlined"
                           Immediate="true"
@@ -83,126 +84,125 @@
 
 @code {
     [Parameter]
-    public string CityName { get; set; } = string.Empty;
+    public int CityId { get; set; }
 
     [Inject]
     private IGameService GameService { get; set; } = default!;
 
     [Inject]
+    private ICityService CityService { get; set; } = default!;
+
+    [Inject]
     private NavigationManager Navigation { get; set; } = default!;
 
-    private List<string> landmarks = [];
-    private List<GameResultItem> results = [];
-    private int currentIndex;
-    private int correctCount;
-    private string currentGuess = string.Empty;
-    private string feedbackMessage = string.Empty;
-    private Severity feedbackSeverity = Severity.Info;
-    private int timeRemaining = 60;
-    private bool quizFinished;
-    private Timer? timer;
+    private List<Landmark> _landmarks = [];
+    private List<GameResultItem> _results = [];
+    private string _cityName = string.Empty;
+    private int _currentIndex;
+    private int _correctCount;
+    private string _currentGuess = string.Empty;
+    private string _feedbackMessage = string.Empty;
+    private Severity _feedbackSeverity = Severity.Info;
+    private int _timeRemaining = 60;
+    private bool _quizFinished;
+    private Timer? _timer;
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        landmarks = CityDataHelper.GetLandmarks(CityName);
-        landmarks = [.. landmarks.OrderBy(_ => Random.Shared.Next())];
+        var city = await CityService.GetCityByIdAsync(CityId);
+        _cityName = city?.Name ?? string.Empty;
 
-        timer = new Timer(1000);
-        timer.Elapsed += OnTimerElapsed;
-        timer.Start();
+        var landmarks = await CityService.GetLandmarksAsync(CityId);
+        _landmarks = [.. landmarks.OrderBy(_ => Random.Shared.Next())];
+
+        _timer = new Timer(1000);
+        _timer.Elapsed += OnTimerElapsed;
+        _timer.Start();
     }
 
     private async void OnTimerElapsed(object? sender, ElapsedEventArgs e)
     {
-        if (quizFinished)
+        if (_quizFinished)
             return;
 
-        timeRemaining--;
+        _timeRemaining--;
 
-        if (timeRemaining <= 0)
-        {
+        if (_timeRemaining <= 0)
             await InvokeAsync(FinishQuizAsync);
-        }
         else
-        {
             await InvokeAsync(StateHasChanged);
-        }
     }
 
     private async void HandleKeyDown(KeyboardEventArgs e)
     {
         if (e.Key == "Enter")
-        {
             await SubmitGuess();
-        }
     }
 
     private async Task SubmitGuess()
     {
-        if (string.IsNullOrWhiteSpace(currentGuess) || quizFinished)
+        if (string.IsNullOrWhiteSpace(_currentGuess) || _quizFinished)
             return;
 
-        var expected = landmarks[currentIndex];
-        var isCorrect = string.Equals(expected, currentGuess.Trim(), StringComparison.OrdinalIgnoreCase);
+        var expected = _landmarks[_currentIndex];
+        var isCorrect = string.Equals(expected.Name, _currentGuess.Trim(), StringComparison.OrdinalIgnoreCase);
 
         if (isCorrect)
         {
-            results.Add(new() { Landmark = expected, IsCorrect = true });
-            correctCount++;
-            feedbackMessage = $"Correct! {expected}";
-            feedbackSeverity = Severity.Success;
+            _results.Add(new() { LandmarkId = expected.Id, IsCorrect = true });
+            _correctCount++;
+            _feedbackMessage = $"Correct! {expected.Name}";
+            _feedbackSeverity = Severity.Success;
         }
         else
         {
-            results.Add(new() { Landmark = expected, IsCorrect = false, Label = "wrong answer" });
-            feedbackMessage = $"Wrong! The answer was: {expected}";
-            feedbackSeverity = Severity.Error;
+            _results.Add(new() { LandmarkId = expected.Id, IsCorrect = false, Label = "wrong answer" });
+            _feedbackMessage = $"Wrong! The answer was: {expected.Name}";
+            _feedbackSeverity = Severity.Error;
         }
 
-        currentGuess = "";
+        _currentGuess = "";
         await MoveToNextAsync();
     }
 
     private async Task SkipLandmark()
     {
-        var expected = landmarks[currentIndex];
-        results.Add(new() { Landmark = expected, IsCorrect = false, Label = "skipped" });
-        feedbackMessage = $"The answer was: {expected}";
-        feedbackSeverity = Severity.Error;
-        currentGuess = string.Empty;
+        var expected = _landmarks[_currentIndex];
+        _results.Add(new() { LandmarkId = expected.Id, IsCorrect = false, Label = "skipped" });
+        _feedbackMessage = $"The answer was: {expected.Name}";
+        _feedbackSeverity = Severity.Error;
+        _currentGuess = string.Empty;
         await MoveToNextAsync();
     }
 
     private async Task MoveToNextAsync()
     {
-        currentIndex++;
+        _currentIndex++;
 
-        if (currentIndex >= landmarks.Count)
-        {
+        if (_currentIndex >= _landmarks.Count)
             await FinishQuizAsync();
-        }
     }
 
     private async Task FinishQuizAsync()
     {
-        if (quizFinished)
+        if (_quizFinished)
             return;
 
-        quizFinished = true;
-        timer?.Stop();
+        _quizFinished = true;
+        _timer?.Stop();
 
-        for (var i = results.Count; i < landmarks.Count; i++)
+        for (var i = _results.Count; i < _landmarks.Count; i++)
         {
-            results.Add(new() { Landmark = landmarks[i], IsCorrect = false, Label = "timed out" });
+            _results.Add(new() { LandmarkId = _landmarks[i].Id, IsCorrect = false, Label = "timed out" });
         }
 
         var gameResult = new GameResult
         {
-            City = CityName,
-            CorrectCount = correctCount,
-            TotalCount = landmarks.Count,
+            CityId = CityId,
+            CorrectCount = _correctCount,
+            TotalCount = _landmarks.Count,
             PlayedAt = DateTime.Now,
-            Items = results
+            Items = _results
         };
 
         var id = await GameService.SaveGameResultAsync(gameResult);
@@ -211,8 +211,8 @@
 
     public ValueTask DisposeAsync()
     {
-        timer?.Stop();
-        timer?.Dispose();
+        _timer?.Stop();
+        _timer?.Dispose();
         return ValueTask.CompletedTask;
     }
 }

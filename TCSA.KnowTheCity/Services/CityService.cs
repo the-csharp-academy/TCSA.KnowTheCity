@@ -1,8 +1,15 @@
 using Microsoft.EntityFrameworkCore;
-using TCSA.KnowTheCity.Core.Models;
+using TCSA.KnowTheCity.Core.Models.Domain;
 using TCSA.KnowTheCity.Data;
 
 namespace TCSA.KnowTheCity.Services;
+
+public interface ICityService
+{
+    Task<List<City>> GetCitiesAsync();
+    Task<City?> GetCityByIdAsync(int id);
+    Task<List<Landmark>> GetLandmarksAsync(int cityId);
+}
 
 public class CityService(IDbContextFactory<KnowTheCityDbContext> dbFactory) : ICityService
 {

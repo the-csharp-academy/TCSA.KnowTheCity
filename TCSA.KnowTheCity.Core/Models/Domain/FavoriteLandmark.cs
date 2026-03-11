@@ -1,4 +1,4 @@
-namespace TCSA.KnowTheCity.Core.Models;
+namespace TCSA.KnowTheCity.Core.Models.Domain;
 
 public class FavoriteLandmark
 {

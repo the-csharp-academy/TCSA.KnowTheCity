@@ -1,0 +1,13 @@
+{
+  "cityRemoteId": "london-uk",
+  "version": "1.0",
+  "monuments": [
+    {
+      "remoteId": "big-ben",
+      "name": "Big Ben",
+      "imagePath": "/images/london/big-ben.jpg",
+      "imageVersion": "1",
+      "isActive": true
+    }
+  ]
+}

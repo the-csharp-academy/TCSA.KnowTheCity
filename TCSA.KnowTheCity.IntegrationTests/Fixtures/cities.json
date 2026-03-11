@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "cities": [
+    {
+      "remoteId": "paris-fr",
+      "name": "Paris",
+      "country": "France",
+      "manifestPath": "/manifests/paris.json",
+      "isActive": true
+    },
+    {
+      "remoteId": "london-uk",
+      "name": "London",
+      "country": "UnitedKingdom",
+      "manifestPath": "/manifests/london.json",
+      "isActive": true
+    }
+  ]
+}

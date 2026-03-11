@@ -1,0 +1,34 @@
+{
+  "id": "tokyo",
+  "name": "Tokyo",
+  "country": "Japan",
+  "continent": "Asia",
+  "imagePath": "img/cities/tokyo.png",
+  "landmarks": [
+    {
+      "id": "tokyotower",
+      "name": "Tokyo Tower",
+      "imagePath": "img/landmarks/tokyo-tokyotower.png"
+    },
+    {
+      "id": "sensoji",
+      "name": "Senso-ji",
+      "imagePath": "img/landmarks/tokyo-sensoji.png"
+    },
+    {
+      "id": "shibuyacrossing",
+      "name": "Shibuya Crossing",
+      "imagePath": "img/landmarks/tokyo-shibuyacrossing.png"
+    },
+    {
+      "id": "meijishrine",
+      "name": "Meiji Shrine",
+      "imagePath": "img/landmarks/tokyo-meijishrine.png"
+    },
+    {
+      "id": "tokyoskytree",
+      "name": "Tokyo Skytree",
+      "imagePath": "img/landmarks/tokyo-tokyoskytree.png"
+    }
+  ]
+}

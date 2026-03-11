@@ -1,0 +1,34 @@
+{
+  "id": "paris",
+  "name": "Paris",
+  "country": "France",
+  "continent": "Europe",
+  "imagePath": "img/cities/paris.png",
+  "landmarks": [
+    {
+      "id": "eiffeltower",
+      "name": "Eiffel Tower",
+      "imagePath": "img/landmarks/paris-eiffeltower.webp"
+    },
+    {
+      "id": "louvremuseum",
+      "name": "Louvre Museum",
+      "imagePath": "img/landmarks/paris-louvremuseum.webp"
+    },
+    {
+      "id": "notredame",
+      "name": "Notre-Dame",
+      "imagePath": "img/landmarks/paris-notredame.webp"
+    },
+    {
+      "id": "arcdetriomphe",
+      "name": "Arc de Triomphe",
+      "imagePath": "img/landmarks/paris-arcdetriomphe.webp"
+    },
+    {
+      "id": "sacrecoeur",
+      "name": "Sacré-Cœur",
+      "imagePath": "img/landmarks/paris-sacrecoeur.webp"
+    }
+  ]
+}

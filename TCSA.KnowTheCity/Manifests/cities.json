@@ -1,0 +1,34 @@
+{
+  "cities": [
+    {
+      "id": "paris",
+      "name": "Paris",
+      "manifestPath": "manifests/paris.json"
+    },
+    {
+      "id": "london",
+      "name": "London",
+      "manifestPath": "manifests/london.json"
+    },
+    {
+      "id": "newyork",
+      "name": "New York",
+      "manifestPath": "manifests/newyork.json"
+    },
+    {
+      "id": "tokyo",
+      "name": "Tokyo",
+      "manifestPath": "manifests/tokyo.json"
+    },
+    {
+      "id": "dubai",
+      "name": "Dubai",
+      "manifestPath": "manifests/dubai.json"
+    },
+    {
+      "id": "beijing",
+      "name": "Beijing",
+      "manifestPath": "manifests/beijing.json"
+    }
+  ]
+}

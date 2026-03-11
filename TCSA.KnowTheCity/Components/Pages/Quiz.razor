@@ -1,7 +1,10 @@
 @page "/quiz/{CityId:int}"
 @using System.Timers
+@using Microsoft.Extensions.Options
 @using TCSA.KnowTheCity.Core.Helpers
 @using TCSA.KnowTheCity.Core.Models
+@using TCSA.KnowTheCity.Core.Models.Domain
+@using TCSA.KnowTheCity.Core.Options
 @using TCSA.KnowTheCity.Services
 @implements IAsyncDisposable
 
@@ -83,17 +86,12 @@
 }
 
 @code {
-    [Parameter]
-    public int CityId { get; set; }
+    [Parameter] public int CityId { get; set; }
 
-    [Inject]
-    private IGameService GameService { get; set; } = default!;
-
-    [Inject]
-    private ICityService CityService { get; set; } = default!;
-
-    [Inject]
-    private NavigationManager Navigation { get; set; } = default!;
+    [Inject] private IGameService GameService { get; set; } = default!;
+    [Inject] private ICityService CityService { get; set; } = default!;
+    [Inject] private NavigationManager Navigation { get; set; } = default!;
+    [Inject] private IOptions<ConfigOptions> Config { get; set; }
 
     private List<Landmark> _landmarks = [];
     private List<GameResultItem> _results = [];

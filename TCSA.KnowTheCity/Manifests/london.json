@@ -1,0 +1,34 @@
+{
+  "id": "london",
+  "name": "London",
+  "country": "United Kingdom",
+  "continent": "Europe",
+  "imagePath": "img/cities/london.webp",
+  "landmarks": [
+    {
+      "id": "bigben",
+      "name": "Big Ben",
+      "imagePath": "img/landmarks/london-bigben.webp"
+    },
+    {
+      "id": "towerbridge",
+      "name": "Tower Bridge",
+      "imagePath": "img/landmarks/london-towerbridge.webp"
+    },
+    {
+      "id": "buckinghampalace",
+      "name": "Buckingham Palace",
+      "imagePath": "img/landmarks/london-buckinghampalace.webp"
+    },
+    {
+      "id": "londoneye",
+      "name": "London Eye",
+      "imagePath": "img/landmarks/london-londoneye.webp"
+    },
+    {
+      "id": "toweroflondon",
+      "name": "Tower of London",
+      "imagePath": "img/landmarks/london-toweroflondon.webp"
+    }
+  ]
+}

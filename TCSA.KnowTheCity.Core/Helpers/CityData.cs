@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
 using TCSA.KnowTheCity.Core.Enums;
-using TCSA.KnowTheCity.Core.Models;
+using TCSA.KnowTheCity.Core.Models.Domain;
 
 public static class CityDataHelper
 {

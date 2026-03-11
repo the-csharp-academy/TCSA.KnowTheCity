@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using TCSA.KnowTheCity.Core.Models;
+using TCSA.KnowTheCity.Core.Models.Domain;
 
 namespace TCSA.KnowTheCity.Data;
 
@@ -11,6 +11,7 @@ public class KnowTheCityDbContext(DbContextOptions<KnowTheCityDbContext> options
     public DbSet<GameResultItem> GameResultItems => Set<GameResultItem>();
     public DbSet<FavoriteCity> FavoriteCities => Set<FavoriteCity>();
     public DbSet<FavoriteLandmark> FavoriteLandmarks => Set<FavoriteLandmark>();
+    public DbSet<Configurations> Configurations => Set<Configurations>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

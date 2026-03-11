@@ -1,0 +1,20 @@
+{
+  "cityRemoteId": "paris-fr",
+  "version": "1.0",
+  "monuments": [
+    {
+      "remoteId": "eiffel-tower",
+      "name": "Eiffel Tower",
+      "imagePath": "/images/paris/eiffel-tower.jpg",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "louvre",
+      "name": "Louvre Museum",
+      "imagePath": "/images/paris/louvre.jpg",
+      "imageVersion": "1",
+      "isActive": true
+    }
+  ]
+}

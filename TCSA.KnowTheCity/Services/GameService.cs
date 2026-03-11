@@ -1,8 +1,15 @@
 using Microsoft.EntityFrameworkCore;
-using TCSA.KnowTheCity.Core.Models;
+using TCSA.KnowTheCity.Core.Models.Domain;
 using TCSA.KnowTheCity.Data;
 
 namespace TCSA.KnowTheCity.Services;
+
+public interface IGameService
+{
+    Task<int> SaveGameResultAsync(GameResult gameResult);
+    Task<GameResult?> GetGameResultAsync(int id);
+    Task<List<GameResult>> GetGameHistoryAsync(int cityId, DateTime? fromDate = null, DateTime? toDate = null);
+}
 
 public class GameService(IDbContextFactory<KnowTheCityDbContext> dbFactory) : IGameService
 {

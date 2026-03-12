@@ -3,7 +3,7 @@
   "name": "Paris",
   "country": "France",
   "continent": "Europe",
-  "imagePath": "img/cities/paris.png",
+  "imagePath": "img/cities/paris.webp",
   "landmarks": [
     {
       "id": "eiffeltower",

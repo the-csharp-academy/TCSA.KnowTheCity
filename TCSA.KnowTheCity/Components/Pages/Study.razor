@@ -2,6 +2,7 @@
 @using TCSA.KnowTheCity.Core.Helpers
 @using TCSA.KnowTheCity.Core.Models
 @using TCSA.KnowTheCity.Core.Models.Domain
+@using TCSA.KnowTheCity.Core.Services
 @using TCSA.KnowTheCity.Services
 
 <MudContainer>
@@ -12,10 +13,18 @@
         {
             <MudItem xs="6" sm="4" md="3">
                 <MudCard Elevation="3"
-                         Class="city-card"
-                         Style="cursor:pointer;"
-                         @onclick="() => NavigateToStudy(city.Id)">
-                    <MudCardMedia Image="@CityDataHelper.GetCityImagePath(city.Name)" Height="200" />
+                         Class="city-card" @onclick="() => NavigateToStudy(city.Id)"
+                         Style="cursor:pointer;">
+                    @if (_cityImagePaths.TryGetValue(city.Id, out var imgData) && !string.IsNullOrEmpty(imgData))
+                    {
+                        <img src="@imgData" alt="@city.Name" style="width:100%;height:200px;object-fit:cover;" />
+                    }
+                    else
+                    {
+                        <div style="width:100%;height:200px;background:#e0e0e0;display:flex;align-items:center;justify-content:center;">
+                            <MudProgressCircular Indeterminate="true" Size="Size.Small" />
+                        </div>
+                    }
                     <MudCardContent Class="d-flex justify-center">
                         <MudText Typo="Typo.h6">@city.Name</MudText>
                     </MudCardContent>
@@ -26,17 +35,33 @@
 </MudContainer>
 
 @code {
-    [Inject]
-    private NavigationManager Navigation { get; set; } = default!;
-
-    [Inject]
-    private ICityService CityService { get; set; } = default!;
+    [Inject] private NavigationManager Navigation { get; set; } = default!;
+    [Inject] private ICityService CityService { get; set; } = default!;
+    [Inject] private IImageCacheService ImageCache { get; set; } = default!;
 
     private List<City> _cities = [];
+    private readonly Dictionary<int, string> _cityImagePaths = [];
 
     protected override async Task OnInitializedAsync()
     {
         _cities = await CityService.GetCitiesAsync();
+        StateHasChanged();
+
+        foreach (var city in _cities)
+        {
+            try
+            {
+                var relativePath = CityDataHelper.GetCityImagePath(city.Name);
+                var localPath = await ImageCache.GetImagePathAsync(relativePath);
+                _cityImagePaths[city.Id] = ImageHelpers.ConvertToBase64DataUri(localPath);
+            }
+            catch
+            {
+                _cityImagePaths[city.Id] = string.Empty;
+            }
+        }
+
+        StateHasChanged();
     }
 
     private void NavigateToStudy(int cityId) => Navigation.NavigateTo($"study/{cityId}");

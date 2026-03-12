@@ -1,34 +1,54 @@
 {
+  "version": "1.0",
   "cities": [
     {
-      "id": "paris",
+      "remoteId": "paris-fr",
       "name": "Paris",
-      "manifestPath": "manifests/paris.json"
+      "country": "France",
+      "manifestPath": "/manifests/paris.json",
+      "isActive": true
     },
     {
-      "id": "london",
+      "remoteId": "london-uk",
       "name": "London",
-      "manifestPath": "manifests/london.json"
+      "country": "UnitedKingdom",
+      "manifestPath": "/manifests/london.json",
+      "isActive": true
     },
     {
-      "id": "newyork",
-      "name": "New York",
-      "manifestPath": "manifests/newyork.json"
-    },
-    {
-      "id": "tokyo",
-      "name": "Tokyo",
-      "manifestPath": "manifests/tokyo.json"
-    },
-    {
-      "id": "dubai",
+      "remoteId": "dubai-uae",
       "name": "Dubai",
-      "manifestPath": "manifests/dubai.json"
+      "country": "UnitedArabEmirates",
+      "manifestPath": "/manifests/dubai.json",
+      "isActive": true
     },
     {
-      "id": "beijing",
+      "remoteId": "newyork-us",
+      "name": "New York",
+      "country": "UnitedStates",
+      "manifestPath": "/manifests/newwork.json",
+      "isActive": true
+    },
+    {
+      "remoteId": "tokyo-jp",
+      "name": "Tokyo",
+      "country": "Japan",
+      "manifestPath": "/manifests/tokyo.json",
+      "isActive": true
+    },
+    {
+      "remoteId": "tokyo-jp",
+      "name": "Tokyo",
+      "country": "Japan",
+      "manifestPath": "/manifests/tokyo.json",
+      "isActive": true
+    },
+    {
+      "remoteId": "beijing-ch",
       "name": "Beijing",
-      "manifestPath": "manifests/beijing.json"
+      "country": "China",
+      "manifestPath": "/manifests/beijing.json",
+      "isActive": true
     }
   ]
 }

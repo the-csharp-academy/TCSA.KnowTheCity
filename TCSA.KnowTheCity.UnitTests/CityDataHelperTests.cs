@@ -24,21 +24,21 @@ public class CityDataHelperTests
     public void GetLandmarkImagePath_SacreCoeur_ReturnsCorrectPath()
     {
         var path = CityDataHelper.GetLandmarkImagePath("Paris", "Sacré-Cœur");
-        Assert.That(path, Is.EqualTo("img/landmarks/paris-sacrecoeur.png"));
+        Assert.That(path, Is.EqualTo("landmarks/paris-sacrecoeur.webp"));
     }
 
     [Test]
     public void GetLandmarkImagePath_ArcDeTriomphe_ReturnsCorrectPath()
     {
         var path = CityDataHelper.GetLandmarkImagePath("Paris", "Arc de Triomphe");
-        Assert.That(path, Is.EqualTo("img/landmarks/paris-arcdetriomphe.png"));
+        Assert.That(path, Is.EqualTo("landmarks/paris-arcdetriomphe.webp"));
     }
 
     [Test]
     public void GetLandmarkImagePath_NotreDame_ReturnsCorrectPath()
     {
         var path = CityDataHelper.GetLandmarkImagePath("Paris", "Notre-Dame");
-        Assert.That(path, Is.EqualTo("img/landmarks/paris-notredame.png"));
+        Assert.That(path, Is.EqualTo("landmarks/paris-notredame.webp"));
     }
 
     // ── GetCityImagePath ──────────────────────────────────────────────────────
@@ -47,6 +47,6 @@ public class CityDataHelperTests
     public void GetCityImagePath_Paris_ReturnsCorrectPath(string city, string result)
     {
         var path = CityDataHelper.GetCityImagePath(city);
-        Assert.That(path, Is.EqualTo($"img/cities/{result}.png"));
+        Assert.That(path, Is.EqualTo($"cities/{result}.webp"));
     }
 }

@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using TCSA.KnowTheCity.Core.Data;
 using TCSA.KnowTheCity.Core.Models.Domain;
-using TCSA.KnowTheCity.Data;
 
 namespace TCSA.KnowTheCity.Services;
 

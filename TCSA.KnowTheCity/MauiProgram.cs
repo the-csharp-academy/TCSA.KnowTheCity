@@ -3,9 +3,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using MudBlazor.Services;
 using TCSA.KnowTheCity.Core.Clients;
+using TCSA.KnowTheCity.Core.Data;
 using TCSA.KnowTheCity.Core.Helpers;
 using TCSA.KnowTheCity.Core.Options;
-using TCSA.KnowTheCity.Data;
+using TCSA.KnowTheCity.Core.Services;
 using TCSA.KnowTheCity.Services;
 
 namespace TCSA.KnowTheCity;
@@ -41,12 +42,19 @@ public static class MauiProgram
         builder.Services.AddScoped<IFavoriteService, FavoriteService>();
         builder.Services.AddScoped<ICityService, CityService>();
         builder.Services.AddScoped<ISyncService, SyncService>();
-
+        builder.Services.AddSingleton<IImageCacheService, ImageCacheService>();
 
         builder.Services.AddHttpClient<IManifestClient, ManifestClient>(client =>
         {
             client.Timeout = TimeSpan.FromSeconds(15);
         });
+
+        builder.Services.AddHttpClient<ImageCacheService>(client =>
+        {
+            client.Timeout = TimeSpan.FromSeconds(30);
+        });
+        builder.Services.AddSingleton<IImageCacheService>(sp =>
+            sp.GetRequiredService<ImageCacheService>());
 
 #if DEBUG
         builder.Services.AddBlazorWebViewDeveloperTools();
@@ -60,10 +68,10 @@ public static class MauiProgram
             .GetRequiredService<IDbContextFactory<KnowTheCityDbContext>>()
             .CreateDbContext();
 
-        db.Database.EnsureDeleted();
-        db.Database.EnsureCreated();
+        //db.Database.EnsureDeleted();
+        //db.Database.EnsureCreated();
 
-        SeedCatalog(db);
+        //SeedCatalog(db);
 
         return app;
     }
@@ -73,7 +81,7 @@ public static class MauiProgram
         if (db.Cities.Any())
             return;
 
-        db.Configurations.Add(new() { LastSync = new DateTime(2026,1,1) });
+        db.Configurations.Add(new() { LastSync = new DateTime(2026, 1, 1) });
         db.Cities.AddRange(CityDataHelper.SeedData);
         db.SaveChanges();
     }

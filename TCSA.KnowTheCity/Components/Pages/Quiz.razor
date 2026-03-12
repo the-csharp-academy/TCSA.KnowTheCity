@@ -5,10 +5,22 @@
 @using TCSA.KnowTheCity.Core.Models
 @using TCSA.KnowTheCity.Core.Models.Domain
 @using TCSA.KnowTheCity.Core.Options
+@using TCSA.KnowTheCity.Core.Services
 @using TCSA.KnowTheCity.Services
 @implements IAsyncDisposable
 
-@if (!_quizFinished && _landmarks.Count > 0 && _currentIndex < _landmarks.Count)
+@if (_isLoading)
+{
+    <MudContainer MaxWidth="MaxWidth.Medium">
+        <MudPaper Elevation="6" Class="py-10 px-20 rounded-xl">
+            <MudStack AlignItems="AlignItems.Center" Spacing="4">
+                <MudProgressCircular Color="Color.Primary" Indeterminate="true" Size="Size.Large" />
+                <MudText Typo="Typo.h6">Loading images… @_imagesLoaded / @_landmarks.Count</MudText>
+            </MudStack>
+        </MudPaper>
+    </MudContainer>
+}
+else if (!_quizFinished && _landmarks.Count > 0 && _currentIndex < _landmarks.Count)
 {
     <MudContainer MaxWidth="MaxWidth.Medium">
         <MudPaper
@@ -54,9 +66,16 @@
             </MudText>
 
             <div style="border-radius:16px; overflow:hidden;">
-                <MudCardMedia 
-                              Image="@CityDataHelper.GetLandmarkImagePath(_cityName, _landmarks[_currentIndex].Name)"
-                              Height="400" />
+                @if (_cachedImagePaths.TryGetValue(_landmarks[_currentIndex].Name, out var imgData) && !string.IsNullOrEmpty(imgData))
+                {
+                    <img src="@imgData" alt="Landmark" style="width:100%;height:400px;object-fit:cover;" />
+                }
+                else
+                {
+                    <div style="width:100%;height:400px;background:#e0e0e0;display:flex;align-items:center;justify-content:center;">
+                        <MudProgressCircular Indeterminate="true" Size="Size.Small" />
+                    </div>
+                }
             </div>
 
             <MudTextField @bind-Value="_currentGuess"
@@ -90,11 +109,13 @@
 
     [Inject] private IGameService GameService { get; set; } = default!;
     [Inject] private ICityService CityService { get; set; } = default!;
+    [Inject] private IImageCacheService ImageCacheService { get; set; } = default!;
     [Inject] private NavigationManager Navigation { get; set; } = default!;
     [Inject] private IOptions<ConfigOptions> Config { get; set; }
 
     private List<Landmark> _landmarks = [];
     private List<GameResultItem> _results = [];
+    private Dictionary<string, string> _cachedImagePaths = [];
     private string _cityName = string.Empty;
     private int _currentIndex;
     private int _correctCount;
@@ -103,7 +124,10 @@
     private Severity _feedbackSeverity = Severity.Info;
     private int _timeRemaining = 60;
     private bool _quizFinished;
+    private bool _isLoading = true;
+    private int _imagesLoaded;
     private Timer? _timer;
+    private CancellationTokenSource _cts = new();
 
     protected override async Task OnInitializedAsync()
     {
@@ -113,10 +137,41 @@
         var landmarks = await CityService.GetLandmarksAsync(CityId);
         _landmarks = [.. landmarks.OrderBy(_ => Random.Shared.Next())];
 
+        await CacheAllImagesAsync();
+
+        _isLoading = false;
+
         _timer = new Timer(1000);
         _timer.Elapsed += OnTimerElapsed;
         _timer.Start();
     }
+
+    private async Task CacheAllImagesAsync()
+    {
+        foreach (var landmark in _landmarks)
+        {
+            var relativePath = CityDataHelper.GetLandmarkImagePath(_cityName, landmark.Name);
+
+            try
+            {
+                var localPath = await ImageCacheService.GetImagePathAsync(relativePath, _cts.Token);
+                _cachedImagePaths[landmark.Name] = ImageHelpers.ConvertToBase64DataUri(localPath);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[Quiz] Failed to cache image for {landmark.Name}: {ex.Message}");
+                _cachedImagePaths[landmark.Name] = relativePath;
+            }
+
+            _imagesLoaded++;
+            StateHasChanged();
+        }
+    }
+
+    private string GetCachedImagePath(string landmarkName) =>
+        _cachedImagePaths.TryGetValue(landmarkName, out var path)
+            ? path
+            : CityDataHelper.GetLandmarkImagePath(_cityName, landmarkName);
 
     private async void OnTimerElapsed(object? sender, ElapsedEventArgs e)
     {
@@ -207,10 +262,11 @@
         Navigation.NavigateTo($"/results/{id}");
     }
 
-    public ValueTask DisposeAsync()
+    public async ValueTask DisposeAsync()
     {
+        await _cts.CancelAsync();
+        _cts.Dispose();
         _timer?.Stop();
         _timer?.Dispose();
-        return ValueTask.CompletedTask;
     }
 }

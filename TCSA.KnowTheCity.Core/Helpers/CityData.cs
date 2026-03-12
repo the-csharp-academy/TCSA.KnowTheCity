@@ -99,10 +99,10 @@ public static class CityDataHelper
     ];
 
     public static string GetLandmarkImagePath(string cityName, string landmarkName) => 
-        $"img/landmarks/{NormalizeForPath(cityName)}-{NormalizeForPath(landmarkName)}.png";
+        $"landmarks/{NormalizeForPath(cityName)}-{NormalizeForPath(landmarkName)}.webp";
         
     public static string GetCityImagePath(string cityName) =>
-        $"img/cities/{NormalizeForPath(cityName)}.png";
+        $"cities/{NormalizeForPath(cityName)}.webp";
 
     public static string NormalizeForPath(string value)
     {

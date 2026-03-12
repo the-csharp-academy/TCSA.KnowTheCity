@@ -37,8 +37,6 @@ public class ManifestParsingTests
         return File.ReadAllTextAsync(path);
     }
 
-    // --- CitiesManifest ---
-
     [Test]
     public void CitiesManifest_IsNotNull()
     {

@@ -2,6 +2,7 @@
 @using TCSA.KnowTheCity.Core.Helpers
 @using TCSA.KnowTheCity.Core.Models
 @using TCSA.KnowTheCity.Core.Models.Domain
+@using TCSA.KnowTheCity.Core.Services
 @using TCSA.KnowTheCity.Services
 
 <MudContainer MaxWidth="MaxWidth.Medium">
@@ -21,8 +22,16 @@
         </MudText>
 
         <div style="border-radius:16px; overflow:hidden;">
-            <MudCardMedia Image="@CityDataHelper.GetLandmarkImagePath(_cityName, _landmarks[currentIndex].Name)"
-                          Height="400" />
+            @if (_cachedImagePaths.TryGetValue(_landmarks[currentIndex].Name, out var imgData) && !string.IsNullOrEmpty(imgData))
+            {
+                <img src="@imgData" alt="@_landmarks[currentIndex].Name" style="width:100%;height:400px;object-fit:cover;" />
+            }
+            else
+            {
+                <div style="width:100%;height:400px;background:#e0e0e0;display:flex;align-items:center;justify-content:center;">
+                    <MudProgressCircular Indeterminate="true" Size="Size.Small" />
+                </div>
+            }
         </div>
 
         <MudGrid Class="mt-4 mb-3">
@@ -58,13 +67,12 @@
 </MudContainer>
 
 @code {
-    [Parameter]
-    public int CityId { get; set; }
-
-    [Inject]
-    private ICityService CityService { get; set; } = default!;
+    [Parameter] public int CityId { get; set; }
+    [Inject] private ICityService CityService { get; set; } = default!;
+    [Inject] private IImageCacheService ImageCacheService { get; set; } = default!;
 
     private List<Landmark> _landmarks = [];
+    private Dictionary<string, string> _cachedImagePaths = [];
     private string _cityName = "";
     private int currentIndex;
 
@@ -73,6 +81,22 @@
         var city = await CityService.GetCityByIdAsync(CityId);
         _cityName = city?.Name ?? "";
         _landmarks = [.. (await CityService.GetLandmarksAsync(CityId)).OrderBy(_ => Random.Shared.Next())];
+
+        foreach (var landmark in _landmarks)
+        {
+            var relativePath = CityDataHelper.GetLandmarkImagePath(_cityName, landmark.Name);
+
+            try
+            {
+                var localPath = await ImageCacheService.GetImagePathAsync(relativePath);
+                _cachedImagePaths[landmark.Name] = ImageHelpers.ConvertToBase64DataUri(localPath);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[StudyCity] Failed to cache image for {landmark.Name}: {ex.Message}");
+                _cachedImagePaths[landmark.Name] = string.Empty;
+            }
+        }
     }
 
     private void Previous()

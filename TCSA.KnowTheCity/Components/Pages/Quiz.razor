@@ -134,7 +134,7 @@ else if (!_quizFinished && _landmarks.Count > 0 && _currentIndex < _landmarks.Co
         var city = await CityService.GetCityByIdAsync(CityId);
         _cityName = city?.Name ?? string.Empty;
 
-        var landmarks = await CityService.GetLandmarksAsync(CityId);
+        var landmarks = await CityService.GetLandmarksAsync(city.RemoteId);
         _landmarks = [.. landmarks.OrderBy(_ => Random.Shared.Next())];
 
         await CacheAllImagesAsync();

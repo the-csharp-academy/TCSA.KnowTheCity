@@ -3,6 +3,6 @@
   <Project Path="TCSA.KnowTheCity.IntegrationTests/TCSA.KnowTheCity.IntegrationTests.csproj" />
   <Project Path="TCSA.KnowTheCity.UnitTests/TCSA.KnowTheCity.UnitTests.csproj" />
   <Project Path="TCSA.KnowTheCity/TCSA.KnowTheCity.csproj">
-    <Deploy Solution="Debug|*" />
+    <Deploy />
   </Project>
 </Solution>

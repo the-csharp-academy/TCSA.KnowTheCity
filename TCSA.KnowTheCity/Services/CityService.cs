@@ -8,7 +8,7 @@ public interface ICityService
 {
     Task<List<City>> GetCitiesAsync();
     Task<City?> GetCityByIdAsync(int id);
-    Task<List<Landmark>> GetLandmarksAsync(int cityId);
+    Task<List<Landmark>> GetLandmarksAsync(string cityRemoteId);
 }
 
 public class CityService(IDbContextFactory<KnowTheCityDbContext> dbFactory) : ICityService
@@ -31,12 +31,15 @@ public class CityService(IDbContextFactory<KnowTheCityDbContext> dbFactory) : IC
             .FirstOrDefaultAsync(c => c.Id == id);
     }
 
-    public async Task<List<Landmark>> GetLandmarksAsync(int cityId)
+    public async Task<List<Landmark>> GetLandmarksAsync(string cityRemoteId)
     {
         await using var db = await dbFactory.CreateDbContextAsync();
+
+        var lm = await db.Landmarks.ToListAsync();
+
         return await db.Landmarks
             .AsNoTracking()
-            .Where(l => l.CityId == cityId)
+            .Where(l => l.City.RemoteId == cityRemoteId)
             .OrderBy(l => l.Name)
             .ToListAsync();
     }

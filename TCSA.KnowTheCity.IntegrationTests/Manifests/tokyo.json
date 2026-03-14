@@ -1,0 +1,41 @@
+{
+  "cityRemoteId": "tokyo-jp",
+  "version": "1.0",
+  "monuments": [
+    {
+      "remoteId": "tokyotower",
+      "name": "Tokyo Tower",
+      "imagePath": "landmarks/tokyo-tokyotower.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "sensoji",
+      "name": "Senso-ji",
+      "imagePath": "landmarks/tokyo-sensoji.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "shibuyacrossing",
+      "name": "Shibuya Crossing",
+      "imagePath": "landmarks/tokyo-shibuyacrossing.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "meijishrine",
+      "name": "Meiji Shrine",
+      "imagePath": "landmarks/tokyo-meijishrine.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "tokyoskytree",
+      "name": "Tokyo Skytree",
+      "imagePath": "landmarks/tokyo-skytree.webp",
+      "imageVersion": "1",
+      "isActive": true
+    }
+  ]
+}

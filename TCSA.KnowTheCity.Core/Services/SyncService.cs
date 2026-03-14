@@ -47,20 +47,29 @@ public class SyncService(
             if (city is null)
                 continue;
 
-            var cityManifestDetails = await _manifestClient.GetCityManifestAsync(cityManifest.ManifestPath, cancellationToken);
-            if (cityManifestDetails is null || cityManifestDetails.Monuments.Count == 0)
-                continue;
-
-            var newMonuments = await GetNewMonumentsAsync(
-                db,
-                city.Id,
-                cityManifestDetails,
-                cancellationToken);
-
-            if (newMonuments.Count > 0)
+            try
             {
-                await db.Landmarks.AddRangeAsync(newMonuments, cancellationToken);
-                await db.SaveChangesAsync(cancellationToken);
+                var cityManifestDetails = await _manifestClient.GetCityManifestAsync(cityManifest.ManifestPath, cancellationToken);
+
+                if (cityManifestDetails is null || cityManifestDetails.Monuments.Count == 0)
+                    continue;
+
+                var newMonuments = await GetNewMonumentsAsync(
+                    db,
+                    city.Id,
+                    cityManifestDetails,
+                    cancellationToken);
+
+                if (newMonuments.Count > 0)
+                {
+                    await db.Landmarks.AddRangeAsync(newMonuments, cancellationToken);
+                    await db.SaveChangesAsync(cancellationToken);
+                }
+            } 
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching manifest for city {city.Name}: {ex.Message}");
+                continue;
             }
         }
 

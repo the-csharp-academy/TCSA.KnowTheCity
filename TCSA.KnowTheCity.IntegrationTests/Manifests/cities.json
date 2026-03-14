@@ -26,14 +26,7 @@
       "remoteId": "newyork-us",
       "name": "New York",
       "country": "UnitedStates",
-      "manifestPath": "/manifests/newwork.json",
-      "isActive": true
-    },
-    {
-      "remoteId": "tokyo-jp",
-      "name": "Tokyo",
-      "country": "Japan",
-      "manifestPath": "/manifests/tokyo.json",
+      "manifestPath": "/manifests/newyork.json",
       "isActive": true
     },
     {
@@ -48,6 +41,13 @@
       "name": "Beijing",
       "country": "China",
       "manifestPath": "/manifests/beijing.json",
+      "isActive": true
+    },
+    {
+      "remoteId": "brisbane-au",
+      "name": "Brisbane",
+      "country": "Australia",
+      "manifestPath": "/manifests/brisbane.json",
       "isActive": true
     }
   ]

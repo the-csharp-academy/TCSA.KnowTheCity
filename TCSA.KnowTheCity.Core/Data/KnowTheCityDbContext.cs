@@ -17,10 +17,18 @@ public class KnowTheCityDbContext(DbContextOptions<KnowTheCityDbContext> options
     {
         base.OnModelCreating(modelBuilder);
 
+        modelBuilder.Entity<Configurations>(entity =>
+        {
+            entity.HasKey(c => c.Id);
+            entity.Property(c => c.LastSync).IsRequired();
+            entity.HasData(new Configurations { Id = 1, LastSync = new DateTime(2026, 1, 1) });
+        });
+
         modelBuilder.Entity<City>(entity =>
         {
             entity.HasKey(c => c.Id);
             entity.Property(c => c.Name).IsRequired();
+            entity.HasIndex(c => c.RemoteId).IsUnique();
             entity.HasMany(c => c.Landmarks)
                   .WithOne(l => l.City)
                   .HasForeignKey(l => l.CityId)

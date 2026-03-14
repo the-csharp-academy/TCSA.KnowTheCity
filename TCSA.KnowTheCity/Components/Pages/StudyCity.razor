@@ -60,6 +60,19 @@
                         Next
                     </MudButton>
                 </MudItem>
+            } 
+            else
+            {
+                <MudItem xs="@(currentIndex > 0 ? 6 : 12)">
+                    <MudButton Variant="Variant.Filled"
+                               Color="Color.Primary"
+                               FullWidth="true"
+                               EndIcon="@Icons.Material.Filled.ArrowForward"
+                               OnClick="Finish"
+                               Style="height:56px;">
+                        Finish
+                    </MudButton>
+                </MudItem>
             }
         </MudGrid>
 
@@ -68,6 +81,7 @@
 
 @code {
     [Parameter] public int CityId { get; set; }
+    [Inject] private NavigationManager Navigation { get; set; } = default!;
     [Inject] private ICityService CityService { get; set; } = default!;
     [Inject] private IImageCacheService ImageCacheService { get; set; } = default!;
 
@@ -80,7 +94,7 @@
     {
         var city = await CityService.GetCityByIdAsync(CityId);
         _cityName = city?.Name ?? "";
-        _landmarks = [.. (await CityService.GetLandmarksAsync(CityId)).OrderBy(_ => Random.Shared.Next())];
+        _landmarks = [.. (await CityService.GetLandmarksAsync(city.RemoteId)).OrderBy(_ => Random.Shared.Next())];
 
         foreach (var landmark in _landmarks)
         {
@@ -110,4 +124,6 @@
         if (currentIndex < _landmarks.Count - 1)
             currentIndex++;
     }
+
+    private void Finish() => Navigation.NavigateTo($"study");
 }

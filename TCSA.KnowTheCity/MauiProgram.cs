@@ -68,8 +68,8 @@ public static class MauiProgram
             .GetRequiredService<IDbContextFactory<KnowTheCityDbContext>>()
             .CreateDbContext();
 
-        //db.Database.EnsureDeleted();
-        //db.Database.EnsureCreated();
+        db.Database.EnsureDeleted();
+        db.Database.EnsureCreated();
 
         //SeedCatalog(db);
 

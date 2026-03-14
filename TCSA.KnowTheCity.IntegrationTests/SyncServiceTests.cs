@@ -1,3 +1,4 @@
+using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using TCSA.KnowTheCity.Core.Clients;
@@ -66,6 +67,37 @@ public class SyncServiceTests
         var factory = new SyncServiceDbContextFactory(db);
 
         return new SyncService(factory, options, manifestClient);
+    }
+
+    // ---------------------------------------------------------------
+    // Database constraints
+    // ---------------------------------------------------------------
+
+    [Test]
+    public async Task DuplicateCityRemoteId_CannotBeAdded()
+    {
+        await using var connection = new SqliteConnection("Data Source=:memory:");
+        await connection.OpenAsync();
+
+        var options = new DbContextOptionsBuilder<KnowTheCityDbContext>()
+            .UseSqlite(connection)
+            .Options;
+
+        await using var db = new KnowTheCityDbContext(options);
+        await db.Database.EnsureCreatedAsync();
+
+        db.Cities.Add(new City { RemoteId = "paris-fr", Name = "Paris" });
+        await db.SaveChangesAsync();
+
+        db.Cities.Add(new City { RemoteId = "paris-fr", Name = "Paris Duplicate" });
+
+        Assert.That(
+            async () => await db.SaveChangesAsync(),
+            Throws.TypeOf<DbUpdateException>());
+
+        Assert.That(
+            await db.Cities.CountAsync(c => c.RemoteId == "paris-fr"),
+            Is.EqualTo(1));
     }
 
     // ---------------------------------------------------------------

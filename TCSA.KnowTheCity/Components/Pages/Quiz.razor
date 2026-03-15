@@ -1,3 +1,4 @@
+@page "/quiz/favorites"
 @page "/quiz/{CityId:int}"
 @using System.Timers
 @using Microsoft.Extensions.Options
@@ -15,12 +16,12 @@
         <MudPaper Elevation="6" Class="quiz-loading-shell py-10 px-6 rounded-xl">
             <MudStack AlignItems="AlignItems.Center" Spacing="4">
                 <MudProgressCircular Color="Color.Info" Indeterminate="true" Size="Size.Large" />
-                <MudText Typo="Typo.h6">Loading images… @_imagesLoaded / @_landmarks.Count</MudText>
+                <MudText Typo="Typo.h6">Loading images… @_imagesLoaded / @_quizLandmarks.Count</MudText>
             </MudStack>
         </MudPaper>
     </MudContainer>
 }
-else if (!_quizFinished && _landmarks.Count > 0 && _currentIndex < _landmarks.Count)
+else if (!_quizFinished && _quizLandmarks.Count > 0 && _currentIndex < _quizLandmarks.Count)
 {
     <MudContainer MaxWidth="MaxWidth.Medium">
         <MudPaper Elevation="8" Class="quiz-shell py-4 px-6 rounded-xl overflow-hidden">
@@ -30,14 +31,24 @@ else if (!_quizFinished && _landmarks.Count > 0 && _currentIndex < _landmarks.Co
                              Class="quiz-city-chip"
                              Variant="Variant.Filled"
                              Size="Size.Large">
-                        @_cityName
+                        @_quizTitle
                     </MudChip>
+
+                    @if (IsFavoritesQuiz)
+                    {
+                        <MudChip T="string"
+                                 Class="quiz-city-chip"
+                                 Variant="Variant.Filled"
+                                 Size="Size.Large">
+                            @CurrentLandmark.CityName
+                        </MudChip>
+                    }
 
                     <MudChip T="string"
                              Class="quiz-stage-chip"
                              Variant="Variant.Filled"
                              Size="Size.Large">
-                        Quiz @(_currentIndex + 1)/@_landmarks.Count
+                        Quiz @(_currentIndex + 1)/@_quizLandmarks.Count
                     </MudChip>
 
                     <MudChip T="string"
@@ -72,7 +83,7 @@ else if (!_quizFinished && _landmarks.Count > 0 && _currentIndex < _landmarks.Co
 
             <MudPaper Elevation="0" Class="quiz-question-banner pa-4 mb-4">
                 <MudText Typo="Typo.subtitle2" Class="quiz-question-subtitle">
-                    Landmark @(_currentIndex + 1) of @_landmarks.Count
+                    Landmark @(_currentIndex + 1) of @_quizLandmarks.Count
                 </MudText>
                 <MudText Typo="Typo.h5" Class="quiz-question-title">
                     Can you name this landmark?
@@ -80,7 +91,7 @@ else if (!_quizFinished && _landmarks.Count > 0 && _currentIndex < _landmarks.Co
             </MudPaper>
 
             <div class="quiz-image-frame mb-4">
-                @if (_cachedImagePaths.TryGetValue(_landmarks[_currentIndex].Name, out var imgData) && !string.IsNullOrEmpty(imgData))
+                @if (_cachedImagePaths.TryGetValue(GetImageCacheKey(CurrentLandmark), out var imgData) && !string.IsNullOrEmpty(imgData))
                 {
                     <img src="@imgData" alt="Landmark" style="width:100%;height:400px;object-fit:cover;" />
                 }
@@ -122,20 +133,55 @@ else if (!_quizFinished && _landmarks.Count > 0 && _currentIndex < _landmarks.Co
         </MudPaper>
     </MudContainer>
 }
+else
+{
+    <MudContainer MaxWidth="MaxWidth.Medium">
+        <MudPaper Elevation="6" Class="quiz-loading-shell py-10 px-6 rounded-xl">
+            <MudStack AlignItems="AlignItems.Center" Spacing="3">
+                <MudIcon Icon="@Icons.Material.Filled.Quiz" Color="Color.Info" Size="Size.Large" />
+                <MudText Typo="Typo.h6">No landmarks available for this quiz.</MudText>
+                <MudText Typo="Typo.body2" Align="Align.Center">
+                    @(IsFavoritesQuiz
+                        ? "Save at least one favourite landmark, then start the favourites quiz again."
+                        : "This city does not have any landmarks available yet.")
+                </MudText>
+                <MudButton Variant="Variant.Filled"
+                           Color="Color.Primary"
+                           OnClick="NavigateBack">
+                    @(IsFavoritesQuiz ? "Back to favourites" : "Back to home")
+                </MudButton>
+            </MudStack>
+        </MudPaper>
+    </MudContainer>
+}
 
 @code {
-    [Parameter] public int CityId { get; set; }
+    [Parameter]
+    public int? CityId { get; set; }
 
-    [Inject] private IGameService GameService { get; set; } = default!;
-    [Inject] private ICityService CityService { get; set; } = default!;
-    [Inject] private IImageCacheService ImageCacheService { get; set; } = default!;
-    [Inject] private NavigationManager Navigation { get; set; } = default!;
-    [Inject] private IOptions<ConfigOptions> Config { get; set; }
+    [Inject]
+    private IGameService GameService { get; set; } = default!;
 
-    private List<Landmark> _landmarks = [];
+    [Inject]
+    private IFavoriteService FavoriteService { get; set; } = default!;
+
+    [Inject]
+    private ICityService CityService { get; set; } = default!;
+
+    [Inject]
+    private IImageCacheService ImageCacheService { get; set; } = default!;
+
+    [Inject]
+    private NavigationManager Navigation { get; set; } = default!;
+
+    [Inject]
+    private IOptions<ConfigOptions> Config { get; set; } = default!;
+
+    private List<QuizLandmarkItem> _quizLandmarks = [];
     private List<GameResultItem> _results = [];
     private Dictionary<string, string> _cachedImagePaths = [];
-    private string _cityName = string.Empty;
+    private string _quizTitle = string.Empty;
+    private int _resultCityId;
     private int _currentIndex;
     private int _correctCount;
     private string _currentGuess = string.Empty;
@@ -148,18 +194,95 @@ else if (!_quizFinished && _landmarks.Count > 0 && _currentIndex < _landmarks.Co
     private Timer? _timer;
     private CancellationTokenSource _cts = new();
 
-    protected override async Task OnInitializedAsync()
+    private bool IsFavoritesQuiz => !CityId.HasValue;
+
+    private QuizLandmarkItem CurrentLandmark => _quizLandmarks[_currentIndex];
+
+    protected override async Task OnParametersSetAsync()
     {
-        var city = await CityService.GetCityByIdAsync(CityId);
-        _cityName = city?.Name ?? string.Empty;
+        await ResetQuizStateAsync();
+        await LoadQuizAsync();
+    }
 
-        var landmarks = await CityService.GetLandmarksAsync(city.RemoteId);
-        _landmarks = [.. landmarks.OrderBy(_ => Random.Shared.Next())];
+    private async Task ResetQuizStateAsync()
+    {
+        await _cts.CancelAsync();
+        _cts.Dispose();
 
-        await CacheAllImagesAsync();
+        _timer?.Stop();
+        _timer?.Dispose();
+
+        _cts = new();
+        _quizLandmarks = [];
+        _results = [];
+        _cachedImagePaths = [];
+        _quizTitle = string.Empty;
+        _resultCityId = 0;
+        _currentIndex = 0;
+        _correctCount = 0;
+        _currentGuess = string.Empty;
+        _feedbackMessage = string.Empty;
+        _feedbackSeverity = Severity.Info;
+        _timeRemaining = 60;
+        _quizFinished = false;
+        _isLoading = true;
+        _imagesLoaded = 0;
+    }
+
+    private async Task LoadQuizAsync()
+    {
+        var cities = await CityService.GetCitiesAsync();
+        var citiesById = cities.ToDictionary(c => c.Id);
+
+        if (CityId.HasValue)
+        {
+            var city = citiesById.GetValueOrDefault(CityId.Value) ?? await CityService.GetCityByIdAsync(CityId.Value);
+            if (city is null)
+            {
+                _isLoading = false;
+                return;
+            }
+
+            _quizTitle = city.Name;
+            _resultCityId = city.Id;
+
+            var landmarks = await CityService.GetLandmarksAsync(city.RemoteId);
+            _quizLandmarks =
+            [
+                .. landmarks
+                    .Select(landmark => new QuizLandmarkItem(city.Id, city.Name, landmark))
+                    .OrderBy(_ => Random.Shared.Next())
+            ];
+        }
+        else
+        {
+            _quizTitle = "Favourite landmarks";
+
+            var favoriteLandmarks = await FavoriteService.GetFavoriteLandmarksAsync();
+            _quizLandmarks =
+            [
+                .. favoriteLandmarks
+                    .Select(favorite => new QuizLandmarkItem(
+                        favorite.CityId,
+                        citiesById.TryGetValue(favorite.CityId, out var city) ? city.Name : favorite.CityId.ToString(),
+                        favorite.Landmark))
+                    .OrderBy(_ => Random.Shared.Next())
+            ];
+
+            _resultCityId = _quizLandmarks.FirstOrDefault()?.CityId ?? 0;
+        }
+
+        if (_quizLandmarks.Count > 0)
+        {
+            await CacheAllImagesAsync();
+            StartTimer();
+        }
 
         _isLoading = false;
+    }
 
+    private void StartTimer()
+    {
         _timer = new Timer(1000);
         _timer.Elapsed += OnTimerElapsed;
         _timer.Start();
@@ -167,30 +290,34 @@ else if (!_quizFinished && _landmarks.Count > 0 && _currentIndex < _landmarks.Co
 
     private async Task CacheAllImagesAsync()
     {
-        foreach (var landmark in _landmarks)
+        foreach (var landmark in _quizLandmarks)
         {
-            var relativePath = CityDataHelper.GetLandmarkImagePath(_cityName, landmark.Name);
+            var relativePath = CityDataHelper.GetLandmarkImagePath(landmark.CityName, landmark.Landmark.Name);
 
             try
             {
                 var localPath = await ImageCacheService.GetImagePathAsync(relativePath, _cts.Token);
-                _cachedImagePaths[landmark.Name] = ImageHelpers.ConvertToBase64DataUri(localPath);
+                _cachedImagePaths[GetImageCacheKey(landmark)] = ImageHelpers.ConvertToBase64DataUri(localPath);
+            }
+            catch (OperationCanceledException)
+            {
+                return;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[Quiz] Failed to cache image for {landmark.Name}: {ex.Message}");
-                _cachedImagePaths[landmark.Name] = relativePath;
+                Console.WriteLine($"[Quiz] Failed to cache image for {landmark.Landmark.Name}: {ex.Message}");
+                _cachedImagePaths[GetImageCacheKey(landmark)] = relativePath;
             }
 
             _imagesLoaded++;
-            StateHasChanged();
+            await InvokeAsync(StateHasChanged);
         }
     }
 
-    private string GetCachedImagePath(string landmarkName) =>
-        _cachedImagePaths.TryGetValue(landmarkName, out var path)
-            ? path
-            : CityDataHelper.GetLandmarkImagePath(_cityName, landmarkName);
+    private static string GetImageCacheKey(QuizLandmarkItem landmark)
+    {
+        return $"{landmark.CityId}:{landmark.Landmark.Id}";
+    }
 
     private async void OnTimerElapsed(object? sender, ElapsedEventArgs e)
     {
@@ -216,34 +343,54 @@ else if (!_quizFinished && _landmarks.Count > 0 && _currentIndex < _landmarks.Co
         if (string.IsNullOrWhiteSpace(_currentGuess) || _quizFinished)
             return;
 
-        var expected = _landmarks[_currentIndex];
-        var isCorrect = string.Equals(expected.Name, _currentGuess.Trim(), StringComparison.OrdinalIgnoreCase);
+        var expected = CurrentLandmark;
+        var isCorrect = string.Equals(expected.Landmark.Name, _currentGuess.Trim(), StringComparison.OrdinalIgnoreCase);
 
         if (isCorrect)
         {
-            _results.Add(new() { LandmarkId = expected.Id, IsCorrect = true });
+            _results.Add(new() { LandmarkId = expected.Landmark.Id, IsCorrect = true });
             _correctCount++;
-            _feedbackMessage = $"Correct! {expected.Name}";
+            _feedbackMessage = IsFavoritesQuiz
+                ? $"Correct! {expected.Landmark.Name} in {expected.CityName}"
+                : $"Correct! {expected.Landmark.Name}";
             _feedbackSeverity = Severity.Success;
         }
         else
         {
-            _results.Add(new() { LandmarkId = expected.Id, IsCorrect = false, Label = "wrong answer" });
-            _feedbackMessage = $"Wrong! The answer was: {expected.Name}";
+            _results.Add(new()
+            {
+                LandmarkId = expected.Landmark.Id,
+                IsCorrect = false,
+                Label = BuildResultLabel("wrong answer", expected)
+            });
+
+            _feedbackMessage = IsFavoritesQuiz
+                ? $"Wrong! The answer was: {expected.Landmark.Name} in {expected.CityName}"
+                : $"Wrong! The answer was: {expected.Landmark.Name}";
             _feedbackSeverity = Severity.Error;
         }
 
-        _currentGuess = "";
+        _currentGuess = string.Empty;
         await MoveToNextAsync();
     }
 
     private async Task SkipLandmark()
     {
-        var expected = _landmarks[_currentIndex];
-        _results.Add(new() { LandmarkId = expected.Id, IsCorrect = false, Label = "skipped" });
-        _feedbackMessage = $"The answer was: {expected.Name}";
+        var expected = CurrentLandmark;
+
+        _results.Add(new()
+        {
+            LandmarkId = expected.Landmark.Id,
+            IsCorrect = false,
+            Label = BuildResultLabel("skipped", expected)
+        });
+
+        _feedbackMessage = IsFavoritesQuiz
+            ? $"The answer was: {expected.Landmark.Name} in {expected.CityName}"
+            : $"The answer was: {expected.Landmark.Name}";
         _feedbackSeverity = Severity.Error;
         _currentGuess = string.Empty;
+
         await MoveToNextAsync();
     }
 
@@ -251,7 +398,7 @@ else if (!_quizFinished && _landmarks.Count > 0 && _currentIndex < _landmarks.Co
     {
         _currentIndex++;
 
-        if (_currentIndex >= _landmarks.Count)
+        if (_currentIndex >= _quizLandmarks.Count)
             await FinishQuizAsync();
     }
 
@@ -263,22 +410,45 @@ else if (!_quizFinished && _landmarks.Count > 0 && _currentIndex < _landmarks.Co
         _quizFinished = true;
         _timer?.Stop();
 
-        for (var i = _results.Count; i < _landmarks.Count; i++)
+        for (var i = _results.Count; i < _quizLandmarks.Count; i++)
         {
-            _results.Add(new() { LandmarkId = _landmarks[i].Id, IsCorrect = false, Label = "timed out" });
+            _results.Add(new()
+            {
+                LandmarkId = _quizLandmarks[i].Landmark.Id,
+                IsCorrect = false,
+                Label = BuildResultLabel("timed out", _quizLandmarks[i])
+            });
+        }
+
+        if (_resultCityId == 0)
+        {
+            Navigation.NavigateTo("/favorites");
+            return;
         }
 
         var gameResult = new GameResult
         {
-            CityId = CityId,
+            CityId = CityId ?? _resultCityId,
             CorrectCount = _correctCount,
-            TotalCount = _landmarks.Count,
+            TotalCount = _quizLandmarks.Count,
             PlayedAt = DateTime.Now,
             Items = _results
         };
 
         var id = await GameService.SaveGameResultAsync(gameResult);
         Navigation.NavigateTo($"/results/{id}");
+    }
+
+    private string BuildResultLabel(string label, QuizLandmarkItem landmark)
+    {
+        return IsFavoritesQuiz
+            ? $"{label} • {landmark.CityName}"
+            : label;
+    }
+
+    private void NavigateBack()
+    {
+        Navigation.NavigateTo(IsFavoritesQuiz ? "/favorites" : "/");
     }
 
     public async ValueTask DisposeAsync()
@@ -288,4 +458,6 @@ else if (!_quizFinished && _landmarks.Count > 0 && _currentIndex < _landmarks.Co
         _timer?.Stop();
         _timer?.Dispose();
     }
+
+    private sealed record QuizLandmarkItem(int CityId, string CityName, Landmark Landmark);
 }

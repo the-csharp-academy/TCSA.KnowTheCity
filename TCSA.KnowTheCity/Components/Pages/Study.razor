@@ -1,4 +1,5 @@
 @page "/study"
+@using TCSA.KnowTheCity.Core.Enums
 @using TCSA.KnowTheCity.Core.Helpers
 @using TCSA.KnowTheCity.Core.Models
 @using TCSA.KnowTheCity.Core.Models.Domain
@@ -72,10 +73,19 @@
                     }
 
                     <MudCardContent Class="study-city-card-content">
-                        <MudStack Spacing="1">
-                            <MudText Typo="Typo.h6" Class="study-city-card-title">@city.Name</MudText>
-                            <MudText Typo="Typo.caption" Class="study-city-card-caption">Open study guide</MudText>
-                        </MudStack>
+                        <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:start;">
+                            <MudStack Spacing="1">
+                                <MudText Typo="Typo.h6" Class="study-city-card-title">@city.Name</MudText>
+                                <MudText Typo="Typo.caption" Class="study-city-card-caption">Open study guide</MudText>
+                            </MudStack>
+
+                            @if (_countryFlagPaths.TryGetValue(city.Country, out var flagData) && !string.IsNullOrEmpty(flagData))
+                            {
+                                <img src="@flagData"
+                                     alt="@($"{FormatEnumValue(city.Country)} flag")"
+                                     style="width:52px;height:34px;object-fit:cover;border-radius:10px;" />
+                            }
+                        </div>
                     </MudCardContent>
                 </MudCard>
             </MudItem>
@@ -90,6 +100,7 @@
 
     private List<City> _cities = [];
     private readonly Dictionary<int, string> _cityImagePaths = [];
+    private readonly Dictionary<Country, string> _countryFlagPaths = [];
 
     private string CityCountLabel =>
         _cities.Count == 1 ? "1 city ready" : $"{_cities.Count} cities ready";
@@ -111,9 +122,54 @@
             {
                 _cityImagePaths[city.Id] = string.Empty;
             }
+
+            if (_countryFlagPaths.ContainsKey(city.Country))
+            {
+                continue;
+            }
+
+            try
+            {
+                var relativePath = GetCountryFlagImagePath(city.Country);
+                var localPath = await ImageCache.GetImagePathAsync(relativePath);
+                _countryFlagPaths[city.Country] = ImageHelpers.ConvertToBase64DataUri(localPath);
+            }
+            catch
+            {
+                _countryFlagPaths[city.Country] = string.Empty;
+            }
         }
 
         StateHasChanged();
+    }
+
+    private static string GetCountryFlagImagePath(Country country) =>
+        $"flags/{CityDataHelper.NormalizeForPath(country.ToString())}.png";
+
+    private static string FormatEnumValue<TEnum>(TEnum value)
+        where TEnum : struct, Enum
+    {
+        var text = value.ToString();
+
+        if (string.IsNullOrWhiteSpace(text))
+        {
+            return string.Empty;
+        }
+
+        var builder = new System.Text.StringBuilder(text.Length + 8);
+        builder.Append(text[0]);
+
+        for (var i = 1; i < text.Length; i++)
+        {
+            if (char.IsUpper(text[i]) && !char.IsUpper(text[i - 1]))
+            {
+                builder.Append(' ');
+            }
+
+            builder.Append(text[i]);
+        }
+
+        return builder.ToString();
     }
 
     private void NavigateToStudy(int cityId) => Navigation.NavigateTo($"study/{cityId}");

@@ -9,16 +9,12 @@
 <MudContainer MaxWidth="MaxWidth.Large" Class="pb-20">
     <MudPaper Elevation="0" Class="home-hero mb-6">
         <MudStack Spacing="3">
-            <MudChip T="string" Class="home-hero-chip" Variant="Variant.Filled" Size="Size.Medium">
-                Landmark Quiz
-            </MudChip>
-
             <MudText Typo="Typo.h4" Class="home-hero-title">
                 Pick a city and jump straight in
             </MudText>
 
             <MudText Typo="Typo.body1" Class="home-hero-subtitle">
-                Select a city to start the landmark quiz. This version uses your full brand palette so you can judge the look in-context.
+                Select a city to study or start the landmark quiz.
             </MudText>
 
             <MudStack Row="true" Spacing="2">
@@ -104,9 +100,7 @@
             {
                 <MudItem xs="6" sm="4" md="3">
                     <MudCard Elevation="6"
-                             Class="city-card vibrant-city-card"
-                             @onclick="() => NavigateToQuiz(city.Id)"
-                             Style="cursor:pointer;">
+                             Class="city-card vibrant-city-card">
                         @if (_cityImagePaths.TryGetValue(city.Id, out var imgData) && !string.IsNullOrEmpty(imgData))
                         {
                             <img src="@imgData" alt="@city.Name" style="width:100%;height:200px;object-fit:cover;" />
@@ -130,7 +124,8 @@
                                     {
                                         <img src="@flagData"
                                              alt="@($"{FormatEnumValue(city.Country)} flag")"
-                                             class="country-flag-image" />
+                                             class="country-flag-image"
+                                             style="width:44px;height:28px;object-fit:cover;" />
                                     }
 
                                     <MudChip T="string"
@@ -142,6 +137,20 @@
                                 </MudStack>
                             </MudStack>
                         </MudCardContent>
+                        <MudCardActions Class="d-flex justify-space-between w-100">
+                            <MudButton Variant="Variant.Filled"
+                                       Color="Color.Primary"
+                                       Size="Size.Medium"
+                                       OnClick="() => NavigateToQuiz(city.Id)">
+                                Quiz
+                            </MudButton>
+                            <MudButton Variant="Variant.Outlined"
+                                       Color="Color.Default"
+                                       Size="Size.Medium"
+                                       OnClick="() => NavigateToStudy(city.Id)">
+                                Study
+                            </MudButton>
+                        </MudCardActions>
                     </MudCard>
                 </MudItem>
             }
@@ -296,6 +305,8 @@
 
         return builder.ToString();
     }
+
+    private void NavigateToStudy(int cityId) => Navigation.NavigateTo($"study/{cityId}");
 
     private void NavigateToQuiz(int cityId) => Navigation.NavigateTo($"quiz/{cityId}");
 }

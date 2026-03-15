@@ -26,6 +26,14 @@
                     Landmarks saved: @_favoriteLandmarks.Count
                 </MudChip>
             </MudStack>
+
+            <MudButton Variant="Variant.Filled"
+                       Color="Color.Primary"
+                       StartIcon="@Icons.Material.Filled.Quiz"
+                       Disabled="@(_favoriteLandmarks.Count == 0)"
+                       OnClick="StartFavoritesQuiz">
+                Quiz favourite landmarks
+            </MudButton>
         </MudStack>
     </MudPaper>
 
@@ -137,7 +145,7 @@
                         @foreach (var landmark in _favoriteLandmarks)
                         {
                             var city = _cities.FirstOrDefault(c => c.Id == landmark.CityId);
-                            var landmarkName = city?.Landmarks.FirstOrDefault(l => l.Id == landmark.LandmarkId)?.Name ?? landmark.LandmarkId.ToString();
+                            var landmarkName = landmark.Landmark.Name;
                             var cityName = city?.Name ?? landmark.CityId.ToString();
 
                             <MudPaper Elevation="0" Class="favorites-item">
@@ -171,6 +179,9 @@
     [Inject]
     private ICityService CityService { get; set; } = default!;
 
+    [Inject]
+    private NavigationManager Navigation { get; set; } = default!;
+
     private List<City> _cities = [];
     private List<FavoriteCity> _favoriteCities = [];
     private List<FavoriteLandmark> _favoriteLandmarks = [];
@@ -185,6 +196,11 @@
     {
         _favoriteCities = await FavoriteService.GetFavoriteCitiesAsync();
         _favoriteLandmarks = await FavoriteService.GetFavoriteLandmarksAsync();
+    }
+
+    private void StartFavoritesQuiz()
+    {
+        Navigation.NavigateTo("/quiz/favorites");
     }
 
     private async Task RemoveFavoriteCityAsync(int cityId)

@@ -17,10 +17,6 @@
     {
         <MudPaper Elevation="0" Class="endgame-hero mb-6">
             <MudStack Spacing="3">
-                <MudChip T="string" Class="endgame-hero-chip" Variant="Variant.Filled" Size="Size.Medium">
-                    @GetHeadlineBadge()
-                </MudChip>
-
                 <MudText Typo="Typo.h4" Class="endgame-hero-title">
                     @GetHeadlineTitle()
                 </MudText>
@@ -93,7 +89,7 @@
 
                         <MudIconButton Icon="@(isFav ? Icons.Material.Filled.Star : Icons.Material.Outlined.StarBorder)"
                                        Class="@(isFav ? "endgame-favorite-button is-active" : "endgame-favorite-button")"
-                                       Size="Size.Large"
+                                       Size="Size.Medium"
                                        OnClick="() => ToggleFavoriteLandmarkAsync(item.Landmark.Id)" />
                     </div>
                 }
@@ -153,18 +149,6 @@
             var favorites = await FavoriteService.GetFavoriteLandmarksAsync(_city.Id);
             _favoriteLandmarkKeys = [.. favorites.Select(f => (f.CityId, f.LandmarkId))];
         }
-    }
-
-    private string GetHeadlineBadge()
-    {
-        if (_gameResult is null)
-            return string.Empty;
-
-        return _gameResult.CorrectCount == _gameResult.TotalCount
-            ? "Perfect round"
-            : GetAccuracy() >= 70
-                ? "Strong finish"
-                : "Quiz complete";
     }
 
     private string GetHeadlineTitle()

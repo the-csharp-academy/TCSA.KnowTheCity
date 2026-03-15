@@ -1,37 +1,152 @@
 ﻿@page "/"
+@using TCSA.KnowTheCity.Core.Enums
 @using TCSA.KnowTheCity.Core.Helpers
 @using TCSA.KnowTheCity.Core.Models
 @using TCSA.KnowTheCity.Core.Models.Domain
 @using TCSA.KnowTheCity.Core.Services
 @using TCSA.KnowTheCity.Services
 
-<MudContainer>
-    <MudText Typo="Typo.body1" Class="mb-4">Select a city to start the landmark quiz!</MudText>
+<MudContainer MaxWidth="MaxWidth.Large" Class="pb-20">
+    <MudPaper Elevation="0" Class="home-hero mb-6">
+        <MudStack Spacing="3">
+            <MudChip T="string" Class="home-hero-chip" Variant="Variant.Filled" Size="Size.Medium">
+                Landmark Quiz
+            </MudChip>
 
-    <MudGrid>
-        @foreach (var city in _cities)
-        {
-            <MudItem xs="6" sm="4" md="3">
-                <MudCard Elevation="3" 
-                    Class="city-card" @onclick="() => NavigateToQuiz(city.Id)" 
-                    Style="cursor:pointer;">
-                    @if (_cityImagePaths.TryGetValue(city.Id, out var imgData) && !string.IsNullOrEmpty(imgData))
-                    {
-                        <img src="@imgData" alt="@city.Name" style="width:100%;height:200px;object-fit:cover;" />
-                    }
-                    else
-                    {
-                        <div style="width:100%;height:200px;background:#e0e0e0;display:flex;align-items:center;justify-content:center;">
-                            <MudProgressCircular Indeterminate="true" Size="Size.Small" />
-                        </div>
-                    }
-                    <MudCardContent Class="d-flex justify-center">
-                        <MudText Typo="Typo.h6">@city.Name</MudText>
-                    </MudCardContent>
-                </MudCard>
+            <MudText Typo="Typo.h4" Class="home-hero-title">
+                Pick a city and jump straight in
+            </MudText>
+
+            <MudText Typo="Typo.body1" Class="home-hero-subtitle">
+                Select a city to start the landmark quiz. This version uses your full brand palette so you can judge the look in-context.
+            </MudText>
+
+            <MudStack Row="true" Spacing="2">
+                <MudChip T="string" Class="brand-chip brand-chip-sky" Variant="Variant.Filled">Sky blue accent</MudChip>
+                <MudChip T="string" Class="brand-chip brand-chip-gold" Variant="Variant.Filled">Golden highlights</MudChip>
+                <MudChip T="string" Class="brand-chip brand-chip-orange" Variant="Variant.Filled">Warm action color</MudChip>
+            </MudStack>
+        </MudStack>
+    </MudPaper>
+
+    <MudPaper Elevation="0" Class="mb-6 pa-4">
+        <MudGrid Spacing="2">
+            <MudItem xs="12" md="4">
+                <MudTextField T="string"
+                              Label="Search by city"
+                              Value="@_citySearchTerm"
+                              ValueChanged="OnCitySearchChanged"
+                              Immediate="true"
+                              Clearable="true"
+                              Variant="Variant.Outlined"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.Search" />
             </MudItem>
-        }
-    </MudGrid>
+
+            <MudItem xs="12" md="3">
+                <MudSelect T="Country?"
+                           Label="Filter by country"
+                           Value="@_selectedCountry"
+                           ValueChanged="OnCountryChanged"
+                           Clearable="true"
+                           Variant="Variant.Outlined">
+                    @foreach (var country in _countries)
+                    {
+                        <MudSelectItem T="Country?" Value="@((Country?)country)">
+                            @FormatEnumValue(country)
+                        </MudSelectItem>
+                    }
+                </MudSelect>
+            </MudItem>
+
+            <MudItem xs="12" md="3">
+                <MudSelect T="Continent?"
+                           Label="Filter by continent"
+                           Value="@_selectedContinent"
+                           ValueChanged="OnContinentChanged"
+                           Clearable="true"
+                           Variant="Variant.Outlined">
+                    @foreach (var continent in _continents)
+                    {
+                        <MudSelectItem T="Continent?" Value="@((Continent?)continent)">
+                            @FormatEnumValue(continent)
+                        </MudSelectItem>
+                    }
+                </MudSelect>
+            </MudItem>
+
+            <MudItem xs="12" md="2" Class="d-flex align-center">
+                <MudButton Variant="Variant.Outlined"
+                           Color="Color.Default"
+                           FullWidth="true"
+                           OnClick="ClearFiltersAsync">
+                    Clear filters
+                </MudButton>
+            </MudItem>
+        </MudGrid>
+    </MudPaper>
+
+    @if (_isLoading)
+    {
+        <MudProgressLinear Indeterminate="true" Color="Color.Info" Class="mb-4" />
+    }
+
+    @if (_cities.Count == 0 && !_isLoading)
+    {
+        <MudAlert Severity="Severity.Info" Variant="Variant.Outlined">
+            No cities match the current filters.
+        </MudAlert>
+    }
+    else
+    {
+        <MudGrid>
+            @foreach (var city in _cities)
+            {
+                <MudItem xs="6" sm="4" md="3">
+                    <MudCard Elevation="6"
+                             Class="city-card vibrant-city-card"
+                             @onclick="() => NavigateToQuiz(city.Id)"
+                             Style="cursor:pointer;">
+                        @if (_cityImagePaths.TryGetValue(city.Id, out var imgData) && !string.IsNullOrEmpty(imgData))
+                        {
+                            <img src="@imgData" alt="@city.Name" style="width:100%;height:200px;object-fit:cover;" />
+                        }
+                        else
+                        {
+                            <div class="city-card-placeholder">
+                                <MudProgressCircular Indeterminate="true" Color="Color.Info" Size="Size.Small" />
+                            </div>
+                        }
+
+                        <MudCardContent Class="vibrant-city-card-content">
+                            <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Start">
+                                <MudStack Spacing="1">
+                                    <MudText Typo="Typo.h6" Class="vibrant-city-card-title">@city.Name</MudText>
+                                    <MudText Typo="Typo.body2" Class="city-card-country">@FormatEnumValue(city.Country)</MudText>
+                                </MudStack>
+
+                                <MudStack Spacing="1" AlignItems="AlignItems.End">
+                                    @if (_countryFlagPaths.TryGetValue(city.Country, out var flagData) && !string.IsNullOrEmpty(flagData))
+                                    {
+                                        <img src="@flagData"
+                                             alt="@($"{FormatEnumValue(city.Country)} flag")"
+                                             class="country-flag-image" />
+                                    }
+
+                                    <MudChip T="string"
+                                             Class="vibrant-city-card-continent"
+                                             Variant="Variant.Filled"
+                                             Size="Size.Small">
+                                        @FormatEnumValue(city.Continent)
+                                    </MudChip>
+                                </MudStack>
+                            </MudStack>
+                        </MudCardContent>
+                    </MudCard>
+                </MudItem>
+            }
+        </MudGrid>
+    }
 </MudContainer>
 
 @code {
@@ -40,25 +155,57 @@
     [Inject] private IImageCacheService ImageCache { get; set; } = default!;
     [Inject] private NavigationManager Navigation { get; set; } = default!;
 
-    private List<City> _cities = [];
+    private readonly Continent[] _continents = Enum.GetValues<Continent>();
     private readonly Dictionary<int, string> _cityImagePaths = [];
+    private readonly Dictionary<Country, string> _countryFlagPaths = [];
+
+    private List<City> _cities = [];
+    private List<Country> _countries = [];
+    private string _citySearchTerm = string.Empty;
+    private Country? _selectedCountry;
+    private Continent? _selectedContinent;
+    private bool _isLoading;
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
             await SyncService.SyncCitiesAndMonumentsIfNeededAsync();
-        } 
+        }
         catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
         }
 
-        _cities = await CityService.GetCitiesAsync();
-        StateHasChanged();
+        _countries = await CityService.GetCountriesWithCitiesAsync();
+        await LoadCitiesAsync();
+    }
 
-        foreach (var city in _cities)
+    private async Task LoadCitiesAsync()
+    {
+        _isLoading = true;
+
+        try
         {
+            _cities = await CityService.GetCitiesAsync(_citySearchTerm, _selectedCountry, _selectedContinent);
+            await LoadCityImagesAsync(_cities);
+            await LoadCountryFlagsAsync(_cities);
+        }
+        finally
+        {
+            _isLoading = false;
+        }
+    }
+
+    private async Task LoadCityImagesAsync(IEnumerable<City> cities)
+    {
+        foreach (var city in cities)
+        {
+            if (_cityImagePaths.ContainsKey(city.Id))
+            {
+                continue;
+            }
+
             try
             {
                 var relativePath = CityDataHelper.GetCityImagePath(city.Name);
@@ -70,8 +217,84 @@
                 _cityImagePaths[city.Id] = string.Empty;
             }
         }
+    }
 
-        StateHasChanged();
+    private async Task LoadCountryFlagsAsync(IEnumerable<City> cities)
+    {
+        foreach (var city in cities)
+        {
+            if (_countryFlagPaths.ContainsKey(city.Country))
+            {
+                continue;
+            }
+
+            try
+            {
+                var relativePath = GetCountryFlagImagePath(city.Country);
+                var localPath = await ImageCache.GetImagePathAsync(relativePath);
+                _countryFlagPaths[city.Country] = ImageHelpers.ConvertToBase64DataUri(localPath);
+            }
+            catch
+            {
+                _countryFlagPaths[city.Country] = string.Empty;
+            }
+        }
+    }
+
+    private async Task OnCitySearchChanged(string? value)
+    {
+        _citySearchTerm = value ?? string.Empty;
+        await LoadCitiesAsync();
+    }
+
+    private async Task OnCountryChanged(Country? value)
+    {
+        _selectedCountry = value;
+        await LoadCitiesAsync();
+    }
+
+    private async Task OnContinentChanged(Continent? value)
+    {
+        _selectedContinent = value;
+        await LoadCitiesAsync();
+    }
+
+    private async Task ClearFiltersAsync()
+    {
+        _citySearchTerm = string.Empty;
+        _selectedCountry = null;
+        _selectedContinent = null;
+
+        await LoadCitiesAsync();
+    }
+
+    private static string GetCountryFlagImagePath(Country country) =>
+        $"flags/{CityDataHelper.NormalizeForPath(country.ToString())}.png";
+
+    private static string FormatEnumValue<TEnum>(TEnum value)
+        where TEnum : struct, Enum
+    {
+        var text = value.ToString();
+
+        if (string.IsNullOrWhiteSpace(text))
+        {
+            return string.Empty;
+        }
+
+        var builder = new System.Text.StringBuilder(text.Length + 8);
+        builder.Append(text[0]);
+
+        for (var i = 1; i < text.Length; i++)
+        {
+            if (char.IsUpper(text[i]) && !char.IsUpper(text[i - 1]))
+            {
+                builder.Append(' ');
+            }
+
+            builder.Append(text[i]);
+        }
+
+        return builder.ToString();
     }
 
     private void NavigateToQuiz(int cityId) => Navigation.NavigateTo($"quiz/{cityId}");

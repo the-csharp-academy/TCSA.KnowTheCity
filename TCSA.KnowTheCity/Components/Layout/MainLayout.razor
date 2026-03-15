@@ -1,35 +1,42 @@
 ﻿@using MudBlazor
+@using TCSA.KnowTheCity.Theme
 @inherits LayoutComponentBase
 
-<MudThemeProvider />
+<MudThemeProvider Theme="@AppTheme.Default" />
 <MudPopoverProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
 
 <MudLayout>
-    <MudAppBar Bottom="true" Color="Color.Success" Fixed="true" Elevation="2" Dense="true">
-        <MudIconButton Icon="@Icons.Material.Filled.Home"
-                       Variant="Variant.Filled"
-                       Color="Color.Primary"
-                       Href="/" />
-        <MudSpacer />
-        <MudText Typo="Typo.h6">Know The City</MudText>
-        <MudSpacer />
-        <MudIconButton Icon="@Icons.Material.Filled.MenuBook"
-                       Variant="Variant.Filled"
-                       Color="Color.Primary"
-                       Href="/study"
-                       Class="mx-1"/>
-        <MudIconButton Icon="@Icons.Material.Filled.Favorite"
-                       Variant="Variant.Filled"
-                       Color="Color.Primary"
-                       Href="/favorites"
-                       Class="mx-1" />
-        <MudIconButton Icon="@Icons.Material.Filled.History"
-                       Variant="Variant.Filled"
-                       Color="Color.Primary"
-                       Href="/history"
-                       Class="mx-1" />
+    <MudAppBar Bottom="true" Fixed="true" Dense="true" Elevation="0">
+        <MudContainer MaxWidth="MaxWidth.Large" Class="d-flex align-center px-0">
+            <MudIconButton Icon="@Icons.Material.Filled.Home"
+                           Variant="Variant.Text"
+                           Color="Color.Inherit"
+                           Href="/" />
+
+            <MudSpacer />
+
+            <MudText Typo="Typo.h6">Know The City</MudText>
+
+            <MudSpacer />
+
+            <MudIconButton Icon="@Icons.Material.Filled.MenuBook"
+                           Variant="Variant.Text"
+                           Color="Color.Inherit"
+                           Href="/study"
+                           Class="mx-1" />
+            <MudIconButton Icon="@Icons.Material.Filled.Favorite"
+                           Variant="Variant.Text"
+                           Color="Color.Inherit"
+                           Href="/favorites"
+                           Class="mx-1" />
+            <MudIconButton Icon="@Icons.Material.Filled.History"
+                           Variant="Variant.Text"
+                           Color="Color.Inherit"
+                           Href="/history"
+                           Class="mx-1" />
+        </MudContainer>
     </MudAppBar>
 
     <MudMainContent Class="pa-4 mt-2">

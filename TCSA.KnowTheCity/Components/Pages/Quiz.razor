@@ -12,9 +12,9 @@
 @if (_isLoading)
 {
     <MudContainer MaxWidth="MaxWidth.Medium">
-        <MudPaper Elevation="6" Class="py-10 px-20 rounded-xl">
+        <MudPaper Elevation="6" Class="quiz-loading-shell py-10 px-6 rounded-xl">
             <MudStack AlignItems="AlignItems.Center" Spacing="4">
-                <MudProgressCircular Color="Color.Primary" Indeterminate="true" Size="Size.Large" />
+                <MudProgressCircular Color="Color.Info" Indeterminate="true" Size="Size.Large" />
                 <MudText Typo="Typo.h6">Loading images… @_imagesLoaded / @_landmarks.Count</MudText>
             </MudStack>
         </MudPaper>
@@ -23,57 +23,71 @@
 else if (!_quizFinished && _landmarks.Count > 0 && _currentIndex < _landmarks.Count)
 {
     <MudContainer MaxWidth="MaxWidth.Medium">
-        <MudPaper
-            Elevation="6"
-            Class="py-4 px-20 rounded-xl overflow-hidden">
-
-            <MudStack AlignItems="AlignItems.Start" Justify="Justify.SpaceBetween" Class="mb-3">
-                <MudStack Row="true" Spacing="5" AlignItems="AlignItems.Center">
+        <MudPaper Elevation="8" Class="quiz-shell py-4 px-6 rounded-xl overflow-hidden">
+            <MudStack Spacing="3" Class="mb-3">
+                <MudStack Row="true" Spacing="2" AlignItems="AlignItems.Center">
                     <MudChip T="string"
-                             Color="Color.Success"
+                             Class="quiz-city-chip"
+                             Variant="Variant.Filled"
+                             Size="Size.Large">
+                        @_cityName
+                    </MudChip>
+
+                    <MudChip T="string"
+                             Class="quiz-stage-chip"
                              Variant="Variant.Filled"
                              Size="Size.Large">
                         Quiz @(_currentIndex + 1)/@_landmarks.Count
                     </MudChip>
+
                     <MudChip T="string"
-                             Color="@(_timeRemaining <= 10 ? Color.Error : Color.Warning)"
+                             Class="quiz-score-chip"
+                             Variant="Variant.Filled"
+                             Size="Size.Large">
+                        Score: @_correctCount
+                    </MudChip>
+
+                    <MudChip T="string"
+                             Class="@(_timeRemaining <= 10 ? "quiz-timer-chip-danger" : "quiz-timer-chip")"
                              Variant="Variant.Filled"
                              Icon="@Icons.Material.Filled.Timer"
                              Size="Size.Large">
                         @TimeSpan.FromSeconds(_timeRemaining).ToString("m\\:ss")
                     </MudChip>
-                    <MudChip T="string"
-                             Color="Color.Secondary"
-                             Variant="Variant.Filled"
-                             Size="Size.Large">
-                        Score: @_correctCount
-                    </MudChip>
-                    @if (!string.IsNullOrEmpty(_feedbackMessage))
-                    {
-                        <MudAlert Severity="@_feedbackSeverity" Variant="Variant.Filled" NoIcon Dense="true">
-                            @_feedbackMessage
-                        </MudAlert>
-                    }
                 </MudStack>
+
+                @if (!string.IsNullOrEmpty(_feedbackMessage))
+                {
+                    <MudAlert Severity="@_feedbackSeverity" Variant="Variant.Filled" Dense="true">
+                        @_feedbackMessage
+                    </MudAlert>
+                }
             </MudStack>
 
-                <MudProgressLinear Color="@(_timeRemaining <= 10 ? Color.Error : Color.Primary)"
+            <MudProgressLinear Color="@(_timeRemaining <= 10 ? Color.Error : Color.Primary)"
                                Value="@((_timeRemaining / 60.0) * 100)"
-                               Class="mb-4" Rounded="true" Size="Size.Large" />
+                               Class="@(_timeRemaining <= 10 ? "mb-4 quiz-progress-danger" : "mb-4 quiz-progress")"
+                               Rounded="true"
+                               Size="Size.Large" />
 
-            <MudText Typo="Typo.subtitle1" Align="Align.Center" Class="mb-2">
-                Landmark @(_currentIndex + 1) of @_landmarks.Count
-            </MudText>
+            <MudPaper Elevation="0" Class="quiz-question-banner pa-4 mb-4">
+                <MudText Typo="Typo.subtitle2" Class="quiz-question-subtitle">
+                    Landmark @(_currentIndex + 1) of @_landmarks.Count
+                </MudText>
+                <MudText Typo="Typo.h5" Class="quiz-question-title">
+                    Can you name this landmark?
+                </MudText>
+            </MudPaper>
 
-            <div style="border-radius:16px; overflow:hidden;">
+            <div class="quiz-image-frame mb-4">
                 @if (_cachedImagePaths.TryGetValue(_landmarks[_currentIndex].Name, out var imgData) && !string.IsNullOrEmpty(imgData))
                 {
                     <img src="@imgData" alt="Landmark" style="width:100%;height:400px;object-fit:cover;" />
                 }
                 else
                 {
-                    <div style="width:100%;height:400px;background:#e0e0e0;display:flex;align-items:center;justify-content:center;">
-                        <MudProgressCircular Indeterminate="true" Size="Size.Small" />
+                    <div class="quiz-image-placeholder">
+                        <MudProgressCircular Indeterminate="true" Color="Color.Info" Size="Size.Small" />
                     </div>
                 }
             </div>
@@ -82,20 +96,25 @@ else if (!_quizFinished && _landmarks.Count > 0 && _currentIndex < _landmarks.Co
                           Label="Name this landmark..."
                           Variant="Variant.Outlined"
                           Immediate="true"
+                          Class="mb-4"
                           OnKeyDown="HandleKeyDown" />
 
             <MudGrid Class="mb-3">
                 <MudItem xs="6">
-                    <MudButton Variant="Variant.Filled" Color="Color.Primary"
-                               FullWidth="true" OnClick="SubmitGuess"
-                               Style="height:56px;">
+                    <MudButton Variant="Variant.Filled"
+                               Color="Color.Primary"
+                               FullWidth="true"
+                               Class="quiz-action-button"
+                               OnClick="SubmitGuess">
                         Answer
                     </MudButton>
                 </MudItem>
                 <MudItem xs="6">
-                    <MudButton Variant="Variant.Filled" Color="Color.Error"
-                               FullWidth="true" OnClick="SkipLandmark"
-                               Style="height:56px;">
+                    <MudButton Variant="Variant.Filled"
+                               Color="Color.Warning"
+                               FullWidth="true"
+                               Class="quiz-action-button"
+                               OnClick="SkipLandmark">
                         Skip
                     </MudButton>
                 </MudItem>

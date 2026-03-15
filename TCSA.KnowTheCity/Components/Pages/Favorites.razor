@@ -3,87 +3,164 @@
 @using TCSA.KnowTheCity.Core.Models.Domain
 @using TCSA.KnowTheCity.Services
 
-<MudContainer Class="mt-5" MaxWidth="MaxWidth.Large">
-    <MudGrid>
+<MudContainer MaxWidth="MaxWidth.Large" Class="pb-8">
+    <MudPaper Elevation="0" Class="favorites-hero mb-6">
+        <MudStack Spacing="3">
+            <MudChip T="string" Class="home-hero-chip" Variant="Variant.Filled" Size="Size.Medium">
+                Saved Places
+            </MudChip>
 
-        <!-- Left: Favourite Cities -->
-        <MudItem xs="12" sm="6">
-            <MudPaper Elevation="2" Class="pa-4">
-                <MudText Typo="Typo.h6" GutterBottom="true">
-                    <MudIcon Icon="@Icons.Material.Filled.Favorite" Class="mr-2" />
-                    Favourite Cities
-                </MudText>
+            <MudText Typo="Typo.h4" Class="favorites-hero-title">
+                Keep your favourite places close
+            </MudText>
 
-                <MudDivider Class="mb-3" />
+            <MudText Typo="Typo.body1" Class="favorites-hero-subtitle">
+                Review the cities and landmarks you saved, then remove anything you no longer want to keep.
+            </MudText>
+
+            <MudStack Row="true" Spacing="2">
+                <MudChip T="string" Class="brand-chip brand-chip-gold" Variant="Variant.Filled">
+                    Cities saved: @_favoriteCities.Count
+                </MudChip>
+                <MudChip T="string" Class="brand-chip brand-chip-orange" Variant="Variant.Filled">
+                    Landmarks saved: @_favoriteLandmarks.Count
+                </MudChip>
+            </MudStack>
+        </MudStack>
+    </MudPaper>
+
+    <MudGrid Spacing="3">
+        <MudItem xs="12" md="6">
+            <MudPaper Elevation="0" Class="favorites-panel h-100">
+                <MudStack Row="true" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween" Class="mb-4">
+                    <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="2">
+                        <MudPaper Elevation="0" Class="favorites-icon-badge favorites-icon-badge-cities">
+                            <MudIcon Icon="@Icons.Material.Filled.Favorite" />
+                        </MudPaper>
+
+                        <MudStack Spacing="0">
+                            <MudText Typo="Typo.h6" Class="favorites-panel-title">
+                                Favourite Cities
+                            </MudText>
+                            <MudText Typo="Typo.body2" Class="favorites-panel-subtitle">
+                                Cities you've saved for later.
+                            </MudText>
+                        </MudStack>
+                    </MudStack>
+
+                    <MudChip T="string" Class="favorites-count-chip" Variant="Variant.Filled">
+                        @_favoriteCities.Count
+                    </MudChip>
+                </MudStack>
 
                 @if (_favoriteCities.Count == 0)
                 {
-                    <MudAlert Severity="Severity.Info" Variant="Variant.Outlined" Dense="true">
-                        No favourite cities yet.
-                    </MudAlert>
+                    <MudPaper Elevation="0" Class="favorites-empty-state">
+                        <MudStack AlignItems="AlignItems.Center" Spacing="1">
+                            <MudIcon Icon="@Icons.Material.Filled.FavoriteBorder" Size="Size.Large" Class="favorites-empty-icon" />
+                            <MudText Typo="Typo.subtitle1" Class="favorites-empty-title">
+                                No favourite cities yet
+                            </MudText>
+                            <MudText Typo="Typo.body2" Class="favorites-empty-text">
+                                Start saving cities from the home screen and they will appear here.
+                            </MudText>
+                        </MudStack>
+                    </MudPaper>
                 }
                 else
                 {
-                    @foreach (var city in _favoriteCities)
-                    {
-                        var cityName = _cities.FirstOrDefault(c => c.Id == city.CityId)?.Name ?? city.CityId.ToString();
-                        <MudListItem T="string" Class="px-0">
-                            <MudStack Row="true" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
-                                <MudText>@cityName</MudText>
-                                <MudIconButton Icon="@Icons.Material.Filled.Delete"
-                                               Color="Color.Error"
-                                               Size="Size.Small"
-                                               OnClick="() => RemoveFavoriteCityAsync(city.CityId)" />
-                            </MudStack>
-                        </MudListItem>
-                        <MudDivider />
-                    }
+                    <MudStack Spacing="2">
+                        @foreach (var city in _favoriteCities)
+                        {
+                            var cityName = _cities.FirstOrDefault(c => c.Id == city.CityId)?.Name ?? city.CityId.ToString();
+
+                            <MudPaper Elevation="0" Class="favorites-item">
+                                <MudStack Row="true" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween" Spacing="2">
+                                    <MudStack Spacing="0">
+                                        <MudText Typo="Typo.subtitle1" Class="favorites-item-title">@cityName</MudText>
+                                        <MudText Typo="Typo.caption" Class="favorites-item-subtitle">Saved city</MudText>
+                                    </MudStack>
+
+                                    <MudIconButton Icon="@Icons.Material.Filled.Delete"
+                                                   Color="Color.Error"
+                                                   Size="Size.Small"
+                                                   Class="favorites-delete-button"
+                                                   OnClick="() => RemoveFavoriteCityAsync(city.CityId)" />
+                                </MudStack>
+                            </MudPaper>
+                        }
+                    </MudStack>
                 }
             </MudPaper>
         </MudItem>
 
-        <!-- Right: Favourite Landmarks -->
-        <MudItem xs="12" sm="6">
-            <MudPaper Elevation="2" Class="pa-4">
-                <MudText Typo="Typo.h6" GutterBottom="true">
-                    <MudIcon Icon="@Icons.Material.Filled.Place" Class="mr-2" />
-                    Favourite Landmarks
-                </MudText>
+        <MudItem xs="12" md="6">
+            <MudPaper Elevation="0" Class="favorites-panel h-100">
+                <MudStack Row="true" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween" Class="mb-4">
+                    <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="2">
+                        <MudPaper Elevation="0" Class="favorites-icon-badge favorites-icon-badge-landmarks">
+                            <MudIcon Icon="@Icons.Material.Filled.Place" />
+                        </MudPaper>
 
-                <MudDivider Class="mb-3" />
+                        <MudStack Spacing="0">
+                            <MudText Typo="Typo.h6" Class="favorites-panel-title">
+                                Favourite Landmarks
+                            </MudText>
+                            <MudText Typo="Typo.body2" Class="favorites-panel-subtitle">
+                                Landmarks you've marked as must-see.
+                            </MudText>
+                        </MudStack>
+                    </MudStack>
+
+                    <MudChip T="string" Class="favorites-count-chip" Variant="Variant.Filled">
+                        @_favoriteLandmarks.Count
+                    </MudChip>
+                </MudStack>
 
                 @if (_favoriteLandmarks.Count == 0)
                 {
-                    <MudAlert Severity="Severity.Info" Variant="Variant.Outlined" Dense="true">
-                        No favourite landmarks yet.
-                    </MudAlert>
+                    <MudPaper Elevation="0" Class="favorites-empty-state">
+                        <MudStack AlignItems="AlignItems.Center" Spacing="1">
+                            <MudIcon Icon="@Icons.Material.Filled.Place" Size="Size.Large" Class="favorites-empty-icon" />
+                            <MudText Typo="Typo.subtitle1" Class="favorites-empty-title">
+                                No favourite landmarks yet
+                            </MudText>
+                            <MudText Typo="Typo.body2" Class="favorites-empty-text">
+                                Save landmarks during the quiz flow and they will show up here.
+                            </MudText>
+                        </MudStack>
+                    </MudPaper>
                 }
                 else
                 {
-                    @foreach (var landmark in _favoriteLandmarks)
-                    {
-                        var city = _cities.FirstOrDefault(c => c.Id == landmark.CityId);
-                        var landmarkName = city?.Landmarks.FirstOrDefault(l => l.Id == landmark.LandmarkId)?.Name ?? landmark.LandmarkId.ToString();
-                        var cityName = city?.Name ?? landmark.CityId.ToString();
+                    <MudStack Spacing="2">
+                        @foreach (var landmark in _favoriteLandmarks)
+                        {
+                            var city = _cities.FirstOrDefault(c => c.Id == landmark.CityId);
+                            var landmarkName = city?.Landmarks.FirstOrDefault(l => l.Id == landmark.LandmarkId)?.Name ?? landmark.LandmarkId.ToString();
+                            var cityName = city?.Name ?? landmark.CityId.ToString();
 
-                        <MudListItem T="string" Class="px-0">
-                            <MudStack Row="true" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
-                                <MudStack Spacing="0">
-                                    <MudText>@landmarkName</MudText>
-                                    <MudText Typo="Typo.caption" Color="Color.Secondary">@cityName</MudText>
+                            <MudPaper Elevation="0" Class="favorites-item">
+                                <MudStack Row="true" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween" Spacing="2">
+                                    <MudStack Spacing="1">
+                                        <MudText Typo="Typo.subtitle1" Class="favorites-item-title">@landmarkName</MudText>
+                                        <MudChip T="string" Class="favorites-city-chip" Variant="Variant.Filled" Size="Size.Small">
+                                            @cityName
+                                        </MudChip>
+                                    </MudStack>
+
+                                    <MudIconButton Icon="@Icons.Material.Filled.Delete"
+                                                   Color="Color.Error"
+                                                   Size="Size.Small"
+                                                   Class="favorites-delete-button"
+                                                   OnClick="() => RemoveFavoriteLandmarkAsync(landmark.CityId, landmark.LandmarkId)" />
                                 </MudStack>
-                                <MudIconButton Icon="@Icons.Material.Filled.Delete"
-                                               Color="Color.Error"
-                                               Size="Size.Small"
-                                               OnClick="() => RemoveFavoriteLandmarkAsync(landmark.CityId, landmark.LandmarkId)" />
-                            </MudStack>
-                        </MudListItem>
-                        <MudDivider />
-                    }
+                            </MudPaper>
+                        }
+                    </MudStack>
                 }
             </MudPaper>
         </MudItem>
-
     </MudGrid>
 </MudContainer>
 

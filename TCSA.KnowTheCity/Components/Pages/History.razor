@@ -3,90 +3,173 @@
 @using TCSA.KnowTheCity.Core.Models.Domain
 @using TCSA.KnowTheCity.Services
 
-<MudContainer Class="mt-5" MaxWidth="MaxWidth.Large">
+<MudContainer MaxWidth="MaxWidth.Large" Class="history-page pb-8">
+    <MudPaper Elevation="0" Class="history-hero mb-6">
+        <MudStack Spacing="3">
+            <MudChip T="string"
+                     Class="history-hero-chip"
+                     Variant="Variant.Filled"
+                     Icon="@Icons.Material.Filled.History">
+                Game History
+            </MudChip>
+
+            <MudText Typo="Typo.h4" Class="history-hero-title">
+                Review your recent quiz runs
+            </MudText>
+
+            <MudText Typo="Typo.body1" Class="history-hero-subtitle">
+                Filter by city and date to revisit previous games and track how well you know each place.
+            </MudText>
+
+            <MudStack Row="true" Spacing="2" Class="history-hero-chips">
+                <MudChip T="string"
+                         Class="brand-chip brand-chip-sky"
+                         Variant="Variant.Filled"
+                         Icon="@Icons.Material.Filled.LocationCity">
+                    @CityFilterLabel
+                </MudChip>
+
+                <MudChip T="string"
+                         Class="brand-chip brand-chip-gold"
+                         Variant="Variant.Filled"
+                         Icon="@Icons.Material.Filled.CalendarMonth">
+                    @DateRangeLabel
+                </MudChip>
+
+                <MudChip T="string"
+                         Class="brand-chip brand-chip-orange"
+                         Variant="Variant.Filled"
+                         Icon="@Icons.Material.Filled.Insights">
+                    @ResultCountLabel
+                </MudChip>
+            </MudStack>
+        </MudStack>
+    </MudPaper>
+
     <MudGrid>
-
-        <!-- Left: Search panel -->
         <MudItem xs="12" sm="4" md="3">
-            <MudPaper Elevation="2" Class="pa-4">
-                <MudText Typo="Typo.h6" GutterBottom="true">Search</MudText>
-
-                <MudSelect T="int?"
-                           Label="City"
-                           Variant="Variant.Outlined"
-                           @bind-Value="_selectedCityId"
-                           Clearable="true"
-                           Dense="true"
-                           Class="mb-4">
-                    @foreach (var city in _availableCities)
-                    {
-                        <MudSelectItem Value="@((int?)city.Id)">@city.Name</MudSelectItem>
-                    }
-                </MudSelect>
-
-                <MudDatePicker Label="From Date"
-                               Variant="Variant.Outlined"
-                               @bind-Date="_fromDate"
-                               Clearable="true"
-                               Class="mb-4" />
-
-                <MudDatePicker Label="To Date"
-                               Variant="Variant.Outlined"
-                               @bind-Date="_toDate"
-                               Clearable="true"
-                               Class="mb-4" />
-
-                <MudButton Variant="Variant.Filled"
-                           Color="Color.Primary"
-                           FullWidth="true"
-                           OnClick="ApplySearch"
-                           StartIcon="@Icons.Material.Filled.Search">
+            <MudPaper Elevation="4" Class="history-panel history-filter-panel pa-4 h-100">
+                <MudText Typo="Typo.h6" Class="history-section-title" GutterBottom="true">
+                    <MudIcon Icon="@Icons.Material.Filled.Tune" Class="mr-2" />
                     Search
-                </MudButton>
+                </MudText>
 
-                <MudButton Variant="Variant.Outlined"
-                           Color="Color.Secondary"
-                           FullWidth="true"
-                           OnClick="ClearSearch"
-                           StartIcon="@Icons.Material.Filled.Clear"
-                           Class="mt-2">
-                    Clear
-                </MudButton>
+                <MudText Typo="Typo.body2" Class="history-section-subtitle">
+                    Narrow results by city and date range.
+                </MudText>
+
+                <MudDivider Class="my-3" />
+
+                <MudStack Spacing="2">
+                    <MudSelect T="int?"
+                               Label="City"
+                               Variant="Variant.Outlined"
+                               @bind-Value="_selectedCityId"
+                               Clearable="true"
+                               Dense="true">
+                        @foreach (var city in _availableCities)
+                        {
+                            <MudSelectItem Value="@((int?)city.Id)">@city.Name</MudSelectItem>
+                        }
+                    </MudSelect>
+
+                    <MudDatePicker Label="From Date"
+                                   Variant="Variant.Outlined"
+                                   @bind-Date="_fromDate"
+                                   Clearable="true" />
+
+                    <MudDatePicker Label="To Date"
+                                   Variant="Variant.Outlined"
+                                   @bind-Date="_toDate"
+                                   Clearable="true" />
+
+                    <MudButton Variant="Variant.Filled"
+                               Color="Color.Primary"
+                               FullWidth="true"
+                               Class="history-filter-button"
+                               OnClick="ApplySearch"
+                               StartIcon="@Icons.Material.Filled.Search">
+                        Search
+                    </MudButton>
+
+                    <MudButton Variant="Variant.Outlined"
+                               Color="Color.Secondary"
+                               FullWidth="true"
+                               Class="history-clear-button"
+                               OnClick="ClearSearch"
+                               StartIcon="@Icons.Material.Filled.Clear">
+                        Clear
+                    </MudButton>
+                </MudStack>
             </MudPaper>
         </MudItem>
 
-        <!-- Right: Results -->
         <MudItem xs="12" sm="8" md="9">
-            @if (_gameResults.Count == 0)
-            {
-                <MudAlert Severity="Severity.Info" Variant="Variant.Outlined">
-                    No games found. Try a different search or go play a quiz!
-                </MudAlert>
-            }
-            else
-            {
-                <MudTable Items="@_gameResults" Hover="true" Striped="true" Elevation="2">
-                    <HeaderContent>
-                        <MudTh>Date</MudTh>
-                        <MudTh>City</MudTh>
-                        <MudTh>Score</MudTh>
-                    </HeaderContent>
-                    <RowTemplate>
-                        <MudTd DataLabel="Date">@context.PlayedAt.ToString("MM/dd/yyyy HH:mm")</MudTd>
-                        <MudTd DataLabel="City">@context.City.Name</MudTd>
-                        <MudTd DataLabel="Score">
-                            <MudChip T="string"
-                                     Color="@(context.CorrectCount == context.TotalCount ? Color.Success : Color.Default)"
-                                     Variant="Variant.Filled"
-                                     Size="Size.Small">
-                                @context.Score
-                            </MudChip>
-                        </MudTd>
-                    </RowTemplate>
-                </MudTable>
-            }
-        </MudItem>
+            <MudPaper Elevation="4" Class="history-panel history-results-panel pa-4">
+                <MudStack Row="true"
+                          AlignItems="AlignItems.Center"
+                          Justify="Justify.SpaceBetween"
+                          Class="mb-3">
+                    <MudStack Spacing="0">
+                        <MudText Typo="Typo.h6" Class="history-section-title">
+                            <MudIcon Icon="@Icons.Material.Filled.Insights" Class="mr-2" />
+                            Results
+                        </MudText>
 
+                        <MudText Typo="Typo.body2" Class="history-section-subtitle">
+                            Your latest quiz attempts across all cities.
+                        </MudText>
+                    </MudStack>
+
+                    <MudChip T="string"
+                             Class="history-results-chip"
+                             Variant="Variant.Filled">
+                        @ResultCountLabel
+                    </MudChip>
+                </MudStack>
+
+                <MudDivider Class="mb-3" />
+
+                @if (_gameResults.Count == 0)
+                {
+                    <MudAlert Severity="Severity.Info"
+                              Variant="Variant.Outlined"
+                              Dense="true"
+                              Class="history-empty-state">
+                        No games found. Try a different search or go play a quiz.
+                    </MudAlert>
+                }
+                else
+                {
+                    <MudTable Items="@_gameResults"
+                              Hover="true"
+                              Striped="true"
+                              Elevation="0"
+                              Breakpoint="Breakpoint.Sm"
+                              Class="history-table">
+                        <HeaderContent>
+                            <MudTh>Date</MudTh>
+                            <MudTh>City</MudTh>
+                            <MudTh>Score</MudTh>
+                        </HeaderContent>
+                        <RowTemplate>
+                            <MudTd DataLabel="Date">@context.PlayedAt.ToString("MM/dd/yyyy HH:mm")</MudTd>
+                            <MudTd DataLabel="City">
+                                <MudText Class="history-city-name">@context.City.Name</MudText>
+                            </MudTd>
+                            <MudTd DataLabel="Score">
+                                <MudChip T="string"
+                                         Class="@GetScoreChipClass(context)"
+                                         Variant="Variant.Filled"
+                                         Size="Size.Small">
+                                    @context.Score
+                                </MudChip>
+                            </MudTd>
+                        </RowTemplate>
+                    </MudTable>
+                }
+            </MudPaper>
+        </MudItem>
     </MudGrid>
 </MudContainer>
 
@@ -102,6 +185,19 @@
     private int? _selectedCityId;
     private DateTime? _fromDate;
     private DateTime? _toDate;
+
+    private string ResultCountLabel =>
+        _gameResults.Count == 1 ? "1 game found" : $"{_gameResults.Count} games found";
+
+    private string CityFilterLabel =>
+        _selectedCityId is int cityId
+            ? _availableCities.FirstOrDefault(city => city.Id == cityId)?.Name ?? "Selected city"
+            : "All cities";
+
+    private string DateRangeLabel =>
+        _fromDate is null && _toDate is null
+            ? "All dates"
+            : $"{_fromDate?.ToString("MM/dd/yyyy") ?? "Any"} - {_toDate?.ToString("MM/dd/yyyy") ?? "Any"}";
 
     protected override async Task OnInitializedAsync()
     {
@@ -124,9 +220,11 @@
 
     private async Task LoadResultsAsync()
     {
-        if (_selectedCityId != null)
-        {
-            _gameResults = await GameService.GetGameHistoryAsync(_selectedCityId.Value, _fromDate, _toDate);
-        }
+        _gameResults = await GameService.GetGameHistoryAsync(_selectedCityId, _fromDate, _toDate);
     }
+
+    private static string GetScoreChipClass(GameResult result) =>
+        result.CorrectCount == result.TotalCount
+            ? "history-score-chip history-score-chip-perfect"
+            : "history-score-chip history-score-chip-standard";
 }

@@ -1,0 +1,43 @@
+.vibrant-city-card-content {
+    padding-top: 14px;
+    padding-bottom: 16px;
+}
+
+.city-card-details-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 12px;
+    align-items: center;
+}
+
+.city-card-details-main {
+    display: grid;
+    gap: 6px;
+    min-width: 0;
+}
+
+.city-card-country {
+    color: var(--mud-palette-text-primary);
+}
+
+.vibrant-city-card-continent {
+    width: fit-content;
+    background-color: rgba(34, 139, 230, 0.16);
+    color: #1f5fbf;
+    font-weight: 600;
+}
+
+.city-card-flag-container {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+}
+
+.country-flag-image {
+    width: 52px;
+    height: 34px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}

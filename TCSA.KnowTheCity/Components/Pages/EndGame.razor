@@ -3,64 +3,121 @@
 @using TCSA.KnowTheCity.Core.Models.Domain
 @using TCSA.KnowTheCity.Services
 
-<MudContainer MaxWidth="MaxWidth.Small">
+<MudContainer MaxWidth="MaxWidth.Medium" Class="pb-8">
     @if (_gameResult is null)
     {
-        <MudProgressCircular Indeterminate="true" Class="d-flex mx-auto mt-8" />
+        <MudPaper Elevation="6" Class="quiz-loading-shell py-10 px-6 rounded-xl">
+            <MudStack AlignItems="AlignItems.Center" Spacing="4">
+                <MudProgressCircular Color="Color.Info" Indeterminate="true" Size="Size.Large" />
+                <MudText Typo="Typo.h6">Loading your results…</MudText>
+            </MudStack>
+        </MudPaper>
     }
     else
     {
-        <MudText Typo="Typo.h4" Align="Align.Center" GutterBottom="true">
-            @(_gameResult.CorrectCount == _gameResult.TotalCount ? "?? Perfect Score!" : "Quiz Complete!")
-        </MudText>
+        <MudPaper Elevation="0" Class="endgame-hero mb-6">
+            <MudStack Spacing="3">
+                <MudChip T="string" Class="endgame-hero-chip" Variant="Variant.Filled" Size="Size.Medium">
+                    @GetHeadlineBadge()
+                </MudChip>
 
-        <MudText Typo="Typo.h6" Align="Align.Center" Class="mb-2">
-            You got <b>@_gameResult.CorrectCount</b> out of <b>@_gameResult.TotalCount</b> landmarks
-        </MudText>
+                <MudText Typo="Typo.h4" Class="endgame-hero-title">
+                    @GetHeadlineTitle()
+                </MudText>
 
-        <MudDivider Class="mb-4" />
+                <MudText Typo="Typo.body1" Class="endgame-hero-subtitle">
+                    You got <b>@_gameResult.CorrectCount</b> out of <b>@_gameResult.TotalCount</b> landmarks correct in
+                    <b>@_city?.Name</b>.
+                </MudText>
+            </MudStack>
+        </MudPaper>
 
-        <MudList T="string">
-            @foreach (var item in _gameResult.Items)
-            {
-                var isFav = _favoriteLandmarkKeys.Contains((_city!.Id, item.Landmark.Id));
+        <MudGrid Class="mb-4">
+            <MudItem xs="4">
+                <MudPaper Elevation="0" Class="endgame-stat-card endgame-stat-card-score pa-4">
+                    <MudText Typo="Typo.overline" Class="endgame-stat-label">Score</MudText>
+                    <MudText Typo="Typo.h4" Class="endgame-stat-value">@_gameResult.CorrectCount/@_gameResult.TotalCount</MudText>
+                </MudPaper>
+            </MudItem>
+            <MudItem xs="4">
+                <MudPaper Elevation="0" Class="endgame-stat-card endgame-stat-card-accuracy pa-4">
+                    <MudText Typo="Typo.overline" Class="endgame-stat-label">Accuracy</MudText>
+                    <MudText Typo="Typo.h4" Class="endgame-stat-value">@GetAccuracyText()</MudText>
+                </MudPaper>
+            </MudItem>
+            <MudItem xs="4">
+                <MudPaper Elevation="0" Class="endgame-stat-card endgame-stat-card-city pa-4">
+                    <MudText Typo="Typo.overline" Class="endgame-stat-label">City</MudText>
+                    <MudText Typo="Typo.h6" Class="endgame-stat-value">@_city?.Name</MudText>
+                </MudPaper>
+            </MudItem>
+        </MudGrid>
 
-                <MudListItem Icon="@(item.IsCorrect? Icons.Material.Filled.CheckCircle : Icons.Material.Filled.Cancel)"
-                             IconColor="@(item.IsCorrect? Color.Success: Color.Error)"
-                             IconSize="Size.Large">
-                    <MudStack Row="true" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
-                        <MudText Typo="Typo.h5">@item.Landmark.Name</MudText>
-                        <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
-                            @if (!item.IsCorrect)
-                            {
-                                <MudChip T="string" Size="Size.Medium" Color="Color.Error" Variant="Variant.Outlined">
-                                    @item.Label
+        <MudPaper Elevation="0" Class="endgame-results-shell pa-4">
+            <MudText Typo="Typo.h6" Class="endgame-section-title mb-3">
+                Landmark breakdown
+            </MudText>
+
+            <div class="endgame-result-list">
+                @foreach (var item in _gameResult.Items)
+                {
+                    var isFav = _favoriteLandmarkKeys.Contains((_city!.Id, item.Landmark.Id));
+
+                    <div class="endgame-result-row @(item.IsCorrect ? "endgame-result-row-correct" : "endgame-result-row-wrong")">
+                        <div class="endgame-result-icon @(item.IsCorrect ? "endgame-result-icon-correct" : "endgame-result-icon-wrong")">
+                            <MudIcon Icon="@(item.IsCorrect ? Icons.Material.Filled.Check : Icons.Material.Filled.Close)" />
+                        </div>
+
+                        <div class="endgame-result-content">
+                            <MudText Typo="Typo.h6" Class="endgame-result-title">@item.Landmark.Name</MudText>
+
+                            <MudStack Row="true" Spacing="1" AlignItems="AlignItems.Center">
+                                <MudChip T="string"
+                                         Class="@(item.IsCorrect ? "endgame-status-chip endgame-status-chip-correct" : "endgame-status-chip endgame-status-chip-wrong")"
+                                         Variant="Variant.Filled"
+                                         Size="Size.Small">
+                                    @(item.IsCorrect ? "Correct" : "Missed")
                                 </MudChip>
-                            }
-                            <MudIconButton Icon="@(isFav? Icons.Material.Filled.Star : Icons.Material.Outlined.StarBorder)"
-                                           Style="@(isFav ? "color: #FFD700;" : "")"
-                                           Size="Size.Large"
-                                           OnClick="() => ToggleFavoriteLandmarkAsync(item.Landmark.Id)" />
-                        </MudStack>
-                    </MudStack>
-                </MudListItem>
-            }
-        </MudList>
 
-        <MudDivider Class="mb-4 mt-2" />
+                                @if (!item.IsCorrect && !string.IsNullOrWhiteSpace(item.Label))
+                                {
+                                    <MudChip T="string"
+                                             Class="endgame-status-chip endgame-status-chip-detail"
+                                             Variant="Variant.Filled"
+                                             Size="Size.Small">
+                                        @item.Label
+                                    </MudChip>
+                                }
+                            </MudStack>
+                        </div>
 
-        <MudGrid>
+                        <MudIconButton Icon="@(isFav ? Icons.Material.Filled.Star : Icons.Material.Outlined.StarBorder)"
+                                       Class="@(isFav ? "endgame-favorite-button is-active" : "endgame-favorite-button")"
+                                       Size="Size.Large"
+                                       OnClick="() => ToggleFavoriteLandmarkAsync(item.Landmark.Id)" />
+                    </div>
+                }
+            </div>
+        </MudPaper>
+
+        <MudGrid Class="mt-4">
             <MudItem xs="6">
-                <MudButton Variant="Variant.Outlined" Color="Color.Primary"
-                           FullWidth="true" Href="@($"/quiz/{_city?.Id}")"
-                           StartIcon="@Icons.Material.Filled.Replay">
+                <MudButton Variant="Variant.Filled"
+                           Color="Color.Primary"
+                           FullWidth="true"
+                           Href="@($"/quiz/{_city?.Id}")"
+                           StartIcon="@Icons.Material.Filled.Replay"
+                           Class="quiz-action-button">
                     Play Again
                 </MudButton>
             </MudItem>
             <MudItem xs="6">
-                <MudButton Variant="Variant.Filled" Color="Color.Primary"
-                           FullWidth="true" Href="/"
-                           StartIcon="@Icons.Material.Filled.Home">
+                <MudButton Variant="Variant.Filled"
+                           Color="Color.Warning"
+                           FullWidth="true"
+                           Href="/"
+                           StartIcon="@Icons.Material.Filled.Home"
+                           Class="quiz-action-button">
                     Home
                 </MudButton>
             </MudItem>
@@ -68,7 +125,7 @@
     }
 </MudContainer>
 
-    @code {
+@code {
     [Parameter]
     public int GameResultId { get; set; }
 
@@ -94,15 +151,51 @@
             _city = _gameResult.City;
 
             var favorites = await FavoriteService.GetFavoriteLandmarksAsync(_city.Id);
-                _favoriteLandmarkKeys = [.. favorites.Select(f => (f.CityId, f.LandmarkId))];
+            _favoriteLandmarkKeys = [.. favorites.Select(f => (f.CityId, f.LandmarkId))];
         }
     }
 
+    private string GetHeadlineBadge()
+    {
+        if (_gameResult is null)
+            return string.Empty;
+
+        return _gameResult.CorrectCount == _gameResult.TotalCount
+            ? "Perfect round"
+            : GetAccuracy() >= 70
+                ? "Strong finish"
+                : "Quiz complete";
+    }
+
+    private string GetHeadlineTitle()
+    {
+        if (_gameResult is null)
+            return string.Empty;
+
+        return _gameResult.CorrectCount == _gameResult.TotalCount
+            ? "Perfect Score!"
+            : GetAccuracy() >= 70
+                ? "Great run!"
+                : "Nice effort!";
+    }
+
+    private int GetAccuracy()
+    {
+        if (_gameResult is null || _gameResult.TotalCount == 0)
+            return 0;
+
+        return (int)Math.Round((_gameResult.CorrectCount / (double)_gameResult.TotalCount) * 100);
+    }
+
+    private string GetAccuracyText() => $"{GetAccuracy()}%";
+
     private async Task ToggleFavoriteLandmarkAsync(int landmarkId)
     {
-        if (_city is null) return;
+        if (_city is null)
+            return;
 
         var key = (_city.Id, landmarkId);
+
         if (_favoriteLandmarkKeys.Contains(key))
         {
             await FavoriteService.RemoveFavoriteLandmarkAsync(_city.Id, landmarkId);

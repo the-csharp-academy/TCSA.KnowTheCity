@@ -8,7 +8,7 @@ public interface IGameService
 {
     Task<int> SaveGameResultAsync(GameResult gameResult);
     Task<GameResult?> GetGameResultAsync(int id);
-    Task<List<GameResult>> GetGameHistoryAsync(int cityId, DateTime? fromDate = null, DateTime? toDate = null);
+    Task<List<GameResult>> GetGameHistoryAsync(int? cityId = null, DateTime? fromDate = null, DateTime? toDate = null);
 }
 
 public class GameService(IDbContextFactory<KnowTheCityDbContext> dbFactory) : IGameService
@@ -32,15 +32,31 @@ public class GameService(IDbContextFactory<KnowTheCityDbContext> dbFactory) : IG
             .FirstOrDefaultAsync(g => g.Id == id);
     }
 
-    public async Task<List<GameResult>> GetGameHistoryAsync(int cityId, DateTime? fromDate = null, DateTime? toDate = null)
+    public async Task<List<GameResult>> GetGameHistoryAsync(int? cityId = null, DateTime? fromDate = null, DateTime? toDate = null)
     {
         await using var db = await dbFactory.CreateDbContextAsync();
 
-        return await db.GameResults
-            .AsNoTracking()
-            .Where(g => g.City.Name == db.Cities.Where(c => c.Id == cityId).Select(c => c.Name).FirstOrDefault())
-            .Where(g => fromDate == null || g.PlayedAt >= fromDate.Value)
-            .Where(g => toDate == null || g.PlayedAt <= toDate.Value.AddDays(1).AddTicks(-1))
+        IQueryable<GameResult> query = db.GameResults
+            .Include(r => r.City)
+            .AsNoTracking();
+
+        if (cityId.HasValue)
+        {
+            query = query.Where(g => g.CityId == cityId.Value);
+        }
+
+        if (fromDate.HasValue)
+        {
+            query = query.Where(g => g.PlayedAt >= fromDate.Value);
+        }
+
+        if (toDate.HasValue)
+        {
+            var endDate = toDate.Value.AddDays(1).AddTicks(-1);
+            query = query.Where(g => g.PlayedAt <= endDate);
+        }
+
+        return await query
             .OrderByDescending(g => g.PlayedAt)
             .ToListAsync();
     }

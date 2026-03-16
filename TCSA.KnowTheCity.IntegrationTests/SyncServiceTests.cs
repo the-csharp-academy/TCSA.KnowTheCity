@@ -66,7 +66,7 @@ public class SyncServiceTests
         var manifestClient = new ManifestClient(httpClient, options);
         var factory = new SyncServiceDbContextFactory(db);
 
-        return new SyncService(factory, options, manifestClient);
+        return new SyncService(factory, manifestClient);
     }
 
     // ---------------------------------------------------------------

@@ -27,5 +27,3 @@ The app follows the **Blazor Hybrid** pattern:
 - **Razor components** (`Home.razor`, `Quiz.razor`) handle all UI via MudBlazor.
 - **`CityData`** is a static helper class that serves as the single source of truth for city names, landmarks, and image path generation.
 - Image paths follow a normalized naming convention: `{city}-{landmark}.png` (lowercase, alphanumeric only), produced by `CityData.GetLandmarkImagePath()`.
-
-- Test

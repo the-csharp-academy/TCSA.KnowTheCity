@@ -5,6 +5,7 @@
       "remoteId": "paris-fr",
       "name": "Paris",
       "country": "France",
+      "continent": "Europe",
       "manifestPath": "/manifests/paris.json",
       "isActive": true
     },
@@ -12,6 +13,7 @@
       "remoteId": "london-uk",
       "name": "London",
       "country": "UnitedKingdom",
+      "continent": "Europe",
       "manifestPath": "/manifests/london.json",
       "isActive": true
     },
@@ -19,6 +21,7 @@
       "remoteId": "dubai-uae",
       "name": "Dubai",
       "country": "UnitedArabEmirates",
+      "continent": "Asia",
       "manifestPath": "/manifests/dubai.json",
       "isActive": true
     },
@@ -26,6 +29,7 @@
       "remoteId": "newyork-us",
       "name": "New York",
       "country": "UnitedStates",
+      "continent": "NorthAmerica",
       "manifestPath": "/manifests/newyork.json",
       "isActive": true
     },
@@ -33,13 +37,15 @@
       "remoteId": "tokyo-jp",
       "name": "Tokyo",
       "country": "Japan",
+      "continent": "Asia",
       "manifestPath": "/manifests/tokyo.json",
       "isActive": true
     },
     {
-      "remoteId": "beijing-ch",
+      "remoteId": "beijing-cn",
       "name": "Beijing",
       "country": "China",
+      "continent": "Asia",
       "manifestPath": "/manifests/beijing.json",
       "isActive": true
     },
@@ -47,7 +53,16 @@
       "remoteId": "brisbane-au",
       "name": "Brisbane",
       "country": "Australia",
+      "continent": "Oceania",
       "manifestPath": "/manifests/brisbane.json",
+      "isActive": true
+    },
+    {
+      "remoteId": "mexicocity-mx",
+      "name": "Mexico City",
+      "country": "Mexico",
+      "continent": "NorthAmerica",
+      "manifestPath": "/manifests/mexicocity.json",
       "isActive": true
     }
   ]

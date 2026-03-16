@@ -1,9 +1,4 @@
 {
-  "id": "dubai",
-  "name": "Dubai",
-  "country": "United Arab Emirates",
-  "continent": "Asia",
-  "imagePath": "img/cities/dubai.webp",
   "cityRemoteId": "dubai-uae",
   "version": "1.0",
   "monuments": [

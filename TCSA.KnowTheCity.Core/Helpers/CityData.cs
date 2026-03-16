@@ -98,12 +98,6 @@ public static class CityDataHelper
         }
     ];
 
-    public static string GetLandmarkImagePath(string cityName, string landmarkName) => 
-        $"landmarks/{NormalizeForPath(cityName)}-{NormalizeForPath(landmarkName)}.webp";
-        
-    public static string GetCityImagePath(string cityName) =>
-        $"cities/{NormalizeForPath(cityName)}.webp";
-
     public static string NormalizeForPath(string value)
     {
         var expanded = value

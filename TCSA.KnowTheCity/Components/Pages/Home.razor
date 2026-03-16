@@ -230,10 +230,15 @@
                 continue;
             }
 
+            if (string.IsNullOrWhiteSpace(city.ImagePath))
+            {
+                _cityImagePaths[city.Id] = string.Empty;
+                continue;
+            }
+
             try
             {
-                var relativePath = CityDataHelper.GetCityImagePath(city.Name);
-                var localPath = await ImageCache.GetImagePathAsync(relativePath);
+                var localPath = await ImageCache.GetImagePathAsync(city.ImagePath);
                 _cityImagePaths[city.Id] = ImageHelpers.ConvertToBase64DataUri(localPath);
             }
             catch

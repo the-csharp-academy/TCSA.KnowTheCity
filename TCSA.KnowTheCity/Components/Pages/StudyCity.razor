@@ -110,11 +110,9 @@
 
         foreach (var landmark in _landmarks)
         {
-            var relativePath = CityDataHelper.GetLandmarkImagePath(_cityName, landmark.Name);
-
             try
             {
-                var localPath = await ImageCacheService.GetImagePathAsync(relativePath);
+                var localPath = await ImageCacheService.GetImagePathAsync(landmark.ImagePath);
                 _cachedImagePaths[landmark.Name] = ImageHelpers.ConvertToBase64DataUri(localPath);
             }
             catch (Exception ex)

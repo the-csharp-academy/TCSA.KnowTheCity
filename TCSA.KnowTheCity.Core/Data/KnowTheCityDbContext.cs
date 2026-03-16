@@ -28,6 +28,7 @@ public class KnowTheCityDbContext(DbContextOptions<KnowTheCityDbContext> options
         {
             entity.HasKey(c => c.Id);
             entity.Property(c => c.Name).IsRequired();
+            entity.Property(c => c.ImagePath).IsRequired();
             entity.HasIndex(c => c.RemoteId).IsUnique();
             entity.HasMany(c => c.Landmarks)
                   .WithOne(l => l.City)
@@ -39,6 +40,7 @@ public class KnowTheCityDbContext(DbContextOptions<KnowTheCityDbContext> options
         {
             entity.HasKey(l => l.Id);
             entity.Property(l => l.Name).IsRequired();
+            entity.Property(l => l.ImagePath).IsRequired();
         });
 
         modelBuilder.Entity<FavoriteCity>(entity =>

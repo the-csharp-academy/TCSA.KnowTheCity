@@ -7,6 +7,7 @@
       "country": "France",
       "continent": "Europe",
       "manifestPath": "/manifests/paris.json",
+      "imagePath": "/cities/paris.webp",
       "dateAdded": "2026-03-01",
       "isActive": true
     },
@@ -15,6 +16,7 @@
       "name": "London",
       "country": "UnitedKingdom",
       "continent": "Europe",
+      "imagePath": "/cities/london.webp",
       "manifestPath": "/manifests/london.json",
       "dateAdded": "2026-03-01",
       "isActive": true
@@ -25,6 +27,7 @@
       "country": "UnitedArabEmirates",
       "continent": "Asia",
       "manifestPath": "/manifests/dubai.json",
+      "imagePath": "/cities/dubai.webp",
       "dateAdded": "2026-03-01",
       "isActive": true
     },
@@ -34,6 +37,7 @@
       "country": "UnitedStates",
       "continent": "NorthAmerica",
       "manifestPath": "/manifests/newyork.json",
+      "imagePath": "/cities/newyork.webp",
       "dateAdded": "2026-03-01",
       "isActive": true
     },
@@ -43,6 +47,7 @@
       "country": "Japan",
       "continent": "Asia",
       "manifestPath": "/manifests/tokyo.json",
+      "imagePath": "/cities/tokyo.webp",
       "dateAdded": "2026-03-01",
       "isActive": true
     },
@@ -52,6 +57,7 @@
       "country": "China",
       "continent": "Asia",
       "manifestPath": "/manifests/beijing.json",
+      "imagePath": "/cities/beijing.webp",
       "dateAdded": "2026-03-01",
       "isActive": true
     },
@@ -61,6 +67,7 @@
       "country": "Australia",
       "continent": "Oceania",
       "manifestPath": "/manifests/brisbane.json",
+      "imagePath": "/cities/brisbane.webp",
       "dateAdded": "2026-03-01",
       "isActive": true
     },
@@ -70,6 +77,7 @@
       "country": "Mexico",
       "continent": "NorthAmerica",
       "manifestPath": "/manifests/mexicocity.json",
+      "imagePath": "/cities/mexicocity.webp",
       "dateAdded": "2026-03-01",
       "isActive": true
     },
@@ -79,6 +87,7 @@
       "country": "Brazil",
       "continent": "SouthAmerica",
       "manifestPath": "/manifests/riodejaneiro.json",
+      "imagePath": "/cities/riodejaneiro.webp",
       "dateAdded": "2026-03-01",
       "isActive": true
     },
@@ -88,6 +97,7 @@
       "country": "Egypt",
       "continent": "Africa",
       "manifestPath": "/manifests/cairo.json",
+      "imagePath": "/cities/cairo.webp",
       "dateAdded": "2026-03-01",
       "isActive": true
     }

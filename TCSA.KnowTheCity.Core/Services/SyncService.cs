@@ -1,11 +1,9 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 using TCSA.KnowTheCity.Core.Clients;
 using TCSA.KnowTheCity.Core.Data;
 using TCSA.KnowTheCity.Core.Enums;
 using TCSA.KnowTheCity.Core.Models.Domain;
 using TCSA.KnowTheCity.Core.Models.DTOs;
-using TCSA.KnowTheCity.Core.Options;
 
 namespace TCSA.KnowTheCity.Core.Services;
 
@@ -15,21 +13,21 @@ public interface ISyncService
 }
 
 public class SyncService(
-    IDbContextFactory<KnowTheCityDbContext> _dbFactory,
-    IOptions<ConfigOptions> options,
-    IManifestClient _manifestClient
-    ) : ISyncService
+    IDbContextFactory<KnowTheCityDbContext> dbFactory,
+    IManifestClient manifestClient) : ISyncService
 {
     private static readonly DateTime DefaultManifestDateAdded = new(2026, 3, 1);
 
     public async Task SyncCitiesAndMonumentsIfNeededAsync(CancellationToken cancellationToken = default)
     {
-        await using var db = await _dbFactory.CreateDbContextAsync(cancellationToken);
+        await using var db = await dbFactory.CreateDbContextAsync(cancellationToken);
 
         if (!await IsSyncRequiredAsync(db, cancellationToken))
+        {
             return;
+        }
 
-        var citiesManifest = await _manifestClient.GetCitiesManifestAsync(cancellationToken);
+        var citiesManifest = await manifestClient.GetCitiesManifestAsync(cancellationToken);
 
         if (citiesManifest is null || citiesManifest.Cities.Count == 0)
         {
@@ -37,48 +35,36 @@ public class SyncService(
             return;
         }
 
-        var newCities = await GetNewCitiesAsync(db, citiesManifest, cancellationToken);
-        if (newCities.Count > 0)
-        {
-            await SyncCitiesAsync(db, newCities, cancellationToken);
-        }
+        var citiesByRemoteId = await SyncCitiesAsync(db, citiesManifest, cancellationToken);
 
         foreach (var cityManifest in citiesManifest.Cities)
         {
-            var city = await db.Cities.FirstOrDefaultAsync(x => x.RemoteId == cityManifest.RemoteId, cancellationToken);
-            if (city is null)
+            if (!citiesByRemoteId.TryGetValue(cityManifest.RemoteId, out var city))
+            {
                 continue;
+            }
 
             try
             {
-                var cityManifestDetails = await _manifestClient.GetCityManifestAsync(cityManifest.ManifestPath, cancellationToken);
+                var cityManifestDetails = await manifestClient.GetCityManifestAsync(cityManifest.ManifestPath, cancellationToken);
 
                 if (cityManifestDetails is null || cityManifestDetails.Monuments.Count == 0)
-                    continue;
-
-                var newMonuments = await GetNewMonumentsAsync(
-                    db,
-                    city.Id,
-                    cityManifestDetails,
-                    cancellationToken);
-
-                if (newMonuments.Count > 0)
                 {
-                    await db.Landmarks.AddRangeAsync(newMonuments, cancellationToken);
-                    await db.SaveChangesAsync(cancellationToken);
+                    continue;
                 }
+
+                await SyncMonumentsAsync(db, city.Id, cityManifestDetails, cancellationToken);
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error fetching manifest for city {city.Name}: {ex.Message}");
-                continue;
             }
         }
 
         await UpdateLastSyncUtcAsync(db, cancellationToken);
     }
 
-    private async Task<bool> IsSyncRequiredAsync(
+    private static async Task<bool> IsSyncRequiredAsync(
         KnowTheCityDbContext db,
         CancellationToken cancellationToken)
     {
@@ -90,6 +76,70 @@ public class SyncService(
         }
 
         return false;
+    }
+
+    private static async Task<Dictionary<string, City>> SyncCitiesAsync(
+        KnowTheCityDbContext db,
+        CitiesManifest manifest,
+        CancellationToken cancellationToken)
+    {
+        var cities = await db.Cities.ToListAsync(cancellationToken);
+        var citiesByRemoteId = cities.ToDictionary(x => x.RemoteId, StringComparer.OrdinalIgnoreCase);
+
+        var hasChanges = false;
+
+        foreach (var cityManifest in manifest.Cities)
+        {
+            if (citiesByRemoteId.TryGetValue(cityManifest.RemoteId, out var existingCity))
+            {
+                hasChanges |= ApplyCityManifest(existingCity, cityManifest);
+                continue;
+            }
+
+            var newCity = CreateCity(cityManifest);
+            db.Cities.Add(newCity);
+            citiesByRemoteId[newCity.RemoteId] = newCity;
+            hasChanges = true;
+        }
+
+        if (hasChanges)
+        {
+            await db.SaveChangesAsync(cancellationToken);
+        }
+
+        return citiesByRemoteId;
+    }
+
+    private static async Task SyncMonumentsAsync(
+        KnowTheCityDbContext db,
+        int cityId,
+        CityDetailsManifest manifest,
+        CancellationToken cancellationToken)
+    {
+        var landmarks = await db.Landmarks
+            .Where(x => x.CityId == cityId)
+            .ToListAsync(cancellationToken);
+
+        var landmarksByName = landmarks.ToDictionary(x => x.Name, StringComparer.OrdinalIgnoreCase);
+
+        var hasChanges = false;
+
+        foreach (var monumentManifest in manifest.Monuments)
+        {
+            if (landmarksByName.TryGetValue(monumentManifest.Name, out var existingLandmark))
+            {
+                hasChanges |= ApplyMonumentManifest(existingLandmark, monumentManifest);
+                continue;
+            }
+
+            db.Landmarks.Add(CreateLandmark(cityId, monumentManifest));
+            hasChanges = true;
+        }
+
+        if (hasChanges)
+        {
+            await db.SaveChangesAsync(cancellationToken);
+        }
     }
 
     public async Task<List<City>> GetNewCitiesAsync(
@@ -110,19 +160,7 @@ public class SyncService(
 
         return manifest.Cities
             .Where(x => !existingSet.Contains(x.RemoteId))
-            .Select(x => new City
-            {
-                RemoteId = x.RemoteId,
-                Name = x.Name,
-                Country = Enum.TryParse<Country>(x.Country, ignoreCase: true, out var country)
-                    ? country
-                    : default,
-                Continent = Enum.TryParse<Continent>(x.Continent, ignoreCase: true, out var continent)
-                    ? continent
-                    : default,
-                DateAdded = x.DateAdded ?? DefaultManifestDateAdded,
-                IsActive = x.IsActive
-            })
+            .Select(CreateCity)
             .ToList();
     }
 
@@ -145,23 +183,126 @@ public class SyncService(
 
         return manifest.Monuments
             .Where(x => !existingSet.Contains(x.Name))
-            .Select(x => new Landmark
-            {
-                Name = x.Name,
-                CityId = cityId,
-                DateAdded = x.DateAdded ?? DefaultManifestDateAdded
-            })
+            .Select(x => CreateLandmark(cityId, x))
             .ToList();
     }
 
-    private static async Task SyncCitiesAsync(
-        KnowTheCityDbContext db,
-        List<City> newCities,
-        CancellationToken cancellationToken)
+    private static City CreateCity(CityManifestItem manifestItem)
     {
-        await db.Cities.AddRangeAsync(newCities, cancellationToken);
-        await db.SaveChangesAsync(cancellationToken);
+        var country = Enum.TryParse<Country>(manifestItem.Country, ignoreCase: true, out var parsedCountry)
+            ? parsedCountry
+            : default;
+
+        var continent = Enum.TryParse<Continent>(manifestItem.Continent, ignoreCase: true, out var parsedContinent)
+            ? parsedContinent
+            : default;
+
+        return new City
+        {
+            RemoteId = manifestItem.RemoteId,
+            Name = manifestItem.Name,
+            Country = country,
+            Continent = continent,
+            ImagePath = NormalizePath(manifestItem.ImagePath),
+            DateAdded = manifestItem.DateAdded ?? DefaultManifestDateAdded,
+            IsActive = manifestItem.IsActive
+        };
     }
+
+    private static Landmark CreateLandmark(int cityId, MonumentManifestItem manifestItem) =>
+        new()
+        {
+            Name = manifestItem.Name,
+            ImagePath = NormalizePath(manifestItem.ImagePath),
+            CityId = cityId,
+            DateAdded = manifestItem.DateAdded ?? DefaultManifestDateAdded
+        };
+
+    private static bool ApplyCityManifest(City city, CityManifestItem manifestItem)
+    {
+        var hasChanges = false;
+
+        var country = Enum.TryParse<Country>(manifestItem.Country, ignoreCase: true, out var parsedCountry)
+            ? parsedCountry
+            : default;
+
+        var continent = Enum.TryParse<Continent>(manifestItem.Continent, ignoreCase: true, out var parsedContinent)
+            ? parsedContinent
+            : default;
+
+        var imagePath = NormalizePath(manifestItem.ImagePath);
+        var dateAdded = manifestItem.DateAdded ?? DefaultManifestDateAdded;
+
+        if (!string.Equals(city.Name, manifestItem.Name, StringComparison.Ordinal))
+        {
+            city.Name = manifestItem.Name;
+            hasChanges = true;
+        }
+
+        if (city.Country != country)
+        {
+            city.Country = country;
+            hasChanges = true;
+        }
+
+        if (city.Continent != continent)
+        {
+            city.Continent = continent;
+            hasChanges = true;
+        }
+
+        if (!string.Equals(city.ImagePath, imagePath, StringComparison.Ordinal))
+        {
+            city.ImagePath = imagePath;
+            hasChanges = true;
+        }
+
+        if (city.DateAdded != dateAdded)
+        {
+            city.DateAdded = dateAdded;
+            hasChanges = true;
+        }
+
+        if (city.IsActive != manifestItem.IsActive)
+        {
+            city.IsActive = manifestItem.IsActive;
+            hasChanges = true;
+        }
+
+        return hasChanges;
+    }
+
+    private static bool ApplyMonumentManifest(Landmark landmark, MonumentManifestItem manifestItem)
+    {
+        var hasChanges = false;
+        var imagePath = NormalizePath(manifestItem.ImagePath);
+        var dateAdded = manifestItem.DateAdded ?? DefaultManifestDateAdded;
+
+        if (!string.Equals(landmark.Name, manifestItem.Name, StringComparison.Ordinal))
+        {
+            landmark.Name = manifestItem.Name;
+            hasChanges = true;
+        }
+
+        if (!string.Equals(landmark.ImagePath, imagePath, StringComparison.Ordinal))
+        {
+            landmark.ImagePath = imagePath;
+            hasChanges = true;
+        }
+
+        if (landmark.DateAdded != dateAdded)
+        {
+            landmark.DateAdded = dateAdded;
+            hasChanges = true;
+        }
+
+        return hasChanges;
+    }
+
+    private static string NormalizePath(string? path) =>
+        string.IsNullOrWhiteSpace(path)
+            ? string.Empty
+            : path.Trim();
 
     private static async Task UpdateLastSyncUtcAsync(
         KnowTheCityDbContext db,
@@ -169,7 +310,9 @@ public class SyncService(
     {
         var config = await db.Configurations.FirstOrDefaultAsync(cancellationToken);
         if (config is null)
+        {
             return;
+        }
 
         config.LastSync = DateTime.UtcNow;
         await db.SaveChangesAsync(cancellationToken);

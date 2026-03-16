@@ -13,6 +13,7 @@ public sealed class CityManifestItem
     public string Country { get; set; } = string.Empty;
     public string Continent { get; set; } = string.Empty;
     public string ManifestPath { get; set; } = string.Empty;
+    public string ImagePath { get; set; } = string.Empty;
     public DateTime? DateAdded { get; set; }
     public bool IsActive { get; set; } = true;
 }

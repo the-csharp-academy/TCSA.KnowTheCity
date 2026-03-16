@@ -1,11 +1,9 @@
 @page "/quiz/favorites"
 @page "/quiz/{CityId:int}"
 @using System.Timers
-@using Microsoft.Extensions.Options
 @using TCSA.KnowTheCity.Core.Helpers
 @using TCSA.KnowTheCity.Core.Models
 @using TCSA.KnowTheCity.Core.Models.Domain
-@using TCSA.KnowTheCity.Core.Options
 @using TCSA.KnowTheCity.Core.Services
 @using TCSA.KnowTheCity.Services
 @implements IAsyncDisposable
@@ -174,9 +172,6 @@ else
     [Inject]
     private NavigationManager Navigation { get; set; } = default!;
 
-    [Inject]
-    private IOptions<ConfigOptions> Config { get; set; } = default!;
-
     private List<QuizLandmarkItem> _quizLandmarks = [];
     private List<GameResultItem> _results = [];
     private Dictionary<string, string> _cachedImagePaths = [];
@@ -292,11 +287,19 @@ else
     {
         foreach (var landmark in _quizLandmarks)
         {
-            var relativePath = CityDataHelper.GetLandmarkImagePath(landmark.CityName, landmark.Landmark.Name);
+            var imagePath = landmark.Landmark.ImagePath;
+
+            if (string.IsNullOrWhiteSpace(imagePath))
+            {
+                _cachedImagePaths[GetImageCacheKey(landmark)] = string.Empty;
+                _imagesLoaded++;
+                await InvokeAsync(StateHasChanged);
+                continue;
+            }
 
             try
             {
-                var localPath = await ImageCacheService.GetImagePathAsync(relativePath, _cts.Token);
+                var localPath = await ImageCacheService.GetImagePathAsync(imagePath, _cts.Token);
                 _cachedImagePaths[GetImageCacheKey(landmark)] = ImageHelpers.ConvertToBase64DataUri(localPath);
             }
             catch (OperationCanceledException)
@@ -306,7 +309,7 @@ else
             catch (Exception ex)
             {
                 Console.WriteLine($"[Quiz] Failed to cache image for {landmark.Landmark.Name}: {ex.Message}");
-                _cachedImagePaths[GetImageCacheKey(landmark)] = relativePath;
+                _cachedImagePaths[GetImageCacheKey(landmark)] = string.Empty;
             }
 
             _imagesLoaded++;

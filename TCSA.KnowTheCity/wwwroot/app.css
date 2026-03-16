@@ -854,3 +854,134 @@ h1:focus {
 .study-action-button-secondary:hover {
     background-color: rgba(43, 183, 241, 0.82) !important;
 }
+
+.instructions-page {
+    margin-top: 0.5rem;
+}
+
+.instructions-hero {
+    background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-royal) 50%, var(--brand-orange) 100%);
+    border-radius: 24px;
+    color: var(--brand-cream);
+    padding: 1.5rem;
+    box-shadow: 0 18px 40px rgba(17, 20, 95, 0.24);
+}
+
+.instructions-hero-chip {
+    align-self: flex-start;
+    background-color: rgba(245, 232, 201, 0.16);
+    color: var(--brand-cream);
+    font-weight: 700;
+}
+
+.instructions-hero-title {
+    color: var(--brand-cream);
+    font-weight: 700;
+}
+
+.instructions-hero-subtitle {
+    color: rgba(245, 232, 201, 0.92);
+    max-width: 42rem;
+}
+
+.instructions-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.instructions-panel {
+    background: linear-gradient(180deg, rgba(245, 232, 201, 0.92) 0%, #ffffff 42%, #ffffff 100%);
+    border: 1px solid rgba(17, 20, 95, 0.08);
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(17, 20, 95, 0.12);
+    padding: 1.5rem;
+}
+
+.instructions-panel-play {
+    border-color: rgba(43, 183, 241, 0.24);
+}
+
+.instructions-panel-search {
+    border-color: rgba(249, 221, 31, 0.32);
+}
+
+.instructions-panel-favorites {
+    border-color: rgba(244, 154, 18, 0.28);
+}
+
+.instructions-icon-badge {
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--brand-navy);
+    flex-shrink: 0;
+}
+
+    .instructions-icon-badge .mud-icon-root {
+        font-size: 1.5rem;
+    }
+
+.instructions-icon-badge-play {
+    background: linear-gradient(135deg, rgba(43, 183, 241, 0.95) 0%, rgba(249, 221, 31, 0.72) 100%);
+}
+
+.instructions-icon-badge-search {
+    background: linear-gradient(135deg, rgba(249, 221, 31, 0.96) 0%, rgba(244, 154, 18, 0.82) 100%);
+}
+
+.instructions-icon-badge-favorites {
+    background: linear-gradient(135deg, rgba(244, 154, 18, 0.95) 0%, rgba(15, 108, 199, 0.7) 100%);
+}
+
+.instructions-panel-title {
+    color: var(--brand-navy);
+    font-weight: 700;
+}
+
+.instructions-panel-subtitle {
+    color: var(--brand-royal);
+    font-weight: 600;
+}
+
+.instructions-list {
+    margin: 0;
+    padding-left: 1.25rem;
+    color: var(--brand-navy);
+    display: grid;
+    gap: 0.75rem;
+}
+
+    .instructions-list li {
+        line-height: 1.5;
+    }
+
+.instructions-tips-shell {
+    background: linear-gradient(180deg, rgba(232, 245, 252, 0.92) 0%, rgba(255, 248, 232, 0.96) 100%);
+    border: 1px solid rgba(15, 108, 199, 0.12);
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(17, 20, 95, 0.12);
+    padding: 1.5rem;
+}
+
+.instructions-tip-card {
+    background: linear-gradient(180deg, #ffffff 0%, #fff8e8 100%);
+    border: 2px solid rgba(15, 108, 199, 0.12);
+    border-radius: 20px;
+    padding: 1.25rem;
+}
+
+.instructions-tip-icon {
+    color: var(--brand-orange);
+}
+
+.instructions-tip-title {
+    color: var(--brand-navy);
+    font-weight: 700;
+}
+
+.instructions-tip-text {
+    color: var(--brand-royal);
+}

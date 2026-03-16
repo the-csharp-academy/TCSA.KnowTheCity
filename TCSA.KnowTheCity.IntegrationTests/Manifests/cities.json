@@ -64,6 +64,14 @@
       "continent": "NorthAmerica",
       "manifestPath": "/manifests/mexicocity.json",
       "isActive": true
+    },
+    {
+      "remoteId": "riodejaneiro-br",
+      "name": "Rio de Janeiro",
+      "country": "Brazil",
+      "continent": "SouthAmerica",
+      "manifestPath": "/manifests/riodejaneiro.json",
+      "isActive": true
     }
   ]
 }

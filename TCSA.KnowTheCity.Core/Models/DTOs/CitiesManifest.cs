@@ -11,6 +11,7 @@ public sealed class CityManifestItem
     public string RemoteId { get; set; } = string.Empty;
     public string Name { get; set; } = string.Empty;
     public string Country { get; set; } = string.Empty;
+    public string Continent { get; set; } = string.Empty;
     public string ManifestPath { get; set; } = string.Empty;
     public bool IsActive { get; set; } = true;
 }

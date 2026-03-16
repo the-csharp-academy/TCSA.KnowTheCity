@@ -1,0 +1,216 @@
+@page "/instructions"
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="instructions-page pb-8">
+    <MudPaper Elevation="0" Class="instructions-hero mb-6">
+        <MudStack Spacing="3">
+            <MudChip T="string"
+                     Class="instructions-hero-chip"
+                     Variant="Variant.Filled"
+                     Icon="@Icons.Material.Filled.Info">
+                Instructions
+            </MudChip>
+
+            <MudText Typo="Typo.h4" Class="instructions-hero-title">
+                Learn how to play in under a minute
+            </MudText>
+
+            <MudText Typo="Typo.body1" Class="instructions-hero-subtitle">
+                Browse cities, use search to find the right place faster, study landmarks before a quiz,
+                and save favorites so you can practice them again later.
+            </MudText>
+
+            <MudStack Row="true" Spacing="2" Class="instructions-hero-actions">
+                <MudButton Variant="Variant.Filled"
+                           Color="Color.Primary"
+                           Href="/"
+                           StartIcon="@Icons.Material.Filled.Home">
+                    Choose a city
+                </MudButton>
+
+                <MudButton Variant="Variant.Filled"
+                           Color="Color.Warning"
+                           Href="/study"
+                           StartIcon="@Icons.Material.Filled.MenuBook">
+                    Study first
+                </MudButton>
+
+                <MudButton Variant="Variant.Outlined"
+                           Color="Color.Default"
+                           Href="/favorites"
+                           StartIcon="@Icons.Material.Filled.Favorite">
+                    Open favorites
+                </MudButton>
+            </MudStack>
+        </MudStack>
+    </MudPaper>
+
+    <MudGrid Spacing="3" Class="mb-6">
+        <MudItem xs="12" md="4">
+            <MudPaper Elevation="0" Class="instructions-panel instructions-panel-play h-100">
+                <MudStack Spacing="3">
+                    <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="2">
+                        <MudPaper Elevation="0" Class="instructions-icon-badge instructions-icon-badge-play">
+                            <MudIcon Icon="@Icons.Material.Filled.Quiz" />
+                        </MudPaper>
+
+                        <MudStack Spacing="0">
+                            <MudText Typo="Typo.h6" Class="instructions-panel-title">
+                                How to play
+                            </MudText>
+
+                            <MudText Typo="Typo.body2" Class="instructions-panel-subtitle">
+                                Start a quiz right away or warm up in Study mode first.
+                            </MudText>
+                        </MudStack>
+                    </MudStack>
+
+                    <ol class="instructions-list">
+                        <li>Open the home page and pick a city.</li>
+                        <li>Select <b>Quiz</b> to play or <b>Study</b> to review landmarks first.</li>
+                        <li>Type the landmark name and press <b>Answer</b> or the Enter key.</li>
+                        <li>Use <b>Skip</b> if you want to move on without answering.</li>
+                        <li>The quiz ends when you finish all landmarks or the timer runs out.</li>
+                        <li>Review your score and landmark breakdown on the results page.</li>
+                    </ol>
+
+                    <MudChip T="string"
+                             Class="brand-chip brand-chip-sky"
+                             Variant="Variant.Filled">
+                        60-second quiz timer
+                    </MudChip>
+                </MudStack>
+            </MudPaper>
+        </MudItem>
+
+        <MudItem xs="12" md="4">
+            <MudPaper Elevation="0" Class="instructions-panel instructions-panel-search h-100">
+                <MudStack Spacing="3">
+                    <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="2">
+                        <MudPaper Elevation="0" Class="instructions-icon-badge instructions-icon-badge-search">
+                            <MudIcon Icon="@Icons.Material.Filled.Search" />
+                        </MudPaper>
+
+                        <MudStack Spacing="0">
+                            <MudText Typo="Typo.h6" Class="instructions-panel-title">
+                                Use search
+                            </MudText>
+
+                            <MudText Typo="Typo.body2" Class="instructions-panel-subtitle">
+                                Find cities faster from the home page.
+                            </MudText>
+                        </MudStack>
+                    </MudStack>
+
+                    <ol class="instructions-list">
+                        <li>Use <b>Search by city</b> to filter the list as you type.</li>
+                        <li>Refine the results with <b>Filter by country</b>.</li>
+                        <li>Use <b>Filter by continent</b> if you want a smaller list.</li>
+                        <li>Select <b>Clear filters</b> to reset everything in one tap.</li>
+                        <li>Once you find a city, open <b>Quiz</b> or <b>Study</b> from its card.</li>
+                    </ol>
+
+                    <MudChip T="string"
+                             Class="brand-chip brand-chip-gold"
+                             Variant="Variant.Filled">
+                        Search updates as you type
+                    </MudChip>
+                </MudStack>
+            </MudPaper>
+        </MudItem>
+
+        <MudItem xs="12" md="4">
+            <MudPaper Elevation="0" Class="instructions-panel instructions-panel-favorites h-100">
+                <MudStack Spacing="3">
+                    <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="2">
+                        <MudPaper Elevation="0" Class="instructions-icon-badge instructions-icon-badge-favorites">
+                            <MudIcon Icon="@Icons.Material.Filled.Favorite" />
+                        </MudPaper>
+
+                        <MudStack Spacing="0">
+                            <MudText Typo="Typo.h6" Class="instructions-panel-title">
+                                Save and practice favorites
+                            </MudText>
+
+                            <MudText Typo="Typo.body2" Class="instructions-panel-subtitle">
+                                Keep the landmarks you want to revisit.
+                            </MudText>
+                        </MudStack>
+                    </MudStack>
+
+                    <ol class="instructions-list">
+                        <li>Finish a city quiz and open the results page.</li>
+                        <li>Use the star button next to a landmark to save it as a favorite.</li>
+                        <li>Open the <b>Favorites</b> page to review everything you saved.</li>
+                        <li>Select <b>Quiz favourite landmarks</b> to practice saved landmarks again.</li>
+                        <li>Remove saved items anytime from the Favorites page.</li>
+                    </ol>
+
+                    <MudChip T="string"
+                             Class="brand-chip brand-chip-orange"
+                             Variant="Variant.Filled">
+                        Practice saved landmarks anytime
+                    </MudChip>
+                </MudStack>
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+
+    <MudPaper Elevation="0" Class="instructions-tips-shell">
+        <MudText Typo="Typo.h6" Class="instructions-panel-title" GutterBottom="true">
+            Quick tips
+        </MudText>
+
+        <MudGrid Spacing="3">
+            <MudItem xs="12" md="4">
+                <MudPaper Elevation="0" Class="instructions-tip-card h-100">
+                    <MudStack Spacing="2">
+                        <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
+                            <MudIcon Icon="@Icons.Material.Filled.Lightbulb" Class="instructions-tip-icon" />
+                            <MudText Typo="Typo.subtitle1" Class="instructions-tip-title">
+                                New city?
+                            </MudText>
+                        </MudStack>
+
+                        <MudText Typo="Typo.body2" Class="instructions-tip-text">
+                            Start with Study mode if you want to learn the landmarks before taking the quiz.
+                        </MudText>
+                    </MudStack>
+                </MudPaper>
+            </MudItem>
+
+            <MudItem xs="12" md="4">
+                <MudPaper Elevation="0" Class="instructions-tip-card h-100">
+                    <MudStack Spacing="2">
+                        <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
+                            <MudIcon Icon="@Icons.Material.Filled.Timer" Class="instructions-tip-icon" />
+                            <MudText Typo="Typo.subtitle1" Class="instructions-tip-title">
+                                Watch the timer
+                            </MudText>
+                        </MudStack>
+
+                        <MudText Typo="Typo.body2" Class="instructions-tip-text">
+                            Keep an eye on the countdown during quizzes so you can answer as many landmarks as possible.
+                        </MudText>
+                    </MudStack>
+                </MudPaper>
+            </MudItem>
+
+            <MudItem xs="12" md="4">
+                <MudPaper Elevation="0" Class="instructions-tip-card h-100">
+                    <MudStack Spacing="2">
+                        <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
+                            <MudIcon Icon="@Icons.Material.Filled.Replay" Class="instructions-tip-icon" />
+                            <MudText Typo="Typo.subtitle1" Class="instructions-tip-title">
+                                Want more practice?
+                            </MudText>
+                        </MudStack>
+
+                        <MudText Typo="Typo.body2" Class="instructions-tip-text">
+                            Use Favorites for repeat practice and History to review how your recent quiz runs went.
+                        </MudText>
+                    </MudStack>
+                </MudPaper>
+            </MudItem>
+        </MudGrid>
+    </MudPaper>
+</MudContainer>

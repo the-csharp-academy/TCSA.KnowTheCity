@@ -112,6 +112,9 @@ public class SyncService(
                 Country = Enum.TryParse<Country>(x.Country, ignoreCase: true, out var country)
                     ? country
                     : default,
+                Continent = Enum.TryParse<Continent>(x.Continent, ignoreCase: true, out var continent)
+                    ? continent
+                    : default,
                 IsActive = x.IsActive
             })
             .ToList();

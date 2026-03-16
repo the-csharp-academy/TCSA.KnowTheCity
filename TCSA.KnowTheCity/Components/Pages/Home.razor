@@ -18,8 +18,12 @@
             </MudText>
 
             <MudStack Row="true" Spacing="2">
-                <MudChip T="string" Class="brand-chip brand-chip-sky" Variant="Variant.Filled">Sky blue accent</MudChip>
-                <MudChip T="string" Class="brand-chip brand-chip-gold" Variant="Variant.Filled">Golden highlights</MudChip>
+                <MudChip T="string" Class="brand-chip brand-chip-sky" Variant="Variant.Filled">
+                    @FormatCount(_totalCityCount, "city", "cities")
+                </MudChip>
+                <MudChip T="string" Class="brand-chip brand-chip-gold" Variant="Variant.Filled">
+                    @FormatCount(_totalLandmarkCount, "landmark", "landmarks")
+                </MudChip>
                 <MudChip T="string" Class="brand-chip brand-chip-orange" Variant="Variant.Filled">Warm action color</MudChip>
             </MudStack>
         </MudStack>
@@ -174,6 +178,8 @@
     private Country? _selectedCountry;
     private Continent? _selectedContinent;
     private bool _isLoading;
+    private int _totalCityCount;
+    private int _totalLandmarkCount;
 
     protected override async Task OnInitializedAsync()
     {
@@ -186,7 +192,16 @@
             Console.WriteLine(ex.Message);
         }
 
-        _countries = await CityService.GetCountriesWithCitiesAsync();
+        var cityCountTask = CityService.GetCityCountAsync();
+        var landmarkCountTask = CityService.GetLandmarkCountAsync();
+        var countriesTask = CityService.GetCountriesWithCitiesAsync();
+
+        await Task.WhenAll(cityCountTask, landmarkCountTask, countriesTask);
+
+        _totalCityCount = await cityCountTask;
+        _totalLandmarkCount = await landmarkCountTask;
+        _countries = await countriesTask;
+
         await LoadCitiesAsync();
     }
 
@@ -305,6 +320,9 @@
 
         return builder.ToString();
     }
+
+    private static string FormatCount(int count, string singular, string plural) =>
+        $"{count} {(count == 1 ? singular : plural)}";
 
     private void NavigateToStudy(int cityId) => Navigation.NavigateTo($"study/{cityId}");
 

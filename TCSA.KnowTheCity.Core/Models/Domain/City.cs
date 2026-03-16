@@ -11,4 +11,5 @@ public class City
     public Continent Continent { get; set; }
     public List<Landmark> Landmarks { get; set; } = [];
     public bool IsActive { get; set; } = true;
+    public DateTime DateAdded { get; set; }
 }

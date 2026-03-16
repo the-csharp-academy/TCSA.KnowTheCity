@@ -87,7 +87,7 @@
                             </MudStack>
                         </div>
 
-                        <MudIconButton Icon="@(isFav ? Icons.Material.Filled.Star : Icons.Material.Outlined.StarBorder)"
+                        <MudIconButton Icon="@(isFav? Icons.Material.Filled.Favorite : Icons.Material.Outlined.StarBorder)"
                                        Class="@(isFav ? "endgame-favorite-button is-active" : "endgame-favorite-button")"
                                        Size="Size.Medium"
                                        OnClick="() => ToggleFavoriteLandmarkAsync(item.Landmark.Id)" />

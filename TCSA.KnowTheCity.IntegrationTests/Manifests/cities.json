@@ -7,6 +7,7 @@
       "country": "France",
       "continent": "Europe",
       "manifestPath": "/manifests/paris.json",
+      "dateAdded": "2026-03-01",
       "isActive": true
     },
     {
@@ -15,6 +16,7 @@
       "country": "UnitedKingdom",
       "continent": "Europe",
       "manifestPath": "/manifests/london.json",
+      "dateAdded": "2026-03-01",
       "isActive": true
     },
     {
@@ -23,6 +25,7 @@
       "country": "UnitedArabEmirates",
       "continent": "Asia",
       "manifestPath": "/manifests/dubai.json",
+      "dateAdded": "2026-03-01",
       "isActive": true
     },
     {
@@ -31,6 +34,7 @@
       "country": "UnitedStates",
       "continent": "NorthAmerica",
       "manifestPath": "/manifests/newyork.json",
+      "dateAdded": "2026-03-01",
       "isActive": true
     },
     {
@@ -39,6 +43,7 @@
       "country": "Japan",
       "continent": "Asia",
       "manifestPath": "/manifests/tokyo.json",
+      "dateAdded": "2026-03-01",
       "isActive": true
     },
     {
@@ -47,6 +52,7 @@
       "country": "China",
       "continent": "Asia",
       "manifestPath": "/manifests/beijing.json",
+      "dateAdded": "2026-03-01",
       "isActive": true
     },
     {
@@ -55,6 +61,7 @@
       "country": "Australia",
       "continent": "Oceania",
       "manifestPath": "/manifests/brisbane.json",
+      "dateAdded": "2026-03-01",
       "isActive": true
     },
     {
@@ -63,6 +70,7 @@
       "country": "Mexico",
       "continent": "NorthAmerica",
       "manifestPath": "/manifests/mexicocity.json",
+      "dateAdded": "2026-03-01",
       "isActive": true
     },
     {
@@ -71,6 +79,16 @@
       "country": "Brazil",
       "continent": "SouthAmerica",
       "manifestPath": "/manifests/riodejaneiro.json",
+      "dateAdded": "2026-03-01",
+      "isActive": true
+    },
+    {
+      "remoteId": "cairo-eg",
+      "name": "Cairo",
+      "country": "Egypt",
+      "continent": "Africa",
+      "manifestPath": "/manifests/cairo.json",
+      "dateAdded": "2026-03-01",
       "isActive": true
     }
   ]

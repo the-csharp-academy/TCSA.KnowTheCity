@@ -20,6 +20,8 @@ public class SyncService(
     IManifestClient _manifestClient
     ) : ISyncService
 {
+    private static readonly DateTime DefaultManifestDateAdded = new(2026, 3, 1);
+
     public async Task SyncCitiesAndMonumentsIfNeededAsync(CancellationToken cancellationToken = default)
     {
         await using var db = await _dbFactory.CreateDbContextAsync(cancellationToken);
@@ -43,7 +45,7 @@ public class SyncService(
 
         foreach (var cityManifest in citiesManifest.Cities)
         {
-            var city = await db.Cities .FirstOrDefaultAsync(x => x.RemoteId == cityManifest.RemoteId, cancellationToken);
+            var city = await db.Cities.FirstOrDefaultAsync(x => x.RemoteId == cityManifest.RemoteId, cancellationToken);
             if (city is null)
                 continue;
 
@@ -65,7 +67,7 @@ public class SyncService(
                     await db.Landmarks.AddRangeAsync(newMonuments, cancellationToken);
                     await db.SaveChangesAsync(cancellationToken);
                 }
-            } 
+            }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error fetching manifest for city {city.Name}: {ex.Message}");
@@ -77,20 +79,23 @@ public class SyncService(
     }
 
     private async Task<bool> IsSyncRequiredAsync(
-       KnowTheCityDbContext db,
-       CancellationToken cancellationToken)
+        KnowTheCityDbContext db,
+        CancellationToken cancellationToken)
     {
-        var lastConfig = await db.Configurations.FirstOrDefaultAsync();
+        var lastConfig = await db.Configurations.FirstOrDefaultAsync(cancellationToken);
 
-        if (lastConfig!.LastSync < DateTime.UtcNow.AddDays(-1)) { return true; } // TODO make this an env var
+        if (lastConfig!.LastSync < DateTime.UtcNow.AddDays(-1))
+        {
+            return true;
+        }
 
         return false;
     }
 
     public async Task<List<City>> GetNewCitiesAsync(
-       KnowTheCityDbContext db,
-       CitiesManifest manifest,
-       CancellationToken cancellationToken)
+        KnowTheCityDbContext db,
+        CitiesManifest manifest,
+        CancellationToken cancellationToken)
     {
         var remoteIds = manifest.Cities
             .Select(x => x.RemoteId)
@@ -115,16 +120,17 @@ public class SyncService(
                 Continent = Enum.TryParse<Continent>(x.Continent, ignoreCase: true, out var continent)
                     ? continent
                     : default,
+                DateAdded = x.DateAdded ?? DefaultManifestDateAdded,
                 IsActive = x.IsActive
             })
             .ToList();
     }
 
     public async Task<List<Landmark>> GetNewMonumentsAsync(
-    KnowTheCityDbContext db,
-    int cityId,
-    CityDetailsManifest manifest,
-    CancellationToken cancellationToken)
+        KnowTheCityDbContext db,
+        int cityId,
+        CityDetailsManifest manifest,
+        CancellationToken cancellationToken)
     {
         var remoteNames = manifest.Monuments
             .Select(x => x.Name)
@@ -142,7 +148,8 @@ public class SyncService(
             .Select(x => new Landmark
             {
                 Name = x.Name,
-                CityId = cityId
+                CityId = cityId,
+                DateAdded = x.DateAdded ?? DefaultManifestDateAdded
             })
             .ToList();
     }

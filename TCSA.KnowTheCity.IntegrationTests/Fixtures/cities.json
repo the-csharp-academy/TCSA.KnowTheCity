@@ -6,6 +6,7 @@
       "name": "Paris",
       "country": "France",
       "manifestPath": "/manifests/paris.json",
+      "dateAdded": "2026-03-01",
       "isActive": true
     },
     {
@@ -13,6 +14,7 @@
       "name": "London",
       "country": "UnitedKingdom",
       "manifestPath": "/manifests/london.json",
+      "dateAdded": "2026-03-01",
       "isActive": true
     }
   ]

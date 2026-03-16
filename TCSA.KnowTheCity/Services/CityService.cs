@@ -11,6 +11,8 @@ public interface ICityService
     Task<List<Country>> GetCountriesWithCitiesAsync();
     Task<City?> GetCityByIdAsync(int id);
     Task<List<Landmark>> GetLandmarksAsync(string cityRemoteId);
+    Task<int> GetCityCountAsync();
+    Task<int> GetLandmarkCountAsync();
 }
 
 public class CityService(IDbContextFactory<KnowTheCityDbContext> dbFactory) : ICityService
@@ -77,5 +79,17 @@ public class CityService(IDbContextFactory<KnowTheCityDbContext> dbFactory) : IC
             .Where(l => l.City.RemoteId == cityRemoteId)
             .OrderBy(l => l.Name)
             .ToListAsync();
+    }
+
+    public async Task<int> GetCityCountAsync()
+    {
+        await using var db = await dbFactory.CreateDbContextAsync();
+        return await db.Cities.AsNoTracking().CountAsync();
+    }
+
+    public async Task<int> GetLandmarkCountAsync()
+    {
+        await using var db = await dbFactory.CreateDbContextAsync();
+        return await db.Landmarks.AsNoTracking().CountAsync();
     }
 }

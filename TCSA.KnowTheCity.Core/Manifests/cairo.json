@@ -1,0 +1,41 @@
+{
+  "cityRemoteId": "cairo-eg",
+  "version": "1.0",
+  "monuments": [
+    {
+      "remoteId": "pyramidsofgiza",
+      "name": "Pyramids of Giza",
+      "imagePath": "landmarks/cairo-pyramidsofgiza.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "greatsphinxofgiza",
+      "name": "Great Sphinx of Giza",
+      "imagePath": "landmarks/cairo-greatsphinxofgiza.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "egyptianmuseum",
+      "name": "Egyptian Museum",
+      "imagePath": "landmarks/cairo-egyptianmuseum.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "cairocitadel",
+      "name": "Mosque of Muhammad Ali",
+      "imagePath": "landmarks/mosqueofmuhammadali.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "khanelkhalili",
+      "name": "Khan el-Khalili",
+      "imagePath": "landmarks/cairo-khanelkhalili.webp",
+      "imageVersion": "1",
+      "isActive": true
+    }
+  ]
+}

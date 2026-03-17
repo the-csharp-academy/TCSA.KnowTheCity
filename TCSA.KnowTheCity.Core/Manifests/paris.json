@@ -1,0 +1,41 @@
+{
+  "cityRemoteId": "paris-fr",
+  "version": "1.0",
+  "monuments": [
+    {
+      "remoteId": "eiffeltower",
+      "name": "Eiffel Tower",
+      "imagePath": "landmarks/paris-eiffeltower.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "louvremuseum",
+      "name": "Louvre Museum",
+      "imagePath": "landmarks/paris-louvremuseum.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "notredame",
+      "name": "Notre-Dame",
+      "imagePath": "landmarks/paris-notredame.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "arcdetriomphe",
+      "name": "Arc de Triomphe",
+      "imagePath": "landmarks/paris-arcdetriomphe.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "sacrecoeur",
+      "name": "Sacré-Cœur",
+      "imagePath": "landmarks/paris-sacrecoeur.webp",
+      "imageVersion": "1",
+      "isActive": true
+    }
+  ]
+}

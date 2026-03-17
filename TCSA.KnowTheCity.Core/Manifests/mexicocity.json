@@ -1,0 +1,41 @@
+{
+  "cityRemoteId": "mexicocity-mx",
+  "version": "1.0",
+  "monuments": [
+    {
+      "remoteId": "plazadelaconstitucion",
+      "name": "Plaza de la Constitución",
+      "imagePath": "landmarks/mexicocity-plazadelaconstitucion.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "templomayor",
+      "name": "Templo Mayor",
+      "imagePath": "landmarks/mexicocity-templomayor.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "angeldelaindependencia",
+      "name": "Ángel de la Independencia",
+      "imagePath": "landmarks/mexicocity-angeldelaindependencia.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "teotihuacan",
+      "name": "Teotihuacan (Pyramids of the Sun and Moon)",
+      "imagePath": "landmarks/mexicocity-teotihuacan.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "palaciodebellasartes",
+      "name": "Palacio de Bellas Artes",
+      "imagePath": "landmarks/mexicocity-palaciodebellasartes.webp",
+      "imageVersion": "1",
+      "isActive": true
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="TCSA.KnowTheCity.CdnSimulator/TCSA.KnowTheCity.CdnSimulator.csproj" Id="b72975ce-1bdb-4e2c-878b-cf83381f47e8" />
   <Project Path="TCSA.KnowTheCity.Core/TCSA.KnowTheCity.Core.csproj" />
   <Project Path="TCSA.KnowTheCity.IntegrationTests/TCSA.KnowTheCity.IntegrationTests.csproj" />
   <Project Path="TCSA.KnowTheCity.UnitTests/TCSA.KnowTheCity.UnitTests.csproj" />

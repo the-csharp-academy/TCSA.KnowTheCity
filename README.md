@@ -4,7 +4,7 @@ A .NET MAUI Blazor Hybrid quiz game that tests your ability to identify famous l
 
 ## Purpose of the App
 
-Traveling to a new city is always more rewarding when you can recognize its landmarks at a glance. Studies show that visual memory training improves recall and spatial awareness — skills that come in handy when navigating unfamiliar places.
+Traveling to a new city is always more rewarding when you can recognize its landmarks at a glance. Whether you are about to visit a new city, you just love getting to know more about other countries or you want to train your memory while having fun, Know The City has can help you get there.
 
 **Know The City** turns that preparation into a game. By repeatedly identifying landmarks from photos, you build a mental library of iconic sites so that when you arrive at your destination, you already feel like you know the place. Think of it as flashcard training for travelers: fun, fast, and surprisingly effective.
 
@@ -18,6 +18,7 @@ Traveling to a new city is always more rewarding when you can recognize its land
 4. **Skip** — If you don't know, tap the **"I Don't Know"** button. The answer is revealed and you move to the next landmark.
 5. **Results** — After all landmarks (or when the timer runs out), a summary shows which landmarks you got right, wrong, or skipped.
 6. Tap **Back to Cities** to try another city.
+7. Go to **Favorites** to see, edit or study your favorite list of cities and landmarks.
 
 ## Architecture Overview
 
@@ -29,10 +30,11 @@ The solution is split into a .NET MAUI Blazor Hybrid app and a shared `TCSA.Know
 - **Sync-on-open strategy** keeps the local catalog fresh without hitting the CDN on every launch. When the home page loads, the sync service checks the last successful sync timestamp and only refreshes the manifests if the previous sync happened more than 24 hours ago.
 - **Local persistence** uses SQLite on the device to store cities, landmarks, favourites, and sync metadata, so the app can work from a cached catalog after the initial sync.
 - **CDN-backed assets** are resolved from manifest paths, while the image cache service downloads and reuses city, landmark, and flag images locally for better startup and scrolling performance.
+- **No remote database**: In this first stage of the project, users cannot save their progress to the cloud. Uninstalling the app deletes history and favorites data.
 
 ## Running the App Locally
 
-The repository includes a **CDN simulator** project so the MAUI app can be tested locally without pointing to a real remote CDN.
+The repository includes a **CDN simulator** project so the MAUI app can be tested locally without pointing to a real remote CDN. The simulator contains 10 cities and 50 landmarks to help with development.
 
 ### 1. Start the CDN simulator
 

@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [ "main", "development" ]
+  push:
+    branches: [ "main", "development" ]
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.101"
+          
+      - name: Setup Java (needed for Android)
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "17"
+
+      - name: Restore workloads
+        run: dotnet workload restore
+
+      - name: Install MAUI Android workload
+        run: dotnet workload install maui-android
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build (Release)
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Test (Release)
+        run: dotnet test --configuration Release --no-build --verbosity normal

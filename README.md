@@ -2,7 +2,7 @@
 
 A .NET MAUI Blazor Hybrid quiz game that tests your ability to identify famous landmarks from cities around the world.
 
-## Purpose of the Game
+## Purpose of the App
 
 Traveling to a new city is always more rewarding when you can recognize its landmarks at a glance. Studies show that visual memory training improves recall and spatial awareness — skills that come in handy when navigating unfamiliar places.
 
@@ -11,48 +11,51 @@ Traveling to a new city is always more rewarding when you can recognize its land
 ## How to Play
 
 1. **Choose a city** — On the home screen, tap one of the city cards.
-2. **Identify landmarks** — You are shown a photo of a landmark and have **60 seconds** to work through all 5.
+2. **Identify landmarks** — You are shown a photo of a landmark and have 10 seconds per landmark to finish the quiz.
 3. **Type your answer** in the text field and tap **Submit** (or press Enter).
    - **Correct** — you score a point and move to the next landmark.
    - **Wrong** — the correct answer is revealed and you move on.
 4. **Skip** — If you don't know, tap the **"I Don't Know"** button. The answer is revealed and you move to the next landmark.
-5. **Results** — After all 5 landmarks (or when the timer runs out), a summary shows which landmarks you got right, wrong, or skipped.
+5. **Results** — After all landmarks (or when the timer runs out), a summary shows which landmarks you got right, wrong, or skipped.
 6. Tap **Back to Cities** to try another city.
 
 ## Architecture Overview
 
 The solution is split into a .NET MAUI Blazor Hybrid app and a shared `TCSA.KnowTheCity.Core` project.
 
-### Why a Core project?
+- **.NET MAUI** hosts a `BlazorWebView` that renders Razor components natively on each platform.
+- **Razor components** (`Home.razor`, `Quiz.razor`) handle all UI via MudBlazor.
+- **Manifest-driven catalog** keeps the content separate from the app binary. The app downloads `cities.json` first, then each city-specific manifest, so new cities or landmarks can be added by publishing new manifest files and assets to the CDN without shipping a new app update.
+- **Sync-on-open strategy** keeps the local catalog fresh without hitting the CDN on every launch. When the home page loads, the sync service checks the last successful sync timestamp and only refreshes the manifests if the previous sync happened more than 24 hours ago.
+- **Local persistence** uses SQLite on the device to store cities, landmarks, favourites, and sync metadata, so the app can work from a cached catalog after the initial sync.
+- **CDN-backed assets** are resolved from manifest paths, while the image cache service downloads and reuses city, landmark, and flag images locally for better startup and scrolling performance.
 
-`TCSA.KnowTheCity.Core` contains the shared domain models, Entity Framework Core data access, options, HTTP clients, and sync logic. Keeping this code outside the MAUI app is important because the application uses Blazor Hybrid UI on top of .NET MAUI, while the business logic still needs to be exercised independently in tests. By placing the data and synchronization logic in the Core project, the integration test project can reference the same code without depending on MAUI platform infrastructure or UI components.
+## Running the App Locally
 
-### How the CDN works
+The repository includes a **CDN simulator** project so the MAUI app can be tested locally without pointing to a real remote CDN.
 
-The app does not hardcode all city and monument content directly into the client. Instead, it reads a base CDN URL from configuration and uses it to fetch JSON manifests and images:
+### 1. Start the CDN simulator
 
-- `manifests/cities.json` provides the list of available cities.
-- Each city points to its own manifest with monument details.
-- City and monument images are also requested from the same CDN base URL.
+- Set **`TCSA.KnowTheCity.CdnSimulator`** as the startup project, or include it in a multiple startup profile.
+- The simulator serves content from `TCSA.KnowTheCity.CdnSimulator/wwwroot` for city, landmark, and flag images
+- By default it listens on `http://localhost:5264`.
 
-This keeps the app lightweight and makes content updates easier, because new or updated cities can be published to the CDN without requiring a full application rebuild.
+### 2. Point the MAUI app to the simulator
 
-### How caching works
+In `TCSA.KnowTheCity/appsettings.json`, set:
 
-Caching happens at two levels:
+- `Config:CdnUrl = http://localhost:5264`
 
-1. **Structured content cache**  
-   City and monument metadata fetched from the CDN is synchronized into the local SQLite database through `SyncService`. The app checks the last sync timestamp and only refreshes when the cached data is older than the sync window. This means the UI reads from local persisted data most of the time instead of repeatedly requesting manifests.
+This makes the app request manifests and images from the local simulator instead of the production CDN.
 
-2. **Image file cache**  
-   Images are downloaded on demand from the CDN and stored in the device cache directory by `ImageCacheService`. If an image already exists locally, the cached file path is reused instead of downloading it again. This reduces network traffic and improves perceived performance.
+### 3. Run the MAUI app
 
-Together, these two layers allow the app to work efficiently with remote content while still feeling local and responsive.
+- Start **`TCSA.KnowTheCity`**.
+- On first load, the home page triggers the sync process.
+- If the last sync is older than 24 hours, the app pulls the latest `cities.json`, downloads each city manifest, and updates the local SQLite catalog.
 
-### Favorites and studying flow
+### 4. Test content changes locally
 
-The app stores favorite cities and favorite landmarks in the local database. Besides acting as a bookmarking feature, this also opens the door to a useful study workflow: favorites can serve as a smaller personalized subset of content to review repeatedly instead of studying the full catalog every time.
-
-### Image consistency
-
-Most of the images used in the app are AI-generated. This makes it easier to keep a consistent visual style across cities and monuments, and it also simplifies formatting so assets fit more naturally within the app's layout and design system.
+- Add or edit files in `TCSA.KnowTheCity.Core/Manifests` to simulate catalog updates.
+- Add or replace images under `TCSA.KnowTheCity.CdnSimulator/wwwroot`.
+- Restart the simulator if needed, then rerun the app or force a fresh sync by clearing the local app data.

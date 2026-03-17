@@ -1,0 +1,41 @@
+{
+  "cityRemoteId": "brisbane-au",
+  "version": "1.0",
+  "monuments": [
+    {
+      "remoteId": "southbankparklands",
+      "name": "South Bank Parklands",
+      "imagePath": "landmarks/brisbane-southbankparklands.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "mountcoothabotanicgardens",
+      "name": "Mount Coo-tha Botanic Gardens",
+      "imagePath": "landmarks/brisbane-mountcoothabotanicgardens.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "kangaroopointcliffs",
+      "name": "Kangaroo Point Cliffs",
+      "imagePath": "landmarks/brisbane-kangaroopointcliffs.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "brisbanecityhall",
+      "name": "Brisbane City Hall",
+      "imagePath": "landmarks/brisbane-brisbanecityhall.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "starcasino",
+      "name": "Star Casino",
+      "imagePath": "landmarks/brisbane-starcasino.webp",
+      "imageVersion": "1",
+      "isActive": true
+    }
+  ]
+}

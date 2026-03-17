@@ -1,0 +1,41 @@
+{
+  "cityRemoteId": "dubai-uae",
+  "version": "1.0",
+  "monuments": [
+    {
+      "remoteId": "burjkhalifa",
+      "name": "Burj Khalifa",
+      "imagePath": "landmarks/dubai-burjkhalifa.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "palmjumeirah",
+      "name": "Palm Jumeirah",
+      "imagePath": "landmarks/dubai-palmjumeirah.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "dubaimall",
+      "name": "Dubai Mall",
+      "imagePath": "landmarks/dubai-dubaimall.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "burjalarab",
+      "name": "Burj Al Arab",
+      "imagePath": "landmarks/dubai-burjalarab.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "dubaiframe",
+      "name": "Dubai Frame",
+      "imagePath": "landmarks/dubai-dubaiframe.webp",
+      "imageVersion": "1",
+      "isActive": true
+    }
+  ]
+}

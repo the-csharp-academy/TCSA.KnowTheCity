@@ -1,0 +1,41 @@
+{
+  "cityRemoteId": "newyork-us",
+  "version": "1.0",
+  "monuments": [
+    {
+      "remoteId": "statueofliberty",
+      "name": "Statue of Liberty",
+      "imagePath": "landmarks/newyork-statueofliberty.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "empirestatebuilding",
+      "name": "Empire State Building",
+      "imagePath": "landmarks/newyork-empirestatebuilding.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "centralpark",
+      "name": "Central Park",
+      "imagePath": "landmarks/newyork-centralpark.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "brooklynbridge",
+      "name": "Brooklyn Bridge",
+      "imagePath": "landmarks/newyork-brooklynbridge.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "timessquare",
+      "name": "Times Square",
+      "imagePath": "landmarks/newyork-timessquare.webp",
+      "imageVersion": "1",
+      "isActive": true
+    }
+  ]
+}

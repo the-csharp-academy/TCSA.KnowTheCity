@@ -30,20 +30,20 @@
             </MudPaper>
 
             <MudStack Row="true" Spacing="2" Class="mb-4">
-                <MudButton Variant="Variant.Outlined"
-                           Color="Color.Error"
+                <MudButton Variant="Variant.Filled"
+                           Color="Color.Default"
                            FullWidth="true"
                            StartIcon="@(_isCityFavorite ? Icons.Material.Filled.Favorite : Icons.Material.Filled.FavoriteBorder)"
                            OnClick="ToggleCityFavoriteAsync">
-                    @(_isCityFavorite ? "Remove city from favorites" : "Add city to favorites")
+                    @(_isCityFavorite ? "Unsave city" : "Save City")
                 </MudButton>
 
-                <MudButton Variant="Variant.Outlined"
-                           Color="Color.Error"
+                <MudButton Variant="Variant.Filled"
+                           Color="Color.Surface"
                            FullWidth="true"
                            StartIcon="@(_favoriteLandmarkIds.Contains(_landmarks[currentIndex].Id) ? Icons.Material.Filled.Favorite : Icons.Material.Filled.FavoriteBorder)"
                            OnClick="ToggleCurrentLandmarkFavoriteAsync">
-                    @(_favoriteLandmarkIds.Contains(_landmarks[currentIndex].Id) ? "Remove landmark from favorites" : "Add landmark to favorites")
+                    @(_favoriteLandmarkIds.Contains(_landmarks[currentIndex].Id) ? "Unsave landmark" : "Save landmark")
                 </MudButton>
             </MudStack>
 

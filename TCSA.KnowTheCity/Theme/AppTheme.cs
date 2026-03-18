@@ -31,12 +31,12 @@ public static class AppTheme
             Success = "#0F6CC7",
             Warning = "#F49A12",
             Error = "#E84A1C",
-            Background = "#11145F",
-            Surface = "#0F6CC7",
-            AppbarBackground = "#11145F",
+            Background = "#08111F",
+            Surface = "#13203E",
+            AppbarBackground = "#08111F",
             AppbarText = "#F5E8C9",
             TextPrimary = "#F5E8C9",
-            TextSecondary = "#2BB7F1"
+            TextSecondary = "#9BCFF7"
         },
         LayoutProperties = new LayoutProperties
         {

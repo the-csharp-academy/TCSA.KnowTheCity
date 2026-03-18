@@ -1,3 +1,23 @@
+.home-hero-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.home-hero-copy {
+    flex: 1 1 22rem;
+    min-width: 0;
+}
+
+.home-hero-chips {
+    margin-left: auto;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 .vibrant-city-card-content {
     padding-top: 14px;
     padding-bottom: 16px;

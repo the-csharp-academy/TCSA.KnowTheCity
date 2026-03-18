@@ -8,25 +8,29 @@
 
 <MudContainer MaxWidth="MaxWidth.Large" Class="pb-20">
     <MudPaper Elevation="0" Class="home-hero mb-6">
-        <MudStack Spacing="3">
-            <MudText Typo="Typo.h4" Class="home-hero-title">
-                Pick a city and jump straight in
-            </MudText>
+        <div class="home-hero-content">
+            <MudStack Spacing="3" Class="home-hero-copy">
+                <MudText Typo="Typo.h4" Class="home-hero-title">
+                    Pick a city and jump straight in
+                </MudText>
 
-            <MudText Typo="Typo.body1" Class="home-hero-subtitle">
-                Select a city to study or start the landmark quiz.
-            </MudText>
+                <MudText Typo="Typo.body1" Class="home-hero-subtitle">
+                    Select a city to study or start the landmark quiz.
+                </MudText>
+            </MudStack>
 
-            <MudStack Row="true" Spacing="2">
+            <MudStack Row="true" Spacing="2" Class="home-hero-chips">
                 <MudChip T="string" Class="brand-chip brand-chip-sky" Variant="Variant.Filled">
                     @FormatCount(_totalCityCount, "city", "cities")
+                </MudChip>
+                <MudChip T="string" Class="brand-chip brand-chip-orange" Variant="Variant.Filled">
+                    @FormatCount(_countries.Count, "country", "countries")
                 </MudChip>
                 <MudChip T="string" Class="brand-chip brand-chip-gold" Variant="Variant.Filled">
                     @FormatCount(_totalLandmarkCount, "landmark", "landmarks")
                 </MudChip>
-                <MudChip T="string" Class="brand-chip brand-chip-orange" Variant="Variant.Filled">Warm action color</MudChip>
             </MudStack>
-        </MudStack>
+        </div>
     </MudPaper>
 
     <MudPaper Elevation="0" Class="mb-6 pa-4">

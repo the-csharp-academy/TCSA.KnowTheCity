@@ -6,43 +6,51 @@
 @using TCSA.KnowTheCity.Services
 
 <MudContainer MaxWidth="MaxWidth.Medium">
-    <MudPaper Elevation="8" Class="study-shell py-4 px-6 mt-10 rounded-xl overflow-hidden">
-        <MudStack Spacing="3" Class="mb-3">
-            <MudStack Row="true" Spacing="2" AlignItems="AlignItems.Center">
-                <MudChip T="string"
-                         Class="study-city-chip"
-                         Variant="Variant.Filled"
-                         Size="Size.Large">
-                    @_cityName
-                </MudChip>
-
-                @if (_landmarks.Count > 0)
-                {
-                    <MudChip T="string"
-                             Class="study-progress-chip"
-                             Variant="Variant.Filled"
-                             Size="Size.Large">
-                        Study @(currentIndex + 1)/@_landmarks.Count
-                    </MudChip>
-                }
-            </MudStack>
-        </MudStack>
-
+    <MudPaper Elevation="8" Class="study-shell py-4 px-6 rounded-xl overflow-hidden" Style="width:75%;margin:0 auto;">
         @if (_landmarks.Count > 0)
         {           
             <MudPaper Elevation="0" Class="study-landmark-banner pa-4 mb-4">
-                <MudText Typo="Typo.subtitle2" Class="study-landmark-subtitle">
-                    Landmark @(currentIndex + 1) of @_landmarks.Count
-                </MudText>
-                <MudText Typo="Typo.h5" Class="study-landmark-title">
-                    @_landmarks[currentIndex].Name
-                </MudText>
+                <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center" Class="mb-1">
+                    <MudChip T="string"
+                             Class="study-city-chip"
+                             Variant="Variant.Filled"
+                             Size="Size.Medium">
+                        <strong>@_cityName</strong>
+                    </MudChip>
+                    <MudText Typo="Typo.h5" Class="study-landmark-title">
+                        @_landmarks[currentIndex].Name
+                    </MudText>
+                    <MudChip T="string"
+                             Class="study-progress-chip"
+                             Variant="Variant.Filled"
+                             Size="Size.Medium">
+                        Landmark @(currentIndex + 1) of @_landmarks.Count
+                    </MudChip>
+                </MudStack>
             </MudPaper>
+
+            <MudStack Row="true" Spacing="2" Class="mb-4">
+                <MudButton Variant="Variant.Filled"
+                           Color="Color.Default"
+                           FullWidth="true"
+                           StartIcon="@(_isCityFavorite ? Icons.Material.Filled.Favorite : Icons.Material.Filled.FavoriteBorder)"
+                           OnClick="ToggleCityFavoriteAsync">
+                    @(_isCityFavorite ? "Unsave city" : "Save City")
+                </MudButton>
+
+                <MudButton Variant="Variant.Filled"
+                           Color="Color.Surface"
+                           FullWidth="true"
+                           StartIcon="@(_favoriteLandmarkIds.Contains(_landmarks[currentIndex].Id) ? Icons.Material.Filled.Favorite : Icons.Material.Filled.FavoriteBorder)"
+                           OnClick="ToggleCurrentLandmarkFavoriteAsync">
+                    @(_favoriteLandmarkIds.Contains(_landmarks[currentIndex].Id) ? "Unsave landmark" : "Save landmark")
+                </MudButton>
+            </MudStack>
 
             <div class="study-image-frame mb-4">
                 @if (_cachedImagePaths.TryGetValue(_landmarks[currentIndex].Name, out var imgData) && !string.IsNullOrEmpty(imgData))
                 {
-                    <img src="@imgData" alt="@_landmarks[currentIndex].Name" style="width:100%;height:400px;object-fit:cover;" />
+                    <img src="@imgData" alt="@_landmarks[currentIndex].Name" style="display:block;width:100%;height:390px;object-position:top;" />
                 }
                 else
                 {
@@ -101,13 +109,18 @@
     [Parameter] public int CityId { get; set; }
     [Inject] private NavigationManager Navigation { get; set; } = default!;
     [Inject] private ICityService CityService { get; set; } = default!;
+    [Inject] private IFavoriteService FavoriteService { get; set; } = default!;
     [Inject] private IImageCacheService ImageCacheService { get; set; } = default!;
     [Inject] private ISnackbar Snackbar { get; set; } = default!;
 
     private List<Landmark> _landmarks = [];
     private Dictionary<string, string> _cachedImagePaths = [];
+    private HashSet<int> _favoriteLandmarkIds = [];
     private string _cityName = "";
+    private bool _isCityFavorite;
     private int currentIndex;
+
+    private Landmark? CurrentLandmark => _landmarks.Count > 0 ? _landmarks[currentIndex] : null;
 
     protected override async Task OnInitializedAsync()
     {
@@ -128,6 +141,12 @@
         }
 
         _landmarks = [.. landmarks.OrderBy(_ => Random.Shared.Next())];
+
+        var favoriteCities = await FavoriteService.GetFavoriteCitiesAsync();
+        _isCityFavorite = favoriteCities.Any(f => f.CityId == CityId);
+
+        var favoriteLandmarks = await FavoriteService.GetFavoriteLandmarksAsync(CityId);
+        _favoriteLandmarkIds = [.. favoriteLandmarks.Select(f => f.LandmarkId)];
 
         foreach (var landmark in _landmarks)
         {
@@ -154,6 +173,39 @@
     {
         if (currentIndex < _landmarks.Count - 1)
             currentIndex++;
+    }
+
+    private async Task ToggleCityFavoriteAsync()
+    {
+        if (_isCityFavorite)
+        {
+            await FavoriteService.RemoveFavoriteCityAsync(CityId);
+            _isCityFavorite = false;
+            Snackbar.Add("City removed from favorites", Severity.Success);
+            return;
+        }
+
+        await FavoriteService.AddFavoriteCityAsync(CityId);
+        _isCityFavorite = true;
+        Snackbar.Add("City added to favorites", Severity.Success);
+    }
+
+    private async Task ToggleCurrentLandmarkFavoriteAsync()
+    {
+        if (CurrentLandmark is null)
+            return;
+
+        if (_favoriteLandmarkIds.Contains(CurrentLandmark.Id))
+        {
+            await FavoriteService.RemoveFavoriteLandmarkAsync(CityId, CurrentLandmark.Id);
+            _favoriteLandmarkIds.Remove(CurrentLandmark.Id);
+            Snackbar.Add("Landmark removed from favorites", Severity.Success);
+            return;
+        }
+
+        await FavoriteService.AddFavoriteLandmarkAsync(CityId, CurrentLandmark.Id);
+        _favoriteLandmarkIds.Add(CurrentLandmark.Id);
+        Snackbar.Add("Landmark added to favorites", Severity.Success);
     }
 
     private void Finish() => Navigation.NavigateTo("/");

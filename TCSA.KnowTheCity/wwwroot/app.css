@@ -8,8 +8,45 @@
     --brand-cream: #f5e8c9;
 }
 
-body {
+html, body, #app {
+    width: 100%;
+    min-height: 100%;
+}
+
+.app-shell {
+    min-height: 100vh;
     background: linear-gradient(180deg, #f5e8c9 0%, #fffdf7 100%);
+}
+
+.app-shell .mud-layout,
+.app-shell .mud-main-content {
+    min-height: 100vh;
+    background: transparent;
+}
+
+.app-theme-dark {
+    background: linear-gradient(180deg, #08111f 0%, #101b34 100%);
+    color: var(--brand-cream);
+}
+
+html {
+    background: linear-gradient(180deg, #f5e8c9 0%, #fffdf7 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: transparent;
+    overflow-x: hidden;
+}
+
+#app,
+.mud-layout,
+.mud-main-content {
+    min-height: 100vh;
+    background: transparent;
 }
 
 .home-hero {
@@ -222,10 +259,6 @@ body {
     font-weight: 700;
 }
 
-body {
-    background-color: #f5f7fa;
-}
-
 .page-title {
     color: #2e7d32;
 }
@@ -292,6 +325,8 @@ h1:focus {
 
 .status-bar-safe-area {
     display: none;
+    width: 100vw;
+    flex-shrink: 0;
 }
 
 @supports (-webkit-touch-callout: none) {
@@ -300,8 +335,8 @@ h1:focus {
         position: sticky;
         top: 0;
         height: env(safe-area-inset-top);
-        background-color: #f7f7f7;
-        width: 100%;
+        background: linear-gradient(180deg, #f5e8c9 0%, #fff3da 100%);
+        width: 100vw;
         z-index: 1;
     }
 
@@ -984,4 +1019,162 @@ h1:focus {
 
 .instructions-tip-text {
     color: var(--brand-royal);
+}
+
+.app-theme-dark .vibrant-city-card,
+.app-theme-dark .vibrant-city-card.mud-card,
+.app-theme-dark .vibrant-city-card.mud-paper {
+    background: linear-gradient(180deg, rgba(19, 32, 62, 0.96) 0%, rgba(10, 18, 37, 0.98) 100%) !important;
+    border-color: rgba(155, 207, 247, 0.18);
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.32);
+}
+
+.app-theme-dark .vibrant-city-card-content,
+.app-theme-dark .vibrant-city-card .mud-card-content {
+    background: linear-gradient(180deg, rgba(19, 32, 62, 0.96) 0%, rgba(10, 18, 37, 0.98) 100%) !important;
+}
+
+.app-theme-dark .vibrant-city-card-title,
+.app-theme-dark .city-card-country {
+    color: var(--brand-cream);
+}
+
+.app-theme-dark .vibrant-city-card-continent {
+    background-color: rgba(43, 183, 241, 0.2);
+    color: var(--brand-cream);
+}
+
+.app-theme-dark .city-card-placeholder {
+    background: linear-gradient(135deg, rgba(43, 183, 241, 0.12), rgba(15, 108, 199, 0.18), rgba(249, 221, 31, 0.12));
+}
+
+.app-theme-dark .country-flag-image {
+    border-color: rgba(155, 207, 247, 0.28);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
+}
+
+.app-theme-dark .history-panel,
+.app-theme-dark .favorites-panel,
+.app-theme-dark .instructions-panel,
+.app-theme-dark .instructions-tips-shell {
+    background: linear-gradient(180deg, rgba(19, 32, 62, 0.96) 0%, rgba(10, 18, 37, 0.98) 100%) !important;
+    border-color: rgba(155, 207, 247, 0.18);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.32);
+}
+
+.app-theme-dark .history-section-title,
+.app-theme-dark .favorites-panel-title,
+.app-theme-dark .instructions-panel-title,
+.app-theme-dark .instructions-tip-title,
+.app-theme-dark .favorites-item-title,
+.app-theme-dark .favorites-empty-title,
+.app-theme-dark .history-city-name,
+.app-theme-dark .instructions-list {
+    color: var(--brand-cream);
+}
+
+.app-theme-dark .history-section-subtitle,
+.app-theme-dark .favorites-panel-subtitle,
+.app-theme-dark .favorites-item-subtitle,
+.app-theme-dark .favorites-empty-text,
+.app-theme-dark .instructions-panel-subtitle,
+.app-theme-dark .instructions-tip-text,
+.app-theme-dark .instructions-tip-icon,
+.app-theme-dark .favorites-empty-icon {
+    color: #9bcff7;
+}
+
+.app-theme-dark .history-table .mud-table-head th {
+    background-color: rgba(155, 207, 247, 0.1);
+    color: var(--brand-cream);
+}
+
+.app-theme-dark .history-table .mud-table-body td {
+    color: rgba(245, 232, 201, 0.9);
+}
+
+.app-theme-dark .history-empty-state,
+.app-theme-dark .favorites-empty-state {
+    background: linear-gradient(135deg, rgba(43, 183, 241, 0.12) 0%, rgba(15, 108, 199, 0.2) 100%);
+    border-color: rgba(155, 207, 247, 0.18);
+    color: var(--brand-cream);
+}
+
+.app-theme-dark .favorites-item,
+.app-theme-dark .instructions-tip-card {
+    background: linear-gradient(180deg, rgba(19, 32, 62, 0.96) 0%, rgba(10, 18, 37, 0.98) 100%) !important;
+    border-color: rgba(155, 207, 247, 0.18);
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.32);
+}
+
+.app-theme-dark .favorites-city-chip,
+.app-theme-dark .history-results-chip,
+.app-theme-dark .history-score-chip-standard {
+    background-color: rgba(43, 183, 241, 0.2) !important;
+    color: var(--brand-cream) !important;
+}
+
+.app-theme-dark .favorites-delete-button {
+    background: rgba(232, 74, 28, 0.14);
+}
+
+.app-theme-dark .favorites-delete-button:hover {
+    background: rgba(232, 74, 28, 0.24);
+}
+
+.app-theme-dark .quiz-shell,
+.app-theme-dark .study-shell {
+    background: linear-gradient(180deg, rgba(19, 32, 62, 0.96) 0%, rgba(10, 18, 37, 0.98) 100%) !important;
+    border-color: rgba(155, 207, 247, 0.18);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.32);
+}
+
+.app-theme-dark .quiz-question-banner,
+.app-theme-dark .study-landmark-banner {
+    background: linear-gradient(135deg, rgba(43, 183, 241, 0.12) 0%, rgba(15, 108, 199, 0.2) 100%) !important;
+    border-color: rgba(155, 207, 247, 0.18);
+}
+
+.app-theme-dark .quiz-question-title,
+.app-theme-dark .study-landmark-title {
+    color: var(--brand-cream);
+}
+
+.app-theme-dark .quiz-question-subtitle,
+.app-theme-dark .study-landmark-subtitle {
+    color: #9bcff7;
+}
+
+.app-theme-dark .quiz-image-frame,
+.app-theme-dark .study-image-frame {
+    border-color: rgba(155, 207, 247, 0.28);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
+}
+
+.app-theme-dark .quiz-image-placeholder,
+.app-theme-dark .study-image-placeholder {
+    background: linear-gradient(135deg, rgba(43, 183, 241, 0.12), rgba(15, 108, 199, 0.18), rgba(249, 221, 31, 0.12));
+}
+
+.app-theme-dark .study-progress-chip,
+.app-theme-dark .quiz-stage-chip,
+.app-theme-dark .quiz-timer-chip {
+    background-color: rgba(43, 183, 241, 0.2) !important;
+    color: var(--brand-cream) !important;
+}
+
+.app-theme-dark .quiz-city-chip,
+.app-theme-dark .study-city-chip {
+    background-color: rgba(17, 20, 95, 0.9) !important;
+    color: var(--brand-cream) !important;
+}
+
+.app-theme-dark .quiz-score-chip {
+    background-color: rgba(249, 221, 31, 0.22) !important;
+    color: var(--brand-cream) !important;
+}
+
+.app-theme-dark .quiz-timer-chip-danger {
+    background-color: rgba(232, 74, 28, 0.9) !important;
+    color: var(--brand-cream) !important;
 }

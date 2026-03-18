@@ -2,44 +2,66 @@
 @using TCSA.KnowTheCity.Theme
 @inherits LayoutComponentBase
 
-<MudThemeProvider Theme="@AppTheme.Default" />
-<MudPopoverProvider />
-<MudDialogProvider />
-<MudSnackbarProvider />
+<div class="@AppShellClass">
+    <MudThemeProvider Theme="@AppTheme.Default" IsDarkMode="@_isDarkMode" />
+    <MudPopoverProvider />
+    <MudDialogProvider />
+    <MudSnackbarProvider />
 
-<MudLayout>
-    <MudAppBar Bottom="true" Fixed="true" Dense="true" Elevation="0">
-        <MudContainer MaxWidth="MaxWidth.Large" Class="d-flex align-center px-0">
-            <MudIconButton Icon="@Icons.Material.Filled.Home"
-                           Variant="Variant.Text"
-                           Color="Color.Inherit"
-                           Href="/" />
+    <MudLayout>
+        <MudAppBar Bottom="true" Fixed="true" Dense="true" Elevation="0">
+            <MudContainer MaxWidth="MaxWidth.Large" Class="d-flex align-center px-0">
+                <MudIconButton Icon="@Icons.Material.Filled.Home"
+                               Variant="Variant.Text"
+                               Color="Color.Inherit"
+                               Href="/" />
 
-            <MudSpacer />
+                <MudSpacer />
 
-            <MudText Typo="Typo.h6">Know The City</MudText>
+                <MudText Typo="Typo.h6">Know The City</MudText>
 
-            <MudSpacer />
+                <MudSpacer />
 
-            <MudIconButton Icon="@Icons.Material.Filled.Info"
-                           Variant="Variant.Text"
-                           Color="Color.Inherit"
-                           Href="/instructions"
-                           Class="mx-1" />
-            <MudIconButton Icon="@Icons.Material.Filled.Favorite"
-                           Variant="Variant.Text"
-                           Color="Color.Inherit"
-                           Href="/favorites"
-                           Class="mx-1" />
-            <MudIconButton Icon="@Icons.Material.Filled.History"
-                           Variant="Variant.Text"
-                           Color="Color.Inherit"
-                           Href="/history"
-                           Class="mx-1" />
-        </MudContainer>
-    </MudAppBar>
+                <MudIconButton Icon="@ThemeToggleIcon"
+                               Variant="Variant.Text"
+                               Color="Color.Inherit"
+                               OnClick="ToggleTheme"
+                               Class="mx-1" />
+                <MudIconButton Icon="@Icons.Material.Filled.Info"
+                               Variant="Variant.Text"
+                               Color="Color.Inherit"
+                               Href="/instructions"
+                               Class="mx-1" />
+                <MudIconButton Icon="@Icons.Material.Filled.Favorite"
+                               Variant="Variant.Text"
+                               Color="Color.Inherit"
+                               Href="/favorites"
+                               Class="mx-1" />
+                <MudIconButton Icon="@Icons.Material.Filled.History"
+                               Variant="Variant.Text"
+                               Color="Color.Inherit"
+                               Href="/history"
+                               Class="mx-1" />
+            </MudContainer>
+        </MudAppBar>
 
-    <MudMainContent Class="pa-4 mt-2">
-        @Body
-    </MudMainContent>
-</MudLayout>
+        <MudMainContent Class="pa-4 mt-2">
+            @Body
+        </MudMainContent>
+    </MudLayout>
+</div>
+
+@code {
+    private bool _isDarkMode = Microsoft.Maui.Controls.Application.Current?.RequestedTheme == Microsoft.Maui.ApplicationModel.AppTheme.Dark;
+
+    private string AppShellClass => _isDarkMode ? "app-shell app-theme-dark" : "app-shell app-theme-light";
+
+    private string ThemeToggleIcon => _isDarkMode
+        ? Icons.Material.Filled.LightMode
+        : Icons.Material.Filled.DarkMode;
+
+    private void ToggleTheme()
+    {
+        _isDarkMode = !_isDarkMode;
+    }
+}

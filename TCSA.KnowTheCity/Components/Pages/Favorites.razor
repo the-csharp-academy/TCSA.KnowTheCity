@@ -6,34 +6,34 @@
 <MudContainer MaxWidth="MaxWidth.Large" Class="pb-8">
     <MudPaper Elevation="0" Class="favorites-hero mb-6">
         <MudStack Spacing="3">
-            <MudChip T="string" Class="home-hero-chip" Variant="Variant.Filled" Size="Size.Medium">
-                Saved Places
-            </MudChip>
+            <div class="favorites-hero-header">
+                <MudText Typo="Typo.h4" Class="favorites-hero-title">
+                    Keep your favourite places close
+                </MudText>
 
-            <MudText Typo="Typo.h4" Class="favorites-hero-title">
-                Keep your favourite places close
-            </MudText>
+                <MudStack Row="true" Spacing="2" Class="favorites-hero-chips">
+                    <MudChip T="string" Class="brand-chip brand-chip-gold" Variant="Variant.Filled">
+                        Cities saved: @_favoriteCities.Count
+                    </MudChip>
+                    <MudChip T="string" Class="brand-chip brand-chip-orange" Variant="Variant.Filled">
+                        Landmarks saved: @_favoriteLandmarks.Count
+                    </MudChip>
+                </MudStack>
+            </div>
 
             <MudText Typo="Typo.body1" Class="favorites-hero-subtitle">
                 Review the cities and landmarks you saved, then remove anything you no longer want to keep.
             </MudText>
 
-            <MudStack Row="true" Spacing="2">
-                <MudChip T="string" Class="brand-chip brand-chip-gold" Variant="Variant.Filled">
-                    Cities saved: @_favoriteCities.Count
-                </MudChip>
-                <MudChip T="string" Class="brand-chip brand-chip-orange" Variant="Variant.Filled">
-                    Landmarks saved: @_favoriteLandmarks.Count
-                </MudChip>
-            </MudStack>
-
             <MudButton Variant="Variant.Filled"
                        Color="Color.Primary"
+                       FullWidth="false"
                        StartIcon="@Icons.Material.Filled.Quiz"
                        Disabled="@(_favoriteLandmarks.Count == 0)"
                        OnClick="StartFavoritesQuiz">
                 Quiz favourite landmarks
             </MudButton>
+
         </MudStack>
     </MudPaper>
 

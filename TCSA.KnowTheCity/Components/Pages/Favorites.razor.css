@@ -1,0 +1,14 @@
+.favorites-hero-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.favorites-hero-chips {
+    margin-left: auto;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+}

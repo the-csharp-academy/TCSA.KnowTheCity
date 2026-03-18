@@ -8,8 +8,29 @@
     --brand-cream: #f5e8c9;
 }
 
-body {
+html, body, #app {
+    width: 100%;
+    min-height: 100%;
+}
+
+html {
     background: linear-gradient(180deg, #f5e8c9 0%, #fffdf7 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: transparent;
+    overflow-x: hidden;
+}
+
+#app,
+.mud-layout,
+.mud-main-content {
+    min-height: 100vh;
+    background: transparent;
 }
 
 .home-hero {
@@ -222,10 +243,6 @@ body {
     font-weight: 700;
 }
 
-body {
-    background-color: #f5f7fa;
-}
-
 .page-title {
     color: #2e7d32;
 }
@@ -292,6 +309,8 @@ h1:focus {
 
 .status-bar-safe-area {
     display: none;
+    width: 100vw;
+    flex-shrink: 0;
 }
 
 @supports (-webkit-touch-callout: none) {
@@ -300,8 +319,8 @@ h1:focus {
         position: sticky;
         top: 0;
         height: env(safe-area-inset-top);
-        background-color: #f7f7f7;
-        width: 100%;
+        background: linear-gradient(180deg, #f5e8c9 0%, #fff3da 100%);
+        width: 100vw;
         z-index: 1;
     }
 

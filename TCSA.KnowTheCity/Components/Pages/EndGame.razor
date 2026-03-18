@@ -65,15 +65,8 @@
                         </div>
 
                         <div class="endgame-result-content">
-                            <MudText Typo="Typo.h6" Class="endgame-result-title">@item.Landmark.Name</MudText>
-
                             <MudStack Row="true" Spacing="1" AlignItems="AlignItems.Center">
-                                <MudChip T="string"
-                                         Class="@(item.IsCorrect ? "endgame-status-chip endgame-status-chip-correct" : "endgame-status-chip endgame-status-chip-wrong")"
-                                         Variant="Variant.Filled"
-                                         Size="Size.Small">
-                                    @(item.IsCorrect ? "Correct" : "Missed")
-                                </MudChip>
+                                <MudText Typo="Typo.h6" Class="endgame-result-title">@item.Landmark.Name</MudText>
 
                                 @if (!item.IsCorrect && !string.IsNullOrWhiteSpace(item.Label))
                                 {

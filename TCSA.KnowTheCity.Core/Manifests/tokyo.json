@@ -33,7 +33,7 @@
     {
       "remoteId": "tokyoskytree",
       "name": "Tokyo Skytree",
-      "imagePath": "landmarks/tokyo-skytree.webp",
+      "imagePath": "landmarks/tokyo-tokyoskytree.webp",
       "imageVersion": "1",
       "isActive": true
     }

@@ -4,6 +4,7 @@
 @using TCSA.KnowTheCity.Core.Models.Domain
 @using TCSA.KnowTheCity.Core.Services
 @using TCSA.KnowTheCity.Services
+@inject IStringLocalizer<SharedResource> Localizer
 
 <MudContainer MaxWidth="MaxWidth.Medium">
     <MudPaper Elevation="8" Class="study-shell py-4 px-6 rounded-xl overflow-hidden" Style="width:75%;margin:0 auto;">
@@ -24,7 +25,7 @@
                              Class="study-progress-chip"
                              Variant="Variant.Filled"
                              Size="Size.Medium">
-                        Landmark @(currentIndex + 1) of @_landmarks.Count
+                        @Localizer["Study.Progress", currentIndex + 1, _landmarks.Count]
                     </MudChip>
                 </MudStack>
             </MudPaper>
@@ -35,7 +36,7 @@
                            FullWidth="true"
                            StartIcon="@(_isCityFavorite ? Icons.Material.Filled.Favorite : Icons.Material.Filled.FavoriteBorder)"
                            OnClick="ToggleCityFavoriteAsync">
-                    @(_isCityFavorite ? "Unsave city" : "Save City")
+                    @(_isCityFavorite ? Localizer["Study.UnsaveCity"] : Localizer["Study.SaveCity"])
                 </MudButton>
 
                 <MudButton Variant="Variant.Filled"
@@ -43,7 +44,7 @@
                            FullWidth="true"
                            StartIcon="@(_favoriteLandmarkIds.Contains(_landmarks[currentIndex].Id) ? Icons.Material.Filled.Favorite : Icons.Material.Filled.FavoriteBorder)"
                            OnClick="ToggleCurrentLandmarkFavoriteAsync">
-                    @(_favoriteLandmarkIds.Contains(_landmarks[currentIndex].Id) ? "Unsave landmark" : "Save landmark")
+                    @(_favoriteLandmarkIds.Contains(_landmarks[currentIndex].Id) ? Localizer["Study.UnsaveLandmark"] : Localizer["Study.SaveLandmark"])
                 </MudButton>
             </MudStack>
 
@@ -70,7 +71,7 @@
                                    StartIcon="@Icons.Material.Filled.ArrowBack"
                                    Class="study-action-button study-action-button-secondary"
                                    OnClick="Previous">
-                            Previous
+                            @Localizer["Study.Previous"]
                         </MudButton>
                     </MudItem>
                 }
@@ -83,7 +84,7 @@
                                    EndIcon="@Icons.Material.Filled.ArrowForward"
                                    Class="study-action-button study-action-button-primary"
                                    OnClick="Next">
-                            Next
+                            @Localizer["Study.Next"]
                         </MudButton>
                     </MudItem>
                 }
@@ -96,7 +97,7 @@
                                    EndIcon="@Icons.Material.Filled.ArrowForward"
                                    Class="study-action-button study-action-button-primary"
                                    OnClick="Finish">
-                            Finish
+                            @Localizer["Study.Finish"]
                         </MudButton>
                     </MudItem>
                 }
@@ -129,14 +130,14 @@
 
         if (city is null)
         {
-            Snackbar.Add("Error loading landmarks", Severity.Error);
+            Snackbar.Add(Localizer["Study.ErrorLoadingLandmarks"].Value, Severity.Error);
             return;
         }
 
         var landmarks = await CityService.GetLandmarksAsync(city.RemoteId);
         if (landmarks is null || landmarks.Count == 0)
         {
-            Snackbar.Add("Error loading landmarks", Severity.Error);
+            Snackbar.Add(Localizer["Study.ErrorLoadingLandmarks"].Value, Severity.Error);
             return;
         }
 
@@ -181,13 +182,13 @@
         {
             await FavoriteService.RemoveFavoriteCityAsync(CityId);
             _isCityFavorite = false;
-            Snackbar.Add("City removed from favorites", Severity.Success);
+            Snackbar.Add(Localizer["Study.CityRemoved"].Value, Severity.Success);
             return;
         }
 
         await FavoriteService.AddFavoriteCityAsync(CityId);
         _isCityFavorite = true;
-        Snackbar.Add("City added to favorites", Severity.Success);
+        Snackbar.Add(Localizer["Study.CityAdded"].Value, Severity.Success);
     }
 
     private async Task ToggleCurrentLandmarkFavoriteAsync()
@@ -199,13 +200,13 @@
         {
             await FavoriteService.RemoveFavoriteLandmarkAsync(CityId, CurrentLandmark.Id);
             _favoriteLandmarkIds.Remove(CurrentLandmark.Id);
-            Snackbar.Add("Landmark removed from favorites", Severity.Success);
+            Snackbar.Add(Localizer["Study.LandmarkRemoved"].Value, Severity.Success);
             return;
         }
 
         await FavoriteService.AddFavoriteLandmarkAsync(CityId, CurrentLandmark.Id);
         _favoriteLandmarkIds.Add(CurrentLandmark.Id);
-        Snackbar.Add("Landmark added to favorites", Severity.Success);
+        Snackbar.Add(Localizer["Study.LandmarkAdded"].Value, Severity.Success);
     }
 
     private void Finish() => Navigation.NavigateTo("/");

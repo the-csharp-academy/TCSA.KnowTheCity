@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
 using MudBlazor.Services;
 using TCSA.KnowTheCity.Core.Clients;
@@ -7,6 +8,7 @@ using TCSA.KnowTheCity.Core.Data;
 using TCSA.KnowTheCity.Core.Helpers;
 using TCSA.KnowTheCity.Core.Options;
 using TCSA.KnowTheCity.Core.Services;
+using TCSA.KnowTheCity.Localization;
 using TCSA.KnowTheCity.Services;
 
 namespace TCSA.KnowTheCity;
@@ -33,6 +35,8 @@ public static class MauiProgram
 
         builder.Services.AddMauiBlazorWebView();
         builder.Services.AddMudServices();
+        builder.Services.AddLocalization(options => options.ResourcesPath = "Resources/Localization");
+        builder.Services.AddSingleton<AppLocalizationService>();
 
         var dbPath = Path.Combine(FileSystem.AppDataDirectory, "knowthecity.db");
         builder.Services.AddDbContextFactory<KnowTheCityDbContext>(options =>
@@ -63,12 +67,14 @@ public static class MauiProgram
 
         var app = builder.Build();
 
+        app.Services.GetRequiredService<AppLocalizationService>().Initialize();
+
         using var scope = app.Services.CreateScope();
         var db = scope.ServiceProvider
             .GetRequiredService<IDbContextFactory<KnowTheCityDbContext>>()
             .CreateDbContext();
 
-        db.Database.EnsureDeleted();
+        //db.Database.EnsureDeleted();
         db.Database.EnsureCreated();
 
         //SeedCatalog(db);

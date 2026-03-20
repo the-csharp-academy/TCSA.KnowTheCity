@@ -1,6 +1,7 @@
 ﻿@using MudBlazor
 @using TCSA.KnowTheCity.Theme
 @inherits LayoutComponentBase
+@inject IStringLocalizer<SharedResource> Localizer
 
 <div class="@AppShellClass">
     <MudThemeProvider Theme="@AppTheme.Default" IsDarkMode="@_isDarkMode" />
@@ -18,7 +19,7 @@
 
                 <MudSpacer />
 
-                <MudText Typo="Typo.h6">Know The City</MudText>
+                <MudText Typo="Typo.h6">@Localizer["App.Title"]</MudText>
 
                 <MudSpacer />
 
@@ -26,6 +27,11 @@
                                Variant="Variant.Text"
                                Color="Color.Inherit"
                                OnClick="ToggleTheme"
+                               Class="mx-1" />
+                <MudIconButton Icon="@Icons.Material.Filled.Settings"
+                               Variant="Variant.Text"
+                               Color="Color.Inherit"
+                               Href="/settings"
                                Class="mx-1" />
                 <MudIconButton Icon="@Icons.Material.Filled.Info"
                                Variant="Variant.Text"

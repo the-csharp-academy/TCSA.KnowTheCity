@@ -120,6 +120,16 @@
       "imagePath": "/cities/rome.webp",
       "dateAdded": "2026-03-20",
       "isActive": true
+    },
+    {
+      "remoteId": "madrid-es",
+      "name": "Madrid",
+      "country": "Spain",
+      "continent": "Europe",
+      "manifestPath": "/manifests/madrid.json",
+      "imagePath": "/cities/madrid.webp",
+      "dateAdded": "2026-03-20",
+      "isActive": true
     }
   ]
 }

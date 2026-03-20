@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="App.Title" xml:space="preserve"><value>Know The City</value></data>
+  <data name="Layout.Language" xml:space="preserve"><value>Language</value></data>
+  <data name="Settings.Title" xml:space="preserve"><value>Settings</value></data>
+  <data name="Settings.Subtitle" xml:space="preserve"><value>Choose the language you want to use in the app.</value></data>
+  <data name="Settings.Language" xml:space="preserve"><value>Language</value></data>
+  <data name="Settings.ApplyOnHome" xml:space="preserve"><value>Language changes will be applied when you return to the home page.</value></data>
+  <data name="Settings.SaveAndReturnHome" xml:space="preserve"><value>Save and return home</value></data>
+  <data name="Settings.Cancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="Home.HeroTitle" xml:space="preserve"><value>Pick a city and jump straight in</value></data>
+  <data name="Home.HeroSubtitle" xml:space="preserve"><value>Select a city to study or start the landmark quiz.</value></data>
+  <data name="Home.CityCount.Singular" xml:space="preserve"><value>{0} city</value></data>
+  <data name="Home.CityCount.Plural" xml:space="preserve"><value>{0} cities</value></data>
+  <data name="Home.CountryCount.Singular" xml:space="preserve"><value>{0} country</value></data>
+  <data name="Home.CountryCount.Plural" xml:space="preserve"><value>{0} countries</value></data>
+  <data name="Home.LandmarkCount.Singular" xml:space="preserve"><value>{0} landmark</value></data>
+  <data name="Home.LandmarkCount.Plural" xml:space="preserve"><value>{0} landmarks</value></data>
+  <data name="Home.SearchByCity" xml:space="preserve"><value>Search by city</value></data>
+  <data name="Home.FilterByCountry" xml:space="preserve"><value>Filter by country</value></data>
+  <data name="Home.FilterByContinent" xml:space="preserve"><value>Filter by continent</value></data>
+  <data name="Home.ClearFilters" xml:space="preserve"><value>Clear filters</value></data>
+  <data name="Home.NoCitiesMatch" xml:space="preserve"><value>No cities match the current filters.</value></data>
+  <data name="Home.Quiz" xml:space="preserve"><value>Quiz</value></data>
+  <data name="Home.Study" xml:space="preserve"><value>Study</value></data>
+  <data name="Home.CountryFlagAlt" xml:space="preserve"><value>{0} flag</value></data>
+  <data name="Continent.Asia" xml:space="preserve"><value>Asia</value></data>
+  <data name="Continent.Europe" xml:space="preserve"><value>Europe</value></data>
+  <data name="Continent.SouthAmerica" xml:space="preserve"><value>South America</value></data>
+  <data name="Continent.CentralAmerica" xml:space="preserve"><value>Central America</value></data>
+  <data name="Continent.NorthAmerica" xml:space="preserve"><value>North America</value></data>
+  <data name="Continent.Africa" xml:space="preserve"><value>Africa</value></data>
+  <data name="Continent.Oceania" xml:space="preserve"><value>Oceania</value></data>
+  <data name="Instructions.Tag" xml:space="preserve"><value>Instructions</value></data>
+  <data name="Instructions.Title" xml:space="preserve"><value>Learn how to play in under a minute</value></data>
+  <data name="Instructions.Subtitle" xml:space="preserve"><value>Browse cities, use search to find the right place faster, study landmarks before a quiz, and save favorites so you can practice them again later.</value></data>
+  <data name="Instructions.ChooseCity" xml:space="preserve"><value>Choose a city</value></data>
+  <data name="Instructions.StudyFirst" xml:space="preserve"><value>Study first</value></data>
+  <data name="Instructions.OpenFavorites" xml:space="preserve"><value>Open favorites</value></data>
+  <data name="Instructions.HowToPlay.Title" xml:space="preserve"><value>How to play</value></data>
+  <data name="Instructions.HowToPlay.Subtitle" xml:space="preserve"><value>Start a quiz right away or warm up in Study mode first.</value></data>
+  <data name="Instructions.HowToPlay.Step1" xml:space="preserve"><value>Open the home page and pick a city.</value></data>
+  <data name="Instructions.HowToPlay.Step2" xml:space="preserve"><value>Select Quiz to play or Study to review landmarks first.</value></data>
+  <data name="Instructions.HowToPlay.Step3" xml:space="preserve"><value>Type the landmark name and press Answer or the Enter key.</value></data>
+  <data name="Instructions.HowToPlay.Step4" xml:space="preserve"><value>Use Skip if you want to move on without answering.</value></data>
+  <data name="Instructions.HowToPlay.Step5" xml:space="preserve"><value>The quiz ends when you finish all landmarks or the timer runs out.</value></data>
+  <data name="Instructions.HowToPlay.Step6" xml:space="preserve"><value>Review your score and landmark breakdown on the results page.</value></data>
+  <data name="Instructions.HowToPlay.Chip" xml:space="preserve"><value>60-second quiz timer</value></data>
+  <data name="Instructions.UseSearch.Title" xml:space="preserve"><value>Use search</value></data>
+  <data name="Instructions.UseSearch.Subtitle" xml:space="preserve"><value>Find cities faster from the home page.</value></data>
+  <data name="Instructions.UseSearch.Step1" xml:space="preserve"><value>Use Search by city to filter the list as you type.</value></data>
+  <data name="Instructions.UseSearch.Step2" xml:space="preserve"><value>Refine the results with Filter by country.</value></data>
+  <data name="Instructions.UseSearch.Step3" xml:space="preserve"><value>Use Filter by continent if you want a smaller list.</value></data>
+  <data name="Instructions.UseSearch.Step4" xml:space="preserve"><value>Select Clear filters to reset everything in one tap.</value></data>
+  <data name="Instructions.UseSearch.Step5" xml:space="preserve"><value>Once you find a city, open Quiz or Study from its card.</value></data>
+  <data name="Instructions.UseSearch.Chip" xml:space="preserve"><value>Search updates as you type</value></data>
+  <data name="Instructions.Favorites.Title" xml:space="preserve"><value>Save and practice favorites</value></data>
+  <data name="Instructions.Favorites.Subtitle" xml:space="preserve"><value>Keep the landmarks you want to revisit.</value></data>
+  <data name="Instructions.Favorites.Step1" xml:space="preserve"><value>Finish a city quiz and open the results page.</value></data>
+  <data name="Instructions.Favorites.Step2" xml:space="preserve"><value>Use the star button next to a landmark to save it as a favorite.</value></data>
+  <data name="Instructions.Favorites.Step3" xml:space="preserve"><value>Open the Favorites page to review everything you saved.</value></data>
+  <data name="Instructions.Favorites.Step4" xml:space="preserve"><value>Select Quiz favourite landmarks to practice saved landmarks again.</value></data>
+  <data name="Instructions.Favorites.Step5" xml:space="preserve"><value>Remove saved items anytime from the Favorites page.</value></data>
+  <data name="Instructions.Favorites.Chip" xml:space="preserve"><value>Practice saved landmarks anytime</value></data>
+  <data name="Instructions.QuickTips.Title" xml:space="preserve"><value>Quick tips</value></data>
+  <data name="Instructions.QuickTips.NewCity.Title" xml:space="preserve"><value>New city?</value></data>
+  <data name="Instructions.QuickTips.NewCity.Text" xml:space="preserve"><value>Start with Study mode if you want to learn the landmarks before taking the quiz.</value></data>
+  <data name="Instructions.QuickTips.Timer.Title" xml:space="preserve"><value>Watch the timer</value></data>
+  <data name="Instructions.QuickTips.Timer.Text" xml:space="preserve"><value>Keep an eye on the countdown during quizzes so you can answer as many landmarks as possible.</value></data>
+  <data name="Instructions.QuickTips.Practice.Title" xml:space="preserve"><value>Want more practice?</value></data>
+  <data name="Instructions.QuickTips.Practice.Text" xml:space="preserve"><value>Use Favorites for repeat practice and History to review how your recent quiz runs went.</value></data>
+  <data name="Favorites.Title" xml:space="preserve"><value>Keep your favourite places close</value></data>
+  <data name="Favorites.CitiesSaved" xml:space="preserve"><value>Cities saved: {0}</value></data>
+  <data name="Favorites.LandmarksSaved" xml:space="preserve"><value>Landmarks saved: {0}</value></data>
+  <data name="Favorites.Subtitle" xml:space="preserve"><value>Review the cities and landmarks you saved, then remove anything you no longer want to keep.</value></data>
+  <data name="Favorites.QuizFavouriteLandmarks" xml:space="preserve"><value>Quiz favourite landmarks</value></data>
+  <data name="Favorites.CitiesPanel.Title" xml:space="preserve"><value>Favourite Cities</value></data>
+  <data name="Favorites.CitiesPanel.Subtitle" xml:space="preserve"><value>Cities you've saved for later.</value></data>
+  <data name="Favorites.EmptyCities.Title" xml:space="preserve"><value>No favourite cities yet</value></data>
+  <data name="Favorites.EmptyCities.Text" xml:space="preserve"><value>Start saving cities from the home screen and they will appear here.</value></data>
+  <data name="Favorites.SavedCity" xml:space="preserve"><value>Saved city</value></data>
+  <data name="Favorites.LandmarksPanel.Title" xml:space="preserve"><value>Favourite Landmarks</value></data>
+  <data name="Favorites.LandmarksPanel.Subtitle" xml:space="preserve"><value>Landmarks you've marked as must-see.</value></data>
+  <data name="Favorites.EmptyLandmarks.Title" xml:space="preserve"><value>No favourite landmarks yet</value></data>
+  <data name="Favorites.EmptyLandmarks.Text" xml:space="preserve"><value>Save landmarks during the quiz flow and they will show up here.</value></data>
+  <data name="History.Tag" xml:space="preserve"><value>Game History</value></data>
+  <data name="History.Title" xml:space="preserve"><value>Review your recent quiz runs</value></data>
+  <data name="History.Subtitle" xml:space="preserve"><value>Filter by city and date to revisit previous games and track how well you know each place.</value></data>
+  <data name="History.SearchTitle" xml:space="preserve"><value>Search</value></data>
+  <data name="History.SearchSubtitle" xml:space="preserve"><value>Narrow results by city and date range.</value></data>
+  <data name="History.City" xml:space="preserve"><value>City</value></data>
+  <data name="History.FromDate" xml:space="preserve"><value>From date</value></data>
+  <data name="History.ToDate" xml:space="preserve"><value>To date</value></data>
+  <data name="History.Search" xml:space="preserve"><value>Search</value></data>
+  <data name="History.Clear" xml:space="preserve"><value>Clear</value></data>
+  <data name="History.ResultsTitle" xml:space="preserve"><value>Results</value></data>
+  <data name="History.ResultsSubtitle" xml:space="preserve"><value>Your latest quiz attempts across all cities.</value></data>
+  <data name="History.NoGames" xml:space="preserve"><value>No games found. Try a different search or go play a quiz.</value></data>
+  <data name="History.Date" xml:space="preserve"><value>Date</value></data>
+  <data name="History.Score" xml:space="preserve"><value>Score</value></data>
+  <data name="History.ResultCount.Singular" xml:space="preserve"><value>1 game found</value></data>
+  <data name="History.ResultCount.Plural" xml:space="preserve"><value>{0} games found</value></data>
+  <data name="History.SelectedCity" xml:space="preserve"><value>Selected city</value></data>
+  <data name="History.AllCities" xml:space="preserve"><value>All cities</value></data>
+  <data name="History.AllDates" xml:space="preserve"><value>All dates</value></data>
+  <data name="History.AnyDate" xml:space="preserve"><value>Any</value></data>
+  <data name="History.DateRange" xml:space="preserve"><value>{0} - {1}</value></data>
+  <data name="Quiz.LoadingImages" xml:space="preserve"><value>Loading images… {0} / {1}</value></data>
+  <data name="Quiz.Progress" xml:space="preserve"><value>Quiz {0}/{1}</value></data>
+  <data name="Quiz.Score" xml:space="preserve"><value>Score: {0}</value></data>
+  <data name="Quiz.ImageAlt" xml:space="preserve"><value>Landmark</value></data>
+  <data name="Quiz.NameThisLandmark" xml:space="preserve"><value>Name this landmark...</value></data>
+  <data name="Quiz.Answer" xml:space="preserve"><value>Answer</value></data>
+  <data name="Quiz.Skip" xml:space="preserve"><value>Skip</value></data>
+  <data name="Quiz.NoLandmarksTitle" xml:space="preserve"><value>No landmarks available for this quiz.</value></data>
+  <data name="Quiz.NoLandmarksFavoritesText" xml:space="preserve"><value>Save at least one favourite landmark, then start the favourites quiz again.</value></data>
+  <data name="Quiz.NoLandmarksCityText" xml:space="preserve"><value>This city does not have any landmarks available yet.</value></data>
+  <data name="Quiz.BackToFavorites" xml:space="preserve"><value>Back to favourites</value></data>
+  <data name="Quiz.BackToHome" xml:space="preserve"><value>Back to home</value></data>
+  <data name="Quiz.FavoritesTitle" xml:space="preserve"><value>Favourite landmarks</value></data>
+  <data name="Quiz.Feedback.Correct" xml:space="preserve"><value>Correct! {0}</value></data>
+  <data name="Quiz.Feedback.CorrectWithCity" xml:space="preserve"><value>Correct! {0} in {1}</value></data>
+  <data name="Quiz.Feedback.Wrong" xml:space="preserve"><value>Wrong! The answer was: {0}</value></data>
+  <data name="Quiz.Feedback.WrongWithCity" xml:space="preserve"><value>Wrong! The answer was: {0} in {1}</value></data>
+  <data name="Quiz.Feedback.Skipped" xml:space="preserve"><value>The answer was: {0}</value></data>
+  <data name="Quiz.Feedback.SkippedWithCity" xml:space="preserve"><value>The answer was: {0} in {1}</value></data>
+  <data name="Quiz.ResultLabel.WrongAnswer" xml:space="preserve"><value>wrong answer</value></data>
+  <data name="Quiz.ResultLabel.Skipped" xml:space="preserve"><value>skipped</value></data>
+  <data name="Quiz.ResultLabel.TimedOut" xml:space="preserve"><value>timed out</value></data>
+  <data name="Quiz.ResultLabel.WithCity" xml:space="preserve"><value>{0} · {1}</value></data>
+  <data name="EndGame.LoadingResults" xml:space="preserve"><value>Loading your results…</value></data>
+  <data name="EndGame.Subtitle" xml:space="preserve"><value>You got {0} out of {1} landmarks correct in {2}.</value></data>
+  <data name="EndGame.ScoreLabel" xml:space="preserve"><value>Score</value></data>
+  <data name="EndGame.AccuracyLabel" xml:space="preserve"><value>Accuracy</value></data>
+  <data name="EndGame.CityLabel" xml:space="preserve"><value>City</value></data>
+  <data name="EndGame.BreakdownTitle" xml:space="preserve"><value>Landmark breakdown</value></data>
+  <data name="EndGame.PlayAgain" xml:space="preserve"><value>Play again</value></data>
+  <data name="EndGame.Home" xml:space="preserve"><value>Home</value></data>
+  <data name="EndGame.Headline.Perfect" xml:space="preserve"><value>Perfect score!</value></data>
+  <data name="EndGame.Headline.Great" xml:space="preserve"><value>Great run!</value></data>
+  <data name="EndGame.Headline.Nice" xml:space="preserve"><value>Nice effort!</value></data>
+  <data name="Study.Progress" xml:space="preserve"><value>Landmark {0} of {1}</value></data>
+  <data name="Study.UnsaveCity" xml:space="preserve"><value>Unsave city</value></data>
+  <data name="Study.SaveCity" xml:space="preserve"><value>Save city</value></data>
+  <data name="Study.UnsaveLandmark" xml:space="preserve"><value>Unsave landmark</value></data>
+  <data name="Study.SaveLandmark" xml:space="preserve"><value>Save landmark</value></data>
+  <data name="Study.Previous" xml:space="preserve"><value>Previous</value></data>
+  <data name="Study.Next" xml:space="preserve"><value>Next</value></data>
+  <data name="Study.Finish" xml:space="preserve"><value>Finish</value></data>
+  <data name="Study.ErrorLoadingLandmarks" xml:space="preserve"><value>Error loading landmarks</value></data>
+  <data name="Study.CityRemoved" xml:space="preserve"><value>City removed from favorites</value></data>
+  <data name="Study.CityAdded" xml:space="preserve"><value>City added to favorites</value></data>
+  <data name="Study.LandmarkRemoved" xml:space="preserve"><value>Landmark removed from favorites</value></data>
+  <data name="Study.LandmarkAdded" xml:space="preserve"><value>Landmark added to favorites</value></data>
+  <data name="NotFound.Title" xml:space="preserve"><value>Not found</value></data>
+  <data name="NotFound.Text" xml:space="preserve"><value>Sorry, the content you are looking for does not exist.</value></data>
+</root>

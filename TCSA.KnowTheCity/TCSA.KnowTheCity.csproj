@@ -56,6 +56,11 @@
         <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
     </PropertyGroup>
 
+	<!--<PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">
+		<WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+		<SelfContained>true</SelfContained>
+	</PropertyGroup>-->
+
     <ItemGroup>
         <!-- App Icon -->
         <MauiIcon Include="Resources\AppIcon\appicon.png" />

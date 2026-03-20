@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="App.Title" xml:space="preserve"><value>Know The City</value></data>
+  <data name="Layout.Language" xml:space="preserve"><value>Sprache</value></data>
+  <data name="Settings.Title" xml:space="preserve"><value>Einstellungen</value></data>
+  <data name="Settings.Subtitle" xml:space="preserve"><value>Wählen Sie die Sprache, die Sie in der App verwenden möchten.</value></data>
+  <data name="Settings.Language" xml:space="preserve"><value>Sprache</value></data>
+  <data name="Settings.ApplyOnHome" xml:space="preserve"><value>Sprachänderungen werden angewendet, wenn Sie zur Startseite zurückkehren.</value></data>
+  <data name="Settings.SaveAndReturnHome" xml:space="preserve"><value>Speichern und zur Startseite zurückkehren</value></data>
+  <data name="Settings.Cancel" xml:space="preserve"><value>Abbrechen</value></data>
+  <data name="Home.HeroTitle" xml:space="preserve"><value>Wählen Sie eine Stadt und legen Sie sofort los</value></data>
+  <data name="Home.HeroSubtitle" xml:space="preserve"><value>Wählen Sie eine Stadt zum Lernen oder starten Sie das Wahrzeichen-Quiz.</value></data>
+  <data name="Home.CityCount.Singular" xml:space="preserve"><value>{0} Stadt</value></data>
+  <data name="Home.CityCount.Plural" xml:space="preserve"><value>{0} Städte</value></data>
+  <data name="Home.CountryCount.Singular" xml:space="preserve"><value>{0} Land</value></data>
+  <data name="Home.CountryCount.Plural" xml:space="preserve"><value>{0} Länder</value></data>
+  <data name="Home.LandmarkCount.Singular" xml:space="preserve"><value>{0} Wahrzeichen</value></data>
+  <data name="Home.LandmarkCount.Plural" xml:space="preserve"><value>{0} Wahrzeichen</value></data>
+  <data name="Home.SearchByCity" xml:space="preserve"><value>Nach Stadt suchen</value></data>
+  <data name="Home.FilterByCountry" xml:space="preserve"><value>Nach Land filtern</value></data>
+  <data name="Home.FilterByContinent" xml:space="preserve"><value>Nach Kontinent filtern</value></data>
+  <data name="Home.ClearFilters" xml:space="preserve"><value>Filter zurücksetzen</value></data>
+  <data name="Home.NoCitiesMatch" xml:space="preserve"><value>Keine Städte entsprechen den aktuellen Filtern.</value></data>
+  <data name="Home.Quiz" xml:space="preserve"><value>Quiz</value></data>
+  <data name="Home.Study" xml:space="preserve"><value>Lernen</value></data>
+  <data name="Home.CountryFlagAlt" xml:space="preserve"><value>{0}-Flagge</value></data>
+  <data name="Continent.Asia" xml:space="preserve"><value>Asien</value></data>
+  <data name="Continent.Europe" xml:space="preserve"><value>Europa</value></data>
+  <data name="Continent.SouthAmerica" xml:space="preserve"><value>Südamerika</value></data>
+  <data name="Continent.CentralAmerica" xml:space="preserve"><value>Mittelamerika</value></data>
+  <data name="Continent.NorthAmerica" xml:space="preserve"><value>Nordamerika</value></data>
+  <data name="Continent.Africa" xml:space="preserve"><value>Afrika</value></data>
+  <data name="Continent.Oceania" xml:space="preserve"><value>Ozeanien</value></data>
+  <data name="Instructions.Tag" xml:space="preserve"><value>Anleitung</value></data>
+  <data name="Instructions.Title" xml:space="preserve"><value>Lernen Sie in unter einer Minute, wie man spielt</value></data>
+  <data name="Instructions.Subtitle" xml:space="preserve"><value>Durchsuchen Sie Städte, nutzen Sie die Suche, um schneller den richtigen Ort zu finden, lernen Sie Wahrzeichen vor einem Quiz und speichern Sie Favoriten, damit Sie später erneut üben können.</value></data>
+  <data name="Instructions.ChooseCity" xml:space="preserve"><value>Stadt wählen</value></data>
+  <data name="Instructions.StudyFirst" xml:space="preserve"><value>Zuerst lernen</value></data>
+  <data name="Instructions.OpenFavorites" xml:space="preserve"><value>Favoriten öffnen</value></data>
+  <data name="Instructions.HowToPlay.Title" xml:space="preserve"><value>So wird gespielt</value></data>
+  <data name="Instructions.HowToPlay.Subtitle" xml:space="preserve"><value>Starten Sie sofort ein Quiz oder wärmen Sie sich zuerst im Lernmodus auf.</value></data>
+  <data name="Instructions.HowToPlay.Step1" xml:space="preserve"><value>Öffnen Sie die Startseite und wählen Sie eine Stadt.</value></data>
+  <data name="Instructions.HowToPlay.Step2" xml:space="preserve"><value>Wählen Sie Quiz zum Spielen oder Lernen, um Wahrzeichen zuerst zu wiederholen.</value></data>
+  <data name="Instructions.HowToPlay.Step3" xml:space="preserve"><value>Geben Sie den Namen des Wahrzeichens ein und drücken Sie Antworten oder die Eingabetaste.</value></data>
+  <data name="Instructions.HowToPlay.Step4" xml:space="preserve"><value>Nutzen Sie Überspringen, wenn Sie ohne Antwort weitermachen möchten.</value></data>
+  <data name="Instructions.HowToPlay.Step5" xml:space="preserve"><value>Das Quiz endet, wenn Sie alle Wahrzeichen abgeschlossen haben oder der Timer abläuft.</value></data>
+  <data name="Instructions.HowToPlay.Step6" xml:space="preserve"><value>Sehen Sie sich Ihre Punktzahl und die Aufschlüsselung der Wahrzeichen auf der Ergebnisseite an.</value></data>
+  <data name="Instructions.HowToPlay.Chip" xml:space="preserve"><value>60-Sekunden-Quiz-Timer</value></data>
+  <data name="Instructions.UseSearch.Title" xml:space="preserve"><value>Suche verwenden</value></data>
+  <data name="Instructions.UseSearch.Subtitle" xml:space="preserve"><value>Finden Sie Städte schneller auf der Startseite.</value></data>
+  <data name="Instructions.UseSearch.Step1" xml:space="preserve"><value>Verwenden Sie Nach Stadt suchen, um die Liste während der Eingabe zu filtern.</value></data>
+  <data name="Instructions.UseSearch.Step2" xml:space="preserve"><value>Verfeinern Sie die Ergebnisse mit Nach Land filtern.</value></data>
+  <data name="Instructions.UseSearch.Step3" xml:space="preserve"><value>Verwenden Sie Nach Kontinent filtern, wenn Sie eine kleinere Liste möchten.</value></data>
+  <data name="Instructions.UseSearch.Step4" xml:space="preserve"><value>Wählen Sie Filter zurücksetzen, um alles mit einem Tippen zurückzusetzen.</value></data>
+  <data name="Instructions.UseSearch.Step5" xml:space="preserve"><value>Wenn Sie eine Stadt gefunden haben, öffnen Sie Quiz oder Lernen über ihre Karte.</value></data>
+  <data name="Instructions.UseSearch.Chip" xml:space="preserve"><value>Suche wird während der Eingabe aktualisiert</value></data>
+  <data name="Instructions.Favorites.Title" xml:space="preserve"><value>Favoriten speichern und üben</value></data>
+  <data name="Instructions.Favorites.Subtitle" xml:space="preserve"><value>Behalten Sie die Wahrzeichen, die Sie erneut ansehen möchten.</value></data>
+  <data name="Instructions.Favorites.Step1" xml:space="preserve"><value>Schließen Sie ein Stadt-Quiz ab und öffnen Sie die Ergebnisseite.</value></data>
+  <data name="Instructions.Favorites.Step2" xml:space="preserve"><value>Verwenden Sie die Stern-Schaltfläche neben einem Wahrzeichen, um es als Favorit zu speichern.</value></data>
+  <data name="Instructions.Favorites.Step3" xml:space="preserve"><value>Öffnen Sie die Favoriten-Seite, um alles zu überprüfen, was Sie gespeichert haben.</value></data>
+  <data name="Instructions.Favorites.Step4" xml:space="preserve"><value>Wählen Sie Quiz mit Lieblingswahrzeichen, um gespeicherte Wahrzeichen erneut zu üben.</value></data>
+  <data name="Instructions.Favorites.Step5" xml:space="preserve"><value>Entfernen Sie gespeicherte Elemente jederzeit auf der Favoriten-Seite.</value></data>
+  <data name="Instructions.Favorites.Chip" xml:space="preserve"><value>Üben Sie gespeicherte Wahrzeichen jederzeit</value></data>
+  <data name="Instructions.QuickTips.Title" xml:space="preserve"><value>Kurze Tipps</value></data>
+  <data name="Instructions.QuickTips.NewCity.Title" xml:space="preserve"><value>Neue Stadt?</value></data>
+  <data name="Instructions.QuickTips.NewCity.Text" xml:space="preserve"><value>Starten Sie mit dem Lernmodus, wenn Sie die Wahrzeichen vor dem Quiz lernen möchten.</value></data>
+  <data name="Instructions.QuickTips.Timer.Title" xml:space="preserve"><value>Behalten Sie den Timer im Blick</value></data>
+  <data name="Instructions.QuickTips.Timer.Text" xml:space="preserve"><value>Achten Sie während der Quizze auf den Countdown, damit Sie so viele Wahrzeichen wie möglich beantworten können.</value></data>
+  <data name="Instructions.QuickTips.Practice.Title" xml:space="preserve"><value>Mehr Übung gewünscht?</value></data>
+  <data name="Instructions.QuickTips.Practice.Text" xml:space="preserve"><value>Nutzen Sie Favoriten für wiederholtes Üben und Verlauf, um zu sehen, wie Ihre letzten Quizrunden liefen.</value></data>
+  <data name="Favorites.Title" xml:space="preserve"><value>Behalten Sie Ihre Lieblingsorte in der Nähe</value></data>
+  <data name="Favorites.CitiesSaved" xml:space="preserve"><value>Gespeicherte Städte: {0}</value></data>
+  <data name="Favorites.LandmarksSaved" xml:space="preserve"><value>Gespeicherte Wahrzeichen: {0}</value></data>
+  <data name="Favorites.Subtitle" xml:space="preserve"><value>Überprüfen Sie die Städte und Wahrzeichen, die Sie gespeichert haben, und entfernen Sie alles, was Sie nicht mehr behalten möchten.</value></data>
+  <data name="Favorites.QuizFavouriteLandmarks" xml:space="preserve"><value>Quiz mit Lieblingswahrzeichen</value></data>
+  <data name="Favorites.CitiesPanel.Title" xml:space="preserve"><value>Lieblingsstädte</value></data>
+  <data name="Favorites.CitiesPanel.Subtitle" xml:space="preserve"><value>Städte, die Sie für später gespeichert haben.</value></data>
+  <data name="Favorites.EmptyCities.Title" xml:space="preserve"><value>Noch keine Lieblingsstädte</value></data>
+  <data name="Favorites.EmptyCities.Text" xml:space="preserve"><value>Beginnen Sie damit, Städte auf dem Startbildschirm zu speichern, dann erscheinen sie hier.</value></data>
+  <data name="Favorites.SavedCity" xml:space="preserve"><value>Gespeicherte Stadt</value></data>
+  <data name="Favorites.LandmarksPanel.Title" xml:space="preserve"><value>Lieblingswahrzeichen</value></data>
+  <data name="Favorites.LandmarksPanel.Subtitle" xml:space="preserve"><value>Wahrzeichen, die Sie als besonders sehenswert markiert haben.</value></data>
+  <data name="Favorites.EmptyLandmarks.Title" xml:space="preserve"><value>Noch keine Lieblingswahrzeichen</value></data>
+  <data name="Favorites.EmptyLandmarks.Text" xml:space="preserve"><value>Speichern Sie Wahrzeichen im Quizablauf, dann werden sie hier angezeigt.</value></data>
+  <data name="History.Tag" xml:space="preserve"><value>Spielverlauf</value></data>
+  <data name="History.Title" xml:space="preserve"><value>Sehen Sie sich Ihre letzten Quizrunden an</value></data>
+  <data name="History.Subtitle" xml:space="preserve"><value>Filtern Sie nach Stadt und Datum, um frühere Spiele erneut anzusehen und zu verfolgen, wie gut Sie jeden Ort kennen.</value></data>
+  <data name="History.SearchTitle" xml:space="preserve"><value>Suche</value></data>
+  <data name="History.SearchSubtitle" xml:space="preserve"><value>Grenzen Sie die Ergebnisse nach Stadt und Datumsbereich ein.</value></data>
+  <data name="History.City" xml:space="preserve"><value>Stadt</value></data>
+  <data name="History.FromDate" xml:space="preserve"><value>Von Datum</value></data>
+  <data name="History.ToDate" xml:space="preserve"><value>Bis Datum</value></data>
+  <data name="History.Search" xml:space="preserve"><value>Suchen</value></data>
+  <data name="History.Clear" xml:space="preserve"><value>Löschen</value></data>
+  <data name="History.ResultsTitle" xml:space="preserve"><value>Ergebnisse</value></data>
+  <data name="History.ResultsSubtitle" xml:space="preserve"><value>Ihre neuesten Quizversuche in allen Städten.</value></data>
+  <data name="History.NoGames" xml:space="preserve"><value>Keine Spiele gefunden. Versuchen Sie eine andere Suche oder spielen Sie ein Quiz.</value></data>
+  <data name="History.Date" xml:space="preserve"><value>Datum</value></data>
+  <data name="History.Score" xml:space="preserve"><value>Punktzahl</value></data>
+  <data name="History.ResultCount.Singular" xml:space="preserve"><value>1 Spiel gefunden</value></data>
+  <data name="History.ResultCount.Plural" xml:space="preserve"><value>{0} Spiele gefunden</value></data>
+  <data name="History.SelectedCity" xml:space="preserve"><value>Ausgewählte Stadt</value></data>
+  <data name="History.AllCities" xml:space="preserve"><value>Alle Städte</value></data>
+  <data name="History.AllDates" xml:space="preserve"><value>Alle Daten</value></data>
+  <data name="History.AnyDate" xml:space="preserve"><value>Beliebig</value></data>
+  <data name="History.DateRange" xml:space="preserve"><value>{0} - {1}</value></data>
+  <data name="Quiz.LoadingImages" xml:space="preserve"><value>Bilder werden geladen… {0} / {1}</value></data>
+  <data name="Quiz.Progress" xml:space="preserve"><value>Quiz {0}/{1}</value></data>
+  <data name="Quiz.Score" xml:space="preserve"><value>Punktzahl: {0}</value></data>
+  <data name="Quiz.ImageAlt" xml:space="preserve"><value>Wahrzeichen</value></data>
+  <data name="Quiz.NameThisLandmark" xml:space="preserve"><value>Benenne dieses Wahrzeichen...</value></data>
+  <data name="Quiz.Answer" xml:space="preserve"><value>Antworten</value></data>
+  <data name="Quiz.Skip" xml:space="preserve"><value>Überspringen</value></data>
+  <data name="Quiz.NoLandmarksTitle" xml:space="preserve"><value>Für dieses Quiz sind keine Wahrzeichen verfügbar.</value></data>
+  <data name="Quiz.NoLandmarksFavoritesText" xml:space="preserve"><value>Speichern Sie mindestens ein Lieblingswahrzeichen und starten Sie dann das Favoriten-Quiz erneut.</value></data>
+  <data name="Quiz.NoLandmarksCityText" xml:space="preserve"><value>Für diese Stadt sind noch keine Wahrzeichen verfügbar.</value></data>
+  <data name="Quiz.BackToFavorites" xml:space="preserve"><value>Zurück zu Favoriten</value></data>
+  <data name="Quiz.BackToHome" xml:space="preserve"><value>Zurück zur Startseite</value></data>
+  <data name="Quiz.FavoritesTitle" xml:space="preserve"><value>Lieblingswahrzeichen</value></data>
+  <data name="Quiz.Feedback.Correct" xml:space="preserve"><value>Richtig! {0}</value></data>
+  <data name="Quiz.Feedback.CorrectWithCity" xml:space="preserve"><value>Richtig! {0} in {1}</value></data>
+  <data name="Quiz.Feedback.Wrong" xml:space="preserve"><value>Falsch! Die richtige Antwort war: {0}</value></data>
+  <data name="Quiz.Feedback.WrongWithCity" xml:space="preserve"><value>Falsch! Die richtige Antwort war: {0} in {1}</value></data>
+  <data name="Quiz.Feedback.Skipped" xml:space="preserve"><value>Die richtige Antwort war: {0}</value></data>
+  <data name="Quiz.Feedback.SkippedWithCity" xml:space="preserve"><value>Die richtige Antwort war: {0} in {1}</value></data>
+  <data name="Quiz.ResultLabel.WrongAnswer" xml:space="preserve"><value>falsche Antwort</value></data>
+  <data name="Quiz.ResultLabel.Skipped" xml:space="preserve"><value>übersprungen</value></data>
+  <data name="Quiz.ResultLabel.TimedOut" xml:space="preserve"><value>Zeit abgelaufen</value></data>
+  <data name="Quiz.ResultLabel.WithCity" xml:space="preserve"><value>{0} · {1}</value></data>
+  <data name="EndGame.LoadingResults" xml:space="preserve"><value>Ihre Ergebnisse werden geladen…</value></data>
+  <data name="EndGame.Subtitle" xml:space="preserve"><value>Sie haben {0} von {1} Wahrzeichen in {2} richtig beantwortet.</value></data>
+  <data name="EndGame.ScoreLabel" xml:space="preserve"><value>Punktzahl</value></data>
+  <data name="EndGame.AccuracyLabel" xml:space="preserve"><value>Genauigkeit</value></data>
+  <data name="EndGame.CityLabel" xml:space="preserve"><value>Stadt</value></data>
+  <data name="EndGame.BreakdownTitle" xml:space="preserve"><value>Aufschlüsselung der Wahrzeichen</value></data>
+  <data name="EndGame.PlayAgain" xml:space="preserve"><value>Noch einmal spielen</value></data>
+  <data name="EndGame.Home" xml:space="preserve"><value>Startseite</value></data>
+  <data name="EndGame.Headline.Perfect" xml:space="preserve"><value>Perfekte Punktzahl!</value></data>
+  <data name="EndGame.Headline.Great" xml:space="preserve"><value>Großartige Runde!</value></data>
+  <data name="EndGame.Headline.Nice" xml:space="preserve"><value>Gute Leistung!</value></data>
+  <data name="Study.Progress" xml:space="preserve"><value>Wahrzeichen {0} von {1}</value></data>
+  <data name="Study.UnsaveCity" xml:space="preserve"><value>Stadt aus Favoriten entfernen</value></data>
+  <data name="Study.SaveCity" xml:space="preserve"><value>Stadt speichern</value></data>
+  <data name="Study.UnsaveLandmark" xml:space="preserve"><value>Wahrzeichen aus Favoriten entfernen</value></data>
+  <data name="Study.SaveLandmark" xml:space="preserve"><value>Wahrzeichen speichern</value></data>
+  <data name="Study.Previous" xml:space="preserve"><value>Zurück</value></data>
+  <data name="Study.Next" xml:space="preserve"><value>Weiter</value></data>
+  <data name="Study.Finish" xml:space="preserve"><value>Fertig</value></data>
+  <data name="Study.ErrorLoadingLandmarks" xml:space="preserve"><value>Fehler beim Laden der Wahrzeichen</value></data>
+  <data name="Study.CityRemoved" xml:space="preserve"><value>Stadt aus Favoriten entfernt</value></data>
+  <data name="Study.CityAdded" xml:space="preserve"><value>Stadt zu Favoriten hinzugefügt</value></data>
+  <data name="Study.LandmarkRemoved" xml:space="preserve"><value>Wahrzeichen aus Favoriten entfernt</value></data>
+  <data name="Study.LandmarkAdded" xml:space="preserve"><value>Wahrzeichen zu Favoriten hinzugefügt</value></data>
+  <data name="NotFound.Title" xml:space="preserve"><value>Nicht gefunden</value></data>
+  <data name="NotFound.Text" xml:space="preserve"><value>Entschuldigung, der gesuchte Inhalt existiert nicht.</value></data>
+</root>

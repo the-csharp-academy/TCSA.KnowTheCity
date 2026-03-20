@@ -5,29 +5,30 @@
 @using TCSA.KnowTheCity.Core.Models.Domain
 @using TCSA.KnowTheCity.Core.Services
 @using TCSA.KnowTheCity.Services
+@inject IStringLocalizer<SharedResource> Localizer
 
 <MudContainer MaxWidth="MaxWidth.Large" Class="pb-20">
     <MudPaper Elevation="0" Class="home-hero mb-6">
         <div class="home-hero-content">
             <MudStack Spacing="3" Class="home-hero-copy">
                 <MudText Typo="Typo.h4" Class="home-hero-title">
-                    Pick a city and jump straight in
+                    @Localizer["Home.HeroTitle"]
                 </MudText>
 
                 <MudText Typo="Typo.body1" Class="home-hero-subtitle">
-                    Select a city to study or start the landmark quiz.
+                    @Localizer["Home.HeroSubtitle"]
                 </MudText>
             </MudStack>
 
             <MudStack Row="true" Spacing="2" Class="home-hero-chips">
                 <MudChip T="string" Class="brand-chip brand-chip-sky" Variant="Variant.Filled">
-                    @FormatCount(_totalCityCount, "city", "cities")
+                    @FormatCount(_totalCityCount, "Home.CityCount.Singular", "Home.CityCount.Plural")
                 </MudChip>
                 <MudChip T="string" Class="brand-chip brand-chip-orange" Variant="Variant.Filled">
-                    @FormatCount(_countries.Count, "country", "countries")
+                    @FormatCount(_countries.Count, "Home.CountryCount.Singular", "Home.CountryCount.Plural")
                 </MudChip>
                 <MudChip T="string" Class="brand-chip brand-chip-gold" Variant="Variant.Filled">
-                    @FormatCount(_totalLandmarkCount, "landmark", "landmarks")
+                    @FormatCount(_totalLandmarkCount, "Home.LandmarkCount.Singular", "Home.LandmarkCount.Plural")
                 </MudChip>
             </MudStack>
         </div>
@@ -37,7 +38,7 @@
         <MudGrid Spacing="2">
             <MudItem xs="12" md="4">
                 <MudTextField T="string"
-                              Label="Search by city"
+                              Label='@Localizer["Home.SearchByCity"]'
                               Value="@_citySearchTerm"
                               ValueChanged="OnCitySearchChanged"
                               Immediate="true"
@@ -49,7 +50,7 @@
 
             <MudItem xs="12" md="3">
                 <MudSelect T="Country?"
-                           Label="Filter by country"
+                           Label='@Localizer["Home.FilterByCountry"]'
                            Value="@_selectedCountry"
                            ValueChanged="OnCountryChanged"
                            Clearable="true"
@@ -57,7 +58,7 @@
                     @foreach (var country in _countries)
                     {
                         <MudSelectItem T="Country?" Value="@((Country?)country)">
-                            @FormatEnumValue(country)
+                            @Localizer.LocalizeEnum(country)
                         </MudSelectItem>
                     }
                 </MudSelect>
@@ -65,7 +66,7 @@
 
             <MudItem xs="12" md="3">
                 <MudSelect T="Continent?"
-                           Label="Filter by continent"
+                           Label='@Localizer["Home.FilterByContinent"]'
                            Value="@_selectedContinent"
                            ValueChanged="OnContinentChanged"
                            Clearable="true"
@@ -73,7 +74,7 @@
                     @foreach (var continent in _continents)
                     {
                         <MudSelectItem T="Continent?" Value="@((Continent?)continent)">
-                            @FormatEnumValue(continent)
+                            @Localizer.LocalizeEnum(continent)
                         </MudSelectItem>
                     }
                 </MudSelect>
@@ -84,7 +85,7 @@
                            Color="Color.Default"
                            FullWidth="true"
                            OnClick="ClearFiltersAsync">
-                    Clear filters
+                    @Localizer["Home.ClearFilters"]
                 </MudButton>
             </MudItem>
         </MudGrid>
@@ -98,7 +99,7 @@
     @if (_cities.Count == 0 && !_isLoading)
     {
         <MudAlert Severity="Severity.Info" Variant="Variant.Outlined">
-            No cities match the current filters.
+            @Localizer["Home.NoCitiesMatch"]
         </MudAlert>
     }
     else
@@ -124,14 +125,14 @@
                             <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Start">
                                 <MudStack Spacing="1">
                                     <MudText Typo="Typo.h6" Class="vibrant-city-card-title">@city.Name</MudText>
-                                    <MudText Typo="Typo.body2" Class="city-card-country">@FormatEnumValue(city.Country)</MudText>
+                                    <MudText Typo="Typo.body2" Class="city-card-country">@Localizer.LocalizeEnum(city.Country)</MudText>
                                 </MudStack>
 
                                 <MudStack Spacing="1" AlignItems="AlignItems.End">
                                     @if (_countryFlagPaths.TryGetValue(city.Country, out var flagData) && !string.IsNullOrEmpty(flagData))
                                     {
                                         <img src="@flagData"
-                                             alt="@($"{FormatEnumValue(city.Country)} flag")"
+                                             alt='@Localizer["Home.CountryFlagAlt", Localizer.LocalizeEnum(city.Country)]'
                                              class="country-flag-image"
                                              style="width:44px;height:28px;object-fit:cover;" />
                                     }
@@ -140,7 +141,7 @@
                                              Class="vibrant-city-card-continent"
                                              Variant="Variant.Filled"
                                              Size="Size.Small">
-                                        @FormatEnumValue(city.Continent)
+                                        @Localizer.LocalizeEnum(city.Continent)
                                     </MudChip>
                                 </MudStack>
                             </MudStack>
@@ -150,13 +151,13 @@
                                        Color="Color.Primary"
                                        Size="Size.Medium"
                                        OnClick="() => NavigateToQuiz(city.Id)">
-                                Quiz
+                                @Localizer["Home.Quiz"]
                             </MudButton>
                             <MudButton Variant="Variant.Outlined"
                                        Color="Color.Default"
                                        Size="Size.Medium"
                                        OnClick="() => NavigateToStudy(city.Id)">
-                                Study
+                                @Localizer["Home.Study"]
                             </MudButton>
                         </MudCardActions>
                     </MudCard>
@@ -304,34 +305,10 @@
     private static string GetCountryFlagImagePath(Country country) =>
         $"flags/{CityDataHelper.NormalizeForPath(country.ToString())}.png";
 
-    private static string FormatEnumValue<TEnum>(TEnum value)
-        where TEnum : struct, Enum
-    {
-        var text = value.ToString();
-
-        if (string.IsNullOrWhiteSpace(text))
-        {
-            return string.Empty;
-        }
-
-        var builder = new System.Text.StringBuilder(text.Length + 8);
-        builder.Append(text[0]);
-
-        for (var i = 1; i < text.Length; i++)
-        {
-            if (char.IsUpper(text[i]) && !char.IsUpper(text[i - 1]))
-            {
-                builder.Append(' ');
-            }
-
-            builder.Append(text[i]);
-        }
-
-        return builder.ToString();
-    }
-
-    private static string FormatCount(int count, string singular, string plural) =>
-        $"{count} {(count == 1 ? singular : plural)}";
+    private string FormatCount(int count, string singularKey, string pluralKey) =>
+        count == 1
+            ? Localizer[singularKey, count].Value
+            : Localizer[pluralKey, count].Value;
 
     private void NavigateToStudy(int cityId) => Navigation.NavigateTo($"study/{cityId}");
 

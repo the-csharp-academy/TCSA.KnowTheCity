@@ -6,6 +6,7 @@
 @using TCSA.KnowTheCity.Core.Models.Domain
 @using TCSA.KnowTheCity.Core.Services
 @using TCSA.KnowTheCity.Services
+@inject IStringLocalizer<SharedResource> Localizer
 @implements IAsyncDisposable
 
 @if (_isLoading)
@@ -14,7 +15,7 @@
         <MudPaper Elevation="6" Class="quiz-loading-shell py-10 px-6 rounded-xl" Style="width:75%;margin:0 auto;">
             <MudStack AlignItems="AlignItems.Center" Spacing="4">
                 <MudProgressCircular Color="Color.Info" Indeterminate="true" Size="Size.Large" />
-                <MudText Typo="Typo.h6">Loading images… @_imagesLoaded / @_quizLandmarks.Count</MudText>
+                <MudText Typo="Typo.h6">@Localizer["Quiz.LoadingImages", _imagesLoaded, _quizLandmarks.Count]</MudText>
             </MudStack>
         </MudPaper>
     </MudContainer>
@@ -61,14 +62,14 @@ else if (!_quizFinished && _quizLandmarks.Count > 0 && _currentIndex < _quizLand
                              Class="quiz-stage-chip"
                              Variant="Variant.Filled"
                              Size="Size.Large">
-                        Quiz @(_currentIndex + 1)/@_quizLandmarks.Count
+                        @Localizer["Quiz.Progress", _currentIndex + 1, _quizLandmarks.Count]
                     </MudChip>
 
                     <MudChip T="string"
                              Class="quiz-score-chip"
                              Variant="Variant.Filled"
                              Size="Size.Large">
-                        Score: @_correctCount
+                        @Localizer["Quiz.Score", _correctCount]
                     </MudChip>
 
                     <MudChip T="string"
@@ -84,7 +85,7 @@ else if (!_quizFinished && _quizLandmarks.Count > 0 && _currentIndex < _quizLand
             <div class="quiz-image-frame mb-4">
                 @if (_cachedImagePaths.TryGetValue(GetImageCacheKey(CurrentLandmark), out var imgData) && !string.IsNullOrEmpty(imgData))
                 {
-                    <img src="@imgData" alt="Landmark" style="display:block;width:100%;height:398px;" />
+                    <img src="@imgData" alt='@Localizer["Quiz.ImageAlt"]' style="display:block;width:100%;height:398px;" />
                 }
                 else
                 {
@@ -95,7 +96,7 @@ else if (!_quizFinished && _quizLandmarks.Count > 0 && _currentIndex < _quizLand
             </div>
 
             <MudTextField @bind-Value="_currentGuess"
-                          Label="Name this landmark..."
+                          Label='@Localizer["Quiz.NameThisLandmark"]'
                           Variant="Variant.Outlined"
                           Immediate="true"
                           Class="mb-4"
@@ -108,7 +109,7 @@ else if (!_quizFinished && _quizLandmarks.Count > 0 && _currentIndex < _quizLand
                                FullWidth="true"
                                Class="quiz-action-button"
                                OnClick="SubmitGuess">
-                        Answer
+                        @Localizer["Quiz.Answer"]
                     </MudButton>
                 </MudItem>
                 <MudItem xs="6">
@@ -117,7 +118,7 @@ else if (!_quizFinished && _quizLandmarks.Count > 0 && _currentIndex < _quizLand
                                FullWidth="true"
                                Class="quiz-action-button"
                                OnClick="SkipLandmark">
-                        Skip
+                        @Localizer["Quiz.Skip"]
                     </MudButton>
                 </MudItem>
             </MudGrid>
@@ -130,16 +131,16 @@ else
         <MudPaper Elevation="6" Class="quiz-loading-shell py-10 px-6 rounded-xl" Style="width:75%;margin:0 auto;">
             <MudStack AlignItems="AlignItems.Center" Spacing="3">
                 <MudIcon Icon="@Icons.Material.Filled.Quiz" Color="Color.Info" Size="Size.Large" />
-                <MudText Typo="Typo.h6">No landmarks available for this quiz.</MudText>
+                <MudText Typo="Typo.h6">@Localizer["Quiz.NoLandmarksTitle"]</MudText>
                 <MudText Typo="Typo.body2" Align="Align.Center">
                     @(IsFavoritesQuiz
-                        ? "Save at least one favourite landmark, then start the favourites quiz again."
-                        : "This city does not have any landmarks available yet.")
+                        ? Localizer["Quiz.NoLandmarksFavoritesText"]
+                        : Localizer["Quiz.NoLandmarksCityText"])
                 </MudText>
                 <MudButton Variant="Variant.Filled"
                            Color="Color.Primary"
                            OnClick="NavigateBack">
-                    @(IsFavoritesQuiz ? "Back to favourites" : "Back to home")
+                    @(IsFavoritesQuiz ? Localizer["Quiz.BackToFavorites"] : Localizer["Quiz.BackToHome"])
                 </MudButton>
             </MudStack>
         </MudPaper>
@@ -244,7 +245,7 @@ else
         }
         else
         {
-            _quizTitle = "Favourite landmarks";
+            _quizTitle = Localizer["Quiz.FavoritesTitle"].Value;
 
             var favoriteLandmarks = await FavoriteService.GetFavoriteLandmarksAsync();
             _quizLandmarks =
@@ -347,8 +348,8 @@ else
             _results.Add(new() { LandmarkId = expected.Landmark.Id, IsCorrect = true });
             _correctCount++;
             _feedbackMessage = IsFavoritesQuiz
-                ? $"Correct! {expected.Landmark.Name} in {expected.CityName}"
-                : $"Correct! {expected.Landmark.Name}";
+                ? Localizer["Quiz.Feedback.CorrectWithCity", expected.Landmark.Name, expected.CityName].Value
+                : Localizer["Quiz.Feedback.Correct", expected.Landmark.Name].Value;
             _feedbackSeverity = Severity.Success;
         }
         else
@@ -357,12 +358,12 @@ else
             {
                 LandmarkId = expected.Landmark.Id,
                 IsCorrect = false,
-                Label = BuildResultLabel("wrong answer", expected)
+                Label = BuildResultLabel("Quiz.ResultLabel.WrongAnswer", expected)
             });
 
             _feedbackMessage = IsFavoritesQuiz
-                ? $"Wrong! The answer was: {expected.Landmark.Name} in {expected.CityName}"
-                : $"Wrong! The answer was: {expected.Landmark.Name}";
+                ? Localizer["Quiz.Feedback.WrongWithCity", expected.Landmark.Name, expected.CityName].Value
+                : Localizer["Quiz.Feedback.Wrong", expected.Landmark.Name].Value;
             _feedbackSeverity = Severity.Error;
         }
 
@@ -378,12 +379,12 @@ else
         {
             LandmarkId = expected.Landmark.Id,
             IsCorrect = false,
-            Label = BuildResultLabel("skipped", expected)
+            Label = BuildResultLabel("Quiz.ResultLabel.Skipped", expected)
         });
 
         _feedbackMessage = IsFavoritesQuiz
-            ? $"The answer was: {expected.Landmark.Name} in {expected.CityName}"
-            : $"The answer was: {expected.Landmark.Name}";
+            ? Localizer["Quiz.Feedback.SkippedWithCity", expected.Landmark.Name, expected.CityName].Value
+            : Localizer["Quiz.Feedback.Skipped", expected.Landmark.Name].Value;
         _feedbackSeverity = Severity.Error;
         _currentGuess = string.Empty;
 
@@ -412,7 +413,7 @@ else
             {
                 LandmarkId = _quizLandmarks[i].Landmark.Id,
                 IsCorrect = false,
-                Label = BuildResultLabel("timed out", _quizLandmarks[i])
+                Label = BuildResultLabel("Quiz.ResultLabel.TimedOut", _quizLandmarks[i])
             });
         }
 
@@ -435,11 +436,11 @@ else
         Navigation.NavigateTo($"/results/{id}");
     }
 
-    private string BuildResultLabel(string label, QuizLandmarkItem landmark)
+    private string BuildResultLabel(string labelKey, QuizLandmarkItem landmark)
     {
         return IsFavoritesQuiz
-            ? $"{label} • {landmark.CityName}"
-            : label;
+            ? $"{labelKey}|{landmark.CityName}"
+            : labelKey;
     }
 
     private void NavigateBack()

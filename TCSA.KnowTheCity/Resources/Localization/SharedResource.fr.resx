@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="App.Title" xml:space="preserve"><value>Know The City</value></data>
+  <data name="Layout.Language" xml:space="preserve"><value>Langue</value></data>
+  <data name="Settings.Title" xml:space="preserve"><value>Paramètres</value></data>
+  <data name="Settings.Subtitle" xml:space="preserve"><value>Choisissez la langue que vous souhaitez utiliser dans l’application.</value></data>
+  <data name="Settings.Language" xml:space="preserve"><value>Langue</value></data>
+  <data name="Settings.ApplyOnHome" xml:space="preserve"><value>Les changements de langue seront appliqués lorsque vous reviendrez à la page d’accueil.</value></data>
+  <data name="Settings.SaveAndReturnHome" xml:space="preserve"><value>Enregistrer et revenir à l’accueil</value></data>
+  <data name="Settings.Cancel" xml:space="preserve"><value>Annuler</value></data>
+  <data name="Home.HeroTitle" xml:space="preserve"><value>Choisissez une ville et commencez immédiatement</value></data>
+  <data name="Home.HeroSubtitle" xml:space="preserve"><value>Sélectionnez une ville pour étudier ou lancer le quiz des monuments.</value></data>
+  <data name="Home.CityCount.Singular" xml:space="preserve"><value>{0} ville</value></data>
+  <data name="Home.CityCount.Plural" xml:space="preserve"><value>{0} villes</value></data>
+  <data name="Home.CountryCount.Singular" xml:space="preserve"><value>{0} pays</value></data>
+  <data name="Home.CountryCount.Plural" xml:space="preserve"><value>{0} pays</value></data>
+  <data name="Home.LandmarkCount.Singular" xml:space="preserve"><value>{0} monument</value></data>
+  <data name="Home.LandmarkCount.Plural" xml:space="preserve"><value>{0} monuments</value></data>
+  <data name="Home.SearchByCity" xml:space="preserve"><value>Rechercher par ville</value></data>
+  <data name="Home.FilterByCountry" xml:space="preserve"><value>Filtrer par pays</value></data>
+  <data name="Home.FilterByContinent" xml:space="preserve"><value>Filtrer par continent</value></data>
+  <data name="Home.ClearFilters" xml:space="preserve"><value>Effacer les filtres</value></data>
+  <data name="Home.NoCitiesMatch" xml:space="preserve"><value>Aucune ville ne correspond aux filtres actuels.</value></data>
+  <data name="Home.Quiz" xml:space="preserve"><value>Quiz</value></data>
+  <data name="Home.Study" xml:space="preserve"><value>Étudier</value></data>
+  <data name="Home.CountryFlagAlt" xml:space="preserve"><value>Drapeau de {0}</value></data>
+  <data name="Continent.Asia" xml:space="preserve"><value>Asie</value></data>
+  <data name="Continent.Europe" xml:space="preserve"><value>Europe</value></data>
+  <data name="Continent.SouthAmerica" xml:space="preserve"><value>Amérique du Sud</value></data>
+  <data name="Continent.CentralAmerica" xml:space="preserve"><value>Amérique centrale</value></data>
+  <data name="Continent.NorthAmerica" xml:space="preserve"><value>Amérique du Nord</value></data>
+  <data name="Continent.Africa" xml:space="preserve"><value>Afrique</value></data>
+  <data name="Continent.Oceania" xml:space="preserve"><value>Océanie</value></data>
+  <data name="Instructions.Tag" xml:space="preserve"><value>Instructions</value></data>
+  <data name="Instructions.Title" xml:space="preserve"><value>Apprenez à jouer en moins d’une minute</value></data>
+  <data name="Instructions.Subtitle" xml:space="preserve"><value>Parcourez les villes, utilisez la recherche pour trouver le bon endroit plus vite, étudiez les monuments avant un quiz et enregistrez vos favoris pour vous entraîner à nouveau plus tard.</value></data>
+  <data name="Instructions.ChooseCity" xml:space="preserve"><value>Choisir une ville</value></data>
+  <data name="Instructions.StudyFirst" xml:space="preserve"><value>Étudier d’abord</value></data>
+  <data name="Instructions.OpenFavorites" xml:space="preserve"><value>Ouvrir les favoris</value></data>
+  <data name="Instructions.HowToPlay.Title" xml:space="preserve"><value>Comment jouer</value></data>
+  <data name="Instructions.HowToPlay.Subtitle" xml:space="preserve"><value>Lancez un quiz immédiatement ou échauffez-vous d’abord en mode Étude.</value></data>
+  <data name="Instructions.HowToPlay.Step1" xml:space="preserve"><value>Ouvrez la page d’accueil et choisissez une ville.</value></data>
+  <data name="Instructions.HowToPlay.Step2" xml:space="preserve"><value>Sélectionnez Quiz pour jouer ou Étude pour revoir d’abord les monuments.</value></data>
+  <data name="Instructions.HowToPlay.Step3" xml:space="preserve"><value>Saisissez le nom du monument et appuyez sur Répondre ou sur la touche Entrée.</value></data>
+  <data name="Instructions.HowToPlay.Step4" xml:space="preserve"><value>Utilisez Passer si vous voulez continuer sans répondre.</value></data>
+  <data name="Instructions.HowToPlay.Step5" xml:space="preserve"><value>Le quiz se termine lorsque vous avez terminé tous les monuments ou lorsque le temps est écoulé.</value></data>
+  <data name="Instructions.HowToPlay.Step6" xml:space="preserve"><value>Consultez votre score et le détail des monuments sur la page de résultats.</value></data>
+  <data name="Instructions.HowToPlay.Chip" xml:space="preserve"><value>Minuteur de quiz de 60 secondes</value></data>
+  <data name="Instructions.UseSearch.Title" xml:space="preserve"><value>Utiliser la recherche</value></data>
+  <data name="Instructions.UseSearch.Subtitle" xml:space="preserve"><value>Trouvez des villes plus rapidement depuis la page d’accueil.</value></data>
+  <data name="Instructions.UseSearch.Step1" xml:space="preserve"><value>Utilisez Rechercher par ville pour filtrer la liste au fur et à mesure de la saisie.</value></data>
+  <data name="Instructions.UseSearch.Step2" xml:space="preserve"><value>Affinez les résultats avec Filtrer par pays.</value></data>
+  <data name="Instructions.UseSearch.Step3" xml:space="preserve"><value>Utilisez Filtrer par continent si vous voulez une liste plus courte.</value></data>
+  <data name="Instructions.UseSearch.Step4" xml:space="preserve"><value>Sélectionnez Effacer les filtres pour tout réinitialiser en un seul geste.</value></data>
+  <data name="Instructions.UseSearch.Step5" xml:space="preserve"><value>Une fois une ville trouvée, ouvrez Quiz ou Étude depuis sa carte.</value></data>
+  <data name="Instructions.UseSearch.Chip" xml:space="preserve"><value>La recherche se met à jour pendant la saisie</value></data>
+  <data name="Instructions.Favorites.Title" xml:space="preserve"><value>Enregistrer et pratiquer les favoris</value></data>
+  <data name="Instructions.Favorites.Subtitle" xml:space="preserve"><value>Conservez les monuments que vous souhaitez revoir.</value></data>
+  <data name="Instructions.Favorites.Step1" xml:space="preserve"><value>Terminez un quiz de ville et ouvrez la page de résultats.</value></data>
+  <data name="Instructions.Favorites.Step2" xml:space="preserve"><value>Utilisez le bouton étoile à côté d’un monument pour l’enregistrer comme favori.</value></data>
+  <data name="Instructions.Favorites.Step3" xml:space="preserve"><value>Ouvrez la page Favoris pour consulter tout ce que vous avez enregistré.</value></data>
+  <data name="Instructions.Favorites.Step4" xml:space="preserve"><value>Sélectionnez Quiz des monuments favoris pour vous entraîner à nouveau sur les monuments enregistrés.</value></data>
+  <data name="Instructions.Favorites.Step5" xml:space="preserve"><value>Supprimez les éléments enregistrés à tout moment depuis la page Favoris.</value></data>
+  <data name="Instructions.Favorites.Chip" xml:space="preserve"><value>Entraînez-vous sur vos monuments enregistrés à tout moment</value></data>
+  <data name="Instructions.QuickTips.Title" xml:space="preserve"><value>Astuces rapides</value></data>
+  <data name="Instructions.QuickTips.NewCity.Title" xml:space="preserve"><value>Nouvelle ville ?</value></data>
+  <data name="Instructions.QuickTips.NewCity.Text" xml:space="preserve"><value>Commencez par le mode Étude si vous voulez apprendre les monuments avant de faire le quiz.</value></data>
+  <data name="Instructions.QuickTips.Timer.Title" xml:space="preserve"><value>Surveillez le minuteur</value></data>
+  <data name="Instructions.QuickTips.Timer.Text" xml:space="preserve"><value>Gardez un œil sur le compte à rebours pendant les quiz pour répondre au plus grand nombre de monuments possible.</value></data>
+  <data name="Instructions.QuickTips.Practice.Title" xml:space="preserve"><value>Envie de plus d’entraînement ?</value></data>
+  <data name="Instructions.QuickTips.Practice.Text" xml:space="preserve"><value>Utilisez les Favoris pour vous entraîner régulièrement et l’Historique pour revoir vos dernières sessions de quiz.</value></data>
+  <data name="Favorites.Title" xml:space="preserve"><value>Gardez vos lieux favoris à portée de main</value></data>
+  <data name="Favorites.CitiesSaved" xml:space="preserve"><value>Villes enregistrées : {0}</value></data>
+  <data name="Favorites.LandmarksSaved" xml:space="preserve"><value>Monuments enregistrés : {0}</value></data>
+  <data name="Favorites.Subtitle" xml:space="preserve"><value>Consultez les villes et monuments que vous avez enregistrés, puis retirez ce que vous ne souhaitez plus conserver.</value></data>
+  <data name="Favorites.QuizFavouriteLandmarks" xml:space="preserve"><value>Quiz des monuments favoris</value></data>
+  <data name="Favorites.CitiesPanel.Title" xml:space="preserve"><value>Villes favorites</value></data>
+  <data name="Favorites.CitiesPanel.Subtitle" xml:space="preserve"><value>Villes que vous avez enregistrées pour plus tard.</value></data>
+  <data name="Favorites.EmptyCities.Title" xml:space="preserve"><value>Aucune ville favorite pour le moment</value></data>
+  <data name="Favorites.EmptyCities.Text" xml:space="preserve"><value>Commencez à enregistrer des villes depuis l’écran d’accueil et elles apparaîtront ici.</value></data>
+  <data name="Favorites.SavedCity" xml:space="preserve"><value>Ville enregistrée</value></data>
+  <data name="Favorites.LandmarksPanel.Title" xml:space="preserve"><value>Monuments favoris</value></data>
+  <data name="Favorites.LandmarksPanel.Subtitle" xml:space="preserve"><value>Monuments que vous avez marqués comme incontournables.</value></data>
+  <data name="Favorites.EmptyLandmarks.Title" xml:space="preserve"><value>Aucun monument favori pour le moment</value></data>
+  <data name="Favorites.EmptyLandmarks.Text" xml:space="preserve"><value>Enregistrez des monuments pendant le quiz et ils apparaîtront ici.</value></data>
+  <data name="History.Tag" xml:space="preserve"><value>Historique des parties</value></data>
+  <data name="History.Title" xml:space="preserve"><value>Consultez vos dernières sessions de quiz</value></data>
+  <data name="History.Subtitle" xml:space="preserve"><value>Filtrez par ville et par date pour revoir les parties précédentes et suivre votre niveau de connaissance de chaque lieu.</value></data>
+  <data name="History.SearchTitle" xml:space="preserve"><value>Recherche</value></data>
+  <data name="History.SearchSubtitle" xml:space="preserve"><value>Affinez les résultats par ville et plage de dates.</value></data>
+  <data name="History.City" xml:space="preserve"><value>Ville</value></data>
+  <data name="History.FromDate" xml:space="preserve"><value>Date de début</value></data>
+  <data name="History.ToDate" xml:space="preserve"><value>Date de fin</value></data>
+  <data name="History.Search" xml:space="preserve"><value>Rechercher</value></data>
+  <data name="History.Clear" xml:space="preserve"><value>Effacer</value></data>
+  <data name="History.ResultsTitle" xml:space="preserve"><value>Résultats</value></data>
+  <data name="History.ResultsSubtitle" xml:space="preserve"><value>Vos dernières tentatives de quiz toutes villes confondues.</value></data>
+  <data name="History.NoGames" xml:space="preserve"><value>Aucune partie trouvée. Essayez une autre recherche ou allez jouer un quiz.</value></data>
+  <data name="History.Date" xml:space="preserve"><value>Date</value></data>
+  <data name="History.Score" xml:space="preserve"><value>Score</value></data>
+  <data name="History.ResultCount.Singular" xml:space="preserve"><value>1 partie trouvée</value></data>
+  <data name="History.ResultCount.Plural" xml:space="preserve"><value>{0} parties trouvées</value></data>
+  <data name="History.SelectedCity" xml:space="preserve"><value>Ville sélectionnée</value></data>
+  <data name="History.AllCities" xml:space="preserve"><value>Toutes les villes</value></data>
+  <data name="History.AllDates" xml:space="preserve"><value>Toutes les dates</value></data>
+  <data name="History.AnyDate" xml:space="preserve"><value>N’importe laquelle</value></data>
+  <data name="History.DateRange" xml:space="preserve"><value>{0} - {1}</value></data>
+  <data name="Quiz.LoadingImages" xml:space="preserve"><value>Chargement des images… {0} / {1}</value></data>
+  <data name="Quiz.Progress" xml:space="preserve"><value>Quiz {0}/{1}</value></data>
+  <data name="Quiz.Score" xml:space="preserve"><value>Score : {0}</value></data>
+  <data name="Quiz.ImageAlt" xml:space="preserve"><value>Monument</value></data>
+  <data name="Quiz.NameThisLandmark" xml:space="preserve"><value>Nommez ce monument...</value></data>
+  <data name="Quiz.Answer" xml:space="preserve"><value>Répondre</value></data>
+  <data name="Quiz.Skip" xml:space="preserve"><value>Passer</value></data>
+  <data name="Quiz.NoLandmarksTitle" xml:space="preserve"><value>Aucun monument disponible pour ce quiz.</value></data>
+  <data name="Quiz.NoLandmarksFavoritesText" xml:space="preserve"><value>Enregistrez au moins un monument favori, puis relancez le quiz des favoris.</value></data>
+  <data name="Quiz.NoLandmarksCityText" xml:space="preserve"><value>Cette ville ne contient pas encore de monuments disponibles.</value></data>
+  <data name="Quiz.BackToFavorites" xml:space="preserve"><value>Retour aux favoris</value></data>
+  <data name="Quiz.BackToHome" xml:space="preserve"><value>Retour à l’accueil</value></data>
+  <data name="Quiz.FavoritesTitle" xml:space="preserve"><value>Monuments favoris</value></data>
+  <data name="Quiz.Feedback.Correct" xml:space="preserve"><value>Bonne réponse ! {0}</value></data>
+  <data name="Quiz.Feedback.CorrectWithCity" xml:space="preserve"><value>Bonne réponse ! {0} à {1}</value></data>
+  <data name="Quiz.Feedback.Wrong" xml:space="preserve"><value>Incorrect ! La réponse était : {0}</value></data>
+  <data name="Quiz.Feedback.WrongWithCity" xml:space="preserve"><value>Incorrect ! La réponse était : {0} à {1}</value></data>
+  <data name="Quiz.Feedback.Skipped" xml:space="preserve"><value>La réponse était : {0}</value></data>
+  <data name="Quiz.Feedback.SkippedWithCity" xml:space="preserve"><value>La réponse était : {0} à {1}</value></data>
+  <data name="Quiz.ResultLabel.WrongAnswer" xml:space="preserve"><value>mauvaise réponse</value></data>
+  <data name="Quiz.ResultLabel.Skipped" xml:space="preserve"><value>passé</value></data>
+  <data name="Quiz.ResultLabel.TimedOut" xml:space="preserve"><value>temps écoulé</value></data>
+  <data name="Quiz.ResultLabel.WithCity" xml:space="preserve"><value>{0} · {1}</value></data>
+  <data name="EndGame.LoadingResults" xml:space="preserve"><value>Chargement de vos résultats…</value></data>
+  <data name="EndGame.Subtitle" xml:space="preserve"><value>Vous avez trouvé {0} monuments sur {1} en {2}.</value></data>
+  <data name="EndGame.ScoreLabel" xml:space="preserve"><value>Score</value></data>
+  <data name="EndGame.AccuracyLabel" xml:space="preserve"><value>Précision</value></data>
+  <data name="EndGame.CityLabel" xml:space="preserve"><value>Ville</value></data>
+  <data name="EndGame.BreakdownTitle" xml:space="preserve"><value>Détail des monuments</value></data>
+  <data name="EndGame.PlayAgain" xml:space="preserve"><value>Rejouer</value></data>
+  <data name="EndGame.Home" xml:space="preserve"><value>Accueil</value></data>
+  <data name="EndGame.Headline.Perfect" xml:space="preserve"><value>Score parfait !</value></data>
+  <data name="EndGame.Headline.Great" xml:space="preserve"><value>Excellent parcours !</value></data>
+  <data name="EndGame.Headline.Nice" xml:space="preserve"><value>Bel effort !</value></data>
+  <data name="Study.Progress" xml:space="preserve"><value>Monument {0} sur {1}</value></data>
+  <data name="Study.UnsaveCity" xml:space="preserve"><value>Retirer la ville des favoris</value></data>
+  <data name="Study.SaveCity" xml:space="preserve"><value>Enregistrer la ville</value></data>
+  <data name="Study.UnsaveLandmark" xml:space="preserve"><value>Retirer le monument des favoris</value></data>
+  <data name="Study.SaveLandmark" xml:space="preserve"><value>Enregistrer le monument</value></data>
+  <data name="Study.Previous" xml:space="preserve"><value>Précédent</value></data>
+  <data name="Study.Next" xml:space="preserve"><value>Suivant</value></data>
+  <data name="Study.Finish" xml:space="preserve"><value>Terminer</value></data>
+  <data name="Study.ErrorLoadingLandmarks" xml:space="preserve"><value>Erreur lors du chargement des monuments</value></data>
+  <data name="Study.CityRemoved" xml:space="preserve"><value>Ville retirée des favoris</value></data>
+  <data name="Study.CityAdded" xml:space="preserve"><value>Ville ajoutée aux favoris</value></data>
+  <data name="Study.LandmarkRemoved" xml:space="preserve"><value>Monument retiré des favoris</value></data>
+  <data name="Study.LandmarkAdded" xml:space="preserve"><value>Monument ajouté aux favoris</value></data>
+  <data name="NotFound.Title" xml:space="preserve"><value>Introuvable</value></data>
+  <data name="NotFound.Text" xml:space="preserve"><value>Désolé, le contenu que vous recherchez n’existe pas.</value></data>
+</root>

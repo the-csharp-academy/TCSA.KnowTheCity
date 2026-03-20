@@ -1,0 +1,63 @@
+@page "/settings"
+@inject AppLocalizationService LocalizationService
+@inject IStringLocalizer<SharedResource> Localizer
+@inject NavigationManager Navigation
+
+<MudContainer MaxWidth="MaxWidth.Small" Class="pb-8">
+    <MudPaper Elevation="0" Class="pa-6">
+        <MudStack Spacing="3">
+            <MudText Typo="Typo.h4">@Localizer["Settings.Title"]</MudText>
+
+            <MudText Typo="Typo.body1">@Localizer["Settings.Subtitle"]</MudText>
+
+            <MudSelect T="string"
+                       Label='@Localizer["Settings.Language"]'
+                       Value="@_selectedCulture"
+                       ValueChanged="OnCultureChanged"
+                       Variant="Variant.Outlined">
+                @foreach (var culture in LocalizationService.SupportedCultures)
+                {
+                    <MudSelectItem T="string" Value="@culture.Name">@culture.DisplayName</MudSelectItem>
+                }
+            </MudSelect>
+
+            <MudAlert Severity="Severity.Info" Variant="Variant.Outlined">
+                @Localizer["Settings.ApplyOnHome"]
+            </MudAlert>
+
+            <MudStack Row="true" Spacing="2">
+                <MudButton Variant="Variant.Filled"
+                           Color="Color.Primary"
+                           OnClick="SaveAsync">
+                    @Localizer["Settings.SaveAndReturnHome"]
+                </MudButton>
+
+                <MudButton Variant="Variant.Outlined"
+                           Color="Color.Default"
+                           Href="/">
+                    @Localizer["Settings.Cancel"]
+                </MudButton>
+            </MudStack>
+        </MudStack>
+    </MudPaper>
+</MudContainer>
+
+@code {
+    private string _selectedCulture = string.Empty;
+
+    protected override void OnInitialized()
+    {
+        _selectedCulture = LocalizationService.CurrentCultureName;
+    }
+
+    private void OnCultureChanged(string? cultureName)
+    {
+        _selectedCulture = cultureName ?? LocalizationService.CurrentCultureName;
+    }
+
+    private async Task SaveAsync()
+    {
+        await LocalizationService.SetCultureAsync(_selectedCulture);
+        Navigation.NavigateTo("/");
+    }
+}

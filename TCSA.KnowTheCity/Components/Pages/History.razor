@@ -2,6 +2,7 @@
 @using TCSA.KnowTheCity.Core.Models
 @using TCSA.KnowTheCity.Core.Models.Domain
 @using TCSA.KnowTheCity.Services
+@inject IStringLocalizer<SharedResource> Localizer
 
 <MudContainer MaxWidth="MaxWidth.Large" Class="history-page pb-8">
     <MudPaper Elevation="0" Class="history-hero mb-6">
@@ -10,15 +11,15 @@
                      Class="history-hero-chip"
                      Variant="Variant.Filled"
                      Icon="@Icons.Material.Filled.History">
-                Game History
+                @Localizer["History.Tag"]
             </MudChip>
 
             <MudText Typo="Typo.h4" Class="history-hero-title">
-                Review your recent quiz runs
+                @Localizer["History.Title"]
             </MudText>
 
             <MudText Typo="Typo.body1" Class="history-hero-subtitle">
-                Filter by city and date to revisit previous games and track how well you know each place.
+                @Localizer["History.Subtitle"]
             </MudText>
 
             <MudStack Row="true" Spacing="2" Class="history-hero-chips">
@@ -51,18 +52,18 @@
             <MudPaper Elevation="4" Class="history-panel history-filter-panel pa-4 h-100">
                 <MudText Typo="Typo.h6" Class="history-section-title" GutterBottom="true">
                     <MudIcon Icon="@Icons.Material.Filled.Tune" Class="mr-2" />
-                    Search
+                    @Localizer["History.SearchTitle"]
                 </MudText>
 
                 <MudText Typo="Typo.body2" Class="history-section-subtitle">
-                    Narrow results by city and date range.
+                    @Localizer["History.SearchSubtitle"]
                 </MudText>
 
                 <MudDivider Class="my-3" />
 
                 <MudStack Spacing="2">
                     <MudSelect T="int?"
-                               Label="City"
+                               Label='@Localizer["History.City"]'
                                Variant="Variant.Outlined"
                                @bind-Value="_selectedCityId"
                                Clearable="true"
@@ -73,12 +74,12 @@
                         }
                     </MudSelect>
 
-                    <MudDatePicker Label="From Date"
+                    <MudDatePicker Label='@Localizer["History.FromDate"]'
                                    Variant="Variant.Outlined"
                                    @bind-Date="_fromDate"
                                    Clearable="true" />
 
-                    <MudDatePicker Label="To Date"
+                    <MudDatePicker Label='@Localizer["History.ToDate"]'
                                    Variant="Variant.Outlined"
                                    @bind-Date="_toDate"
                                    Clearable="true" />
@@ -89,7 +90,7 @@
                                Class="history-filter-button"
                                OnClick="ApplySearch"
                                StartIcon="@Icons.Material.Filled.Search">
-                        Search
+                        @Localizer["History.Search"]
                     </MudButton>
 
                     <MudButton Variant="Variant.Outlined"
@@ -98,7 +99,7 @@
                                Class="history-clear-button"
                                OnClick="ClearSearch"
                                StartIcon="@Icons.Material.Filled.Clear">
-                        Clear
+                        @Localizer["History.Clear"]
                     </MudButton>
                 </MudStack>
             </MudPaper>
@@ -113,11 +114,11 @@
                     <MudStack Spacing="0">
                         <MudText Typo="Typo.h6" Class="history-section-title">
                             <MudIcon Icon="@Icons.Material.Filled.Insights" Class="mr-2" />
-                            Results
+                            @Localizer["History.ResultsTitle"]
                         </MudText>
 
                         <MudText Typo="Typo.body2" Class="history-section-subtitle">
-                            Your latest quiz attempts across all cities.
+                            @Localizer["History.ResultsSubtitle"]
                         </MudText>
                     </MudStack>
 
@@ -136,7 +137,7 @@
                               Variant="Variant.Outlined"
                               Dense="true"
                               Class="history-empty-state">
-                        No games found. Try a different search or go play a quiz.
+                        @Localizer["History.NoGames"]
                     </MudAlert>
                 }
                 else
@@ -148,16 +149,16 @@
                               Breakpoint="Breakpoint.Sm"
                               Class="history-table">
                         <HeaderContent>
-                            <MudTh>Date</MudTh>
-                            <MudTh>City</MudTh>
-                            <MudTh>Score</MudTh>
+                            <MudTh>@Localizer["History.Date"]</MudTh>
+                            <MudTh>@Localizer["History.City"]</MudTh>
+                            <MudTh>@Localizer["History.Score"]</MudTh>
                         </HeaderContent>
                         <RowTemplate>
-                            <MudTd DataLabel="Date">@context.PlayedAt.ToString("MM/dd/yyyy HH:mm")</MudTd>
-                            <MudTd DataLabel="City">
+                            <MudTd DataLabel='@Localizer["History.Date"]'>@context.PlayedAt.ToString("g", System.Globalization.CultureInfo.CurrentCulture)</MudTd>
+                            <MudTd DataLabel='@Localizer["History.City"]'>
                                 <MudText Class="history-city-name">@context.City.Name</MudText>
                             </MudTd>
-                            <MudTd DataLabel="Score">
+                            <MudTd DataLabel='@Localizer["History.Score"]'>
                                 <MudChip T="string"
                                          Class="@GetScoreChipClass(context)"
                                          Variant="Variant.Filled"
@@ -187,17 +188,21 @@
     private DateTime? _toDate;
 
     private string ResultCountLabel =>
-        _gameResults.Count == 1 ? "1 game found" : $"{_gameResults.Count} games found";
+        _gameResults.Count == 1
+            ? Localizer["History.ResultCount.Singular"].Value
+            : Localizer["History.ResultCount.Plural", _gameResults.Count].Value;
 
     private string CityFilterLabel =>
         _selectedCityId is int cityId
-            ? _availableCities.FirstOrDefault(city => city.Id == cityId)?.Name ?? "Selected city"
-            : "All cities";
+            ? _availableCities.FirstOrDefault(city => city.Id == cityId)?.Name ?? Localizer["History.SelectedCity"].Value
+            : Localizer["History.AllCities"].Value;
 
     private string DateRangeLabel =>
         _fromDate is null && _toDate is null
-            ? "All dates"
-            : $"{_fromDate?.ToString("MM/dd/yyyy") ?? "Any"} - {_toDate?.ToString("MM/dd/yyyy") ?? "Any"}";
+            ? Localizer["History.AllDates"].Value
+            : Localizer["History.DateRange",
+                _fromDate?.ToString("d", System.Globalization.CultureInfo.CurrentCulture) ?? Localizer["History.AnyDate"].Value,
+                _toDate?.ToString("d", System.Globalization.CultureInfo.CurrentCulture) ?? Localizer["History.AnyDate"].Value].Value;
 
     protected override async Task OnInitializedAsync()
     {

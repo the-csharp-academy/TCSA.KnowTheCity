@@ -2,27 +2,28 @@
 @using TCSA.KnowTheCity.Core.Models
 @using TCSA.KnowTheCity.Core.Models.Domain
 @using TCSA.KnowTheCity.Services
+@inject IStringLocalizer<SharedResource> Localizer
 
 <MudContainer MaxWidth="MaxWidth.Large" Class="pb-8">
     <MudPaper Elevation="0" Class="favorites-hero mb-6">
         <MudStack Spacing="3">
             <div class="favorites-hero-header">
                 <MudText Typo="Typo.h4" Class="favorites-hero-title">
-                    Keep your favourite places close
+                    @Localizer["Favorites.Title"]
                 </MudText>
 
                 <MudStack Row="true" Spacing="2" Class="favorites-hero-chips">
                     <MudChip T="string" Class="brand-chip brand-chip-gold" Variant="Variant.Filled">
-                        Cities saved: @_favoriteCities.Count
+                        @Localizer["Favorites.CitiesSaved", _favoriteCities.Count]
                     </MudChip>
                     <MudChip T="string" Class="brand-chip brand-chip-orange" Variant="Variant.Filled">
-                        Landmarks saved: @_favoriteLandmarks.Count
+                        @Localizer["Favorites.LandmarksSaved", _favoriteLandmarks.Count]
                     </MudChip>
                 </MudStack>
             </div>
 
             <MudText Typo="Typo.body1" Class="favorites-hero-subtitle">
-                Review the cities and landmarks you saved, then remove anything you no longer want to keep.
+                @Localizer["Favorites.Subtitle"]
             </MudText>
 
             <MudButton Variant="Variant.Filled"
@@ -31,7 +32,7 @@
                        StartIcon="@Icons.Material.Filled.Quiz"
                        Disabled="@(_favoriteLandmarks.Count == 0)"
                        OnClick="StartFavoritesQuiz">
-                Quiz favourite landmarks
+                @Localizer["Favorites.QuizFavouriteLandmarks"]
             </MudButton>
 
         </MudStack>
@@ -48,10 +49,10 @@
 
                         <MudStack Spacing="0">
                             <MudText Typo="Typo.h6" Class="favorites-panel-title">
-                                Favourite Cities
+                                @Localizer["Favorites.CitiesPanel.Title"]
                             </MudText>
                             <MudText Typo="Typo.body2" Class="favorites-panel-subtitle">
-                                Cities you've saved for later.
+                                @Localizer["Favorites.CitiesPanel.Subtitle"]
                             </MudText>
                         </MudStack>
                     </MudStack>
@@ -67,10 +68,10 @@
                         <MudStack AlignItems="AlignItems.Center" Spacing="1">
                             <MudIcon Icon="@Icons.Material.Filled.FavoriteBorder" Size="Size.Large" Class="favorites-empty-icon" />
                             <MudText Typo="Typo.subtitle1" Class="favorites-empty-title">
-                                No favourite cities yet
+                                @Localizer["Favorites.EmptyCities.Title"]
                             </MudText>
                             <MudText Typo="Typo.body2" Class="favorites-empty-text">
-                                Start saving cities from the home screen and they will appear here.
+                                @Localizer["Favorites.EmptyCities.Text"]
                             </MudText>
                         </MudStack>
                     </MudPaper>
@@ -86,7 +87,7 @@
                                 <MudStack Row="true" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween" Spacing="2">
                                     <MudStack Spacing="0">
                                         <MudText Typo="Typo.subtitle1" Class="favorites-item-title">@cityName</MudText>
-                                        <MudText Typo="Typo.caption" Class="favorites-item-subtitle">Saved city</MudText>
+                                        <MudText Typo="Typo.caption" Class="favorites-item-subtitle">@Localizer["Favorites.SavedCity"]</MudText>
                                     </MudStack>
 
                                     <MudIconButton Icon="@Icons.Material.Filled.Delete"
@@ -112,10 +113,10 @@
 
                         <MudStack Spacing="0">
                             <MudText Typo="Typo.h6" Class="favorites-panel-title">
-                                Favourite Landmarks
+                                @Localizer["Favorites.LandmarksPanel.Title"]
                             </MudText>
                             <MudText Typo="Typo.body2" Class="favorites-panel-subtitle">
-                                Landmarks you've marked as must-see.
+                                @Localizer["Favorites.LandmarksPanel.Subtitle"]
                             </MudText>
                         </MudStack>
                     </MudStack>
@@ -131,10 +132,10 @@
                         <MudStack AlignItems="AlignItems.Center" Spacing="1">
                             <MudIcon Icon="@Icons.Material.Filled.Place" Size="Size.Large" Class="favorites-empty-icon" />
                             <MudText Typo="Typo.subtitle1" Class="favorites-empty-title">
-                                No favourite landmarks yet
+                                @Localizer["Favorites.EmptyLandmarks.Title"]
                             </MudText>
                             <MudText Typo="Typo.body2" Class="favorites-empty-text">
-                                Save landmarks during the quiz flow and they will show up here.
+                                @Localizer["Favorites.EmptyLandmarks.Text"]
                             </MudText>
                         </MudStack>
                     </MudPaper>

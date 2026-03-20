@@ -1,4 +1,5 @@
 @page "/instructions"
+@inject IStringLocalizer<SharedResource> Localizer
 
 <MudContainer MaxWidth="MaxWidth.Large" Class="instructions-page pb-8">
     <MudPaper Elevation="0" Class="instructions-hero mb-6">
@@ -7,16 +8,15 @@
                      Class="instructions-hero-chip"
                      Variant="Variant.Filled"
                      Icon="@Icons.Material.Filled.Info">
-                Instructions
+                @Localizer["Instructions.Tag"]
             </MudChip>
 
             <MudText Typo="Typo.h4" Class="instructions-hero-title">
-                Learn how to play in under a minute
+                @Localizer["Instructions.Title"]
             </MudText>
 
             <MudText Typo="Typo.body1" Class="instructions-hero-subtitle">
-                Browse cities, use search to find the right place faster, study landmarks before a quiz,
-                and save favorites so you can practice them again later.
+                @Localizer["Instructions.Subtitle"]
             </MudText>
 
             <MudStack Row="true" Spacing="2" Class="instructions-hero-actions">
@@ -24,21 +24,21 @@
                            Color="Color.Primary"
                            Href="/"
                            StartIcon="@Icons.Material.Filled.Home">
-                    Choose a city
+                    @Localizer["Instructions.ChooseCity"]
                 </MudButton>
 
                 <MudButton Variant="Variant.Filled"
                            Color="Color.Warning"
                            Href="/study"
                            StartIcon="@Icons.Material.Filled.MenuBook">
-                    Study first
+                    @Localizer["Instructions.StudyFirst"]
                 </MudButton>
 
                 <MudButton Variant="Variant.Outlined"
                            Color="Color.Default"
                            Href="/favorites"
                            StartIcon="@Icons.Material.Filled.Favorite">
-                    Open favorites
+                    @Localizer["Instructions.OpenFavorites"]
                 </MudButton>
             </MudStack>
         </MudStack>
@@ -55,28 +55,28 @@
 
                         <MudStack Spacing="0">
                             <MudText Typo="Typo.h6" Class="instructions-panel-title">
-                                How to play
+                                @Localizer["Instructions.HowToPlay.Title"]
                             </MudText>
 
                             <MudText Typo="Typo.body2" Class="instructions-panel-subtitle">
-                                Start a quiz right away or warm up in Study mode first.
+                                @Localizer["Instructions.HowToPlay.Subtitle"]
                             </MudText>
                         </MudStack>
                     </MudStack>
 
                     <ol class="instructions-list">
-                        <li>Open the home page and pick a city.</li>
-                        <li>Select <b>Quiz</b> to play or <b>Study</b> to review landmarks first.</li>
-                        <li>Type the landmark name and press <b>Answer</b> or the Enter key.</li>
-                        <li>Use <b>Skip</b> if you want to move on without answering.</li>
-                        <li>The quiz ends when you finish all landmarks or the timer runs out.</li>
-                        <li>Review your score and landmark breakdown on the results page.</li>
+                        <li>@Localizer["Instructions.HowToPlay.Step1"]</li>
+                        <li>@Localizer["Instructions.HowToPlay.Step2"]</li>
+                        <li>@Localizer["Instructions.HowToPlay.Step3"]</li>
+                        <li>@Localizer["Instructions.HowToPlay.Step4"]</li>
+                        <li>@Localizer["Instructions.HowToPlay.Step5"]</li>
+                        <li>@Localizer["Instructions.HowToPlay.Step6"]</li>
                     </ol>
 
                     <MudChip T="string"
                              Class="brand-chip brand-chip-sky"
                              Variant="Variant.Filled">
-                        60-second quiz timer
+                        @Localizer["Instructions.HowToPlay.Chip"]
                     </MudChip>
                 </MudStack>
             </MudPaper>
@@ -92,27 +92,27 @@
 
                         <MudStack Spacing="0">
                             <MudText Typo="Typo.h6" Class="instructions-panel-title">
-                                Use search
+                                @Localizer["Instructions.UseSearch.Title"]
                             </MudText>
 
                             <MudText Typo="Typo.body2" Class="instructions-panel-subtitle">
-                                Find cities faster from the home page.
+                                @Localizer["Instructions.UseSearch.Subtitle"]
                             </MudText>
                         </MudStack>
                     </MudStack>
 
                     <ol class="instructions-list">
-                        <li>Use <b>Search by city</b> to filter the list as you type.</li>
-                        <li>Refine the results with <b>Filter by country</b>.</li>
-                        <li>Use <b>Filter by continent</b> if you want a smaller list.</li>
-                        <li>Select <b>Clear filters</b> to reset everything in one tap.</li>
-                        <li>Once you find a city, open <b>Quiz</b> or <b>Study</b> from its card.</li>
+                        <li>@Localizer["Instructions.UseSearch.Step1"]</li>
+                        <li>@Localizer["Instructions.UseSearch.Step2"]</li>
+                        <li>@Localizer["Instructions.UseSearch.Step3"]</li>
+                        <li>@Localizer["Instructions.UseSearch.Step4"]</li>
+                        <li>@Localizer["Instructions.UseSearch.Step5"]</li>
                     </ol>
 
                     <MudChip T="string"
                              Class="brand-chip brand-chip-gold"
                              Variant="Variant.Filled">
-                        Search updates as you type
+                        @Localizer["Instructions.UseSearch.Chip"]
                     </MudChip>
                 </MudStack>
             </MudPaper>
@@ -128,27 +128,27 @@
 
                         <MudStack Spacing="0">
                             <MudText Typo="Typo.h6" Class="instructions-panel-title">
-                                Save and practice favorites
+                                @Localizer["Instructions.Favorites.Title"]
                             </MudText>
 
                             <MudText Typo="Typo.body2" Class="instructions-panel-subtitle">
-                                Keep the landmarks you want to revisit.
+                                @Localizer["Instructions.Favorites.Subtitle"]
                             </MudText>
                         </MudStack>
                     </MudStack>
 
                     <ol class="instructions-list">
-                        <li>Finish a city quiz and open the results page.</li>
-                        <li>Use the star button next to a landmark to save it as a favorite.</li>
-                        <li>Open the <b>Favorites</b> page to review everything you saved.</li>
-                        <li>Select <b>Quiz favourite landmarks</b> to practice saved landmarks again.</li>
-                        <li>Remove saved items anytime from the Favorites page.</li>
+                        <li>@Localizer["Instructions.Favorites.Step1"]</li>
+                        <li>@Localizer["Instructions.Favorites.Step2"]</li>
+                        <li>@Localizer["Instructions.Favorites.Step3"]</li>
+                        <li>@Localizer["Instructions.Favorites.Step4"]</li>
+                        <li>@Localizer["Instructions.Favorites.Step5"]</li>
                     </ol>
 
                     <MudChip T="string"
                              Class="brand-chip brand-chip-orange"
                              Variant="Variant.Filled">
-                        Practice saved landmarks anytime
+                        @Localizer["Instructions.Favorites.Chip"]
                     </MudChip>
                 </MudStack>
             </MudPaper>
@@ -157,7 +157,7 @@
 
     <MudPaper Elevation="0" Class="instructions-tips-shell">
         <MudText Typo="Typo.h6" Class="instructions-panel-title" GutterBottom="true">
-            Quick tips
+            @Localizer["Instructions.QuickTips.Title"]
         </MudText>
 
         <MudGrid Spacing="3">
@@ -167,12 +167,12 @@
                         <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
                             <MudIcon Icon="@Icons.Material.Filled.Lightbulb" Class="instructions-tip-icon" />
                             <MudText Typo="Typo.subtitle1" Class="instructions-tip-title">
-                                New city?
+                                @Localizer["Instructions.QuickTips.NewCity.Title"]
                             </MudText>
                         </MudStack>
 
                         <MudText Typo="Typo.body2" Class="instructions-tip-text">
-                            Start with Study mode if you want to learn the landmarks before taking the quiz.
+                            @Localizer["Instructions.QuickTips.NewCity.Text"]
                         </MudText>
                     </MudStack>
                 </MudPaper>
@@ -184,12 +184,12 @@
                         <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
                             <MudIcon Icon="@Icons.Material.Filled.Timer" Class="instructions-tip-icon" />
                             <MudText Typo="Typo.subtitle1" Class="instructions-tip-title">
-                                Watch the timer
+                                @Localizer["Instructions.QuickTips.Timer.Title"]
                             </MudText>
                         </MudStack>
 
                         <MudText Typo="Typo.body2" Class="instructions-tip-text">
-                            Keep an eye on the countdown during quizzes so you can answer as many landmarks as possible.
+                            @Localizer["Instructions.QuickTips.Timer.Text"]
                         </MudText>
                     </MudStack>
                 </MudPaper>
@@ -201,12 +201,12 @@
                         <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
                             <MudIcon Icon="@Icons.Material.Filled.Replay" Class="instructions-tip-icon" />
                             <MudText Typo="Typo.subtitle1" Class="instructions-tip-title">
-                                Want more practice?
+                                @Localizer["Instructions.QuickTips.Practice.Title"]
                             </MudText>
                         </MudStack>
 
                         <MudText Typo="Typo.body2" Class="instructions-tip-text">
-                            Use Favorites for repeat practice and History to review how your recent quiz runs went.
+                            @Localizer["Instructions.QuickTips.Practice.Text"]
                         </MudText>
                     </MudStack>
                 </MudPaper>

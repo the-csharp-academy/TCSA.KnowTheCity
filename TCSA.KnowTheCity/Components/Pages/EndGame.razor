@@ -2,6 +2,7 @@
 @using TCSA.KnowTheCity.Core.Models
 @using TCSA.KnowTheCity.Core.Models.Domain
 @using TCSA.KnowTheCity.Services
+@inject IStringLocalizer<SharedResource> Localizer
 
 <MudContainer MaxWidth="MaxWidth.Medium" Class="pb-8">
     @if (_gameResult is null)
@@ -9,7 +10,7 @@
         <MudPaper Elevation="6" Class="quiz-loading-shell py-10 px-6 rounded-xl">
             <MudStack AlignItems="AlignItems.Center" Spacing="4">
                 <MudProgressCircular Color="Color.Info" Indeterminate="true" Size="Size.Large" />
-                <MudText Typo="Typo.h6">Loading your results…</MudText>
+                <MudText Typo="Typo.h6">@Localizer["EndGame.LoadingResults"]</MudText>
             </MudStack>
         </MudPaper>
     }
@@ -22,8 +23,7 @@
                 </MudText>
 
                 <MudText Typo="Typo.body1" Class="endgame-hero-subtitle">
-                    You got <b>@_gameResult.CorrectCount</b> out of <b>@_gameResult.TotalCount</b> landmarks correct in
-                    <b>@_city?.Name</b>.
+                    @Localizer["EndGame.Subtitle", _gameResult.CorrectCount, _gameResult.TotalCount, _city?.Name ?? string.Empty]
                 </MudText>
             </MudStack>
         </MudPaper>
@@ -31,19 +31,19 @@
         <MudGrid Class="mb-4">
             <MudItem xs="4">
                 <MudPaper Elevation="0" Class="endgame-stat-card endgame-stat-card-score pa-4">
-                    <MudText Typo="Typo.overline" Class="endgame-stat-label">Score</MudText>
+                    <MudText Typo="Typo.overline" Class="endgame-stat-label">@Localizer["EndGame.ScoreLabel"]</MudText>
                     <MudText Typo="Typo.h4" Class="endgame-stat-value">@_gameResult.CorrectCount/@_gameResult.TotalCount</MudText>
                 </MudPaper>
             </MudItem>
             <MudItem xs="4">
                 <MudPaper Elevation="0" Class="endgame-stat-card endgame-stat-card-accuracy pa-4">
-                    <MudText Typo="Typo.overline" Class="endgame-stat-label">Accuracy</MudText>
+                    <MudText Typo="Typo.overline" Class="endgame-stat-label">@Localizer["EndGame.AccuracyLabel"]</MudText>
                     <MudText Typo="Typo.h4" Class="endgame-stat-value">@GetAccuracyText()</MudText>
                 </MudPaper>
             </MudItem>
             <MudItem xs="4">
                 <MudPaper Elevation="0" Class="endgame-stat-card endgame-stat-card-city pa-4">
-                    <MudText Typo="Typo.overline" Class="endgame-stat-label">City</MudText>
+                    <MudText Typo="Typo.overline" Class="endgame-stat-label">@Localizer["EndGame.CityLabel"]</MudText>
                     <MudText Typo="Typo.h6" Class="endgame-stat-value">@_city?.Name</MudText>
                 </MudPaper>
             </MudItem>
@@ -51,7 +51,7 @@
 
         <MudPaper Elevation="0" Class="endgame-results-shell pa-4">
             <MudText Typo="Typo.h6" Class="endgame-section-title mb-3">
-                Landmark breakdown
+                @Localizer["EndGame.BreakdownTitle"]
             </MudText>
 
             <div class="endgame-result-list">
@@ -74,7 +74,7 @@
                                              Class="endgame-status-chip endgame-status-chip-detail"
                                              Variant="Variant.Filled"
                                              Size="Size.Small">
-                                        @item.Label
+                                        @GetResultLabel(item.Label)
                                     </MudChip>
                                 }
                             </MudStack>
@@ -97,7 +97,7 @@
                            Href="@($"/quiz/{_city?.Id}")"
                            StartIcon="@Icons.Material.Filled.Replay"
                            Class="quiz-action-button">
-                    Play Again
+                    @Localizer["EndGame.PlayAgain"]
                 </MudButton>
             </MudItem>
             <MudItem xs="6">
@@ -107,7 +107,7 @@
                            Href="/"
                            StartIcon="@Icons.Material.Filled.Home"
                            Class="quiz-action-button">
-                    Home
+                    @Localizer["EndGame.Home"]
                 </MudButton>
             </MudItem>
         </MudGrid>
@@ -150,10 +150,10 @@
             return string.Empty;
 
         return _gameResult.CorrectCount == _gameResult.TotalCount
-            ? "Perfect Score!"
+            ? Localizer["EndGame.Headline.Perfect"].Value
             : GetAccuracy() >= 70
-                ? "Great run!"
-                : "Nice effort!";
+                ? Localizer["EndGame.Headline.Great"].Value
+                : Localizer["EndGame.Headline.Nice"].Value;
     }
 
     private int GetAccuracy()
@@ -165,6 +165,20 @@
     }
 
     private string GetAccuracyText() => $"{GetAccuracy()}%";
+
+    private string GetResultLabel(string? label)
+    {
+        if (string.IsNullOrWhiteSpace(label))
+            return string.Empty;
+
+        var parts = label.Split('|', 2, StringSplitOptions.TrimEntries);
+        var resourceKey = parts[0];
+        var baseLabel = Localizer[resourceKey].Value;
+
+        return parts.Length == 2
+            ? Localizer["Quiz.ResultLabel.WithCity", baseLabel, parts[1]].Value
+            : baseLabel;
+    }
 
     private async Task ToggleFavoriteLandmarkAsync(int landmarkId)
     {

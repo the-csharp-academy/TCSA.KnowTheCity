@@ -100,6 +100,26 @@
       "imagePath": "/cities/cairo.webp",
       "dateAdded": "2026-03-01",
       "isActive": true
+    },
+    {
+      "remoteId": "berlin-ge",
+      "name": "Berlin",
+      "country": "Germany",
+      "continent": "Europe",
+      "manifestPath": "/manifests/berlin.json",
+      "imagePath": "/cities/berlin.webp",
+      "dateAdded": "2026-03-20",
+      "isActive": true
+    },
+    {
+      "remoteId": "rome-it",
+      "name": "Rome",
+      "country": "Italy",
+      "continent": "Europe",
+      "manifestPath": "/manifests/rome.json",
+      "imagePath": "/cities/rome.webp",
+      "dateAdded": "2026-03-20",
+      "isActive": true
     }
   ]
 }

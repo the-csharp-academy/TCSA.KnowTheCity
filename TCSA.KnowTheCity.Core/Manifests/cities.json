@@ -130,6 +130,16 @@
       "imagePath": "/cities/madrid.webp",
       "dateAdded": "2026-03-20",
       "isActive": true
+    },
+    {
+      "remoteId": "lisbon-pt",
+      "name": "Lisbon",
+      "country": "Portugal",
+      "continent": "Europe",
+      "manifestPath": "/manifests/lisbon.json",
+      "imagePath": "/cities/lisbon.webp",
+      "dateAdded": "2026-03-21",
+      "isActive": true
     }
   ]
 }

@@ -1,0 +1,41 @@
+{
+  "cityRemoteId": "lisbon-pt",
+  "version": "1.0",
+  "monuments": [
+    {
+      "remoteId": "jeronimosmonastery",
+      "name": "Jerónimos Monastery",
+      "imagePath": "landmarks/lisbon-jeronimosmonastery.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "belemtower",
+      "name": "Belém Tower",
+      "imagePath": "landmarks/lisbon-belemtower.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "saojorgecastle",
+      "name": "São Jorge Castle",
+      "imagePath": "landmarks/lisbon-saojorgecastle.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "pracadocomercio",
+      "name": "Praça do Comércio",
+      "imagePath": "landmarks/lisbon-pracadocomercio.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "oceanariodelisboa",
+      "name": "Oceanário de Lisboa",
+      "imagePath": "landmarks/lisbon-oceanariodelisboa.webp",
+      "imageVersion": "1",
+      "isActive": true
+    }
+  ]
+}

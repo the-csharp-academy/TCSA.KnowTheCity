@@ -42,11 +42,16 @@ The repository includes a **CDN simulator** project so the MAUI app can be teste
 - The simulator serves content from `TCSA.KnowTheCity.CdnSimulator/wwwroot` for city, landmark, and flag images
 - By default it listens on `http://localhost:5264`.
 
+<img width="594" height="320" alt="image" src="https://github.com/user-attachments/assets/8a1a9b1c-9dad-45be-99d6-a4c8381a46f7" />
+
+<img width="1176" height="557" alt="image" src="https://github.com/user-attachments/assets/411fadc4-7b16-44cb-9fb8-a50812ab558f" />
+
+
 ### 2. Point the MAUI app to the simulator
 
 In `TCSA.KnowTheCity/appsettings.json`, set:
 
-- `Config:CdnUrl = http://localhost:5264`
+- `Config:CdnUrl = http://localhost:5264` or whatever port your CDNSimulator is using.
 
 This makes the app request manifests and images from the local simulator instead of the production CDN.
 

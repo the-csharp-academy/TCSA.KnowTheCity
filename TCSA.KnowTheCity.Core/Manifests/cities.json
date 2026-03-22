@@ -150,6 +150,16 @@
       "imagePath": "/cities/amsterdam.webp",
       "dateAdded": "2026-03-22",
       "isActive": true
+    },
+    {
+      "remoteId": "athens-gr",
+      "name": "Athens",
+      "country": "Greece",
+      "continent": "Europe",
+      "manifestPath": "/manifests/athens.json",
+      "imagePath": "/cities/athens.webp",
+      "dateAdded": "2026-03-22",
+      "isActive": true
     }
   ]
 }

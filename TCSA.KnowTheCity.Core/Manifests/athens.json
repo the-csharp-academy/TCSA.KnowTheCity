@@ -1,39 +1,39 @@
 {
-  "cityRemoteId": "madrid-es",
+  "cityRemoteId": "athens-gr",
   "version": "1.0",
   "monuments": [
     {
-      "remoteId": "royalpalaceofmadrid",
-      "name": "Royal Palace of Madrid",
-      "imagePath": "landmarks/madrid-royalpalaceofmadrid.webp",
+      "remoteId": "odeonofherodesatticus",
+      "name": "Odeon of Herodes Atticus",
+      "imagePath": "landmarks/athens-herodeion.webp",
       "imageVersion": "1",
       "isActive": true
     },
     {
-      "remoteId": "pradomuseum",
-      "name": "Prado Museum",
-      "imagePath": "landmarks/madrid-pradomuseum.webp",
+      "remoteId": "parthenon",
+      "name": "Parthenon",
+      "imagePath": "landmarks/athens-parthenon.webp",
       "imageVersion": "1",
       "isActive": true
     },
     {
-      "remoteId": "elretiropark",
-      "name": "El Retiro Park",
-      "imagePath": "landmarks/madrid-elretiropark.webp",
+      "remoteId": "ancientagora",
+      "name": "Ancient Agora of Athens",
+      "imagePath": "landmarks/athens-ancientagoraofathens.webp",
       "imageVersion": "1",
       "isActive": true
     },
     {
-      "remoteId": "plazamayor",
-      "name": "Plaza Mayor",
-      "imagePath": "landmarks/madrid-plazamayor.webp",
+      "remoteId": "templeofolympianzeus",
+      "name": "Temple of Olympian Zeus",
+      "imagePath": "landmarks/athens-templeofolympianzeus.webp",
       "imageVersion": "1",
       "isActive": true
     },
     {
-      "remoteId": "puertadelsol",
-      "name": "Puerta del Sol",
-      "imagePath": "landmarks/madrid-puertadelsol.webp",
+      "remoteId": "panathenaicstadium",
+      "name": "Panathenaic Stadium",
+      "imagePath": "landmarks/athens-panathenaicstadium.webp",
       "imageVersion": "1",
       "isActive": true
     }

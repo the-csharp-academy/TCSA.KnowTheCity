@@ -1,0 +1,41 @@
+{
+  "cityRemoteId": "amsterdam-nl",
+  "version": "1.0",
+  "monuments": [
+    {
+      "remoteId": "rijksmuseum",
+      "name": "Rijksmuseum",
+      "imagePath": "landmarks/amsterdam-rijksmuseum.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "annefrankhouse",
+      "name": "Anne Frank House",
+      "imagePath": "landmarks/amsterdam-annefrankhouse.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "royalpalace",
+      "name": "Royal Palace of Amsterdam",
+      "imagePath": "landmarks/amsterdam-royalpalaceofamsterdam.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "canalbelt",
+      "name": "Amsterdam Canal Belt",
+      "imagePath": "landmarks/amsterdam-amsterdamcanalbelt.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "skinnybridge",
+      "name": "Skinny Bridge",
+      "imagePath": "landmarks/amsterdam-skinnybridge.webp",
+      "imageVersion": "1",
+      "isActive": true
+    }
+  ]
+}

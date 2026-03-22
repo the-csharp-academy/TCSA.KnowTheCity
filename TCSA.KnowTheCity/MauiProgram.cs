@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
 using MudBlazor.Services;
 using TCSA.KnowTheCity.Core.Clients;
@@ -19,11 +18,21 @@ public static class MauiProgram
     {
         var builder = MauiApp.CreateBuilder();
 
-        using var stream = FileSystem.OpenAppPackageFileAsync("appsettings.json")
-          .GetAwaiter()
-          .GetResult();
+        try
+        {
+            using var stream = FileSystem.OpenAppPackageFileAsync("appsettings.json")
+                .GetAwaiter()
+                .GetResult();
 
-        builder.Configuration.AddJsonStream(stream);
+            builder.Configuration.AddJsonStream(stream);
+        }
+        catch (Exception)
+        {
+            builder.Configuration.AddInMemoryCollection(new Dictionary<string, string?>
+            {
+                ["Config:CdnUrl"] = "http://cdn.knowthecitygame.com"
+            });
+        }
 
         builder.Services.Configure<ConfigOptions>(builder.Configuration.GetSection("Config"));
         builder

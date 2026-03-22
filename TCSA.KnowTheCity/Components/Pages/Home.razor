@@ -107,7 +107,7 @@
         <MudGrid>
             @foreach (var city in _cities)
             {
-                <MudItem xs="6" sm="4" md="3">
+                <MudItem xs="12" md="3">
                     <MudCard Elevation="6"
                              Class="city-card vibrant-city-card">
                         @if (_cityImagePaths.TryGetValue(city.Id, out var imgData) && !string.IsNullOrEmpty(imgData))

@@ -1,6 +1,4 @@
 using Microsoft.Extensions.Options;
-using TCSA.KnowTheCity.Core.Enums;
-using TCSA.KnowTheCity.Core.Helpers;
 using TCSA.KnowTheCity.Core.Options;
 using TCSA.KnowTheCity.Core.Services;
 
@@ -14,12 +12,18 @@ public sealed class ImageCacheService(
 
     public async Task<string> GetImagePathAsync(string relativePath, CancellationToken cancellationToken = default)
     {
-        var localPath = Path.Combine(_cacheRoot, relativePath.Replace('/', Path.DirectorySeparatorChar));
+        var normalizedRelativePath = relativePath.TrimStart('/', '\\');
+        var localRelativePath = normalizedRelativePath
+            .Replace('/', Path.DirectorySeparatorChar)
+            .Replace('\\', Path.DirectorySeparatorChar);
+
+        var localPath = Path.Combine(_cacheRoot, localRelativePath);
 
         if (File.Exists(localPath))
             return localPath;
 
-        var url = $"{options.Value.CdnUrl.TrimEnd('/')}/{relativePath.TrimStart('/')}";
+        var urlPath = normalizedRelativePath.Replace('\\', '/');
+        var url = $"{options.Value.CdnUrl.TrimEnd('/')}/{urlPath}";
 
         try
         {

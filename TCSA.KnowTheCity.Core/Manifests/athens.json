@@ -1,0 +1,41 @@
+{
+  "cityRemoteId": "madrid-es",
+  "version": "1.0",
+  "monuments": [
+    {
+      "remoteId": "royalpalaceofmadrid",
+      "name": "Royal Palace of Madrid",
+      "imagePath": "landmarks/madrid-royalpalaceofmadrid.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "pradomuseum",
+      "name": "Prado Museum",
+      "imagePath": "landmarks/madrid-pradomuseum.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "elretiropark",
+      "name": "El Retiro Park",
+      "imagePath": "landmarks/madrid-elretiropark.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "plazamayor",
+      "name": "Plaza Mayor",
+      "imagePath": "landmarks/madrid-plazamayor.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "puertadelsol",
+      "name": "Puerta del Sol",
+      "imagePath": "landmarks/madrid-puertadelsol.webp",
+      "imageVersion": "1",
+      "isActive": true
+    }
+  ]
+}

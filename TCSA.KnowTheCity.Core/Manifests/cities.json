@@ -140,6 +140,16 @@
       "imagePath": "/cities/lisbon.webp",
       "dateAdded": "2026-03-21",
       "isActive": true
+    },
+    {
+      "remoteId": "amsterdam-nl",
+      "name": "Amsterdam",
+      "country": "Netherlands",
+      "continent": "Europe",
+      "manifestPath": "/manifests/amsterdam.json",
+      "imagePath": "/cities/amsterdam.webp",
+      "dateAdded": "2026-03-22",
+      "isActive": true
     }
   ]
 }

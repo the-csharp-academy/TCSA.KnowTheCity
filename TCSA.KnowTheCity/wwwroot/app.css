@@ -839,6 +839,9 @@ h1:focus {
 }
 
 @media (max-width: 600px) {
+    .home-hero {
+        margin-top: 40px;
+    }
     .endgame-shell-container {
         margin-top: 50px;
         padding-left: 0 !important;

@@ -834,6 +834,7 @@ h1:focus {
 
 @media (max-width: 600px) {
     .study-shell-container {
+        margin-top: 50px;
         padding-left: 0 !important;
         padding-right: 0 !important;
     }
@@ -1204,4 +1205,14 @@ h1:focus {
 .app-theme-dark .quiz-timer-chip-danger {
     background-color: rgba(232, 74, 28, 0.9) !important;
     color: var(--brand-cream) !important;
+}
+
+.study-header-stack {
+    justify-content: space-between;
+}
+
+@media (max-width: 959.98px) { /* sm and down */
+    .study-header-stack {
+        justify-content: center !important;
+    }
 }

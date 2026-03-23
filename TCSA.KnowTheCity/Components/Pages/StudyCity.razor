@@ -9,24 +9,48 @@
 <MudContainer MaxWidth="MaxWidth.Medium" Class="study-shell-container">
     <MudPaper Elevation="8" Class="study-shell study-shell-layout study-shell-content-padding py-4 rounded-xl overflow-hidden">
         @if (_landmarks.Count > 0)
-        {           
+        {
             <MudPaper Elevation="0" Class="study-landmark-banner pa-4 mb-4">
-                <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center" Class="mb-1">
-                    <MudChip T="string"
-                             Class="study-city-chip"
-                             Variant="Variant.Filled"
-                             Size="Size.Medium">
-                        <strong>@_cityName</strong>
-                    </MudChip>
+                <MudHidden Breakpoint="Breakpoint.MdAndUp">
+                    <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center" Class="mb-1">
+                        <MudChip T="string"
+                                 Class="study-city-chip"
+                                 Variant="Variant.Filled"
+                                 Size="Size.Medium">
+                            <strong>@_cityName</strong>
+                        </MudChip>
+                        <MudChip T="string"
+                                 Class="study-progress-chip"
+                                 Variant="Variant.Filled"
+                                 Size="Size.Medium">
+                            @Localizer["Study.Progress", currentIndex + 1, _landmarks.Count]
+                        </MudChip>
+                    </MudStack>
+                </MudHidden>
+                <MudStack 
+                    Row="true" 
+                    Justify="Justify.SpaceBetween" 
+                    AlignItems="AlignItems.Center" 
+                          Class="mb-1 study-header-stack">
+                    <MudHidden Breakpoint="Breakpoint.SmAndDown">
+                        <MudChip T="string"
+                                 Class="study-city-chip"
+                                 Variant="Variant.Filled"
+                                 Size="Size.Medium">
+                            <strong>@_cityName</strong>
+                        </MudChip>
+                    </MudHidden>
                     <MudText Typo="Typo.h5" Class="study-landmark-title">
                         @_landmarks[currentIndex].Name
                     </MudText>
-                    <MudChip T="string"
-                             Class="study-progress-chip"
-                             Variant="Variant.Filled"
-                             Size="Size.Medium">
-                        @Localizer["Study.Progress", currentIndex + 1, _landmarks.Count]
-                    </MudChip>
+                    <MudHidden Breakpoint="Breakpoint.SmAndDown">
+                        <MudChip T="string"
+                                 Class="study-progress-chip"
+                                 Variant="Variant.Filled"
+                                 Size="Size.Medium">
+                            @Localizer["Study.Progress", currentIndex + 1, _landmarks.Count]
+                        </MudChip>
+                    </MudHidden>
                 </MudStack>
             </MudPaper>
 

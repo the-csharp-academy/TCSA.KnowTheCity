@@ -168,7 +168,17 @@
       "continent": "Europe",
       "manifestPath": "/manifests/copenhagen.json",
       "imagePath": "/cities/copenhagen.webp",
-      "dateAdded": "2026-03-01",
+      "dateAdded": "2026-03-23",
+      "isActive": true
+    },
+    {
+      "remoteId": "stockholm-se",
+      "name": "Stockholm",
+      "country": "Sweden",
+      "continent": "Europe",
+      "manifestPath": "/manifests/stockholm.json",
+      "imagePath": "/cities/stockholm.webp",
+      "dateAdded": "2026-03-23",
       "isActive": true
     }
   ]

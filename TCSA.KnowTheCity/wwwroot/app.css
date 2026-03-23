@@ -839,6 +839,19 @@ h1:focus {
 }
 
 @media (max-width: 600px) {
+    .endgame-shell-container {
+        margin-top: 50px;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .endgame-hero,
+    .endgame-results-shell,
+    .endgame-stat-card {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+    }
+
     .study-shell-container {
         margin-top: 50px;
         padding-left: 0 !important;

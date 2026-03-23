@@ -4,7 +4,7 @@
 @using TCSA.KnowTheCity.Services
 @inject IStringLocalizer<SharedResource> Localizer
 
-<MudContainer MaxWidth="MaxWidth.Medium" Class="pb-8">
+<MudContainer MaxWidth="MaxWidth.Medium" Class="pb-8 endgame-shell-container">
     @if (_gameResult is null)
     {
         <MudPaper Elevation="6" Class="quiz-loading-shell py-10 px-6 rounded-xl">
@@ -68,15 +68,17 @@
                             <MudStack Row="true" Spacing="1" AlignItems="AlignItems.Center">
                                 <MudText Typo="Typo.h6" Class="endgame-result-title">@item.Landmark.Name</MudText>
 
-                                @if (!item.IsCorrect && !string.IsNullOrWhiteSpace(item.Label))
-                                {
-                                    <MudChip T="string"
-                                             Class="endgame-status-chip endgame-status-chip-detail"
-                                             Variant="Variant.Filled"
-                                             Size="Size.Small">
-                                        @GetResultLabel(item.Label)
-                                    </MudChip>
-                                }
+                                <MudHidden Breakpoint="Breakpoint.SmAndDown">
+                                    @if (!item.IsCorrect && !string.IsNullOrWhiteSpace(item.Label))
+                                    {
+                                        <MudChip T="string"
+                                                 Class="endgame-status-chip endgame-status-chip-detail"
+                                                 Variant="Variant.Filled"
+                                                 Size="Size.Small">
+                                            @GetResultLabel(item.Label)
+                                        </MudChip>
+                                    }
+                                </MudHidden>
                             </MudStack>
                         </div>
 

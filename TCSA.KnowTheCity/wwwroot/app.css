@@ -822,6 +822,33 @@ h1:focus {
     box-shadow: 0 20px 40px rgba(17, 20, 95, 0.12);
 }
 
+.study-shell-layout {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.study-shell-content-padding {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+@media (max-width: 600px) {
+    .study-shell-container {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .study-shell-layout {
+        width: 100%;
+        margin: 0;
+    }
+
+    .study-shell-content-padding {
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+    }
+}
+
 .study-city-chip {
     background-color: var(--brand-royal);
     color: var(--brand-cream);

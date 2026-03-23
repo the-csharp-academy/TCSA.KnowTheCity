@@ -6,8 +6,8 @@
 @using TCSA.KnowTheCity.Services
 @inject IStringLocalizer<SharedResource> Localizer
 
-<MudContainer MaxWidth="MaxWidth.Medium">
-    <MudPaper Elevation="8" Class="study-shell py-4 px-6 rounded-xl overflow-hidden" Style="width:75%;margin:0 auto;">
+<MudContainer MaxWidth="MaxWidth.Medium" Class="study-shell-container">
+    <MudPaper Elevation="8" Class="study-shell study-shell-layout study-shell-content-padding py-4 rounded-xl overflow-hidden">
         @if (_landmarks.Count > 0)
         {           
             <MudPaper Elevation="0" Class="study-landmark-banner pa-4 mb-4">

@@ -1,0 +1,48 @@
+{
+  "cityRemoteId": "warsaw-pl",
+  "version": "1.0",
+  "monuments": [
+    {
+      "remoteId": "warsawbarbican",
+      "name": "Warsaw Barbican",
+      "imagePath": "landmarks/warsaw-barbican.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "warsawnationalstadium",
+      "name": "PGE National Stadium",
+      "imagePath": "landmarks/warsaw-national-stadium.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "palaceofcultureandscience",
+      "name": "Palace of Culture and Science",
+      "imagePath": "landmarks/warsaw-palace-of-culture-and-science.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "warsawrisingmuseum",
+      "name": "Warsaw Rising Museum",
+      "imagePath": "landmarks/warsaw-rising-museum.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "warsawroyalbaths",
+      "name": "Royal Baths",
+      "imagePath": "landmarks/warsaw-royal-baths.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "warsawroyalcastle",
+      "name": "Royal Castle",
+      "imagePath": "landmarks/warsaw-royal-castle.webp",
+      "imageVersion": "1",
+      "isActive": true
+    }
+  ]
+}

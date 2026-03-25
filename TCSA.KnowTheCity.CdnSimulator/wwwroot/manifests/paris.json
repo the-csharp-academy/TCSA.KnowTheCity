@@ -6,6 +6,7 @@
       "remoteId": "eiffeltower",
       "name": "Eiffel Tower",
       "imagePath": "landmarks/paris-eiffeltower.webp",
+      "mobileImagePath": "landmarks/paris-eiffeltower-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -13,6 +14,7 @@
       "remoteId": "louvremuseum",
       "name": "Louvre Museum",
       "imagePath": "landmarks/paris-louvremuseum.webp",
+      "mobileImagePath": "landmarks/paris-louvremuseum-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -20,6 +22,7 @@
       "remoteId": "notredame",
       "name": "Notre-Dame",
       "imagePath": "landmarks/paris-notredame.webp",
+      "mobileImagePath": "landmarks/paris-notredame-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -27,6 +30,7 @@
       "remoteId": "arcdetriomphe",
       "name": "Arc de Triomphe",
       "imagePath": "landmarks/paris-arcdetriomphe.webp",
+      "mobileImagePath": "landmarks/paris-arcdetriomphe-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -34,6 +38,7 @@
       "remoteId": "sacrecoeur",
       "name": "Sacré-Cœur",
       "imagePath": "landmarks/paris-sacrecoeur.webp",
+      "mobileImagePath": "landmarks/paris-sacrecoeur-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     }

@@ -30,6 +30,7 @@ public sealed class MonumentManifestItem
     public string RemoteId { get; set; } = string.Empty;
     public string Name { get; set; } = string.Empty;
     public string ImagePath { get; set; } = string.Empty;
+    public string MobileImagePath { get; set; } = string.Empty;
     public string ImageVersion { get; set; } = string.Empty;
     public DateTime? DateAdded { get; set; }
     public bool IsActive { get; set; } = true;

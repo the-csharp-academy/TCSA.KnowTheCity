@@ -1,4 +1,4 @@
-{
+﻿{
   "cityRemoteId": "beijing-ch",
   "version": "1.0",
   "monuments": [
@@ -6,6 +6,7 @@
       "remoteId": "greatwall",
       "name": "Great Wall",
       "imagePath": "landmarks/beijing-greatwall.webp",
+      "mobileImagePath": "landmarks/beijing-greatwall-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -13,6 +14,7 @@
       "remoteId": "forbiddencity",
       "name": "Forbidden City",
       "imagePath": "landmarks/beijing-forbiddencity.webp",
+      "mobileImagePath": "landmarks/beijing-forbiddencity-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -20,6 +22,7 @@
       "remoteId": "templeofheaven",
       "name": "Temple of Heaven",
       "imagePath": "landmarks/beijing-templeofheaven.webp",
+      "mobileImagePath": "landmarks/beijing-templeofheaven-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -27,6 +30,7 @@
       "remoteId": "tiananmensquare",
       "name": "Tiananmen Square",
       "imagePath": "landmarks/beijing-tiananmensquare.webp",
+      "mobileImagePath": "landmarks/beijing-tiananmensquare-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -34,6 +38,7 @@
       "remoteId": "summerpalace",
       "name": "Summer Palace",
       "imagePath": "landmarks/beijing-summerpalace.webp",
+      "mobileImagePath": "landmarks/beijing-summerpalace-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     }

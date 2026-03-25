@@ -1,4 +1,4 @@
-{
+﻿{
   "cityRemoteId": "stockholm-se",
   "version": "1.0",
   "monuments": [
@@ -6,6 +6,7 @@
       "remoteId": "gamlastan",
       "name": "Gamla Stan",
       "imagePath": "landmarks/stockholm-gamlastan.webp",
+      "mobileImagePath": "landmarks/stockholm-gamlastan-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -13,6 +14,7 @@
       "remoteId": "royalpalace",
       "name": "Royal Palace of Stockholm",
       "imagePath": "landmarks/stockholm-royalpalaceofstockholm.webp",
+      "mobileImagePath": "landmarks/stockholm-royalpalaceofstockholm-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -20,6 +22,7 @@
       "remoteId": "cityhall",
       "name": "Stockholm City Hall",
       "imagePath": "landmarks/stockholm-stockholmcityhall.webp",
+      "mobileImagePath": "landmarks/stockholm-stockholmcityhall-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -27,6 +30,7 @@
       "remoteId": "vasamuseum",
       "name": "Vasa Museum",
       "imagePath": "landmarks/stockholm-vasamuseum.webp",
+      "mobileImagePath": "landmarks/stockholm-vasamuseum-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -34,6 +38,7 @@
       "remoteId": "skansen",
       "name": "Skansen",
       "imagePath": "landmarks/stockholm-skansenopenairmuseum.webp",
+      "mobileImagePath": "landmarks/stockholm-skansenopenairmuseum-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     }

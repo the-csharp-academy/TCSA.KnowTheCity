@@ -1,4 +1,4 @@
-{
+﻿{
   "cityRemoteId": "copenhagen-dk",
   "version": "1.0",
   "monuments": [
@@ -6,6 +6,7 @@
       "remoteId": "tivoligardens",
       "name": "Tivoli Gardens",
       "imagePath": "landmarks/copenhagen-tivoligardens.webp",
+      "mobileImagePath": "landmarks/copenhagen-tivoligardens-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -13,6 +14,7 @@
       "remoteId": "nyhavn",
       "name": "Nyhavn Harbor",
       "imagePath": "landmarks/copenhagen-nyhavnhabor.webp",
+      "mobileImagePath": "landmarks/copenhagen-nyhavnhabor-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -20,6 +22,7 @@
       "remoteId": "littlemermaid",
       "name": "The Little Mermaid",
       "imagePath": "landmarks/copenhagen-littlemermaidstatue.webp",
+      "mobileImagePath": "landmarks/copenhagen-littlemermaidstatue-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -27,6 +30,7 @@
       "remoteId": "amalienborg",
       "name": "Amalienborg Palace",
       "imagePath": "landmarks/copenhagen-amalienborgpalace.webp",
+      "mobileImagePath": "landmarks/copenhagen-amalienborgpalace-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -34,6 +38,7 @@
       "remoteId": "christiansborg",
       "name": "Christiansborg Palace",
       "imagePath": "landmarks/copenhagen-christiansborgpalace.webp",
+      "mobileImagePath": "landmarks/copenhagen-christiansborgpalace-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     }

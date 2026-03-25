@@ -214,6 +214,7 @@ public class SyncService(
         {
             Name = manifestItem.Name,
             ImagePath = NormalizePath(manifestItem.ImagePath),
+            MobileImagePath = NormalizePath(manifestItem.MobileImagePath),
             CityId = cityId,
             DateAdded = manifestItem.DateAdded ?? DefaultManifestDateAdded
         };

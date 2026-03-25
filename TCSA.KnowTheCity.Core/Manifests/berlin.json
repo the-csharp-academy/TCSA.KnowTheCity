@@ -1,4 +1,4 @@
-{
+﻿{
   "cityRemoteId": "berlin-de",
   "version": "1.0",
   "monuments": [
@@ -6,6 +6,7 @@
       "remoteId": "reichstagbuilding",
       "name": "Reichstag Building",
       "imagePath": "landmarks/berlin-reichstagbuilding.webp",
+      "mobileImagePath": "landmarks/berlin-reichstagbuilding-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -13,6 +14,7 @@
       "remoteId": "victorycolumn",
       "name": "Victory Column",
       "imagePath": "landmarks/berlin-victorycolumn.webp",
+      "mobileImagePath": "landmarks/berlin-victorycolumn-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -20,6 +22,7 @@
       "remoteId": "berlincathedral",
       "name": "Berlin Cathedral",
       "imagePath": "landmarks/berlin-berlincathedral.webp",
+      "mobileImagePath": "landmarks/berlin-berlincathedral-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -27,6 +30,7 @@
       "remoteId": "brandenburggate",
       "name": "Brandenburg Gate",
       "imagePath": "landmarks/berlin-brandenburggate.webp",
+      "mobileImagePath": "landmarks/berlin-brandenburggate-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -34,6 +38,7 @@
       "remoteId": "museumisland",
       "name": "Museum Island",
       "imagePath": "landmarks/berlin-museumisland.webp",
+      "mobileImagePath": "landmarks/berlin-museumisland-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     }

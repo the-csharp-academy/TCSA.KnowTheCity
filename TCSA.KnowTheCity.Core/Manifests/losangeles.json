@@ -1,0 +1,46 @@
+{
+  "cityRemoteId": "los-angeles-us",
+  "version": "1.0",
+  "monuments": [
+    {
+      "remoteId": "hollywoodsign",
+      "name": "Hollywood Sign",
+      "imagePath": "landmarks/losangeles-hollywoodsign.webp",
+      "mobileImagePath": "landmarks/losangeles-hollywoodsign-mobile.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "griffithobservatory",
+      "name": "Griffith Observatory",
+      "imagePath": "landmarks/losangeles-griffithobservatory.webp",
+      "mobileImagePath": "landmarks/losangeles-griffithobservatory-mobile.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "santamonicapier",
+      "name": "Santa Monica Pier",
+      "imagePath": "landmarks/losangeles-santamonicapier.webp",
+      "mobileImagePath": "landmarks/losangeles-santamonicapier-mobile.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "waltdisneyconcerthall",
+      "name": "Walt Disney Concert Hall",
+      "imagePath": "landmarks/losangeles-waltdisneyconcerthall.webp",
+      "mobileImagePath": "landmarks/losangeles-waltdisneyconcerthall-mobile.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "gettycenter",
+      "name": "Getty Center",
+      "imagePath": "landmarks/losangeles-gettycenter.webp",
+      "mobileImagePath": "landmarks/losangeles-gettycenter-mobile.webp",
+      "imageVersion": "1",
+      "isActive": true
+    }
+  ]
+}

@@ -1,39 +1,44 @@
-{
+﻿{
   "cityRemoteId": "lisbon-pt",
   "version": "1.0",
   "monuments": [
     {
       "remoteId": "jeronimosmonastery",
-      "name": "Jerónimos Monastery",
+      "name": "JerÃ³nimos Monastery",
       "imagePath": "landmarks/lisbon-jeronimosmonastery.webp",
+      "mobileImagePath": "landmarks/lisbon-jeronimosmonastery-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
     {
       "remoteId": "belemtower",
-      "name": "Belém Tower",
+      "name": "BelÃ©m Tower",
       "imagePath": "landmarks/lisbon-belemtower.webp",
+      "mobileImagePath": "landmarks/lisbon-belemtower-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
     {
       "remoteId": "saojorgecastle",
-      "name": "São Jorge Castle",
+      "name": "SÃ£o Jorge Castle",
       "imagePath": "landmarks/lisbon-saojorgecastle.webp",
+      "mobileImagePath": "landmarks/lisbon-saojorgecastle-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
     {
       "remoteId": "pracadocomercio",
-      "name": "Praça do Comércio",
+      "name": "PraÃ§a do ComÃ©rcio",
       "imagePath": "landmarks/lisbon-pracadocomercio.webp",
+      "mobileImagePath": "landmarks/lisbon-pracadocomercio-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
     {
       "remoteId": "oceanariodelisboa",
-      "name": "Oceanário de Lisboa",
+      "name": "OceanÃ¡rio de Lisboa",
       "imagePath": "landmarks/lisbon-oceanariodelisboa.webp",
+      "mobileImagePath": "landmarks/lisbon-oceanariodelisboa-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     }

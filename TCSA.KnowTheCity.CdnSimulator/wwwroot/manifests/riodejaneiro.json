@@ -6,6 +6,7 @@
       "remoteId": "christtheredeemer",
       "name": "Christ the Redeemer",
       "imagePath": "landmarks/riodejaneiro-christtheredeemer.webp",
+      "mobileImagePath": "landmarks/riodejaneiro-christtheredeemer-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -13,6 +14,7 @@
       "remoteId": "sugarloaf",
       "name": "Sugarloaf",
       "imagePath": "landmarks/riodejaneiro-sugarloaf.webp",
+      "mobileImagePath": "landmarks/riodejaneiro-sugarloaf-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -20,6 +22,7 @@
       "remoteId": "copacabanabeach",
       "name": "Copacabana Beach",
       "imagePath": "landmarks/riodejaneiro-copacabanabeach.webp",
+      "mobileImagePath": "landmarks/riodejaneiro-copacabanabeach-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -27,6 +30,7 @@
       "remoteId": "selaronsteps",
       "name": "Escadaria Selarón",
       "imagePath": "landmarks/riodejaneiro-escadariaselaron.webp",
+      "mobileImagePath": "landmarks/riodejaneiro-escadariaselaron-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -34,6 +38,7 @@
       "remoteId": "maracanastadium",
       "name": "Maracanã Stadium",
       "imagePath": "landmarks/riodejaneiro-maracanastadium.webp",
+      "mobileImagePath": "landmarks/riodejaneiro-maracanastadium-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     }

@@ -1,0 +1,46 @@
+{
+  "cityRemoteId": "vienna-at",
+  "version": "1.0",
+  "monuments": [
+    {
+      "remoteId": "schonbrunnpalace",
+      "name": "Schönbrunn Palace",
+      "imagePath": "landmarks/vienna-schonbrunnpalace.webp",
+      "mobileImagePath": "landmarks/vienna-schonbrunnpalace-mobile.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "saintstephenscathedral",
+      "name": "St. Stephen's Cathedral",
+      "imagePath": "landmarks/vienna-saintstephenscathedral.webp",
+      "mobileImagePath": "landmarks/vienna-saintstephenscathedral-mobile.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "hofburgpalace",
+      "name": "Hofburg Palace",
+      "imagePath": "landmarks/vienna-hofburgpalace.webp",
+      "mobileImagePath": "landmarks/vienna-hofburgpalace-mobile.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "belvederepalace",
+      "name": "Belvedere Palace",
+      "imagePath": "landmarks/vienna-belvederepalace.webp",
+      "mobileImagePath": "landmarks/vienna-belvederepalace-mobile.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "praterferriswheel",
+      "name": "Giant Ferris Wheel",
+      "imagePath": "landmarks/vienna-praterferriswheel.webp",
+      "mobileImagePath": "landmarks/vienna-praterferriswheel-mobile.webp",
+      "imageVersion": "1",
+      "isActive": true
+    }
+  ]
+}

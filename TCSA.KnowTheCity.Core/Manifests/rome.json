@@ -1,4 +1,4 @@
-{
+﻿{
   "cityRemoteId": "rome-it",
   "version": "1.0",
   "monuments": [
@@ -6,6 +6,7 @@
       "remoteId": "colosseum",
       "name": "Colosseum",
       "imagePath": "landmarks/rome-colosseum.webp",
+      "mobileImagePath": "landmarks/rome-colosseum-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -13,6 +14,7 @@
       "remoteId": "pantheon",
       "name": "Pantheon",
       "imagePath": "landmarks/rome-pantheon.webp",
+      "mobileImagePath": "landmarks/rome-pantheon-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -20,6 +22,7 @@
       "remoteId": "romanforum",
       "name": "Roman Forum",
       "imagePath": "landmarks/rome-romanforum.webp",
+      "mobileImagePath": "landmarks/rome-romanforum-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -27,13 +30,15 @@
       "remoteId": "trevifountain",
       "name": "Trevi Fountain",
       "imagePath": "landmarks/rome-trevifountain.webp",
+      "mobileImagePath": "landmarks/rome-trevifountain-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
     {
       "remoteId": "saintpetersbasilica",
-      "name": "St. Peter’s Basilica",
+      "name": "St. Peterâ€™s Basilica",
       "imagePath": "landmarks/rome-saintpetersbasilica.webp",
+      "mobileImagePath": "landmarks/rome-saintpetersbasilica-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     }

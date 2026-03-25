@@ -1,4 +1,4 @@
-{
+﻿{
   "cityRemoteId": "athens-gr",
   "version": "1.0",
   "monuments": [
@@ -6,6 +6,7 @@
       "remoteId": "odeonofherodesatticus",
       "name": "Odeon of Herodes Atticus",
       "imagePath": "landmarks/athens-herodeion.webp",
+      "mobileImagePath": "landmarks/athens-herodeion-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -13,6 +14,7 @@
       "remoteId": "parthenon",
       "name": "Parthenon",
       "imagePath": "landmarks/athens-parthenon.webp",
+      "mobileImagePath": "landmarks/athens-parthenon-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -20,6 +22,7 @@
       "remoteId": "ancientagora",
       "name": "Ancient Agora of Athens",
       "imagePath": "landmarks/athens-ancientagoraofathens.webp",
+      "mobileImagePath": "landmarks/athens-ancientagoraofathens-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -27,6 +30,7 @@
       "remoteId": "templeofolympianzeus",
       "name": "Temple of Olympian Zeus",
       "imagePath": "landmarks/athens-templeofolympianzeus.webp",
+      "mobileImagePath": "landmarks/athens-templeofolympianzeus-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -34,6 +38,7 @@
       "remoteId": "panathenaicstadium",
       "name": "Panathenaic Stadium",
       "imagePath": "landmarks/athens-panathenaicstadium.webp",
+      "mobileImagePath": "landmarks/athens-panathenaicstadium-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     }

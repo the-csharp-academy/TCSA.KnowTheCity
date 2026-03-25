@@ -73,9 +73,19 @@
             </MudStack>
 
             <div class="study-image-frame mb-4">
-                @if (_cachedImagePaths.TryGetValue(_landmarks[currentIndex].Name, out var imgData) && !string.IsNullOrEmpty(imgData))
+                @{
+                    _cachedImagePaths.TryGetValue(_landmarks[currentIndex].Name, out var imgData);
+                    _cachedMobileImagePaths.TryGetValue(_landmarks[currentIndex].Name, out var mobileImgData);
+                    var hasAnyImage = !string.IsNullOrEmpty(imgData) || !string.IsNullOrEmpty(mobileImgData);
+                }
+                @if (hasAnyImage)
                 {
-                    <img src="@imgData" alt="@_landmarks[currentIndex].Name" style="display:block;width:100%;height:390px;object-position:top;" />
+                    <MudHidden Breakpoint="Breakpoint.SmAndDown">
+                        <img src="@(imgData ?? mobileImgData)" alt="@_landmarks[currentIndex].Name" style="display:block;width:100%;height:390px;object-position:top;" />
+                    </MudHidden>
+                    <MudHidden Breakpoint="Breakpoint.MdAndUp">
+                        <img src="@(string.IsNullOrEmpty(mobileImgData) ? imgData : mobileImgData)" alt="@_landmarks[currentIndex].Name" style="display:block;width:100%;height:390px;object-position:top;" />
+                    </MudHidden>
                 }
                 else
                 {
@@ -140,6 +150,7 @@
 
     private List<Landmark> _landmarks = [];
     private Dictionary<string, string> _cachedImagePaths = [];
+    private Dictionary<string, string> _cachedMobileImagePaths = [];
     private HashSet<int> _favoriteLandmarkIds = [];
     private string _cityName = "";
     private bool _isCityFavorite;
@@ -184,6 +195,17 @@
             {
                 Console.WriteLine($"[StudyCity] Failed to cache image for {landmark.Name}: {ex.Message}");
                 _cachedImagePaths[landmark.Name] = string.Empty;
+            }
+
+            try
+            {
+                var mobileLocalPath = await ImageCacheService.GetImagePathAsync(landmark.MobileImagePath);
+                _cachedMobileImagePaths[landmark.Name] = ImageHelpers.ConvertToBase64DataUri(mobileLocalPath);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[StudyCity] Failed to cache mobile image for {landmark.Name}: {ex.Message}");
+                _cachedMobileImagePaths[landmark.Name] = string.Empty;
             }
         }
     }

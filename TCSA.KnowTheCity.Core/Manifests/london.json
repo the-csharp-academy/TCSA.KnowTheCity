@@ -1,4 +1,4 @@
-{
+﻿{
   "cityRemoteId": "london-uk",
   "version": "1.0",
   "monuments": [
@@ -6,6 +6,7 @@
       "remoteId": "bigben",
       "name": "Big Ben",
       "imagePath": "landmarks/london-bigben.webp",
+      "mobileImagePath": "landmarks/london-bigben-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -13,6 +14,7 @@
       "remoteId": "towerbridge",
       "name": "Tower Bridge",
       "imagePath": "landmarks/london-towerbridge.webp",
+      "mobileImagePath": "landmarks/london-towerbridge-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -20,6 +22,7 @@
       "remoteId": "buckinghampalace",
       "name": "Buckingham Palace",
       "imagePath": "landmarks/london-buckinghampalace.webp",
+      "mobileImagePath": "landmarks/london-buckinghampalace-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -27,6 +30,7 @@
       "remoteId": "londoneye",
       "name": "London Eye",
       "imagePath": "landmarks/london-londoneye.webp",
+      "mobileImagePath": "landmarks/london-londoneye-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     },
@@ -34,6 +38,7 @@
       "remoteId": "toweroflondon",
       "name": "Tower of London",
       "imagePath": "landmarks/london-toweroflondon.webp",
+      "mobileImagePath": "landmarks/london-toweroflondon-mobile.webp",
       "imageVersion": "1",
       "isActive": true
     }

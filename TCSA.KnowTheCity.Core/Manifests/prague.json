@@ -1,0 +1,46 @@
+{
+  "cityRemoteId": "prague-cz",
+  "version": "1.0",
+  "monuments": [
+    {
+      "remoteId": "praguecastle",
+      "name": "Prague Castle",
+      "imagePath": "landmarks/prague-praguecastle.webp",
+      "mobileImagePath": "landmarks/prague-praguecastle-mobile.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "charlesbridge",
+      "name": "Charles Bridge",
+      "imagePath": "landmarks/prague-charlesbridge.webp",
+      "mobileImagePath": "landmarks/prague-charlesbridge-mobile.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "oldtownsquare",
+      "name": "Old Town Square",
+      "imagePath": "landmarks/prague-oldtownsquare.webp",
+      "mobileImagePath": "landmarks/prague-oldtownsquare-mobile.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "astronomicalclock",
+      "name": "Prague Astronomical Clock",
+      "imagePath": "landmarks/prague-pragueastronomicalclock.webp",
+      "mobileImagePath": "landmarks/prague-pragueastronomicalclock-mobile.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "petrintower",
+      "name": "Petrin Tower",
+      "imagePath": "landmarks/prague-petrintower.webp",
+      "mobileImagePath": "landmarks/prague-petrintower-mobile.webp",
+      "imageVersion": "1",
+      "isActive": true
+    }
+  ]
+}

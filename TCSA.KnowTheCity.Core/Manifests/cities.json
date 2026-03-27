@@ -180,6 +180,56 @@
       "imagePath": "/cities/stockholm.webp",
       "dateAdded": "2026-03-23",
       "isActive": true
+    },
+    {
+      "remoteId": "prague-cz",
+      "name": "Prague",
+      "country": "Czechia",
+      "continent": "Europe",
+      "manifestPath": "/manifests/prague.json",
+      "imagePath": "/cities/prague.webp",
+      "dateAdded": "2026-03-23",
+      "isActive": true
+    },
+    {
+      "remoteId": "vienna-at",
+      "name": "Vienna",
+      "country": "Austria",
+      "continent": "Europe",
+      "manifestPath": "/manifests/vienna.json",
+      "imagePath": "/cities/vienna.webp",
+      "dateAdded": "2026-03-24",
+      "isActive": true
+    },
+    {
+      "remoteId": "losangeles-us",
+      "name": "Los Angeles",
+      "country": "UnitedStates",
+      "continent": "NorthAmerica",
+      "manifestPath": "/manifests/losangeles.json",
+      "imagePath": "/cities/losangeles.webp",
+      "dateAdded": "2026-03-25",
+      "isActive": true
+    },
+    {
+      "remoteId": "sydney-au",
+      "name": "Sydney",
+      "country": "Australia",
+      "continent": "Oceania",
+      "manifestPath": "/manifests/sydney.json",
+      "imagePath": "/cities/sydney.webp",
+      "dateAdded": "2026-03-25",
+      "isActive": true
+    },
+    {
+      "remoteId": "melbourne-au",
+      "name": "Melbourne",
+      "country": "Australia",
+      "continent": "Oceania",
+      "manifestPath": "/manifests/melbourne.json",
+      "imagePath": "/cities/melbourne.webp",
+      "dateAdded": "2026-03-27",
+      "isActive": true
     }
   ]
 }

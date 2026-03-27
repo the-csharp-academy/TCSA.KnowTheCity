@@ -12,7 +12,7 @@
                     @Localizer["Favorites.Title"]
                 </MudText>
 
-                <MudStack Row="true" Spacing="2" Class="favorites-hero-chips">
+                <MudStack Row="true" Wrap="Wrap.Wrap" Spacing="2" Class="favorites-hero-chips">
                     <MudChip T="string" Class="brand-chip brand-chip-gold" Variant="Variant.Filled">
                         @Localizer["Favorites.CitiesSaved", _favoriteCities.Count]
                     </MudChip>

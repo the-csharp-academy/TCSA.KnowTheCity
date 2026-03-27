@@ -1,0 +1,41 @@
+﻿{
+  "cityRemoteId": "sydney-au",
+  "version": "1.0",
+  "monuments": [
+    {
+      "remoteId": "sydneyoperahouse",
+      "name": "Sydney Opera House",
+      "imagePath": "landmarks/sydney-sydneyoperahouse.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "sydneyharbourbridge",
+      "name": "Sydney Harbour Bridge",
+      "imagePath": "landmarks/sydney-sydneyharborbridge.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "bondibeach",
+      "name": "Bondi Beach",
+      "imagePath": "landmarks/sydney-bondibeach.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "royalbotanicgarden",
+      "name": "Royal Botanic Garden Sydney",
+      "imagePath": "landmarks/sydney-royalbotanicgarden.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "therocks",
+      "name": "The Rocks",
+      "imagePath": "landmarks/sydney-therocks.webp",
+      "imageVersion": "1",
+      "isActive": true
+    }
+  ]
+}

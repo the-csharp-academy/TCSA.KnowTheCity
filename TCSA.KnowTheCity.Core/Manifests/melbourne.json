@@ -1,0 +1,46 @@
+﻿{
+  "cityRemoteId": "melbourne-au",
+  "version": "1.0",
+  "monuments": [
+    {
+      "remoteId": "flindersstreetstation",
+      "name": "Flinders Street Station",
+      "imagePath": "landmarks/melbourne-flindersstreetstation.webp",
+      "mobileImagePath": "landmarks/melbourne-flindersstreetstation-mobile.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "federationsquare",
+      "name": "Federation Square",
+      "imagePath": "landmarks/melbourne-federationsquare.webp",
+      "mobileImagePath": "landmarks/melbourne-federationsquare-mobile.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "shrineofremembrance",
+      "name": "Shrine of Remembrance",
+      "imagePath": "landmarks/melbourne-shrineofremembrance.webp",
+      "mobileImagePath": "landmarks/melbourne-shrineofremembrance-mobile.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "royalexhibitionbuilding",
+      "name": "Royal Exhibition Building",
+      "imagePath": "landmarks/melbourne-royalexhibitionbuilding.webp",
+      "mobileImagePath": "landmarks/melbourne-royalexhibitionbuilding-mobile.webp",
+      "imageVersion": "1",
+      "isActive": true
+    },
+    {
+      "remoteId": "hosierlane",
+      "name": "Hosier Lane",
+      "imagePath": "landmarks/melbourne-hosierlane.webp",
+      "mobileImagePath": "landmarks/melbourne-hosierlane-mobile.webp",
+      "imageVersion": "1",
+      "isActive": true
+    }
+  ]
+}

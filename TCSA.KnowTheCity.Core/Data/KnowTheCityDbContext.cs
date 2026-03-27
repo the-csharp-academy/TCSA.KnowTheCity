@@ -6,7 +6,9 @@ namespace TCSA.KnowTheCity.Core.Data;
 public class KnowTheCityDbContext(DbContextOptions<KnowTheCityDbContext> options) : DbContext(options)
 {
     public DbSet<City> Cities => Set<City>();
+    public DbSet<CityTranslation> CityTranslations => Set<CityTranslation>();
     public DbSet<Landmark> Landmarks => Set<Landmark>();
+    public DbSet<LandmarkTranslation> LandmarkTranslations => Set<LandmarkTranslation>();
     public DbSet<GameResult> GameResults => Set<GameResult>();
     public DbSet<GameResultItem> GameResultItems => Set<GameResultItem>();
     public DbSet<FavoriteCity> FavoriteCities => Set<FavoriteCity>();
@@ -34,6 +36,11 @@ public class KnowTheCityDbContext(DbContextOptions<KnowTheCityDbContext> options
                   .WithOne(l => l.City)
                   .HasForeignKey(l => l.CityId)
                   .OnDelete(DeleteBehavior.Cascade);
+
+            entity.HasMany(c => c.Translations)
+                .WithOne(t => t.City)
+                .HasForeignKey(t => t.CityId)
+                .OnDelete(DeleteBehavior.Cascade);
         });
 
         modelBuilder.Entity<Landmark>(entity =>
@@ -41,6 +48,27 @@ public class KnowTheCityDbContext(DbContextOptions<KnowTheCityDbContext> options
             entity.HasKey(l => l.Id);
             entity.Property(l => l.Name).IsRequired();
             entity.Property(l => l.ImagePath).IsRequired();
+
+            entity.HasMany(l => l.Translations)
+                .WithOne(t => t.Landmark)
+                .HasForeignKey(t => t.LandmarkId)
+                .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        modelBuilder.Entity<CityTranslation>(entity =>
+        {
+            entity.HasKey(t => t.Id);
+            entity.Property(t => t.LanguageCode).IsRequired();
+            entity.Property(t => t.Name).IsRequired();
+            entity.HasIndex(t => new { t.CityId, t.LanguageCode }).IsUnique();
+        });
+
+        modelBuilder.Entity<LandmarkTranslation>(entity =>
+        {
+            entity.HasKey(t => t.Id);
+            entity.Property(t => t.LanguageCode).IsRequired();
+            entity.Property(t => t.Name).IsRequired();
+            entity.HasIndex(t => new { t.LandmarkId, t.LanguageCode }).IsUnique();
         });
 
         modelBuilder.Entity<FavoriteCity>(entity =>

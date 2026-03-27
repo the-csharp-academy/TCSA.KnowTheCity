@@ -5,6 +5,7 @@
 @using TCSA.KnowTheCity.Core.Models.Domain
 @using TCSA.KnowTheCity.Core.Services
 @using TCSA.KnowTheCity.Services
+@using System.Globalization
 @inject IStringLocalizer<SharedResource> Localizer
 
 <MudContainer MaxWidth="MaxWidth.Large" Class="pb-20">
@@ -124,7 +125,7 @@
                         <MudCardContent Class="vibrant-city-card-content">
                             <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Start">
                                 <MudStack Spacing="1">
-                                    <MudText Typo="Typo.h6" Class="vibrant-city-card-title">@city.Name</MudText>
+                                    <MudText Typo="Typo.h6" Class="vibrant-city-card-title">@GetCityDisplayName(city)</MudText>
                                     <MudText Typo="Typo.body2" Class="city-card-country">@Localizer.LocalizeEnum(city.Country)</MudText>
                                 </MudStack>
 
@@ -309,6 +310,29 @@
         count == 1
             ? Localizer[singularKey, count].Value
             : Localizer[pluralKey, count].Value;
+
+    private static string GetCityDisplayName(City city)
+    {
+        var currentCultureName = CultureInfo.CurrentUICulture.Name;
+        var currentLanguage = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+
+        var exactMatch = city.Translations
+            .FirstOrDefault(t => string.Equals(t.LanguageCode, currentCultureName, StringComparison.OrdinalIgnoreCase));
+
+        if (!string.IsNullOrWhiteSpace(exactMatch?.Name))
+        {
+            return exactMatch.Name;
+        }
+
+        var languageMatch = city.Translations
+            .FirstOrDefault(t =>
+                !string.IsNullOrWhiteSpace(t.LanguageCode)
+                && t.LanguageCode.StartsWith(currentLanguage, StringComparison.OrdinalIgnoreCase));
+
+        return string.IsNullOrWhiteSpace(languageMatch?.Name)
+            ? city.Name
+            : languageMatch.Name;
+    }
 
     private void NavigateToStudy(int cityId) => Navigation.NavigateTo($"study/{cityId}");
 

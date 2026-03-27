@@ -11,6 +11,7 @@ public class City
     public Continent Continent { get; set; }
     public string ImagePath { get; set; } = string.Empty;
     public List<Landmark> Landmarks { get; set; } = [];
+    public List<CityTranslation> Translations { get; set; } = [];
     public bool IsActive { get; set; } = true;
     public DateTime DateAdded { get; set; }
 }

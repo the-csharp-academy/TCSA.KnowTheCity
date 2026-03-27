@@ -8,5 +8,6 @@ public class Landmark
     public string MobileImagePath { get; set; } = string.Empty;
     public int CityId { get; set; }
     public City City { get; set; } = default!;
+    public List<LandmarkTranslation> Translations { get; set; } = [];
     public DateTime DateAdded { get; set; }
 }

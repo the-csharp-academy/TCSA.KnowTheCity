@@ -1,6 +1,14 @@
 ﻿{
   "cityRemoteId": "london-uk",
   "version": "1.0",
+  "cityNames": [
+    { "languageCode": "en-US", "name": "London" },
+    { "languageCode": "es-ES", "name": "Londres" },
+    { "languageCode": "pt-BR", "name": "Londres" },
+    { "languageCode": "it-IT", "name": "Londra" },
+    { "languageCode": "fr-FR", "name": "Londres" },
+    { "languageCode": "de-DE", "name": "London" }
+  ],
   "monuments": [
     {
       "remoteId": "bigben",
@@ -8,6 +16,14 @@
       "imagePath": "landmarks/london-bigben.webp",
       "mobileImagePath": "landmarks/london-bigben-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Big Ben" },
+        { "languageCode": "es-ES", "name": "Big Ben" },
+        { "languageCode": "pt-BR", "name": "Big Ben" },
+        { "languageCode": "it-IT", "name": "Big Ben" },
+        { "languageCode": "fr-FR", "name": "Big Ben" },
+        { "languageCode": "de-DE", "name": "Big Ben" }
+      ],
       "isActive": true
     },
     {
@@ -16,6 +32,14 @@
       "imagePath": "landmarks/london-towerbridge.webp",
       "mobileImagePath": "landmarks/london-towerbridge-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Tower Bridge" },
+        { "languageCode": "es-ES", "name": "Puente de la Torre" },
+        { "languageCode": "pt-BR", "name": "Ponte da Torre" },
+        { "languageCode": "it-IT", "name": "Ponte della Torre" },
+        { "languageCode": "fr-FR", "name": "Pont de la Tour" },
+        { "languageCode": "de-DE", "name": "Tower Bridge" }
+      ],
       "isActive": true
     },
     {
@@ -24,6 +48,14 @@
       "imagePath": "landmarks/london-buckinghampalace.webp",
       "mobileImagePath": "landmarks/london-buckinghampalace-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Buckingham Palace" },
+        { "languageCode": "es-ES", "name": "Palacio de Buckingham" },
+        { "languageCode": "pt-BR", "name": "Palácio de Buckingham" },
+        { "languageCode": "it-IT", "name": "Palazzo di Buckingham" },
+        { "languageCode": "fr-FR", "name": "Palais de Buckingham" },
+        { "languageCode": "de-DE", "name": "Buckingham-Palast" }
+      ],
       "isActive": true
     },
     {
@@ -32,6 +64,14 @@
       "imagePath": "landmarks/london-londoneye.webp",
       "mobileImagePath": "landmarks/london-londoneye-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "London Eye" },
+        { "languageCode": "es-ES", "name": "Ojo de Londres" },
+        { "languageCode": "pt-BR", "name": "London Eye" },
+        { "languageCode": "it-IT", "name": "London Eye" },
+        { "languageCode": "fr-FR", "name": "London Eye" },
+        { "languageCode": "de-DE", "name": "London Eye" }
+      ],
       "isActive": true
     },
     {
@@ -40,6 +80,14 @@
       "imagePath": "landmarks/london-toweroflondon.webp",
       "mobileImagePath": "landmarks/london-toweroflondon-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Tower of London" },
+        { "languageCode": "es-ES", "name": "Torre de Londres" },
+        { "languageCode": "pt-BR", "name": "Torre de Londres" },
+        { "languageCode": "it-IT", "name": "Torre di Londra" },
+        { "languageCode": "fr-FR", "name": "Tour de Londres" },
+        { "languageCode": "de-DE", "name": "Tower of London" }
+      ],
       "isActive": true
     }
   ]

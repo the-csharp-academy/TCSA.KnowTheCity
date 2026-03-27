@@ -36,6 +36,26 @@
   <data name="Home.Quiz" xml:space="preserve"><value>Quiz</value></data>
   <data name="Home.Study" xml:space="preserve"><value>Estudar</value></data>
   <data name="Home.CountryFlagAlt" xml:space="preserve"><value>Bandeira de {0}</value></data>
+  <data name="Country.France" xml:space="preserve"><value>França</value></data>
+  <data name="Country.UnitedKingdom" xml:space="preserve"><value>Reino Unido</value></data>
+  <data name="Country.UnitedArabEmirates" xml:space="preserve"><value>Emirados Árabes Unidos</value></data>
+  <data name="Country.UnitedStates" xml:space="preserve"><value>Estados Unidos</value></data>
+  <data name="Country.Japan" xml:space="preserve"><value>Japão</value></data>
+  <data name="Country.China" xml:space="preserve"><value>China</value></data>
+  <data name="Country.Australia" xml:space="preserve"><value>Austrália</value></data>
+  <data name="Country.Mexico" xml:space="preserve"><value>México</value></data>
+  <data name="Country.Brazil" xml:space="preserve"><value>Brasil</value></data>
+  <data name="Country.Egypt" xml:space="preserve"><value>Egito</value></data>
+  <data name="Country.Germany" xml:space="preserve"><value>Alemanha</value></data>
+  <data name="Country.Italy" xml:space="preserve"><value>Itália</value></data>
+  <data name="Country.Spain" xml:space="preserve"><value>Espanha</value></data>
+  <data name="Country.Portugal" xml:space="preserve"><value>Portugal</value></data>
+  <data name="Country.Netherlands" xml:space="preserve"><value>Países Baixos</value></data>
+  <data name="Country.Greece" xml:space="preserve"><value>Grécia</value></data>
+  <data name="Country.Denmark" xml:space="preserve"><value>Dinamarca</value></data>
+  <data name="Country.Sweden" xml:space="preserve"><value>Suécia</value></data>
+  <data name="Country.Czechia" xml:space="preserve"><value>Tchéquia</value></data>
+  <data name="Country.Austria" xml:space="preserve"><value>Áustria</value></data>
   <data name="Continent.Asia" xml:space="preserve"><value>Ásia</value></data>
   <data name="Continent.Europe" xml:space="preserve"><value>Europa</value></data>
   <data name="Continent.SouthAmerica" xml:space="preserve"><value>América do Sul</value></data>

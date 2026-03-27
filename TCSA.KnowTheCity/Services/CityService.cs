@@ -21,7 +21,9 @@ public class CityService(IDbContextFactory<KnowTheCityDbContext> dbFactory) : IC
     {
         await using var db = await dbFactory.CreateDbContextAsync();
 
-        IQueryable<City> query = db.Cities.AsNoTracking();
+        IQueryable<City> query = db.Cities
+            .AsNoTracking()
+            .Include(c => c.Translations);
 
         if (!string.IsNullOrWhiteSpace(city))
         {

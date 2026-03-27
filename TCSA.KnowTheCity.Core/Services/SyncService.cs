@@ -48,11 +48,12 @@ public class SyncService(
             {
                 var cityManifestDetails = await manifestClient.GetCityManifestAsync(cityManifest.ManifestPath, cancellationToken);
 
-                if (cityManifestDetails is null || cityManifestDetails.Monuments.Count == 0)
+                if (cityManifestDetails is null)
                 {
                     continue;
                 }
 
+                await SyncCityTranslationsAsync(db, city.Id, cityManifestDetails.CityNames, cancellationToken);
                 await SyncMonumentsAsync(db, city.Id, cityManifestDetails, cancellationToken);
             }
             catch (Exception ex)
@@ -121,6 +122,7 @@ public class SyncService(
             .ToListAsync(cancellationToken);
 
         var landmarksByName = landmarks.ToDictionary(x => x.Name, StringComparer.OrdinalIgnoreCase);
+        var syncedLandmarks = new List<(Landmark Landmark, MonumentManifestItem ManifestItem)>();
 
         var hasChanges = false;
 
@@ -129,11 +131,135 @@ public class SyncService(
             if (landmarksByName.TryGetValue(monumentManifest.Name, out var existingLandmark))
             {
                 hasChanges |= ApplyMonumentManifest(existingLandmark, monumentManifest);
+                syncedLandmarks.Add((existingLandmark, monumentManifest));
                 continue;
             }
 
-            db.Landmarks.Add(CreateLandmark(cityId, monumentManifest));
+            var newLandmark = CreateLandmark(cityId, monumentManifest);
+            db.Landmarks.Add(newLandmark);
+            syncedLandmarks.Add((newLandmark, monumentManifest));
             hasChanges = true;
+        }
+
+        if (hasChanges)
+        {
+            await db.SaveChangesAsync(cancellationToken);
+        }
+
+        await SyncLandmarkTranslationsAsync(db, syncedLandmarks, cancellationToken);
+    }
+
+    private static async Task SyncCityTranslationsAsync(
+        KnowTheCityDbContext db,
+        int cityId,
+        List<LocalizedNameManifestItem> cityNames,
+        CancellationToken cancellationToken)
+    {
+        if (cityNames.Count == 0)
+        {
+            return;
+        }
+
+        var existingTranslations = await db.CityTranslations
+            .Where(t => t.CityId == cityId)
+            .ToListAsync(cancellationToken);
+
+        var existingByLanguage = existingTranslations
+            .ToDictionary(t => t.LanguageCode, StringComparer.OrdinalIgnoreCase);
+
+        var hasChanges = false;
+
+        foreach (var cityName in cityNames)
+        {
+            if (string.IsNullOrWhiteSpace(cityName.LanguageCode) || string.IsNullOrWhiteSpace(cityName.Name))
+            {
+                continue;
+            }
+
+            if (existingByLanguage.TryGetValue(cityName.LanguageCode, out var existingTranslation))
+            {
+                if (!string.Equals(existingTranslation.Name, cityName.Name, StringComparison.Ordinal))
+                {
+                    existingTranslation.Name = cityName.Name;
+                    hasChanges = true;
+                }
+
+                continue;
+            }
+
+            db.CityTranslations.Add(new CityTranslation
+            {
+                CityId = cityId,
+                LanguageCode = cityName.LanguageCode,
+                Name = cityName.Name
+            });
+
+            hasChanges = true;
+        }
+
+        if (hasChanges)
+        {
+            await db.SaveChangesAsync(cancellationToken);
+        }
+    }
+
+    private static async Task SyncLandmarkTranslationsAsync(
+        KnowTheCityDbContext db,
+        List<(Landmark Landmark, MonumentManifestItem ManifestItem)> syncedLandmarks,
+        CancellationToken cancellationToken)
+    {
+        var landmarkIds = syncedLandmarks
+            .Where(x => x.ManifestItem.Names.Count > 0)
+            .Select(x => x.Landmark.Id)
+            .Distinct()
+            .ToList();
+
+        if (landmarkIds.Count == 0)
+        {
+            return;
+        }
+
+        var existingTranslations = await db.LandmarkTranslations
+            .Where(t => landmarkIds.Contains(t.LandmarkId))
+            .ToListAsync(cancellationToken);
+
+        var existingByKey = existingTranslations
+            .ToDictionary(
+                t => $"{t.LandmarkId}|{t.LanguageCode}",
+                StringComparer.OrdinalIgnoreCase);
+
+        var hasChanges = false;
+
+        foreach (var (landmark, manifestItem) in syncedLandmarks)
+        {
+            foreach (var name in manifestItem.Names)
+            {
+                if (string.IsNullOrWhiteSpace(name.LanguageCode) || string.IsNullOrWhiteSpace(name.Name))
+                {
+                    continue;
+                }
+
+                var key = $"{landmark.Id}|{name.LanguageCode}";
+                if (existingByKey.TryGetValue(key, out var existingTranslation))
+                {
+                    if (!string.Equals(existingTranslation.Name, name.Name, StringComparison.Ordinal))
+                    {
+                        existingTranslation.Name = name.Name;
+                        hasChanges = true;
+                    }
+
+                    continue;
+                }
+
+                db.LandmarkTranslations.Add(new LandmarkTranslation
+                {
+                    LandmarkId = landmark.Id,
+                    LanguageCode = name.LanguageCode,
+                    Name = name.Name
+                });
+
+                hasChanges = true;
+            }
         }
 
         if (hasChanges)

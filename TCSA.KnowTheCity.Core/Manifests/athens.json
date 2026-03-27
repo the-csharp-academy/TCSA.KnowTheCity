@@ -1,6 +1,14 @@
 ﻿{
   "cityRemoteId": "athens-gr",
   "version": "1.0",
+  "cityNames": [
+    { "languageCode": "en-US", "name": "Athens" },
+    { "languageCode": "es-ES", "name": "Atenas" },
+    { "languageCode": "pt-BR", "name": "Atenas" },
+    { "languageCode": "it-IT", "name": "Atene" },
+    { "languageCode": "fr-FR", "name": "Athènes" },
+    { "languageCode": "de-DE", "name": "Athen" }
+  ],
   "monuments": [
     {
       "remoteId": "odeonofherodesatticus",
@@ -8,6 +16,14 @@
       "imagePath": "landmarks/athens-herodeion.webp",
       "mobileImagePath": "landmarks/athens-herodeion-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Odeon of Herodes Atticus" },
+        { "languageCode": "es-ES", "name": "Odeón de Herodes Ático" },
+        { "languageCode": "pt-BR", "name": "Odeão de Herodes Ático" },
+        { "languageCode": "it-IT", "name": "Odeon di Erode Attico" },
+        { "languageCode": "fr-FR", "name": "Odéon d’Hérode Atticus" },
+        { "languageCode": "de-DE", "name": "Odeon des Herodes Atticus" }
+      ],
       "isActive": true
     },
     {
@@ -16,6 +32,14 @@
       "imagePath": "landmarks/athens-parthenon.webp",
       "mobileImagePath": "landmarks/athens-parthenon-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Parthenon" },
+        { "languageCode": "es-ES", "name": "Partenón" },
+        { "languageCode": "pt-BR", "name": "Partenon" },
+        { "languageCode": "it-IT", "name": "Partenone" },
+        { "languageCode": "fr-FR", "name": "Parthénon" },
+        { "languageCode": "de-DE", "name": "Parthenon" }
+      ],
       "isActive": true
     },
     {
@@ -24,6 +48,14 @@
       "imagePath": "landmarks/athens-ancientagoraofathens.webp",
       "mobileImagePath": "landmarks/athens-ancientagoraofathens-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Ancient Agora of Athens" },
+        { "languageCode": "es-ES", "name": "Ágora Antigua de Atenas" },
+        { "languageCode": "pt-BR", "name": "Ágora Antiga de Atenas" },
+        { "languageCode": "it-IT", "name": "Agorà antica di Atene" },
+        { "languageCode": "fr-FR", "name": "Agora antique d’Athènes" },
+        { "languageCode": "de-DE", "name": "Antike Agora von Athen" }
+      ],
       "isActive": true
     },
     {
@@ -32,6 +64,14 @@
       "imagePath": "landmarks/athens-templeofolympianzeus.webp",
       "mobileImagePath": "landmarks/athens-templeofolympianzeus-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Temple of Olympian Zeus" },
+        { "languageCode": "es-ES", "name": "Templo de Zeus Olímpico" },
+        { "languageCode": "pt-BR", "name": "Templo de Zeus Olímpico" },
+        { "languageCode": "it-IT", "name": "Tempio di Zeus Olimpio" },
+        { "languageCode": "fr-FR", "name": "Temple de Zeus Olympien" },
+        { "languageCode": "de-DE", "name": "Tempel des Olympischen Zeus" }
+      ],
       "isActive": true
     },
     {
@@ -40,6 +80,14 @@
       "imagePath": "landmarks/athens-panathenaicstadium.webp",
       "mobileImagePath": "landmarks/athens-panathenaicstadium-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Panathenaic Stadium" },
+        { "languageCode": "es-ES", "name": "Estadio Panatenaico" },
+        { "languageCode": "pt-BR", "name": "Estádio Panatenaico" },
+        { "languageCode": "it-IT", "name": "Stadio Panatenaico" },
+        { "languageCode": "fr-FR", "name": "Stade panathénaïque" },
+        { "languageCode": "de-DE", "name": "Panathenäisches Stadion" }
+      ],
       "isActive": true
     }
   ]

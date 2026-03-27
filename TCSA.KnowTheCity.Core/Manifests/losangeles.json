@@ -1,6 +1,14 @@
 {
   "cityRemoteId": "los-angeles-us",
   "version": "1.0",
+  "cityNames": [
+    { "languageCode": "en-US", "name": "Los Angeles" },
+    { "languageCode": "es-ES", "name": "Los Ángeles" },
+    { "languageCode": "pt-BR", "name": "Los Angeles" },
+    { "languageCode": "it-IT", "name": "Los Angeles" },
+    { "languageCode": "fr-FR", "name": "Los Angeles" },
+    { "languageCode": "de-DE", "name": "Los Angeles" }
+  ],
   "monuments": [
     {
       "remoteId": "hollywoodsign",
@@ -8,6 +16,14 @@
       "imagePath": "landmarks/losangeles-hollywoodsign.webp",
       "mobileImagePath": "landmarks/losangeles-hollywoodsign-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Hollywood Sign" },
+        { "languageCode": "es-ES", "name": "Letrero de Hollywood" },
+        { "languageCode": "pt-BR", "name": "Letreiro de Hollywood" },
+        { "languageCode": "it-IT", "name": "Insegna di Hollywood" },
+        { "languageCode": "fr-FR", "name": "Panneau Hollywood" },
+        { "languageCode": "de-DE", "name": "Hollywood-Schriftzug" }
+      ],
       "isActive": true
     },
     {
@@ -16,6 +32,14 @@
       "imagePath": "landmarks/losangeles-griffithobservatory.webp",
       "mobileImagePath": "landmarks/losangeles-griffithobservatory-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Griffith Observatory" },
+        { "languageCode": "es-ES", "name": "Observatorio Griffith" },
+        { "languageCode": "pt-BR", "name": "Observatório Griffith" },
+        { "languageCode": "it-IT", "name": "Osservatorio Griffith" },
+        { "languageCode": "fr-FR", "name": "Observatoire Griffith" },
+        { "languageCode": "de-DE", "name": "Griffith-Observatorium" }
+      ],
       "isActive": true
     },
     {
@@ -24,6 +48,14 @@
       "imagePath": "landmarks/losangeles-santamonicapier.webp",
       "mobileImagePath": "landmarks/losangeles-santamonicapier-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Santa Monica Pier" },
+        { "languageCode": "es-ES", "name": "Muelle de Santa Mónica" },
+        { "languageCode": "pt-BR", "name": "Píer de Santa Mônica" },
+        { "languageCode": "it-IT", "name": "Molo di Santa Monica" },
+        { "languageCode": "fr-FR", "name": "Jetée de Santa Monica" },
+        { "languageCode": "de-DE", "name": "Santa-Monica-Pier" }
+      ],
       "isActive": true
     },
     {
@@ -32,6 +64,14 @@
       "imagePath": "landmarks/losangeles-waltdisneyconcerthall.webp",
       "mobileImagePath": "landmarks/losangeles-waltdisneyconcerthall-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Walt Disney Concert Hall" },
+        { "languageCode": "es-ES", "name": "Sala de Conciertos Walt Disney" },
+        { "languageCode": "pt-BR", "name": "Sala de Concertos Walt Disney" },
+        { "languageCode": "it-IT", "name": "Walt Disney Concert Hall" },
+        { "languageCode": "fr-FR", "name": "Salle de concert Walt Disney" },
+        { "languageCode": "de-DE", "name": "Walt Disney Concert Hall" }
+      ],
       "isActive": true
     },
     {
@@ -40,6 +80,14 @@
       "imagePath": "landmarks/losangeles-gettycenter.webp",
       "mobileImagePath": "landmarks/losangeles-gettycenter-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Getty Center" },
+        { "languageCode": "es-ES", "name": "Centro Getty" },
+        { "languageCode": "pt-BR", "name": "Centro Getty" },
+        { "languageCode": "it-IT", "name": "Centro Getty" },
+        { "languageCode": "fr-FR", "name": "Centre Getty" },
+        { "languageCode": "de-DE", "name": "Getty Center" }
+      ],
       "isActive": true
     }
   ]

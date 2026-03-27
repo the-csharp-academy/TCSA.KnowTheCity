@@ -1,6 +1,14 @@
 ﻿{
   "cityRemoteId": "rome-it",
   "version": "1.0",
+  "cityNames": [
+    { "languageCode": "en-US", "name": "Rome" },
+    { "languageCode": "es-ES", "name": "Roma" },
+    { "languageCode": "pt-BR", "name": "Roma" },
+    { "languageCode": "it-IT", "name": "Roma" },
+    { "languageCode": "fr-FR", "name": "Rome" },
+    { "languageCode": "de-DE", "name": "Rom" }
+  ],
   "monuments": [
     {
       "remoteId": "colosseum",
@@ -8,6 +16,14 @@
       "imagePath": "landmarks/rome-colosseum.webp",
       "mobileImagePath": "landmarks/rome-colosseum-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Colosseum" },
+        { "languageCode": "es-ES", "name": "Coliseo" },
+        { "languageCode": "pt-BR", "name": "Coliseu" },
+        { "languageCode": "it-IT", "name": "Colosseo" },
+        { "languageCode": "fr-FR", "name": "Colisée" },
+        { "languageCode": "de-DE", "name": "Kolosseum" }
+      ],
       "isActive": true
     },
     {
@@ -16,6 +32,14 @@
       "imagePath": "landmarks/rome-pantheon.webp",
       "mobileImagePath": "landmarks/rome-pantheon-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Pantheon" },
+        { "languageCode": "es-ES", "name": "Panteón" },
+        { "languageCode": "pt-BR", "name": "Panteão" },
+        { "languageCode": "it-IT", "name": "Pantheon" },
+        { "languageCode": "fr-FR", "name": "Panthéon" },
+        { "languageCode": "de-DE", "name": "Pantheon" }
+      ],
       "isActive": true
     },
     {
@@ -24,6 +48,14 @@
       "imagePath": "landmarks/rome-romanforum.webp",
       "mobileImagePath": "landmarks/rome-romanforum-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Roman Forum" },
+        { "languageCode": "es-ES", "name": "Foro Romano" },
+        { "languageCode": "pt-BR", "name": "Fórum Romano" },
+        { "languageCode": "it-IT", "name": "Foro Romano" },
+        { "languageCode": "fr-FR", "name": "Forum romain" },
+        { "languageCode": "de-DE", "name": "Forum Romanum" }
+      ],
       "isActive": true
     },
     {
@@ -32,14 +64,30 @@
       "imagePath": "landmarks/rome-trevifountain.webp",
       "mobileImagePath": "landmarks/rome-trevifountain-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Trevi Fountain" },
+        { "languageCode": "es-ES", "name": "Fuente de Trevi" },
+        { "languageCode": "pt-BR", "name": "Fonte de Trevi" },
+        { "languageCode": "it-IT", "name": "Fontana di Trevi" },
+        { "languageCode": "fr-FR", "name": "Fontaine de Trevi" },
+        { "languageCode": "de-DE", "name": "Trevi-Brunnen" }
+      ],
       "isActive": true
     },
     {
       "remoteId": "saintpetersbasilica",
-      "name": "St. Peterâ€™s Basilica",
+      "name": "St. Peter's Basilica",
       "imagePath": "landmarks/rome-saintpetersbasilica.webp",
       "mobileImagePath": "landmarks/rome-saintpetersbasilica-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "St. Peter's Basilica" },
+        { "languageCode": "es-ES", "name": "Basílica de San Pedro" },
+        { "languageCode": "pt-BR", "name": "Basílica de São Pedro" },
+        { "languageCode": "it-IT", "name": "Basilica di San Pietro" },
+        { "languageCode": "fr-FR", "name": "Basilique Saint-Pierre" },
+        { "languageCode": "de-DE", "name": "Petersdom" }
+      ],
       "isActive": true
     }
   ]

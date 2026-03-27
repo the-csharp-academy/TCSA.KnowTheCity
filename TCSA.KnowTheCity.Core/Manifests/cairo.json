@@ -1,6 +1,14 @@
 ﻿{
   "cityRemoteId": "cairo-eg",
   "version": "1.0",
+  "cityNames": [
+    { "languageCode": "en-US", "name": "Cairo" },
+    { "languageCode": "es-ES", "name": "El Cairo" },
+    { "languageCode": "pt-BR", "name": "Cairo" },
+    { "languageCode": "it-IT", "name": "Il Cairo" },
+    { "languageCode": "fr-FR", "name": "Le Caire" },
+    { "languageCode": "de-DE", "name": "Kairo" }
+  ],
   "monuments": [
     {
       "remoteId": "pyramidsofgiza",
@@ -8,6 +16,14 @@
       "imagePath": "landmarks/cairo-pyramidsofgiza.webp",
       "mobileImagePath": "landmarks/cairo-pyramidsofgiza-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Pyramids of Giza" },
+        { "languageCode": "es-ES", "name": "Pirámides de Guiza" },
+        { "languageCode": "pt-BR", "name": "Pirâmides de Gizé" },
+        { "languageCode": "it-IT", "name": "Piramidi di Giza" },
+        { "languageCode": "fr-FR", "name": "Pyramides de Gizeh" },
+        { "languageCode": "de-DE", "name": "Pyramiden von Gizeh" }
+      ],
       "isActive": true
     },
     {
@@ -16,6 +32,14 @@
       "imagePath": "landmarks/cairo-greatsphinxofgiza.webp",
       "mobileImagePath": "landmarks/cairo-greatsphinxofgiza-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Great Sphinx of Giza" },
+        { "languageCode": "es-ES", "name": "Gran Esfinge de Guiza" },
+        { "languageCode": "pt-BR", "name": "Grande Esfinge de Gizé" },
+        { "languageCode": "it-IT", "name": "Grande Sfinge di Giza" },
+        { "languageCode": "fr-FR", "name": "Grand Sphinx de Gizeh" },
+        { "languageCode": "de-DE", "name": "Große Sphinx von Gizeh" }
+      ],
       "isActive": true
     },
     {
@@ -24,6 +48,14 @@
       "imagePath": "landmarks/cairo-egyptianmuseum.webp",
       "mobileImagePath": "landmarks/cairo-egyptianmuseum-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Egyptian Museum" },
+        { "languageCode": "es-ES", "name": "Museo Egipcio" },
+        { "languageCode": "pt-BR", "name": "Museu Egípcio" },
+        { "languageCode": "it-IT", "name": "Museo Egizio" },
+        { "languageCode": "fr-FR", "name": "Musée égyptien" },
+        { "languageCode": "de-DE", "name": "Ägyptisches Museum" }
+      ],
       "isActive": true
     },
     {
@@ -32,6 +64,14 @@
       "imagePath": "landmarks/cairo-mosqueofmuhammadali.webp",
       "mobileImagePath": "landmarks/cairo-mosqueofmuhammadali-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Mosque of Muhammad Ali" },
+        { "languageCode": "es-ES", "name": "Mezquita de Muhammad Ali" },
+        { "languageCode": "pt-BR", "name": "Mesquita de Muhammad Ali" },
+        { "languageCode": "it-IT", "name": "Moschea di Muhammad Ali" },
+        { "languageCode": "fr-FR", "name": "Mosquée Mohammed Ali" },
+        { "languageCode": "de-DE", "name": "Muhammad-Ali-Moschee" }
+      ],
       "isActive": true
     },
     {
@@ -40,6 +80,14 @@
       "imagePath": "landmarks/cairo-khanelkhalili.webp",
       "mobileImagePath": "landmarks/cairo-khanelkhalili-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Khan el-Khalili" },
+        { "languageCode": "es-ES", "name": "Khan el-Khalili" },
+        { "languageCode": "pt-BR", "name": "Khan el-Khalili" },
+        { "languageCode": "it-IT", "name": "Khan el-Khalili" },
+        { "languageCode": "fr-FR", "name": "Khan el-Khalili" },
+        { "languageCode": "de-DE", "name": "Khan el-Khalili" }
+      ],
       "isActive": true
     }
   ]

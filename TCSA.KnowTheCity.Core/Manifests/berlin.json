@@ -1,6 +1,14 @@
 ﻿{
   "cityRemoteId": "berlin-de",
   "version": "1.0",
+  "cityNames": [
+    { "languageCode": "en-US", "name": "Berlin" },
+    { "languageCode": "es-ES", "name": "Berlín" },
+    { "languageCode": "pt-BR", "name": "Berlim" },
+    { "languageCode": "it-IT", "name": "Berlino" },
+    { "languageCode": "fr-FR", "name": "Berlin" },
+    { "languageCode": "de-DE", "name": "Berlin" }
+  ],
   "monuments": [
     {
       "remoteId": "reichstagbuilding",
@@ -8,6 +16,14 @@
       "imagePath": "landmarks/berlin-reichstagbuilding.webp",
       "mobileImagePath": "landmarks/berlin-reichstagbuilding-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Reichstag Building" },
+        { "languageCode": "es-ES", "name": "Edificio del Reichstag" },
+        { "languageCode": "pt-BR", "name": "Edifício do Reichstag" },
+        { "languageCode": "it-IT", "name": "Edificio del Reichstag" },
+        { "languageCode": "fr-FR", "name": "Bâtiment du Reichstag" },
+        { "languageCode": "de-DE", "name": "Reichstagsgebäude" }
+      ],
       "isActive": true
     },
     {
@@ -16,6 +32,14 @@
       "imagePath": "landmarks/berlin-victorycolumn.webp",
       "mobileImagePath": "landmarks/berlin-victorycolumn-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Victory Column" },
+        { "languageCode": "es-ES", "name": "Columna de la Victoria" },
+        { "languageCode": "pt-BR", "name": "Coluna da Vitória" },
+        { "languageCode": "it-IT", "name": "Colonna della Vittoria" },
+        { "languageCode": "fr-FR", "name": "Colonne de la Victoire" },
+        { "languageCode": "de-DE", "name": "Siegessäule" }
+      ],
       "isActive": true
     },
     {
@@ -24,6 +48,14 @@
       "imagePath": "landmarks/berlin-berlincathedral.webp",
       "mobileImagePath": "landmarks/berlin-berlincathedral-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Berlin Cathedral" },
+        { "languageCode": "es-ES", "name": "Catedral de Berlín" },
+        { "languageCode": "pt-BR", "name": "Catedral de Berlim" },
+        { "languageCode": "it-IT", "name": "Cattedrale di Berlino" },
+        { "languageCode": "fr-FR", "name": "Cathédrale de Berlin" },
+        { "languageCode": "de-DE", "name": "Berliner Dom" }
+      ],
       "isActive": true
     },
     {
@@ -32,6 +64,14 @@
       "imagePath": "landmarks/berlin-brandenburggate.webp",
       "mobileImagePath": "landmarks/berlin-brandenburggate-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Brandenburg Gate" },
+        { "languageCode": "es-ES", "name": "Puerta de Brandeburgo" },
+        { "languageCode": "pt-BR", "name": "Portão de Brandemburgo" },
+        { "languageCode": "it-IT", "name": "Porta di Brandeburgo" },
+        { "languageCode": "fr-FR", "name": "Porte de Brandebourg" },
+        { "languageCode": "de-DE", "name": "Brandenburger Tor" }
+      ],
       "isActive": true
     },
     {
@@ -40,6 +80,14 @@
       "imagePath": "landmarks/berlin-museumisland.webp",
       "mobileImagePath": "landmarks/berlin-museumisland-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Museum Island" },
+        { "languageCode": "es-ES", "name": "Isla de los Museos" },
+        { "languageCode": "pt-BR", "name": "Ilha dos Museus" },
+        { "languageCode": "it-IT", "name": "Isola dei Musei" },
+        { "languageCode": "fr-FR", "name": "Île aux Musées" },
+        { "languageCode": "de-DE", "name": "Museumsinsel" }
+      ],
       "isActive": true
     }
   ]

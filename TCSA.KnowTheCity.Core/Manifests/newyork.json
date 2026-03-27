@@ -1,6 +1,14 @@
 ﻿{
   "cityRemoteId": "newyork-us",
   "version": "1.0",
+  "cityNames": [
+    { "languageCode": "en-US", "name": "New York" },
+    { "languageCode": "es-ES", "name": "Nueva York" },
+    { "languageCode": "pt-BR", "name": "Nova York" },
+    { "languageCode": "it-IT", "name": "New York" },
+    { "languageCode": "fr-FR", "name": "New York" },
+    { "languageCode": "de-DE", "name": "New York" }
+  ],
   "monuments": [
     {
       "remoteId": "statueofliberty",
@@ -8,6 +16,14 @@
       "imagePath": "landmarks/newyork-statueofliberty.webp",
       "mobileImagePath": "landmarks/newyork-statueofliberty-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Statue of Liberty" },
+        { "languageCode": "es-ES", "name": "Estatua de la Libertad" },
+        { "languageCode": "pt-BR", "name": "Estátua da Liberdade" },
+        { "languageCode": "it-IT", "name": "Statua della Libertà" },
+        { "languageCode": "fr-FR", "name": "Statue de la Liberté" },
+        { "languageCode": "de-DE", "name": "Freiheitsstatue" }
+      ],
       "isActive": true
     },
     {
@@ -16,6 +32,14 @@
       "imagePath": "landmarks/newyork-empirestatebuilding.webp",
       "mobileImagePath": "landmarks/newyork-empirestatebuilding-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Empire State Building" },
+        { "languageCode": "es-ES", "name": "Edificio Empire State" },
+        { "languageCode": "pt-BR", "name": "Edifício Empire State" },
+        { "languageCode": "it-IT", "name": "Empire State Building" },
+        { "languageCode": "fr-FR", "name": "Immeuble Empire State" },
+        { "languageCode": "de-DE", "name": "Empire State Building" }
+      ],
       "isActive": true
     },
     {
@@ -24,6 +48,14 @@
       "imagePath": "landmarks/newyork-centralpark.webp",
       "mobileImagePath": "landmarks/newyork-centralpark-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Central Park" },
+        { "languageCode": "es-ES", "name": "Parque Central" },
+        { "languageCode": "pt-BR", "name": "Parque Central" },
+        { "languageCode": "it-IT", "name": "Parco Centrale" },
+        { "languageCode": "fr-FR", "name": "Parc Central" },
+        { "languageCode": "de-DE", "name": "Central Park" }
+      ],
       "isActive": true
     },
     {
@@ -32,6 +64,14 @@
       "imagePath": "landmarks/newyork-brooklynbridge.webp",
       "mobileImagePath": "landmarks/newyork-brooklynbridge-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Brooklyn Bridge" },
+        { "languageCode": "es-ES", "name": "Puente de Brooklyn" },
+        { "languageCode": "pt-BR", "name": "Ponte do Brooklyn" },
+        { "languageCode": "it-IT", "name": "Ponte di Brooklyn" },
+        { "languageCode": "fr-FR", "name": "Pont de Brooklyn" },
+        { "languageCode": "de-DE", "name": "Brooklyn Bridge" }
+      ],
       "isActive": true
     },
     {
@@ -40,6 +80,14 @@
       "imagePath": "landmarks/newyork-timessquare.webp",
       "mobileImagePath": "landmarks/newyork-timessquare-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Times Square" },
+        { "languageCode": "es-ES", "name": "Times Square" },
+        { "languageCode": "pt-BR", "name": "Times Square" },
+        { "languageCode": "it-IT", "name": "Times Square" },
+        { "languageCode": "fr-FR", "name": "Times Square" },
+        { "languageCode": "de-DE", "name": "Times Square" }
+      ],
       "isActive": true
     }
   ]

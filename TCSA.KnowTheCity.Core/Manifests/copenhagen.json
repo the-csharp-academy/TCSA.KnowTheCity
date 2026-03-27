@@ -1,6 +1,14 @@
 ﻿{
   "cityRemoteId": "copenhagen-dk",
   "version": "1.0",
+  "cityNames": [
+    { "languageCode": "en-US", "name": "Copenhagen" },
+    { "languageCode": "es-ES", "name": "Copenhague" },
+    { "languageCode": "pt-BR", "name": "Copenhague" },
+    { "languageCode": "it-IT", "name": "Copenaghen" },
+    { "languageCode": "fr-FR", "name": "Copenhague" },
+    { "languageCode": "de-DE", "name": "Kopenhagen" }
+  ],
   "monuments": [
     {
       "remoteId": "tivoligardens",
@@ -8,6 +16,14 @@
       "imagePath": "landmarks/copenhagen-tivoligardens.webp",
       "mobileImagePath": "landmarks/copenhagen-tivoligardens-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Tivoli Gardens" },
+        { "languageCode": "es-ES", "name": "Jardines de Tivoli" },
+        { "languageCode": "pt-BR", "name": "Jardins de Tivoli" },
+        { "languageCode": "it-IT", "name": "Giardini di Tivoli" },
+        { "languageCode": "fr-FR", "name": "Jardins de Tivoli" },
+        { "languageCode": "de-DE", "name": "Tivoli" }
+      ],
       "isActive": true
     },
     {
@@ -16,6 +32,14 @@
       "imagePath": "landmarks/copenhagen-nyhavnhabor.webp",
       "mobileImagePath": "landmarks/copenhagen-nyhavnhabor-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Nyhavn Harbor" },
+        { "languageCode": "es-ES", "name": "Puerto de Nyhavn" },
+        { "languageCode": "pt-BR", "name": "Porto de Nyhavn" },
+        { "languageCode": "it-IT", "name": "Porto di Nyhavn" },
+        { "languageCode": "fr-FR", "name": "Port de Nyhavn" },
+        { "languageCode": "de-DE", "name": "Nyhavn" }
+      ],
       "isActive": true
     },
     {
@@ -24,6 +48,14 @@
       "imagePath": "landmarks/copenhagen-littlemermaidstatue.webp",
       "mobileImagePath": "landmarks/copenhagen-littlemermaidstatue-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "The Little Mermaid" },
+        { "languageCode": "es-ES", "name": "La Sirenita" },
+        { "languageCode": "pt-BR", "name": "A Pequena Sereia" },
+        { "languageCode": "it-IT", "name": "La Sirenetta" },
+        { "languageCode": "fr-FR", "name": "La Petite Sirène" },
+        { "languageCode": "de-DE", "name": "Die Kleine Meerjungfrau" }
+      ],
       "isActive": true
     },
     {
@@ -32,6 +64,14 @@
       "imagePath": "landmarks/copenhagen-amalienborgpalace.webp",
       "mobileImagePath": "landmarks/copenhagen-amalienborgpalace-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Amalienborg Palace" },
+        { "languageCode": "es-ES", "name": "Palacio de Amalienborg" },
+        { "languageCode": "pt-BR", "name": "Palácio de Amalienborg" },
+        { "languageCode": "it-IT", "name": "Palazzo di Amalienborg" },
+        { "languageCode": "fr-FR", "name": "Palais d’Amalienborg" },
+        { "languageCode": "de-DE", "name": "Schloss Amalienborg" }
+      ],
       "isActive": true
     },
     {
@@ -40,6 +80,14 @@
       "imagePath": "landmarks/copenhagen-christiansborgpalace.webp",
       "mobileImagePath": "landmarks/copenhagen-christiansborgpalace-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Christiansborg Palace" },
+        { "languageCode": "es-ES", "name": "Palacio de Christiansborg" },
+        { "languageCode": "pt-BR", "name": "Palácio de Christiansborg" },
+        { "languageCode": "it-IT", "name": "Palazzo di Christiansborg" },
+        { "languageCode": "fr-FR", "name": "Palais de Christiansborg" },
+        { "languageCode": "de-DE", "name": "Schloss Christiansborg" }
+      ],
       "isActive": true
     }
   ]

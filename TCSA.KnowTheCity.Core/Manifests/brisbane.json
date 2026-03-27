@@ -1,6 +1,14 @@
 ﻿{
   "cityRemoteId": "brisbane-au",
   "version": "1.0",
+  "cityNames": [
+    { "languageCode": "en-US", "name": "Brisbane" },
+    { "languageCode": "es-ES", "name": "Brisbane" },
+    { "languageCode": "pt-BR", "name": "Brisbane" },
+    { "languageCode": "it-IT", "name": "Brisbane" },
+    { "languageCode": "fr-FR", "name": "Brisbane" },
+    { "languageCode": "de-DE", "name": "Brisbane" }
+  ],
   "monuments": [
     {
       "remoteId": "southbankparklands",
@@ -8,6 +16,14 @@
       "imagePath": "landmarks/brisbane-southbankparklands.webp",
       "mobileImagePath": "landmarks/brisbane-southbankparklands-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "South Bank Parklands" },
+        { "languageCode": "es-ES", "name": "Parque South Bank" },
+        { "languageCode": "pt-BR", "name": "Parque South Bank" },
+        { "languageCode": "it-IT", "name": "Parco South Bank" },
+        { "languageCode": "fr-FR", "name": "Parc South Bank" },
+        { "languageCode": "de-DE", "name": "South Bank Parklands" }
+      ],
       "isActive": true
     },
     {
@@ -16,6 +32,14 @@
       "imagePath": "landmarks/brisbane-mountcoothabotanicgardens.webp",
       "mobileImagePath": "landmarks/brisbane-mountcoothabotanicgardens-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Mount Coo-tha Botanic Gardens" },
+        { "languageCode": "es-ES", "name": "Jardines Botánicos de Mount Coo-tha" },
+        { "languageCode": "pt-BR", "name": "Jardins Botânicos de Mount Coo-tha" },
+        { "languageCode": "it-IT", "name": "Giardini botanici di Mount Coo-tha" },
+        { "languageCode": "fr-FR", "name": "Jardins botaniques du mont Coo-tha" },
+        { "languageCode": "de-DE", "name": "Botanische Gärten am Mount Coo-tha" }
+      ],
       "isActive": true
     },
     {
@@ -24,6 +48,14 @@
       "imagePath": "landmarks/brisbane-kangaroopointcliffs.webp",
       "mobileImagePath": "landmarks/brisbane-kangaroopointcliffs-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Kangaroo Point Cliffs" },
+        { "languageCode": "es-ES", "name": "Acantilados de Kangaroo Point" },
+        { "languageCode": "pt-BR", "name": "Falésias de Kangaroo Point" },
+        { "languageCode": "it-IT", "name": "Scogliere di Kangaroo Point" },
+        { "languageCode": "fr-FR", "name": "Falaises de Kangaroo Point" },
+        { "languageCode": "de-DE", "name": "Kangaroo-Point-Klippen" }
+      ],
       "isActive": true
     },
     {
@@ -32,6 +64,14 @@
       "imagePath": "landmarks/brisbane-brisbanecityhall.webp",
       "mobileImagePath": "landmarks/brisbane-brisbanecityhall-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Brisbane City Hall" },
+        { "languageCode": "es-ES", "name": "Ayuntamiento de Brisbane" },
+        { "languageCode": "pt-BR", "name": "Prefeitura de Brisbane" },
+        { "languageCode": "it-IT", "name": "Municipio di Brisbane" },
+        { "languageCode": "fr-FR", "name": "Hôtel de ville de Brisbane" },
+        { "languageCode": "de-DE", "name": "Rathaus von Brisbane" }
+      ],
       "isActive": true
     },
     {
@@ -40,6 +80,14 @@
       "imagePath": "landmarks/brisbane-starcasino.webp",
       "mobileImagePath": "landmarks/brisbane-starcasino-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Star Casino" },
+        { "languageCode": "es-ES", "name": "Casino Star" },
+        { "languageCode": "pt-BR", "name": "Cassino Star" },
+        { "languageCode": "it-IT", "name": "Casinò Star" },
+        { "languageCode": "fr-FR", "name": "Casino Star" },
+        { "languageCode": "de-DE", "name": "Star Casino" }
+      ],
       "isActive": true
     }
   ]

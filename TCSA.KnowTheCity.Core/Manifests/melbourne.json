@@ -1,6 +1,14 @@
 ﻿{
   "cityRemoteId": "melbourne-au",
   "version": "1.0",
+  "cityNames": [
+    { "languageCode": "en-US", "name": "Melbourne" },
+    { "languageCode": "es-ES", "name": "Melbourne" },
+    { "languageCode": "pt-BR", "name": "Melbourne" },
+    { "languageCode": "it-IT", "name": "Melbourne" },
+    { "languageCode": "fr-FR", "name": "Melbourne" },
+    { "languageCode": "de-DE", "name": "Melbourne" }
+  ],
   "monuments": [
     {
       "remoteId": "flindersstreetstation",
@@ -8,6 +16,14 @@
       "imagePath": "landmarks/melbourne-flindersstreetstation.webp",
       "mobileImagePath": "landmarks/melbourne-flindersstreetstation-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Flinders Street Station" },
+        { "languageCode": "es-ES", "name": "Estación Flinders Street" },
+        { "languageCode": "pt-BR", "name": "Estação Flinders Street" },
+        { "languageCode": "it-IT", "name": "Stazione di Flinders Street" },
+        { "languageCode": "fr-FR", "name": "Gare de Flinders Street" },
+        { "languageCode": "de-DE", "name": "Flinders Street Station" }
+      ],
       "isActive": true
     },
     {
@@ -16,6 +32,14 @@
       "imagePath": "landmarks/melbourne-federationsquare.webp",
       "mobileImagePath": "landmarks/melbourne-federationsquare-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Federation Square" },
+        { "languageCode": "es-ES", "name": "Plaza de la Federación" },
+        { "languageCode": "pt-BR", "name": "Praça da Federação" },
+        { "languageCode": "it-IT", "name": "Piazza della Federazione" },
+        { "languageCode": "fr-FR", "name": "Place de la Fédération" },
+        { "languageCode": "de-DE", "name": "Federation Square" }
+      ],
       "isActive": true
     },
     {
@@ -24,6 +48,14 @@
       "imagePath": "landmarks/melbourne-shrineofremembrance.webp",
       "mobileImagePath": "landmarks/melbourne-shrineofremembrance-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Shrine of Remembrance" },
+        { "languageCode": "es-ES", "name": "Santuario del Recuerdo" },
+        { "languageCode": "pt-BR", "name": "Santuário da Lembrança" },
+        { "languageCode": "it-IT", "name": "Santuario della Rimembranza" },
+        { "languageCode": "fr-FR", "name": "Sanctuaire du Souvenir" },
+        { "languageCode": "de-DE", "name": "Schrein der Erinnerung" }
+      ],
       "isActive": true
     },
     {
@@ -32,6 +64,14 @@
       "imagePath": "landmarks/melbourne-royalexhibitionbuilding.webp",
       "mobileImagePath": "landmarks/melbourne-royalexhibitionbuilding-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Royal Exhibition Building" },
+        { "languageCode": "es-ES", "name": "Edificio Real de Exposiciones" },
+        { "languageCode": "pt-BR", "name": "Edifício Real de Exposições" },
+        { "languageCode": "it-IT", "name": "Royal Exhibition Building" },
+        { "languageCode": "fr-FR", "name": "Palais royal des expositions" },
+        { "languageCode": "de-DE", "name": "Königliches Ausstellungsgebäude" }
+      ],
       "isActive": true
     },
     {
@@ -40,6 +80,14 @@
       "imagePath": "landmarks/melbourne-hosierlane.webp",
       "mobileImagePath": "landmarks/melbourne-hosierlane-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Hosier Lane" },
+        { "languageCode": "es-ES", "name": "Hosier Lane" },
+        { "languageCode": "pt-BR", "name": "Hosier Lane" },
+        { "languageCode": "it-IT", "name": "Hosier Lane" },
+        { "languageCode": "fr-FR", "name": "Hosier Lane" },
+        { "languageCode": "de-DE", "name": "Hosier Lane" }
+      ],
       "isActive": true
     }
   ]

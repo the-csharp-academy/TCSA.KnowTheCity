@@ -1,6 +1,14 @@
 ﻿{
   "cityRemoteId": "beijing-ch",
   "version": "1.0",
+  "cityNames": [
+    { "languageCode": "en-US", "name": "Beijing" },
+    { "languageCode": "es-ES", "name": "Pekín" },
+    { "languageCode": "pt-BR", "name": "Pequim" },
+    { "languageCode": "it-IT", "name": "Pechino" },
+    { "languageCode": "fr-FR", "name": "Pékin" },
+    { "languageCode": "de-DE", "name": "Peking" }
+  ],
   "monuments": [
     {
       "remoteId": "greatwall",
@@ -8,6 +16,14 @@
       "imagePath": "landmarks/beijing-greatwall.webp",
       "mobileImagePath": "landmarks/beijing-greatwall-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Great Wall" },
+        { "languageCode": "es-ES", "name": "Gran Muralla" },
+        { "languageCode": "pt-BR", "name": "Grande Muralha" },
+        { "languageCode": "it-IT", "name": "Grande Muraglia" },
+        { "languageCode": "fr-FR", "name": "Grande Muraille" },
+        { "languageCode": "de-DE", "name": "Große Mauer" }
+      ],
       "isActive": true
     },
     {
@@ -16,6 +32,14 @@
       "imagePath": "landmarks/beijing-forbiddencity.webp",
       "mobileImagePath": "landmarks/beijing-forbiddencity-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Forbidden City" },
+        { "languageCode": "es-ES", "name": "Ciudad Prohibida" },
+        { "languageCode": "pt-BR", "name": "Cidade Proibida" },
+        { "languageCode": "it-IT", "name": "Città Proibita" },
+        { "languageCode": "fr-FR", "name": "Cité interdite" },
+        { "languageCode": "de-DE", "name": "Verbotene Stadt" }
+      ],
       "isActive": true
     },
     {
@@ -24,6 +48,14 @@
       "imagePath": "landmarks/beijing-templeofheaven.webp",
       "mobileImagePath": "landmarks/beijing-templeofheaven-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Temple of Heaven" },
+        { "languageCode": "es-ES", "name": "Templo del Cielo" },
+        { "languageCode": "pt-BR", "name": "Templo do Céu" },
+        { "languageCode": "it-IT", "name": "Tempio del Cielo" },
+        { "languageCode": "fr-FR", "name": "Temple du Ciel" },
+        { "languageCode": "de-DE", "name": "Himmelstempel" }
+      ],
       "isActive": true
     },
     {
@@ -32,6 +64,14 @@
       "imagePath": "landmarks/beijing-tiananmensquare.webp",
       "mobileImagePath": "landmarks/beijing-tiananmensquare-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Tiananmen Square" },
+        { "languageCode": "es-ES", "name": "Plaza de Tiananmén" },
+        { "languageCode": "pt-BR", "name": "Praça da Paz Celestial" },
+        { "languageCode": "it-IT", "name": "Piazza Tienanmen" },
+        { "languageCode": "fr-FR", "name": "Place Tian’anmen" },
+        { "languageCode": "de-DE", "name": "Tian’anmen-Platz" }
+      ],
       "isActive": true
     },
     {
@@ -40,6 +80,14 @@
       "imagePath": "landmarks/beijing-summerpalace.webp",
       "mobileImagePath": "landmarks/beijing-summerpalace-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Summer Palace" },
+        { "languageCode": "es-ES", "name": "Palacio de Verano" },
+        { "languageCode": "pt-BR", "name": "Palácio de Verão" },
+        { "languageCode": "it-IT", "name": "Palazzo d’Estate" },
+        { "languageCode": "fr-FR", "name": "Palais d’Été" },
+        { "languageCode": "de-DE", "name": "Sommerpalast" }
+      ],
       "isActive": true
     }
   ]

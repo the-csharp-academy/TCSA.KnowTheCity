@@ -1,6 +1,14 @@
 ﻿{
   "cityRemoteId": "madrid-es",
   "version": "1.0",
+  "cityNames": [
+    { "languageCode": "en-US", "name": "Madrid" },
+    { "languageCode": "es-ES", "name": "Madrid" },
+    { "languageCode": "pt-BR", "name": "Madri" },
+    { "languageCode": "it-IT", "name": "Madrid" },
+    { "languageCode": "fr-FR", "name": "Madrid" },
+    { "languageCode": "de-DE", "name": "Madrid" }
+  ],
   "monuments": [
     {
       "remoteId": "royalpalaceofmadrid",
@@ -8,6 +16,14 @@
       "imagePath": "landmarks/madrid-royalpalaceofmadrid.webp",
       "mobileImagePath": "landmarks/madrid-royalpalaceofmadrid-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Royal Palace of Madrid" },
+        { "languageCode": "es-ES", "name": "Palacio Real de Madrid" },
+        { "languageCode": "pt-BR", "name": "Palácio Real de Madrid" },
+        { "languageCode": "it-IT", "name": "Palazzo Reale di Madrid" },
+        { "languageCode": "fr-FR", "name": "Palais Royal de Madrid" },
+        { "languageCode": "de-DE", "name": "Königspalast von Madrid" }
+      ],
       "isActive": true
     },
     {
@@ -16,6 +32,14 @@
       "imagePath": "landmarks/madrid-pradomuseum.webp",
       "mobileImagePath": "landmarks/madrid-pradomuseum-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Prado Museum" },
+        { "languageCode": "es-ES", "name": "Museo del Prado" },
+        { "languageCode": "pt-BR", "name": "Museu do Prado" },
+        { "languageCode": "it-IT", "name": "Museo del Prado" },
+        { "languageCode": "fr-FR", "name": "Musée du Prado" },
+        { "languageCode": "de-DE", "name": "Prado-Museum" }
+      ],
       "isActive": true
     },
     {
@@ -24,6 +48,14 @@
       "imagePath": "landmarks/madrid-elretiropark.webp",
       "mobileImagePath": "landmarks/madrid-elretiropark-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "El Retiro Park" },
+        { "languageCode": "es-ES", "name": "Parque del Retiro" },
+        { "languageCode": "pt-BR", "name": "Parque do Retiro" },
+        { "languageCode": "it-IT", "name": "Parco del Retiro" },
+        { "languageCode": "fr-FR", "name": "Parc du Retiro" },
+        { "languageCode": "de-DE", "name": "Retiro-Park" }
+      ],
       "isActive": true
     },
     {
@@ -32,6 +64,14 @@
       "imagePath": "landmarks/madrid-plazamayor.webp",
       "mobileImagePath": "landmarks/madrid-plazamayor-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Plaza Mayor" },
+        { "languageCode": "es-ES", "name": "Plaza Mayor" },
+        { "languageCode": "pt-BR", "name": "Plaza Mayor" },
+        { "languageCode": "it-IT", "name": "Plaza Mayor" },
+        { "languageCode": "fr-FR", "name": "Plaza Mayor" },
+        { "languageCode": "de-DE", "name": "Plaza Mayor" }
+      ],
       "isActive": true
     },
     {
@@ -40,6 +80,14 @@
       "imagePath": "landmarks/madrid-puertadelsol.webp",
       "mobileImagePath": "landmarks/madrid-puertadelsol-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Puerta del Sol" },
+        { "languageCode": "es-ES", "name": "Puerta del Sol" },
+        { "languageCode": "pt-BR", "name": "Puerta del Sol" },
+        { "languageCode": "it-IT", "name": "Puerta del Sol" },
+        { "languageCode": "fr-FR", "name": "Puerta del Sol" },
+        { "languageCode": "de-DE", "name": "Puerta del Sol" }
+      ],
       "isActive": true
     }
   ]

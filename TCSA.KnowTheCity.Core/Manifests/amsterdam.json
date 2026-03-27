@@ -1,6 +1,14 @@
 ﻿{
   "cityRemoteId": "amsterdam-nl",
   "version": "1.0",
+  "cityNames": [
+    { "languageCode": "en-US", "name": "Amsterdam" },
+    { "languageCode": "es-ES", "name": "Ámsterdam" },
+    { "languageCode": "pt-BR", "name": "Amsterdã" },
+    { "languageCode": "it-IT", "name": "Amsterdam" },
+    { "languageCode": "fr-FR", "name": "Amsterdam" },
+    { "languageCode": "de-DE", "name": "Amsterdam" }
+  ],
   "monuments": [
     {
       "remoteId": "rijksmuseum",
@@ -8,6 +16,14 @@
       "imagePath": "landmarks/amsterdam-rijksmuseum.webp",
       "mobileImagePath": "landmarks/amsterdam-rijksmuseum-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Rijksmuseum" },
+        { "languageCode": "es-ES", "name": "Rijksmuseum" },
+        { "languageCode": "pt-BR", "name": "Rijksmuseum" },
+        { "languageCode": "it-IT", "name": "Rijksmuseum" },
+        { "languageCode": "fr-FR", "name": "Rijksmuseum" },
+        { "languageCode": "de-DE", "name": "Rijksmuseum" }
+      ],
       "isActive": true
     },
     {
@@ -16,6 +32,14 @@
       "imagePath": "landmarks/amsterdam-annefrankhouse.webp",
       "mobileImagePath": "landmarks/amsterdam-annefrankhouse-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Anne Frank House" },
+        { "languageCode": "es-ES", "name": "Casa de Ana Frank" },
+        { "languageCode": "pt-BR", "name": "Casa de Anne Frank" },
+        { "languageCode": "it-IT", "name": "Casa di Anna Frank" },
+        { "languageCode": "fr-FR", "name": "Maison d’Anne Frank" },
+        { "languageCode": "de-DE", "name": "Anne-Frank-Haus" }
+      ],
       "isActive": true
     },
     {
@@ -24,6 +48,14 @@
       "imagePath": "landmarks/amsterdam-royalpalaceofamsterdam.webp",
       "mobileImagePath": "landmarks/amsterdam-royalpalaceofamsterdam-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Royal Palace of Amsterdam" },
+        { "languageCode": "es-ES", "name": "Palacio Real de Ámsterdam" },
+        { "languageCode": "pt-BR", "name": "Palácio Real de Amsterdã" },
+        { "languageCode": "it-IT", "name": "Palazzo Reale di Amsterdam" },
+        { "languageCode": "fr-FR", "name": "Palais royal d’Amsterdam" },
+        { "languageCode": "de-DE", "name": "Königlicher Palast Amsterdam" }
+      ],
       "isActive": true
     },
     {
@@ -32,6 +64,14 @@
       "imagePath": "landmarks/amsterdam-amsterdamcanalbelt.webp",
       "mobileImagePath": "landmarks/amsterdam-amsterdamcanalbelt-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Amsterdam Canal Belt" },
+        { "languageCode": "es-ES", "name": "Cinturón de Canales de Ámsterdam" },
+        { "languageCode": "pt-BR", "name": "Anel de Canais de Amsterdã" },
+        { "languageCode": "it-IT", "name": "Cintura dei canali di Amsterdam" },
+        { "languageCode": "fr-FR", "name": "Ceinture des canaux d’Amsterdam" },
+        { "languageCode": "de-DE", "name": "Amsterdamer Grachtengürtel" }
+      ],
       "isActive": true
     },
     {
@@ -40,6 +80,14 @@
       "imagePath": "landmarks/amsterdam-skinnybridge.webp",
       "mobileImagePath": "landmarks/amsterdam-skinnybridge-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Skinny Bridge" },
+        { "languageCode": "es-ES", "name": "Puente Delgado" },
+        { "languageCode": "pt-BR", "name": "Ponte Magra" },
+        { "languageCode": "it-IT", "name": "Ponte Magro" },
+        { "languageCode": "fr-FR", "name": "Pont Maigre" },
+        { "languageCode": "de-DE", "name": "Magere Brug" }
+      ],
       "isActive": true
     }
   ]

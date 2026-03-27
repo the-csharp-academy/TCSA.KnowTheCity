@@ -1,6 +1,14 @@
 {
   "cityRemoteId": "vienna-at",
   "version": "1.0",
+  "cityNames": [
+    { "languageCode": "en-US", "name": "Vienna" },
+    { "languageCode": "es-ES", "name": "Viena" },
+    { "languageCode": "pt-BR", "name": "Viena" },
+    { "languageCode": "it-IT", "name": "Vienna" },
+    { "languageCode": "fr-FR", "name": "Vienne" },
+    { "languageCode": "de-DE", "name": "Wien" }
+  ],
   "monuments": [
     {
       "remoteId": "schonbrunnpalace",
@@ -8,6 +16,14 @@
       "imagePath": "landmarks/vienna-schonbrunnpalace.webp",
       "mobileImagePath": "landmarks/vienna-schonbrunnpalace-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Schönbrunn Palace" },
+        { "languageCode": "es-ES", "name": "Palacio de Schönbrunn" },
+        { "languageCode": "pt-BR", "name": "Palácio de Schönbrunn" },
+        { "languageCode": "it-IT", "name": "Palazzo di Schönbrunn" },
+        { "languageCode": "fr-FR", "name": "Palais de Schönbrunn" },
+        { "languageCode": "de-DE", "name": "Schloss Schönbrunn" }
+      ],
       "isActive": true
     },
     {
@@ -16,6 +32,14 @@
       "imagePath": "landmarks/vienna-saintstephenscathedral.webp",
       "mobileImagePath": "landmarks/vienna-saintstephenscathedral-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "St. Stephen's Cathedral" },
+        { "languageCode": "es-ES", "name": "Catedral de San Esteban" },
+        { "languageCode": "pt-BR", "name": "Catedral de Santo Estêvão" },
+        { "languageCode": "it-IT", "name": "Cattedrale di Santo Stefano" },
+        { "languageCode": "fr-FR", "name": "Cathédrale Saint-Étienne" },
+        { "languageCode": "de-DE", "name": "Stephansdom" }
+      ],
       "isActive": true
     },
     {
@@ -24,6 +48,14 @@
       "imagePath": "landmarks/vienna-hofburgpalace.webp",
       "mobileImagePath": "landmarks/vienna-hofburgpalace-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Hofburg Palace" },
+        { "languageCode": "es-ES", "name": "Palacio Hofburg" },
+        { "languageCode": "pt-BR", "name": "Palácio Hofburg" },
+        { "languageCode": "it-IT", "name": "Palazzo Hofburg" },
+        { "languageCode": "fr-FR", "name": "Palais de la Hofburg" },
+        { "languageCode": "de-DE", "name": "Hofburg" }
+      ],
       "isActive": true
     },
     {
@@ -32,6 +64,14 @@
       "imagePath": "landmarks/vienna-belvederepalace.webp",
       "mobileImagePath": "landmarks/vienna-belvederepalace-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Belvedere Palace" },
+        { "languageCode": "es-ES", "name": "Palacio Belvedere" },
+        { "languageCode": "pt-BR", "name": "Palácio Belvedere" },
+        { "languageCode": "it-IT", "name": "Palazzo Belvedere" },
+        { "languageCode": "fr-FR", "name": "Palais du Belvédère" },
+        { "languageCode": "de-DE", "name": "Schloss Belvedere" }
+      ],
       "isActive": true
     },
     {
@@ -40,6 +80,14 @@
       "imagePath": "landmarks/vienna-praterferriswheel.webp",
       "mobileImagePath": "landmarks/vienna-praterferriswheel-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Giant Ferris Wheel" },
+        { "languageCode": "es-ES", "name": "Noria Gigante" },
+        { "languageCode": "pt-BR", "name": "Roda-gigante" },
+        { "languageCode": "it-IT", "name": "Ruota panoramica" },
+        { "languageCode": "fr-FR", "name": "Grande roue" },
+        { "languageCode": "de-DE", "name": "Riesenrad" }
+      ],
       "isActive": true
     }
   ]

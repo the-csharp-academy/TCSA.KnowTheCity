@@ -1,12 +1,28 @@
 ﻿{
   "cityRemoteId": "sydney-au",
   "version": "1.0",
+  "cityNames": [
+    { "languageCode": "en-US", "name": "Sydney" },
+    { "languageCode": "es-ES", "name": "Sídney" },
+    { "languageCode": "pt-BR", "name": "Sydney" },
+    { "languageCode": "it-IT", "name": "Sydney" },
+    { "languageCode": "fr-FR", "name": "Sydney" },
+    { "languageCode": "de-DE", "name": "Sydney" }
+  ],
   "monuments": [
     {
       "remoteId": "sydneyoperahouse",
       "name": "Sydney Opera House",
       "imagePath": "landmarks/sydney-sydneyoperahouse.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Sydney Opera House" },
+        { "languageCode": "es-ES", "name": "Ópera de Sídney" },
+        { "languageCode": "pt-BR", "name": "Ópera de Sydney" },
+        { "languageCode": "it-IT", "name": "Opera House di Sydney" },
+        { "languageCode": "fr-FR", "name": "Opéra de Sydney" },
+        { "languageCode": "de-DE", "name": "Sydney Opera House" }
+      ],
       "isActive": true
     },
     {
@@ -14,6 +30,14 @@
       "name": "Sydney Harbour Bridge",
       "imagePath": "landmarks/sydney-sydneyharborbridge.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Sydney Harbour Bridge" },
+        { "languageCode": "es-ES", "name": "Puente del Puerto de Sídney" },
+        { "languageCode": "pt-BR", "name": "Ponte da Baía de Sydney" },
+        { "languageCode": "it-IT", "name": "Ponte del porto di Sydney" },
+        { "languageCode": "fr-FR", "name": "Pont du port de Sydney" },
+        { "languageCode": "de-DE", "name": "Sydney Harbour Bridge" }
+      ],
       "isActive": true
     },
     {
@@ -21,6 +45,14 @@
       "name": "Bondi Beach",
       "imagePath": "landmarks/sydney-bondibeach.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Bondi Beach" },
+        { "languageCode": "es-ES", "name": "Playa Bondi" },
+        { "languageCode": "pt-BR", "name": "Praia de Bondi" },
+        { "languageCode": "it-IT", "name": "Spiaggia di Bondi" },
+        { "languageCode": "fr-FR", "name": "Plage de Bondi" },
+        { "languageCode": "de-DE", "name": "Bondi Beach" }
+      ],
       "isActive": true
     },
     {
@@ -28,6 +60,14 @@
       "name": "Royal Botanic Garden Sydney",
       "imagePath": "landmarks/sydney-royalbotanicgarden.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Royal Botanic Garden Sydney" },
+        { "languageCode": "es-ES", "name": "Jardín Botánico Real de Sídney" },
+        { "languageCode": "pt-BR", "name": "Jardim Botânico Real de Sydney" },
+        { "languageCode": "it-IT", "name": "Giardino botanico reale di Sydney" },
+        { "languageCode": "fr-FR", "name": "Jardin botanique royal de Sydney" },
+        { "languageCode": "de-DE", "name": "Königlicher Botanischer Garten Sydney" }
+      ],
       "isActive": true
     },
     {
@@ -35,6 +75,14 @@
       "name": "The Rocks",
       "imagePath": "landmarks/sydney-therocks.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "The Rocks" },
+        { "languageCode": "es-ES", "name": "The Rocks" },
+        { "languageCode": "pt-BR", "name": "The Rocks" },
+        { "languageCode": "it-IT", "name": "The Rocks" },
+        { "languageCode": "fr-FR", "name": "The Rocks" },
+        { "languageCode": "de-DE", "name": "The Rocks" }
+      ],
       "isActive": true
     }
   ]

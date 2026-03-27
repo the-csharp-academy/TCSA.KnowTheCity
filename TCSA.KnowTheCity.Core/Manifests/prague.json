@@ -1,6 +1,14 @@
 {
   "cityRemoteId": "prague-cz",
   "version": "1.0",
+  "cityNames": [
+    { "languageCode": "en-US", "name": "Prague" },
+    { "languageCode": "es-ES", "name": "Praga" },
+    { "languageCode": "pt-BR", "name": "Praga" },
+    { "languageCode": "it-IT", "name": "Praga" },
+    { "languageCode": "fr-FR", "name": "Prague" },
+    { "languageCode": "de-DE", "name": "Prag" }
+  ],
   "monuments": [
     {
       "remoteId": "praguecastle",
@@ -8,6 +16,14 @@
       "imagePath": "landmarks/prague-praguecastle.webp",
       "mobileImagePath": "landmarks/prague-praguecastle-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Prague Castle" },
+        { "languageCode": "es-ES", "name": "Castillo de Praga" },
+        { "languageCode": "pt-BR", "name": "Castelo de Praga" },
+        { "languageCode": "it-IT", "name": "Castello di Praga" },
+        { "languageCode": "fr-FR", "name": "Château de Prague" },
+        { "languageCode": "de-DE", "name": "Prager Burg" }
+      ],
       "isActive": true
     },
     {
@@ -16,6 +32,14 @@
       "imagePath": "landmarks/prague-charlesbridge.webp",
       "mobileImagePath": "landmarks/prague-charlesbridge-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Charles Bridge" },
+        { "languageCode": "es-ES", "name": "Puente de Carlos" },
+        { "languageCode": "pt-BR", "name": "Ponte Carlos" },
+        { "languageCode": "it-IT", "name": "Ponte Carlo" },
+        { "languageCode": "fr-FR", "name": "Pont Charles" },
+        { "languageCode": "de-DE", "name": "Karlsbrücke" }
+      ],
       "isActive": true
     },
     {
@@ -24,6 +48,14 @@
       "imagePath": "landmarks/prague-oldtownsquare.webp",
       "mobileImagePath": "landmarks/prague-oldtownsquare-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Old Town Square" },
+        { "languageCode": "es-ES", "name": "Plaza de la Ciudad Vieja" },
+        { "languageCode": "pt-BR", "name": "Praça da Cidade Velha" },
+        { "languageCode": "it-IT", "name": "Piazza della Città Vecchia" },
+        { "languageCode": "fr-FR", "name": "Place de la Vieille-Ville" },
+        { "languageCode": "de-DE", "name": "Altstädter Ring" }
+      ],
       "isActive": true
     },
     {
@@ -32,6 +64,14 @@
       "imagePath": "landmarks/prague-pragueastronomicalclock.webp",
       "mobileImagePath": "landmarks/prague-pragueastronomicalclock-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Prague Astronomical Clock" },
+        { "languageCode": "es-ES", "name": "Reloj Astronómico de Praga" },
+        { "languageCode": "pt-BR", "name": "Relógio Astronômico de Praga" },
+        { "languageCode": "it-IT", "name": "Orologio astronomico di Praga" },
+        { "languageCode": "fr-FR", "name": "Horloge astronomique de Prague" },
+        { "languageCode": "de-DE", "name": "Prager Astronomische Uhr" }
+      ],
       "isActive": true
     },
     {
@@ -40,6 +80,14 @@
       "imagePath": "landmarks/prague-petrintower.webp",
       "mobileImagePath": "landmarks/prague-petrintower-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Petrin Tower" },
+        { "languageCode": "es-ES", "name": "Torre Petřín" },
+        { "languageCode": "pt-BR", "name": "Torre Petřín" },
+        { "languageCode": "it-IT", "name": "Torre Petřín" },
+        { "languageCode": "fr-FR", "name": "Tour de Petřín" },
+        { "languageCode": "de-DE", "name": "Petřín-Aussichtsturm" }
+      ],
       "isActive": true
     }
   ]

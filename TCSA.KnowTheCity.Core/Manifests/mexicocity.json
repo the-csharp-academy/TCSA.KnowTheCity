@@ -1,13 +1,29 @@
 ﻿{
   "cityRemoteId": "mexicocity-mx",
   "version": "1.0",
+  "cityNames": [
+    { "languageCode": "en-US", "name": "Mexico City" },
+    { "languageCode": "es-ES", "name": "Ciudad de México" },
+    { "languageCode": "pt-BR", "name": "Cidade do México" },
+    { "languageCode": "it-IT", "name": "Città del Messico" },
+    { "languageCode": "fr-FR", "name": "Mexico" },
+    { "languageCode": "de-DE", "name": "Mexiko-Stadt" }
+  ],
   "monuments": [
     {
       "remoteId": "plazadelaconstitucion",
-      "name": "Plaza de la ConstituciÃ³n",
+      "name": "Plaza de la Constitución",
       "imagePath": "landmarks/mexicocity-plazadelaconstitucion.webp",
       "mobileImagePath": "landmarks/mexicocity-plazadelaconstitucion-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Plaza de la Constitución" },
+        { "languageCode": "es-ES", "name": "Plaza de la Constitución" },
+        { "languageCode": "pt-BR", "name": "Praça da Constituição" },
+        { "languageCode": "it-IT", "name": "Piazza della Costituzione" },
+        { "languageCode": "fr-FR", "name": "Place de la Constitution" },
+        { "languageCode": "de-DE", "name": "Platz der Verfassung" }
+      ],
       "isActive": true
     },
     {
@@ -16,14 +32,30 @@
       "imagePath": "landmarks/mexicocity-templomayor.webp",
       "mobileImagePath": "landmarks/mexicocity-templomayor-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Templo Mayor" },
+        { "languageCode": "es-ES", "name": "Templo Mayor" },
+        { "languageCode": "pt-BR", "name": "Templo Mayor" },
+        { "languageCode": "it-IT", "name": "Templo Mayor" },
+        { "languageCode": "fr-FR", "name": "Templo Mayor" },
+        { "languageCode": "de-DE", "name": "Templo Mayor" }
+      ],
       "isActive": true
     },
     {
       "remoteId": "angeldelaindependencia",
-      "name": "Ãngel de la Independencia",
+      "name": "Ángel de la Independencia",
       "imagePath": "landmarks/mexicocity-angeldelaindependencia.webp",
       "mobileImagePath": "landmarks/mexicocity-angeldelaindependencia-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Ángel de la Independencia" },
+        { "languageCode": "es-ES", "name": "Ángel de la Independencia" },
+        { "languageCode": "pt-BR", "name": "Anjo da Independência" },
+        { "languageCode": "it-IT", "name": "Angelo dell'Indipendenza" },
+        { "languageCode": "fr-FR", "name": "Ange de l’Indépendance" },
+        { "languageCode": "de-DE", "name": "Engel der Unabhängigkeit" }
+      ],
       "isActive": true
     },
     {
@@ -32,6 +64,14 @@
       "imagePath": "landmarks/mexicocity-teotihuacan.webp",
       "mobileImagePath": "landmarks/mexicocity-teotihuacan-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Teotihuacan (Pyramids of the Sun and Moon)" },
+        { "languageCode": "es-ES", "name": "Teotihuacán (Pirámides del Sol y la Luna)" },
+        { "languageCode": "pt-BR", "name": "Teotihuacan (Pirâmides do Sol e da Lua)" },
+        { "languageCode": "it-IT", "name": "Teotihuacan (Piramidi del Sole e della Luna)" },
+        { "languageCode": "fr-FR", "name": "Teotihuacan (Pyramides du Soleil et de la Lune)" },
+        { "languageCode": "de-DE", "name": "Teotihuacán (Pyramiden der Sonne und des Mondes)" }
+      ],
       "isActive": true
     },
     {
@@ -40,6 +80,14 @@
       "imagePath": "landmarks/mexicocity-palaciodebellasartes.webp",
       "mobileImagePath": "landmarks/mexicocity-palaciodebellasartes-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Palacio de Bellas Artes" },
+        { "languageCode": "es-ES", "name": "Palacio de Bellas Artes" },
+        { "languageCode": "pt-BR", "name": "Palácio de Belas Artes" },
+        { "languageCode": "it-IT", "name": "Palazzo delle Belle Arti" },
+        { "languageCode": "fr-FR", "name": "Palais des Beaux-Arts" },
+        { "languageCode": "de-DE", "name": "Palast der Schönen Künste" }
+      ],
       "isActive": true
     }
   ]

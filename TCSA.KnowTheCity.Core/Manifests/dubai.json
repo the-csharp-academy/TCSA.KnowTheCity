@@ -1,6 +1,14 @@
 ﻿{
   "cityRemoteId": "dubai-uae",
   "version": "1.0",
+  "cityNames": [
+    { "languageCode": "en-US", "name": "Dubai" },
+    { "languageCode": "es-ES", "name": "Dubái" },
+    { "languageCode": "pt-BR", "name": "Dubai" },
+    { "languageCode": "it-IT", "name": "Dubai" },
+    { "languageCode": "fr-FR", "name": "Dubaï" },
+    { "languageCode": "de-DE", "name": "Dubai" }
+  ],
   "monuments": [
     {
       "remoteId": "burjkhalifa",
@@ -8,6 +16,14 @@
       "imagePath": "landmarks/dubai-burjkhalifa.webp",
       "mobileImagePath": "landmarks/dubai-burjkhalifa-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Burj Khalifa" },
+        { "languageCode": "es-ES", "name": "Burj Khalifa" },
+        { "languageCode": "pt-BR", "name": "Burj Khalifa" },
+        { "languageCode": "it-IT", "name": "Burj Khalifa" },
+        { "languageCode": "fr-FR", "name": "Burj Khalifa" },
+        { "languageCode": "de-DE", "name": "Burj Khalifa" }
+      ],
       "isActive": true
     },
     {
@@ -16,6 +32,14 @@
       "imagePath": "landmarks/dubai-palmjumeirah.webp",
       "mobileImagePath": "landmarks/dubai-palmjumeirah-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Palm Jumeirah" },
+        { "languageCode": "es-ES", "name": "Palm Jumeirah" },
+        { "languageCode": "pt-BR", "name": "Palm Jumeirah" },
+        { "languageCode": "it-IT", "name": "Palm Jumeirah" },
+        { "languageCode": "fr-FR", "name": "Palm Jumeirah" },
+        { "languageCode": "de-DE", "name": "Palm Jumeirah" }
+      ],
       "isActive": true
     },
     {
@@ -24,6 +48,14 @@
       "imagePath": "landmarks/dubai-dubaimall.webp",
       "mobileImagePath": "landmarks/dubai-dubaimall-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Dubai Mall" },
+        { "languageCode": "es-ES", "name": "Dubai Mall" },
+        { "languageCode": "pt-BR", "name": "Dubai Mall" },
+        { "languageCode": "it-IT", "name": "Dubai Mall" },
+        { "languageCode": "fr-FR", "name": "Dubai Mall" },
+        { "languageCode": "de-DE", "name": "Dubai Mall" }
+      ],
       "isActive": true
     },
     {
@@ -32,6 +64,14 @@
       "imagePath": "landmarks/dubai-burjalarab.webp",
       "mobileImagePath": "landmarks/dubai-burjalarab-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Burj Al Arab" },
+        { "languageCode": "es-ES", "name": "Burj Al Arab" },
+        { "languageCode": "pt-BR", "name": "Burj Al Arab" },
+        { "languageCode": "it-IT", "name": "Burj Al Arab" },
+        { "languageCode": "fr-FR", "name": "Burj Al Arab" },
+        { "languageCode": "de-DE", "name": "Burj Al Arab" }
+      ],
       "isActive": true
     },
     {
@@ -40,6 +80,14 @@
       "imagePath": "landmarks/dubai-dubaiframe.webp",
       "mobileImagePath": "landmarks/dubai-dubaiframe-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Dubai Frame" },
+        { "languageCode": "es-ES", "name": "Marco de Dubái" },
+        { "languageCode": "pt-BR", "name": "Moldura de Dubai" },
+        { "languageCode": "it-IT", "name": "Cornice di Dubai" },
+        { "languageCode": "fr-FR", "name": "Cadre de Dubaï" },
+        { "languageCode": "de-DE", "name": "Dubai Frame" }
+      ],
       "isActive": true
     }
   ]

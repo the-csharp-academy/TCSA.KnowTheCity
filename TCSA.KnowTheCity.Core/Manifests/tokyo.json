@@ -1,6 +1,14 @@
 ﻿{
   "cityRemoteId": "tokyo-jp",
   "version": "1.0",
+  "cityNames": [
+    { "languageCode": "en-US", "name": "Tokyo" },
+    { "languageCode": "es-ES", "name": "Tokio" },
+    { "languageCode": "pt-BR", "name": "Tóquio" },
+    { "languageCode": "it-IT", "name": "Tokyo" },
+    { "languageCode": "fr-FR", "name": "Tokyo" },
+    { "languageCode": "de-DE", "name": "Tokio" }
+  ],
   "monuments": [
     {
       "remoteId": "tokyotower",
@@ -8,6 +16,14 @@
       "imagePath": "landmarks/tokyo-tokyotower.webp",
       "mobileImagePath": "landmarks/tokyo-tokyotower-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Tokyo Tower" },
+        { "languageCode": "es-ES", "name": "Torre de Tokio" },
+        { "languageCode": "pt-BR", "name": "Torre de Tóquio" },
+        { "languageCode": "it-IT", "name": "Torre di Tokyo" },
+        { "languageCode": "fr-FR", "name": "Tour de Tokyo" },
+        { "languageCode": "de-DE", "name": "Tokio-Turm" }
+      ],
       "isActive": true
     },
     {
@@ -16,6 +32,14 @@
       "imagePath": "landmarks/tokyo-sensoji.webp",
       "mobileImagePath": "landmarks/tokyo-sensoji-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Senso-ji" },
+        { "languageCode": "es-ES", "name": "Senso-ji" },
+        { "languageCode": "pt-BR", "name": "Senso-ji" },
+        { "languageCode": "it-IT", "name": "Senso-ji" },
+        { "languageCode": "fr-FR", "name": "Sensō-ji" },
+        { "languageCode": "de-DE", "name": "Sensō-ji" }
+      ],
       "isActive": true
     },
     {
@@ -24,6 +48,14 @@
       "imagePath": "landmarks/tokyo-shibuyacrossing.webp",
       "mobileImagePath": "landmarks/tokyo-shibuyacrossing-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Shibuya Crossing" },
+        { "languageCode": "es-ES", "name": "Cruce de Shibuya" },
+        { "languageCode": "pt-BR", "name": "Cruzamento de Shibuya" },
+        { "languageCode": "it-IT", "name": "Incrocio di Shibuya" },
+        { "languageCode": "fr-FR", "name": "Carrefour de Shibuya" },
+        { "languageCode": "de-DE", "name": "Shibuya-Kreuzung" }
+      ],
       "isActive": true
     },
     {
@@ -32,6 +64,14 @@
       "imagePath": "landmarks/tokyo-meijishrine.webp",
       "mobileImagePath": "landmarks/tokyo-meijishrine-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Meiji Shrine" },
+        { "languageCode": "es-ES", "name": "Santuario Meiji" },
+        { "languageCode": "pt-BR", "name": "Santuário Meiji" },
+        { "languageCode": "it-IT", "name": "Santuario Meiji" },
+        { "languageCode": "fr-FR", "name": "Sanctuaire Meiji" },
+        { "languageCode": "de-DE", "name": "Meiji-Schrein" }
+      ],
       "isActive": true
     },
     {
@@ -40,6 +80,14 @@
       "imagePath": "landmarks/tokyo-tokyoskytree.webp",
       "mobileImagePath": "landmarks/tokyo-tokyoskytree-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Tokyo Skytree" },
+        { "languageCode": "es-ES", "name": "Tokyo Skytree" },
+        { "languageCode": "pt-BR", "name": "Tokyo Skytree" },
+        { "languageCode": "it-IT", "name": "Tokyo Skytree" },
+        { "languageCode": "fr-FR", "name": "Tokyo Skytree" },
+        { "languageCode": "de-DE", "name": "Tokyo Skytree" }
+      ],
       "isActive": true
     }
   ]

@@ -1,6 +1,14 @@
 ﻿{
   "cityRemoteId": "paris-fr",
   "version": "1.0",
+  "cityNames": [
+    { "languageCode": "en-US", "name": "Paris" },
+    { "languageCode": "es-ES", "name": "París" },
+    { "languageCode": "pt-BR", "name": "Paris" },
+    { "languageCode": "it-IT", "name": "Parigi" },
+    { "languageCode": "fr-FR", "name": "Paris" },
+    { "languageCode": "de-DE", "name": "Paris" }
+  ],
   "monuments": [
     {
       "remoteId": "eiffeltower",
@@ -8,6 +16,14 @@
       "imagePath": "landmarks/paris-eiffeltower.webp",
       "mobileImagePath": "landmarks/paris-eiffeltower-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Eiffel Tower" },
+        { "languageCode": "es-ES", "name": "Torre Eiffel" },
+        { "languageCode": "pt-BR", "name": "Torre Eiffel" },
+        { "languageCode": "it-IT", "name": "Torre Eiffel" },
+        { "languageCode": "fr-FR", "name": "Tour Eiffel" },
+        { "languageCode": "de-DE", "name": "Eiffelturm" }
+      ],
       "isActive": true
     },
     {
@@ -16,6 +32,14 @@
       "imagePath": "landmarks/paris-louvremuseum.webp",
       "mobileImagePath": "landmarks/paris-louvremuseum-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Louvre Museum" },
+        { "languageCode": "es-ES", "name": "Museo del Louvre" },
+        { "languageCode": "pt-BR", "name": "Museu do Louvre" },
+        { "languageCode": "it-IT", "name": "Museo del Louvre" },
+        { "languageCode": "fr-FR", "name": "Musée du Louvre" },
+        { "languageCode": "de-DE", "name": "Louvre-Museum" }
+      ],
       "isActive": true
     },
     {
@@ -24,6 +48,14 @@
       "imagePath": "landmarks/paris-notredame.webp",
       "mobileImagePath": "landmarks/paris-notredame-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Notre-Dame" },
+        { "languageCode": "es-ES", "name": "Notre-Dame" },
+        { "languageCode": "pt-BR", "name": "Notre-Dame" },
+        { "languageCode": "it-IT", "name": "Notre-Dame" },
+        { "languageCode": "fr-FR", "name": "Notre-Dame" },
+        { "languageCode": "de-DE", "name": "Notre-Dame" }
+      ],
       "isActive": true
     },
     {
@@ -32,14 +64,30 @@
       "imagePath": "landmarks/paris-arcdetriomphe.webp",
       "mobileImagePath": "landmarks/paris-arcdetriomphe-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Arc de Triomphe" },
+        { "languageCode": "es-ES", "name": "Arco del Triunfo" },
+        { "languageCode": "pt-BR", "name": "Arco do Triunfo" },
+        { "languageCode": "it-IT", "name": "Arco di Trionfo" },
+        { "languageCode": "fr-FR", "name": "Arc de Triomphe" },
+        { "languageCode": "de-DE", "name": "Triumphbogen" }
+      ],
       "isActive": true
     },
     {
       "remoteId": "sacrecoeur",
-      "name": "SacrÃ©-CÅ“ur",
+      "name": "Sacré-Cœur",
       "imagePath": "landmarks/paris-sacrecoeur.webp",
       "mobileImagePath": "landmarks/paris-sacrecoeur-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Sacré-Cœur" },
+        { "languageCode": "es-ES", "name": "Sagrado Corazón" },
+        { "languageCode": "pt-BR", "name": "Sagrado Coração" },
+        { "languageCode": "it-IT", "name": "Sacro Cuore" },
+        { "languageCode": "fr-FR", "name": "Sacré-Cœur" },
+        { "languageCode": "de-DE", "name": "Sacré-Cœur" }
+      ],
       "isActive": true
     }
   ]

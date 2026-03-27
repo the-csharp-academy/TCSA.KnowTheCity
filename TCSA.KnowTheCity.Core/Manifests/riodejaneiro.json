@@ -1,6 +1,14 @@
 ﻿{
   "cityRemoteId": "riodejaneiro-br",
   "version": "1.0",
+  "cityNames": [
+    { "languageCode": "en-US", "name": "Rio de Janeiro" },
+    { "languageCode": "es-ES", "name": "Río de Janeiro" },
+    { "languageCode": "pt-BR", "name": "Rio de Janeiro" },
+    { "languageCode": "it-IT", "name": "Rio de Janeiro" },
+    { "languageCode": "fr-FR", "name": "Rio de Janeiro" },
+    { "languageCode": "de-DE", "name": "Rio de Janeiro" }
+  ],
   "monuments": [
     {
       "remoteId": "christtheredeemer",
@@ -8,6 +16,14 @@
       "imagePath": "landmarks/riodejaneiro-christtheredeemer.webp",
       "mobileImagePath": "landmarks/riodejaneiro-christtheredeemer-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Christ the Redeemer" },
+        { "languageCode": "es-ES", "name": "Cristo Redentor" },
+        { "languageCode": "pt-BR", "name": "Cristo Redentor" },
+        { "languageCode": "it-IT", "name": "Cristo Redentore" },
+        { "languageCode": "fr-FR", "name": "Christ Rédempteur" },
+        { "languageCode": "de-DE", "name": "Christus der Erlöser" }
+      ],
       "isActive": true
     },
     {
@@ -16,6 +32,14 @@
       "imagePath": "landmarks/riodejaneiro-sugarloaf.webp",
       "mobileImagePath": "landmarks/riodejaneiro-sugarloaf-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Sugarloaf" },
+        { "languageCode": "es-ES", "name": "Pan de Azúcar" },
+        { "languageCode": "pt-BR", "name": "Pão de Açúcar" },
+        { "languageCode": "it-IT", "name": "Pan di Zucchero" },
+        { "languageCode": "fr-FR", "name": "Pain de Sucre" },
+        { "languageCode": "de-DE", "name": "Zuckerhut" }
+      ],
       "isActive": true
     },
     {
@@ -24,22 +48,46 @@
       "imagePath": "landmarks/riodejaneiro-copacabanabeach.webp",
       "mobileImagePath": "landmarks/riodejaneiro-copacabanabeach-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Copacabana Beach" },
+        { "languageCode": "es-ES", "name": "Playa de Copacabana" },
+        { "languageCode": "pt-BR", "name": "Praia de Copacabana" },
+        { "languageCode": "it-IT", "name": "Spiaggia di Copacabana" },
+        { "languageCode": "fr-FR", "name": "Plage de Copacabana" },
+        { "languageCode": "de-DE", "name": "Copacabana-Strand" }
+      ],
       "isActive": true
     },
     {
       "remoteId": "selaronsteps",
-      "name": "Escadaria SelarÃ³n",
+      "name": "Escadaria Selarón",
       "imagePath": "landmarks/riodejaneiro-escadariaselaron.webp",
       "mobileImagePath": "landmarks/riodejaneiro-escadariaselaron-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Escadaria Selarón" },
+        { "languageCode": "es-ES", "name": "Escalera de Selarón" },
+        { "languageCode": "pt-BR", "name": "Escadaria Selarón" },
+        { "languageCode": "it-IT", "name": "Scalinata Selarón" },
+        { "languageCode": "fr-FR", "name": "Escaliers Selarón" },
+        { "languageCode": "de-DE", "name": "Selarón-Treppe" }
+      ],
       "isActive": true
     },
     {
       "remoteId": "maracanastadium",
-      "name": "MaracanÃ£ Stadium",
+      "name": "Maracanã Stadium",
       "imagePath": "landmarks/riodejaneiro-maracanastadium.webp",
       "mobileImagePath": "landmarks/riodejaneiro-maracanastadium-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Maracanã Stadium" },
+        { "languageCode": "es-ES", "name": "Estadio Maracaná" },
+        { "languageCode": "pt-BR", "name": "Estádio do Maracanã" },
+        { "languageCode": "it-IT", "name": "Stadio Maracanã" },
+        { "languageCode": "fr-FR", "name": "Stade Maracanã" },
+        { "languageCode": "de-DE", "name": "Maracanã-Stadion" }
+      ],
       "isActive": true
     }
   ]

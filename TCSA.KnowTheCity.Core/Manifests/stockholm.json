@@ -1,6 +1,14 @@
 ﻿{
   "cityRemoteId": "stockholm-se",
   "version": "1.0",
+  "cityNames": [
+    { "languageCode": "en-US", "name": "Stockholm" },
+    { "languageCode": "es-ES", "name": "Estocolmo" },
+    { "languageCode": "pt-BR", "name": "Estocolmo" },
+    { "languageCode": "it-IT", "name": "Stoccolma" },
+    { "languageCode": "fr-FR", "name": "Stockholm" },
+    { "languageCode": "de-DE", "name": "Stockholm" }
+  ],
   "monuments": [
     {
       "remoteId": "gamlastan",
@@ -8,6 +16,14 @@
       "imagePath": "landmarks/stockholm-gamlastan.webp",
       "mobileImagePath": "landmarks/stockholm-gamlastan-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Gamla Stan" },
+        { "languageCode": "es-ES", "name": "Gamla Stan" },
+        { "languageCode": "pt-BR", "name": "Gamla Stan" },
+        { "languageCode": "it-IT", "name": "Gamla Stan" },
+        { "languageCode": "fr-FR", "name": "Gamla Stan" },
+        { "languageCode": "de-DE", "name": "Gamla Stan" }
+      ],
       "isActive": true
     },
     {
@@ -16,6 +32,14 @@
       "imagePath": "landmarks/stockholm-royalpalaceofstockholm.webp",
       "mobileImagePath": "landmarks/stockholm-royalpalaceofstockholm-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Royal Palace of Stockholm" },
+        { "languageCode": "es-ES", "name": "Palacio Real de Estocolmo" },
+        { "languageCode": "pt-BR", "name": "Palácio Real de Estocolmo" },
+        { "languageCode": "it-IT", "name": "Palazzo Reale di Stoccolma" },
+        { "languageCode": "fr-FR", "name": "Palais royal de Stockholm" },
+        { "languageCode": "de-DE", "name": "Königliches Schloss Stockholm" }
+      ],
       "isActive": true
     },
     {
@@ -24,6 +48,14 @@
       "imagePath": "landmarks/stockholm-stockholmcityhall.webp",
       "mobileImagePath": "landmarks/stockholm-stockholmcityhall-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Stockholm City Hall" },
+        { "languageCode": "es-ES", "name": "Ayuntamiento de Estocolmo" },
+        { "languageCode": "pt-BR", "name": "Prefeitura de Estocolmo" },
+        { "languageCode": "it-IT", "name": "Municipio di Stoccolma" },
+        { "languageCode": "fr-FR", "name": "Hôtel de ville de Stockholm" },
+        { "languageCode": "de-DE", "name": "Stockholmer Rathaus" }
+      ],
       "isActive": true
     },
     {
@@ -32,6 +64,14 @@
       "imagePath": "landmarks/stockholm-vasamuseum.webp",
       "mobileImagePath": "landmarks/stockholm-vasamuseum-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Vasa Museum" },
+        { "languageCode": "es-ES", "name": "Museo Vasa" },
+        { "languageCode": "pt-BR", "name": "Museu Vasa" },
+        { "languageCode": "it-IT", "name": "Museo Vasa" },
+        { "languageCode": "fr-FR", "name": "Musée Vasa" },
+        { "languageCode": "de-DE", "name": "Vasa-Museum" }
+      ],
       "isActive": true
     },
     {
@@ -40,6 +80,14 @@
       "imagePath": "landmarks/stockholm-skansenopenairmuseum.webp",
       "mobileImagePath": "landmarks/stockholm-skansenopenairmuseum-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Skansen" },
+        { "languageCode": "es-ES", "name": "Skansen" },
+        { "languageCode": "pt-BR", "name": "Skansen" },
+        { "languageCode": "it-IT", "name": "Skansen" },
+        { "languageCode": "fr-FR", "name": "Skansen" },
+        { "languageCode": "de-DE", "name": "Skansen" }
+      ],
       "isActive": true
     }
   ]

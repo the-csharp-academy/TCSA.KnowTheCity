@@ -1,45 +1,93 @@
 ﻿{
   "cityRemoteId": "lisbon-pt",
   "version": "1.0",
+  "cityNames": [
+    { "languageCode": "en-US", "name": "Lisbon" },
+    { "languageCode": "es-ES", "name": "Lisboa" },
+    { "languageCode": "pt-BR", "name": "Lisboa" },
+    { "languageCode": "it-IT", "name": "Lisbona" },
+    { "languageCode": "fr-FR", "name": "Lisbonne" },
+    { "languageCode": "de-DE", "name": "Lissabon" }
+  ],
   "monuments": [
     {
       "remoteId": "jeronimosmonastery",
-      "name": "JerÃ³nimos Monastery",
+      "name": "Jerónimos Monastery",
       "imagePath": "landmarks/lisbon-jeronimosmonastery.webp",
       "mobileImagePath": "landmarks/lisbon-jeronimosmonastery-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Jerónimos Monastery" },
+        { "languageCode": "es-ES", "name": "Monasterio de los Jerónimos" },
+        { "languageCode": "pt-BR", "name": "Mosteiro dos Jerónimos" },
+        { "languageCode": "it-IT", "name": "Monastero dos Jerónimos" },
+        { "languageCode": "fr-FR", "name": "Monastère des Hiéronymites" },
+        { "languageCode": "de-DE", "name": "Hieronymus-Kloster" }
+      ],
       "isActive": true
     },
     {
       "remoteId": "belemtower",
-      "name": "BelÃ©m Tower",
+      "name": "Belém Tower",
       "imagePath": "landmarks/lisbon-belemtower.webp",
       "mobileImagePath": "landmarks/lisbon-belemtower-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Belém Tower" },
+        { "languageCode": "es-ES", "name": "Torre de Belém" },
+        { "languageCode": "pt-BR", "name": "Torre de Belém" },
+        { "languageCode": "it-IT", "name": "Torre di Belém" },
+        { "languageCode": "fr-FR", "name": "Tour de Belém" },
+        { "languageCode": "de-DE", "name": "Torre de Belém" }
+      ],
       "isActive": true
     },
     {
       "remoteId": "saojorgecastle",
-      "name": "SÃ£o Jorge Castle",
+      "name": "São Jorge Castle",
       "imagePath": "landmarks/lisbon-saojorgecastle.webp",
       "mobileImagePath": "landmarks/lisbon-saojorgecastle-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "São Jorge Castle" },
+        { "languageCode": "es-ES", "name": "Castillo de San Jorge" },
+        { "languageCode": "pt-BR", "name": "Castelo de São Jorge" },
+        { "languageCode": "it-IT", "name": "Castello di São Jorge" },
+        { "languageCode": "fr-FR", "name": "Château Saint-Georges" },
+        { "languageCode": "de-DE", "name": "Castelo de São Jorge" }
+      ],
       "isActive": true
     },
     {
       "remoteId": "pracadocomercio",
-      "name": "PraÃ§a do ComÃ©rcio",
+      "name": "Praça do Comércio",
       "imagePath": "landmarks/lisbon-pracadocomercio.webp",
       "mobileImagePath": "landmarks/lisbon-pracadocomercio-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Praça do Comércio" },
+        { "languageCode": "es-ES", "name": "Plaza del Comercio" },
+        { "languageCode": "pt-BR", "name": "Praça do Comércio" },
+        { "languageCode": "it-IT", "name": "Piazza del Commercio" },
+        { "languageCode": "fr-FR", "name": "Place du Commerce" },
+        { "languageCode": "de-DE", "name": "Praça do Comércio" }
+      ],
       "isActive": true
     },
     {
       "remoteId": "oceanariodelisboa",
-      "name": "OceanÃ¡rio de Lisboa",
+      "name": "Oceanário de Lisboa",
       "imagePath": "landmarks/lisbon-oceanariodelisboa.webp",
       "mobileImagePath": "landmarks/lisbon-oceanariodelisboa-mobile.webp",
       "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Oceanário de Lisboa" },
+        { "languageCode": "es-ES", "name": "Oceanario de Lisboa" },
+        { "languageCode": "pt-BR", "name": "Oceanário de Lisboa" },
+        { "languageCode": "it-IT", "name": "Oceanario di Lisbona" },
+        { "languageCode": "fr-FR", "name": "Océanarium de Lisbonne" },
+        { "languageCode": "de-DE", "name": "Ozeanarium Lissabon" }
+      ],
       "isActive": true
     }
   ]

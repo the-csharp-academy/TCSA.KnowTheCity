@@ -58,6 +58,7 @@ public class FavoriteService(IDbContextFactory<KnowTheCityDbContext> dbFactory) 
         return await db.FavoriteLandmarks
             .AsNoTracking()
             .Include(fl => fl.Landmark)
+                .ThenInclude(l => l.Translations)
             .Where(f => cityId == null || f.CityId == cityId)
             .OrderBy(f => f.CityId)
             .ThenBy(f => f.LandmarkId)

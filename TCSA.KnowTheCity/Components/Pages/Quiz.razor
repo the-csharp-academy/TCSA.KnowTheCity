@@ -241,14 +241,15 @@ else
                 return;
             }
 
-            _quizTitle = city.Name;
+            var localizedCityName = city.GetLocalizedName();
+            _quizTitle = localizedCityName;
             _resultCityId = city.Id;
 
             var landmarks = await CityService.GetLandmarksAsync(city.RemoteId);
             _quizLandmarks =
             [
                 .. landmarks
-                    .Select(landmark => new QuizLandmarkItem(city.Id, city.Name, landmark))
+                    .Select(landmark => new QuizLandmarkItem(city.Id, localizedCityName, landmark))
                     .OrderBy(_ => Random.Shared.Next())
             ];
         }
@@ -262,7 +263,9 @@ else
                 .. favoriteLandmarks
                     .Select(favorite => new QuizLandmarkItem(
                         favorite.CityId,
-                        citiesById.TryGetValue(favorite.CityId, out var city) ? city.Name : favorite.CityId.ToString(),
+                        citiesById.TryGetValue(favorite.CityId, out var city)
+                            ? city.GetLocalizedName()
+                            : favorite.CityId.ToString(),
                         favorite.Landmark))
                     .OrderBy(_ => Random.Shared.Next())
             ];
@@ -350,15 +353,17 @@ else
             return;
 
         var expected = CurrentLandmark;
-        var isCorrect = string.Equals(expected.Landmark.Name, _currentGuess.Trim(), StringComparison.OrdinalIgnoreCase);
+        var trimmedGuess = _currentGuess.Trim();
+        var isCorrect = IsMatchingLandmarkName(expected.Landmark, trimmedGuess);
+        var localizedLandmarkName = expected.Landmark.GetLocalizedName();
 
         if (isCorrect)
         {
             _results.Add(new() { LandmarkId = expected.Landmark.Id, IsCorrect = true });
             _correctCount++;
             _feedbackMessage = IsFavoritesQuiz
-                ? Localizer["Quiz.Feedback.CorrectWithCity", expected.Landmark.Name, expected.CityName].Value
-                : Localizer["Quiz.Feedback.Correct", expected.Landmark.Name].Value;
+                ? Localizer["Quiz.Feedback.CorrectWithCity", localizedLandmarkName, expected.CityName].Value
+                : Localizer["Quiz.Feedback.Correct", localizedLandmarkName].Value;
             _feedbackSeverity = Severity.Success;
         }
         else
@@ -371,8 +376,8 @@ else
             });
 
             _feedbackMessage = IsFavoritesQuiz
-                ? Localizer["Quiz.Feedback.WrongWithCity", expected.Landmark.Name, expected.CityName].Value
-                : Localizer["Quiz.Feedback.Wrong", expected.Landmark.Name].Value;
+                ? Localizer["Quiz.Feedback.WrongWithCity", localizedLandmarkName, expected.CityName].Value
+                : Localizer["Quiz.Feedback.Wrong", localizedLandmarkName].Value;
             _feedbackSeverity = Severity.Error;
         }
 
@@ -383,6 +388,7 @@ else
     private async Task SkipLandmark()
     {
         var expected = CurrentLandmark;
+        var localizedLandmarkName = expected.Landmark.GetLocalizedName();
 
         _results.Add(new()
         {
@@ -392,8 +398,8 @@ else
         });
 
         _feedbackMessage = IsFavoritesQuiz
-            ? Localizer["Quiz.Feedback.SkippedWithCity", expected.Landmark.Name, expected.CityName].Value
-            : Localizer["Quiz.Feedback.Skipped", expected.Landmark.Name].Value;
+            ? Localizer["Quiz.Feedback.SkippedWithCity", localizedLandmarkName, expected.CityName].Value
+            : Localizer["Quiz.Feedback.Skipped", localizedLandmarkName].Value;
         _feedbackSeverity = Severity.Error;
         _currentGuess = string.Empty;
 
@@ -463,6 +469,30 @@ else
         _cts.Dispose();
         _timer?.Stop();
         _timer?.Dispose();
+    }
+
+    private static bool IsMatchingLandmarkName(Landmark landmark, string guess)
+    {
+        if (string.Equals(landmark.Name, guess, StringComparison.OrdinalIgnoreCase))
+        {
+            return true;
+        }
+
+        if (landmark.Translations is null || landmark.Translations.Count == 0)
+        {
+            return false;
+        }
+
+        foreach (var translation in landmark.Translations)
+        {
+            if (!string.IsNullOrWhiteSpace(translation?.Name)
+                && string.Equals(translation.Name, guess, StringComparison.OrdinalIgnoreCase))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private sealed record QuizLandmarkItem(int CityId, string CityName, Landmark Landmark);

@@ -66,7 +66,9 @@ public class CityService(IDbContextFactory<KnowTheCityDbContext> dbFactory) : IC
         await using var db = await dbFactory.CreateDbContextAsync();
         return await db.Cities
             .AsNoTracking()
+            .Include(c => c.Translations)
             .Include(c => c.Landmarks)
+                .ThenInclude(l => l.Translations)
             .FirstOrDefaultAsync(c => c.Id == id);
     }
 
@@ -74,10 +76,9 @@ public class CityService(IDbContextFactory<KnowTheCityDbContext> dbFactory) : IC
     {
         await using var db = await dbFactory.CreateDbContextAsync();
 
-        var lm = await db.Landmarks.ToListAsync();
-
         return await db.Landmarks
             .AsNoTracking()
+            .Include(l => l.Translations)
             .Where(l => l.City.RemoteId == cityRemoteId)
             .OrderBy(l => l.Name)
             .ToListAsync();

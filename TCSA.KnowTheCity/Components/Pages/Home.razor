@@ -313,10 +313,10 @@
 
     private static string GetCityDisplayName(City city)
     {
-        var currentCultureName = CultureInfo.CurrentUICulture.Name;
-        var currentLanguage = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+        string currentCultureName = CultureInfo.CurrentUICulture.Name;
+        string currentLanguage = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
 
-        var exactMatch = city.Translations
+        CityTranslation? exactMatch = city.Translations
             .FirstOrDefault(t => string.Equals(t.LanguageCode, currentCultureName, StringComparison.OrdinalIgnoreCase));
 
         if (!string.IsNullOrWhiteSpace(exactMatch?.Name))
@@ -324,7 +324,7 @@
             return exactMatch.Name;
         }
 
-        var languageMatch = city.Translations
+        CityTranslation? languageMatch = city.Translations
             .FirstOrDefault(t =>
                 !string.IsNullOrWhiteSpace(t.LanguageCode)
                 && t.LanguageCode.StartsWith(currentLanguage, StringComparison.OrdinalIgnoreCase));

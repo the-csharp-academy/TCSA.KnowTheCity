@@ -58,6 +58,6 @@
     private async Task SaveAsync()
     {
         await LocalizationService.SetCultureAsync(_selectedCulture);
-        Navigation.NavigateTo("/");
+        Navigation.NavigateTo("/", forceLoad: true);
     }
 }

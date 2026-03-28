@@ -41,7 +41,7 @@
                         </MudChip>
                     </MudHidden>
                     <MudText Typo="Typo.h5" Class="study-landmark-title">
-                        @_landmarks[currentIndex].Name
+                        @GetCurrentLandmarkName()
                     </MudText>
                     <MudHidden Breakpoint="Breakpoint.SmAndDown">
                         <MudChip T="string"
@@ -81,10 +81,10 @@
                 @if (hasAnyImage)
                 {
                     <MudHidden Breakpoint="Breakpoint.SmAndDown">
-                        <img src="@(imgData ?? mobileImgData)" alt="@_landmarks[currentIndex].Name" style="display:block;width:100%;height:390px;object-position:top;" />
+                        <img src="@(imgData ?? mobileImgData)" alt="@GetCurrentLandmarkName()" style="display:block;width:100%;height:390px;object-position:top;" />
                     </MudHidden>
                     <MudHidden Breakpoint="Breakpoint.MdAndUp">
-                        <img src="@(string.IsNullOrEmpty(mobileImgData) ? imgData : mobileImgData)" alt="@_landmarks[currentIndex].Name" style="display:block;width:100%;height:390px;object-position:top;" />
+                        <img src="@(string.IsNullOrEmpty(mobileImgData) ? imgData : mobileImgData)" alt="@GetCurrentLandmarkName()" style="display:block;width:100%;height:390px;object-position:top;" />
                     </MudHidden>
                 }
                 else
@@ -152,7 +152,7 @@
     private Dictionary<string, string> _cachedImagePaths = [];
     private Dictionary<string, string> _cachedMobileImagePaths = [];
     private HashSet<int> _favoriteLandmarkIds = [];
-    private string _cityName = "";
+    private string _cityName = string.Empty;
     private bool _isCityFavorite;
     private int currentIndex;
 
@@ -161,7 +161,7 @@
     protected override async Task OnInitializedAsync()
     {
         var city = await CityService.GetCityByIdAsync(CityId);
-        _cityName = city?.Name ?? "";
+        _cityName = city?.GetLocalizedName() ?? string.Empty;
 
         if (city is null)
         {
@@ -221,6 +221,8 @@
         if (currentIndex < _landmarks.Count - 1)
             currentIndex++;
     }
+
+    private string GetCurrentLandmarkName() => CurrentLandmark?.GetLocalizedName() ?? string.Empty;
 
     private async Task ToggleCityFavoriteAsync()
     {

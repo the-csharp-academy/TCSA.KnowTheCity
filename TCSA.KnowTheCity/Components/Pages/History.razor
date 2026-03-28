@@ -1,6 +1,7 @@
 @page "/history"
 @using TCSA.KnowTheCity.Core.Models
 @using TCSA.KnowTheCity.Core.Models.Domain
+@using TCSA.KnowTheCity.Core.Helpers
 @using TCSA.KnowTheCity.Services
 @inject IStringLocalizer<SharedResource> Localizer
 
@@ -70,7 +71,7 @@
                                Dense="true">
                         @foreach (var city in _availableCities)
                         {
-                            <MudSelectItem Value="@((int?)city.Id)">@city.Name</MudSelectItem>
+                            <MudSelectItem Value="@((int?)city.Id)">@city.GetLocalizedName()</MudSelectItem>
                         }
                     </MudSelect>
 
@@ -156,7 +157,7 @@
                         <RowTemplate>
                             <MudTd DataLabel='@Localizer["History.Date"]'>@context.PlayedAt.ToString("g", System.Globalization.CultureInfo.CurrentCulture)</MudTd>
                             <MudTd DataLabel='@Localizer["History.City"]'>
-                                <MudText Class="history-city-name">@context.City.Name</MudText>
+                                <MudText Class="history-city-name">@context.City.GetLocalizedName()</MudText>
                             </MudTd>
                             <MudTd DataLabel='@Localizer["History.Score"]'>
                                 <MudChip T="string"
@@ -194,7 +195,7 @@
 
     private string CityFilterLabel =>
         _selectedCityId is int cityId
-            ? _availableCities.FirstOrDefault(city => city.Id == cityId)?.Name ?? Localizer["History.SelectedCity"].Value
+            ? _availableCities.FirstOrDefault(city => city.Id == cityId)?.GetLocalizedName() ?? Localizer["History.SelectedCity"].Value
             : Localizer["History.AllCities"].Value;
 
     private string DateRangeLabel =>

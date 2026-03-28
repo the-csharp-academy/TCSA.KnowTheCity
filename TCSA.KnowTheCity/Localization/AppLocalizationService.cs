@@ -6,6 +6,7 @@ public sealed class AppLocalizationService
 {
     private const string CulturePreferenceKey = "app-culture";
     private const string DefaultCultureName = "en-US";
+    private string _currentCultureName = DefaultCultureName;
 
     private readonly IReadOnlyList<SupportedCultureOption> _supportedCultures =
     [
@@ -21,17 +22,30 @@ public sealed class AppLocalizationService
 
     public IReadOnlyList<SupportedCultureOption> SupportedCultures => _supportedCultures;
 
-    public string CurrentCultureName => CultureInfo.CurrentUICulture.Name;
+    public string CurrentCultureName => _currentCultureName;
 
     public void Initialize()
     {
-        ApplyCulture(GetInitialCultureName(), persistPreference: false);
+        var initialCulture = GetInitialCultureName();
+
+        if (MainThread.IsMainThread)
+        {
+            ApplyCulture(initialCulture, persistPreference: false);
+            return;
+        }
+
+        MainThread.BeginInvokeOnMainThread(() => ApplyCulture(initialCulture, persistPreference: false));
     }
 
-    public Task SetCultureAsync(string? cultureName)
+    public async Task SetCultureAsync(string? cultureName)
     {
-        ApplyCulture(cultureName, persistPreference: true);
-        return Task.CompletedTask;
+        if (MainThread.IsMainThread)
+        {
+            ApplyCulture(cultureName, persistPreference: true);
+            return;
+        }
+
+        await MainThread.InvokeOnMainThreadAsync(() => ApplyCulture(cultureName, persistPreference: true));
     }
 
     private string GetInitialCultureName()
@@ -57,15 +71,7 @@ public sealed class AppLocalizationService
 
         var culture = CultureInfo.GetCultureInfo(selectedCultureName);
 
-        if (string.Equals(CultureInfo.CurrentUICulture.Name, culture.Name, StringComparison.OrdinalIgnoreCase))
-        {
-            if (persistPreference)
-            {
-                Preferences.Default.Set(CulturePreferenceKey, culture.Name);
-            }
-
-            return;
-        }
+        _currentCultureName = culture.Name;
 
         CultureInfo.CurrentCulture = culture;
         CultureInfo.CurrentUICulture = culture;

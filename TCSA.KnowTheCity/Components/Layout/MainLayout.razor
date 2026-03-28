@@ -1,7 +1,10 @@
 ﻿@using MudBlazor
+@using System.Globalization
 @using TCSA.KnowTheCity.Theme
 @inherits LayoutComponentBase
+@implements IDisposable
 @inject IStringLocalizer<SharedResource> Localizer
+@inject AppLocalizationService LocalizationService
 
 <div class="@AppShellClass">
     <MudThemeProvider Theme="@AppTheme.Default" IsDarkMode="@_isDarkMode" />
@@ -54,13 +57,16 @@
         </MudAppBar>
 
         <MudMainContent Class="pa-4 mt-2">
-            @Body
+            <div @key="_cultureRenderKey">
+                @Body
+            </div>
         </MudMainContent>
     </MudLayout>
 </div>
 
 @code {
     private bool _isDarkMode = Microsoft.Maui.Controls.Application.Current?.RequestedTheme == Microsoft.Maui.ApplicationModel.AppTheme.Dark;
+    private int _cultureRenderKey;
 
     private string AppShellClass => _isDarkMode ? "app-shell app-theme-dark" : "app-shell app-theme-light";
 
@@ -71,5 +77,27 @@
     private void ToggleTheme()
     {
         _isDarkMode = !_isDarkMode;
+    }
+
+    protected override void OnInitialized()
+    {
+        LocalizationService.CultureChanged += OnCultureChanged;
+    }
+
+    private void OnCultureChanged()
+    {
+        _ = InvokeAsync(() =>
+        {
+            var culture = CultureInfo.GetCultureInfo(LocalizationService.CurrentCultureName);
+            CultureInfo.CurrentCulture = culture;
+            CultureInfo.CurrentUICulture = culture;
+            _cultureRenderKey++;
+            StateHasChanged();
+        });
+    }
+
+    public void Dispose()
+    {
+        LocalizationService.CultureChanged -= OnCultureChanged;
     }
 }

@@ -230,6 +230,16 @@
       "imagePath": "/cities/melbourne.webp",
       "dateAdded": "2026-03-27",
       "isActive": true
+    },
+    {
+      "remoteId": "istanbul-tr",
+      "name": "Istanbul",
+      "country": "Turkey",
+      "continent": "Europe",
+      "manifestPath": "/manifests/istanbul.json",
+      "imagePath": "/cities/istanbul.webp",
+      "dateAdded": "2026-03-28",
+      "isActive": true
     }
   ]
 }

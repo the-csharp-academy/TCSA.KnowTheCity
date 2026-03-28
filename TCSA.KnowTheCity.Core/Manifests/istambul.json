@@ -1,0 +1,94 @@
+﻿{
+  "cityRemoteId": "istanbul-tr",
+  "version": "1.0",
+  "cityNames": [
+    { "languageCode": "en-US", "name": "Istanbul" },
+    { "languageCode": "es-ES", "name": "Estambul" },
+    { "languageCode": "pt-BR", "name": "Istambul" },
+    { "languageCode": "it-IT", "name": "Istanbul" },
+    { "languageCode": "fr-FR", "name": "Istanbul" },
+    { "languageCode": "de-DE", "name": "Istanbul" }
+  ],
+  "monuments": [
+    {
+      "remoteId": "hagiasophia",
+      "name": "Hagia Sophia",
+      "imagePath": "landmarks/istanbul-hagiasophia.webp",
+      "mobileImagePath": "landmarks/istanbul-hagiasophia-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Hagia Sophia" },
+        { "languageCode": "es-ES", "name": "Santa Sofía" },
+        { "languageCode": "pt-BR", "name": "Santa Sofia" },
+        { "languageCode": "it-IT", "name": "Santa Sofia" },
+        { "languageCode": "fr-FR", "name": "Sainte-Sophie" },
+        { "languageCode": "de-DE", "name": "Hagia Sophia" }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "bluemosque",
+      "name": "Blue Mosque",
+      "imagePath": "landmarks/istanbul-bluemosque.webp",
+      "mobileImagePath": "landmarks/istanbul-bluemosque-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Blue Mosque" },
+        { "languageCode": "es-ES", "name": "Mezquita Azul" },
+        { "languageCode": "pt-BR", "name": "Mesquita Azul" },
+        { "languageCode": "it-IT", "name": "Moschea Blu" },
+        { "languageCode": "fr-FR", "name": "Mosquée Bleue" },
+        { "languageCode": "de-DE", "name": "Blaue Moschee" }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "topkapipalace",
+      "name": "Topkapi Palace",
+      "imagePath": "landmarks/istanbul-topkapipalace.webp",
+      "mobileImagePath": "landmarks/istanbul-topkapipalace-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Topkapi Palace" },
+        { "languageCode": "es-ES", "name": "Palacio de Topkapi" },
+        { "languageCode": "pt-BR", "name": "Palácio de Topkapi" },
+        { "languageCode": "it-IT", "name": "Palazzo di Topkapi" },
+        { "languageCode": "fr-FR", "name": "Palais de Topkapi" },
+        { "languageCode": "de-DE", "name": "Topkapi-Palast" }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "grandbazaar",
+      "name": "Grand Bazaar",
+      "imagePath": "landmarks/istanbul-grandbazaar.webp",
+      "mobileImagePath": "landmarks/istanbul-grandbazaar-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Grand Bazaar" },
+        { "languageCode": "es-ES", "name": "Gran Bazar" },
+        { "languageCode": "pt-BR", "name": "Grande Bazar" },
+        { "languageCode": "it-IT", "name": "Gran Bazar" },
+        { "languageCode": "fr-FR", "name": "Grand Bazar" },
+        { "languageCode": "de-DE", "name": "Großer Basar" }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "galatatower",
+      "name": "Galata Tower",
+      "imagePath": "landmarks/istanbul-galatatower.webp",
+      "mobileImagePath": "landmarks/istanbul-galatatower-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Galata Tower" },
+        { "languageCode": "es-ES", "name": "Torre de Gálata" },
+        { "languageCode": "pt-BR", "name": "Torre de Gálata" },
+        { "languageCode": "it-IT", "name": "Torre di Galata" },
+        { "languageCode": "fr-FR", "name": "Tour de Galata" },
+        { "languageCode": "de-DE", "name": "Galataturm" }
+      ],
+      "isActive": true
+    }
+  ]
+}

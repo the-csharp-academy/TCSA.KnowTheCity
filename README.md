@@ -32,6 +32,10 @@ The solution is split into a .NET MAUI Blazor Hybrid app and a shared `TCSA.Know
 - **CDN-backed assets** are resolved from manifest paths, while the image cache service downloads and reuses city, landmark, and flag images locally for better startup and scrolling performance.
 - **No remote database**: In this first stage of the project, users cannot save their progress to the cloud. Uninstalling the app deletes history and favorites data.
 
+## Content Contributions
+
+For instructions on adding new cities and landmarks, see `CONTENT_CONTRIBUTION_GUIDE.md`.
+
 ## Running the App Locally
 
 The repository includes a **CDN simulator** project so the MAUI app can be tested locally without pointing to a real remote CDN. The simulator contains 10 cities and 50 landmarks to help with development.

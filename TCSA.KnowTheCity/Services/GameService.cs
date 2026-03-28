@@ -27,8 +27,10 @@ public class GameService(IDbContextFactory<KnowTheCityDbContext> dbFactory) : IG
         return await db.GameResults
             .AsNoTracking()
             .Include(g => g.City)
+                .ThenInclude(c => c.Translations)
             .Include(g => g.Items)
                 .ThenInclude(i => i.Landmark)
+                    .ThenInclude(l => l.Translations)
             .FirstOrDefaultAsync(g => g.Id == id);
     }
 
@@ -38,6 +40,7 @@ public class GameService(IDbContextFactory<KnowTheCityDbContext> dbFactory) : IG
 
         IQueryable<GameResult> query = db.GameResults
             .Include(r => r.City)
+                .ThenInclude(c => c.Translations)
             .AsNoTracking();
 
         if (cityId.HasValue)

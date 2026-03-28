@@ -119,4 +119,7 @@ public static class CityDataHelper
         var alphanumericOnly = NonAlphanumericRegex.Replace(asciiOnly.ToString(), "");
         return alphanumericOnly.ToLowerInvariant();
     }
+
+    public static string GetCountryFlagImagePath(Country country) =>
+        $"flags/{NormalizeForPath(country.ToString())}.png";
 }

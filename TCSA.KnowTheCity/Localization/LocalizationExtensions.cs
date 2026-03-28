@@ -37,4 +37,13 @@ public static class LocalizationExtensions
 
         return builder.ToString();
     }
+
+    public static string FormatCount(this IStringLocalizer localizer, int count, string singularKey, string pluralKey)
+    {
+        ArgumentNullException.ThrowIfNull(localizer);
+
+        return count == 1
+            ? localizer[singularKey, count].Value
+            : localizer[pluralKey, count].Value;
+    }
 }

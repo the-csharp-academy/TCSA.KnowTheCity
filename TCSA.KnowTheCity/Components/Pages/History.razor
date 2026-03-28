@@ -1,4 +1,5 @@
 @page "/history"
+@using System.Globalization
 @using TCSA.KnowTheCity.Core.Models
 @using TCSA.KnowTheCity.Core.Models.Domain
 @using TCSA.KnowTheCity.Core.Helpers
@@ -155,7 +156,7 @@
                             <MudTh>@Localizer["History.Score"]</MudTh>
                         </HeaderContent>
                         <RowTemplate>
-                            <MudTd DataLabel='@Localizer["History.Date"]'>@context.PlayedAt.ToString("g", System.Globalization.CultureInfo.CurrentCulture)</MudTd>
+                            <MudTd DataLabel='@Localizer["History.Date"]'>@context.PlayedAt.ToString("g", CultureInfo.CurrentCulture)</MudTd>
                             <MudTd DataLabel='@Localizer["History.City"]'>
                                 <MudText Class="history-city-name">@context.City.GetLocalizedName()</MudText>
                             </MudTd>

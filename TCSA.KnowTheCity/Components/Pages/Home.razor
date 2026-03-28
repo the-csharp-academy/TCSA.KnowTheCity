@@ -5,7 +5,6 @@
 @using TCSA.KnowTheCity.Core.Models.Domain
 @using TCSA.KnowTheCity.Core.Services
 @using TCSA.KnowTheCity.Services
-@using System.Globalization
 @inject IStringLocalizer<SharedResource> Localizer
 
 <MudContainer MaxWidth="MaxWidth.Large" Class="pb-20">
@@ -23,13 +22,13 @@
 
             <MudStack Row="true" Wrap="Wrap.Wrap" Spacing="2" Class="home-hero-chips">
                 <MudChip T="string" Class="brand-chip brand-chip-sky" Variant="Variant.Filled">
-                    @FormatCount(_totalCityCount, "Home.CityCount.Singular", "Home.CityCount.Plural")
+                    @Localizer.FormatCount(_totalCityCount, "Home.CityCount.Singular", "Home.CityCount.Plural")
                 </MudChip>
                 <MudChip T="string" Class="brand-chip brand-chip-orange" Variant="Variant.Filled">
-                    @FormatCount(_countries.Count, "Home.CountryCount.Singular", "Home.CountryCount.Plural")
+                    @Localizer.FormatCount(_countries.Count, "Home.CountryCount.Singular", "Home.CountryCount.Plural")
                 </MudChip>
                 <MudChip T="string" Class="brand-chip brand-chip-gold" Variant="Variant.Filled">
-                    @FormatCount(_totalLandmarkCount, "Home.LandmarkCount.Singular", "Home.LandmarkCount.Plural")
+                    @Localizer.FormatCount(_totalLandmarkCount, "Home.LandmarkCount.Singular", "Home.LandmarkCount.Plural")
                 </MudChip>
             </MudStack>
         </div>
@@ -125,7 +124,7 @@
                         <MudCardContent Class="vibrant-city-card-content">
                             <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Start">
                                 <MudStack Spacing="1">
-                                    <MudText Typo="Typo.h6" Class="vibrant-city-card-title">@GetCityDisplayName(city)</MudText>
+                                    <MudText Typo="Typo.h6" Class="vibrant-city-card-title">@city.GetLocalizedName()</MudText>
                                     <MudText Typo="Typo.body2" Class="city-card-country">@Localizer.LocalizeEnum(city.Country)</MudText>
                                 </MudStack>
 
@@ -265,7 +264,7 @@
 
             try
             {
-                var relativePath = GetCountryFlagImagePath(city.Country);
+                var relativePath = CityDataHelper.GetCountryFlagImagePath(city.Country);
                 var localPath = await ImageCache.GetImagePathAsync(relativePath);
                 _countryFlagPaths[city.Country] = ImageHelpers.ConvertToBase64DataUri(localPath);
             }
@@ -301,37 +300,6 @@
         _selectedContinent = null;
 
         await LoadCitiesAsync();
-    }
-
-    private static string GetCountryFlagImagePath(Country country) =>
-        $"flags/{CityDataHelper.NormalizeForPath(country.ToString())}.png";
-
-    private string FormatCount(int count, string singularKey, string pluralKey) =>
-        count == 1
-            ? Localizer[singularKey, count].Value
-            : Localizer[pluralKey, count].Value;
-
-    private static string GetCityDisplayName(City city)
-    {
-        string currentCultureName = CultureInfo.CurrentUICulture.Name;
-        string currentLanguage = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
-
-        CityTranslation? exactMatch = city.Translations
-            .FirstOrDefault(t => string.Equals(t.LanguageCode, currentCultureName, StringComparison.OrdinalIgnoreCase));
-
-        if (!string.IsNullOrWhiteSpace(exactMatch?.Name))
-        {
-            return exactMatch.Name;
-        }
-
-        CityTranslation? languageMatch = city.Translations
-            .FirstOrDefault(t =>
-                !string.IsNullOrWhiteSpace(t.LanguageCode)
-                && t.LanguageCode.StartsWith(currentLanguage, StringComparison.OrdinalIgnoreCase));
-
-        return string.IsNullOrWhiteSpace(languageMatch?.Name)
-            ? city.Name
-            : languageMatch.Name;
     }
 
     private void NavigateToStudy(int cityId) => Navigation.NavigateTo($"study/{cityId}");

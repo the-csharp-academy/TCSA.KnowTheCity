@@ -76,7 +76,7 @@ Rules:
 - Include translations for: en-US, es-ES, pt-BR, it-IT, fr-FR, de-DE
 ```
 
-### Example Prompt: Generate New Melbourne
+### Example Prompt: Copy Everything Below Here To Prompt, Just Change City Name
 
 ```text
 Generate New Melbourne:

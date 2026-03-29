@@ -13,8 +13,8 @@
     {
       "remoteId": "hagiasophia",
       "name": "Hagia Sophia",
-      "imagePath": "landmarks/istanbul-hagiasophia.webp",
-      "mobileImagePath": "landmarks/istanbul-hagiasophia-mobile.webp",
+      "imagePath": "landmarks/istambul-hagiasophia.webp",
+      "mobileImagePath": "landmarks/istambul-hagiasophia-mobile.webp",
       "imageVersion": "1",
       "names": [
         { "languageCode": "en-US", "name": "Hagia Sophia" },
@@ -29,8 +29,8 @@
     {
       "remoteId": "bluemosque",
       "name": "Blue Mosque",
-      "imagePath": "landmarks/istanbul-bluemosque.webp",
-      "mobileImagePath": "landmarks/istanbul-bluemosque-mobile.webp",
+      "imagePath": "landmarks/istambul-bluemosque.webp",
+      "mobileImagePath": "landmarks/istambul-bluemosque-mobile.webp",
       "imageVersion": "1",
       "names": [
         { "languageCode": "en-US", "name": "Blue Mosque" },
@@ -45,8 +45,8 @@
     {
       "remoteId": "topkapipalace",
       "name": "Topkapi Palace",
-      "imagePath": "landmarks/istanbul-topkapipalace.webp",
-      "mobileImagePath": "landmarks/istanbul-topkapipalace-mobile.webp",
+      "imagePath": "landmarks/istambul-topkapipalace.webp",
+      "mobileImagePath": "landmarks/istambul-topkapipalace-mobile.webp",
       "imageVersion": "1",
       "names": [
         { "languageCode": "en-US", "name": "Topkapi Palace" },
@@ -61,8 +61,8 @@
     {
       "remoteId": "grandbazaar",
       "name": "Grand Bazaar",
-      "imagePath": "landmarks/istanbul-grandbazaar.webp",
-      "mobileImagePath": "landmarks/istanbul-grandbazaar-mobile.webp",
+      "imagePath": "landmarks/istambul-grandbazaar.webp",
+      "mobileImagePath": "landmarks/istambul-grandbazaar-mobile.webp",
       "imageVersion": "1",
       "names": [
         { "languageCode": "en-US", "name": "Grand Bazaar" },
@@ -77,8 +77,8 @@
     {
       "remoteId": "galatatower",
       "name": "Galata Tower",
-      "imagePath": "landmarks/istanbul-galatatower.webp",
-      "mobileImagePath": "landmarks/istanbul-galatatower-mobile.webp",
+      "imagePath": "landmarks/istambul-galatatower.webp",
+      "mobileImagePath": "landmarks/istambul-galatatower-mobile.webp",
       "imageVersion": "1",
       "names": [
         { "languageCode": "en-US", "name": "Galata Tower" },

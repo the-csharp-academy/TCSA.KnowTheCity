@@ -29,8 +29,8 @@
     {
       "remoteId": "nyhavn",
       "name": "Nyhavn Harbor",
-      "imagePath": "landmarks/copenhagen-nyhavnhabor.webp",
-      "mobileImagePath": "landmarks/copenhagen-nyhavnhabor-mobile.webp",
+      "imagePath": "landmarks/copenhagen-nyhavnharbor.webp",
+      "mobileImagePath": "landmarks/copenhagen-nyhavnharbor-mobile.webp",
       "imageVersion": "1",
       "names": [
         { "languageCode": "en-US", "name": "Nyhavn Harbor" },

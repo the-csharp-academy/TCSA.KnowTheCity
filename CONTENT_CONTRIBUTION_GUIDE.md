@@ -36,7 +36,7 @@ This guide explains how to contribute content to **Know The City**.
 
 ## Local Testing Reminder
 
-For local testing, make the image and manifest changes in the CDN simulator project (`TCSA.KnowTheCity.CdnSimulator/wwwroot`), including both pictures and manifest files.
+For local testing, make the image and manifest changes in the CDN simulator project (`TCSA.KnowTheCity.CdnSimulator/wwwroot`), including both pictures and manifest files. However don't the new city in the CDN simulator. We don't want that many heavy files in the repository.
 
 ## Prompts
 

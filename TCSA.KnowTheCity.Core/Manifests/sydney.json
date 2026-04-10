@@ -14,14 +14,33 @@
       "remoteId": "sydneyoperahouse",
       "name": "Sydney Opera House",
       "imagePath": "landmarks/sydney-sydneyoperahouse.webp",
+      "mobileImagePath": "landmarks/sydney-sydneyoperahouse-mobile.webp",
       "imageVersion": "1",
       "names": [
-        { "languageCode": "en-US", "name": "Sydney Opera House" },
-        { "languageCode": "es-ES", "name": "Ópera de Sídney" },
-        { "languageCode": "pt-BR", "name": "Ópera de Sydney" },
-        { "languageCode": "it-IT", "name": "Opera House di Sydney" },
-        { "languageCode": "fr-FR", "name": "Opéra de Sydney" },
-        { "languageCode": "de-DE", "name": "Sydney Opera House" }
+        {
+          "languageCode": "en-US",
+          "name": "Sydney Opera House"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Ópera de Sídney"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Ópera de Sydney"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Opera House di Sydney"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Opéra de Sydney"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Sydney Opera House"
+        }
       ],
       "isActive": true
     },
@@ -29,14 +48,33 @@
       "remoteId": "sydneyharbourbridge",
       "name": "Sydney Harbour Bridge",
       "imagePath": "landmarks/sydney-sydneyharborbridge.webp",
+      "mobileImagePath": "landmarks/sydney-sydneyharborbridge-mobile.webp",
       "imageVersion": "1",
       "names": [
-        { "languageCode": "en-US", "name": "Sydney Harbour Bridge" },
-        { "languageCode": "es-ES", "name": "Puente del Puerto de Sídney" },
-        { "languageCode": "pt-BR", "name": "Ponte da Baía de Sydney" },
-        { "languageCode": "it-IT", "name": "Ponte del porto di Sydney" },
-        { "languageCode": "fr-FR", "name": "Pont du port de Sydney" },
-        { "languageCode": "de-DE", "name": "Sydney Harbour Bridge" }
+        {
+          "languageCode": "en-US",
+          "name": "Sydney Harbour Bridge"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Puente del Puerto de Sídney"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Ponte da Baía de Sydney"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Ponte del porto di Sydney"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Pont du port de Sydney"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Sydney Harbour Bridge"
+        }
       ],
       "isActive": true
     },
@@ -44,6 +82,7 @@
       "remoteId": "bondibeach",
       "name": "Bondi Beach",
       "imagePath": "landmarks/sydney-bondibeach.webp",
+      "mobileImagePath": "landmarks/sydney-bondibeach-mobile.webp",
       "imageVersion": "1",
       "names": [
         { "languageCode": "en-US", "name": "Bondi Beach" },
@@ -59,6 +98,7 @@
       "remoteId": "royalbotanicgarden",
       "name": "Royal Botanic Garden Sydney",
       "imagePath": "landmarks/sydney-royalbotanicgarden.webp",
+      "mobileImagePath": "landmarks/sydney-royalbotanicgarden-mobile.webp",
       "imageVersion": "1",
       "names": [
         { "languageCode": "en-US", "name": "Royal Botanic Garden Sydney" },
@@ -74,6 +114,7 @@
       "remoteId": "therocks",
       "name": "The Rocks",
       "imagePath": "landmarks/sydney-therocks.webp",
+      "mobileImagePath": "landmarks/sydney-therocks-mobile.webp",
       "imageVersion": "1",
       "names": [
         { "languageCode": "en-US", "name": "The Rocks" },

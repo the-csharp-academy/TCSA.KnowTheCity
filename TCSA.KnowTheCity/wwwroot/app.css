@@ -892,6 +892,19 @@ h1:focus {
     .quiz-image {
         height: 350px;
     }
+
+    .home-hero,
+    .settings-page,
+    .history-page,
+    .instructions-hero,
+    .favorites-hero {
+        margin-top: calc(56px + env(safe-area-inset-top));
+    }
+
+    .home-hero
+    {
+        margin-top: calc(46px + env(safe-area-inset-top));
+    }
 }
 
 .study-city-chip {
@@ -1258,5 +1271,15 @@ h1:focus {
 @media (max-width: 959.98px) { /* sm and down */
     .study-header-stack {
         justify-content: center !important;
+    }
+}
+
+.settings-page {
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+    .settings-page {
+        margin-top: calc(56px + env(safe-area-inset-top));
     }
 }

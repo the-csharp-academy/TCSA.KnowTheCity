@@ -34,6 +34,11 @@
         </div>
     </MudPaper>
 
+     @if (_isLoading)
+     {
+        <MudProgressLinear Indeterminate="true" Color="Color.Info" Class="mb-4" />
+     }
+
     <MudPaper Elevation="0" Class="mb-6 pa-4">
         <MudGrid Spacing="2">
             <MudItem xs="12" md="4">
@@ -90,11 +95,6 @@
             </MudItem>
         </MudGrid>
     </MudPaper>
-
-    @if (_isLoading)
-    {
-        <MudProgressLinear Indeterminate="true" Color="Color.Info" Class="mb-4" />
-    }
 
     @if (_cities.Count == 0 && !_isLoading)
     {

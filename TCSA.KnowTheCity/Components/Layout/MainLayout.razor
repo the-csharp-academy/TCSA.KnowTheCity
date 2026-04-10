@@ -13,48 +13,88 @@
     <MudSnackbarProvider />
 
     <MudLayout>
-        <MudAppBar Bottom="true" Fixed="true" Dense="true" Elevation="0">
-            <MudContainer MaxWidth="MaxWidth.Large" Class="d-flex align-center px-0">
-                <MudIconButton Icon="@Icons.Material.Filled.Home"
-                               Variant="Variant.Text"
-                               Color="Color.Inherit"
-                               Href="/" />
+        <MudHidden Breakpoint="Breakpoint.SmAndDown" Invert="true">
+            <MudAppBar Fixed="true" Dense="true" Elevation="0"
+                       Style="padding-top: env(safe-area-inset-top); height: calc(48px + env(safe-area-inset-top));">
+                <MudContainer MaxWidth="MaxWidth.Large" Class="d-flex align-center px-0">
+                    <MudIconButton Icon="@Icons.Material.Filled.Home"
+                                   Variant="Variant.Text"
+                                   Color="Color.Inherit"
+                                   Href="/" />
 
-                <MudSpacer />
+                    <MudSpacer />
 
-                <MudHidden Breakpoint="Breakpoint.SmAndDown">
+                    <MudIconButton Icon="@ThemeToggleIcon"
+                                   Variant="Variant.Text"
+                                   Color="Color.Inherit"
+                                   OnClick="ToggleTheme"
+                                   Class="mx-1" />
+                    <MudIconButton Icon="@Icons.Material.Filled.Settings"
+                                   Variant="Variant.Text"
+                                   Color="Color.Inherit"
+                                   Href="/settings"
+                                   Class="mx-1" />
+                    <MudIconButton Icon="@Icons.Material.Filled.Info"
+                                   Variant="Variant.Text"
+                                   Color="Color.Inherit"
+                                   Href="/instructions"
+                                   Class="mx-1" />
+                    <MudIconButton Icon="@Icons.Material.Filled.Favorite"
+                                   Variant="Variant.Text"
+                                   Color="Color.Inherit"
+                                   Href="/favorites"
+                                   Class="mx-1" />
+                    <MudIconButton Icon="@Icons.Material.Filled.History"
+                                   Variant="Variant.Text"
+                                   Color="Color.Inherit"
+                                   Href="/history"
+                                   Class="mx-1" />
+                </MudContainer>
+            </MudAppBar>
+        </MudHidden>
+
+        <MudHidden Breakpoint="Breakpoint.SmAndDown">
+            <MudAppBar Bottom="true" Fixed="true" Dense="true" Elevation="0">
+                <MudContainer MaxWidth="MaxWidth.Large" Class="d-flex align-center px-0">
+                    <MudIconButton Icon="@Icons.Material.Filled.Home"
+                                   Variant="Variant.Text"
+                                   Color="Color.Inherit"
+                                   Href="/" />
+
+                    <MudSpacer />
+
                     <MudText Typo="Typo.h6">@Localizer["App.Title"]</MudText>
-                </MudHidden>
 
-                <MudSpacer />
+                    <MudSpacer />
 
-                <MudIconButton Icon="@ThemeToggleIcon"
-                               Variant="Variant.Text"
-                               Color="Color.Inherit"
-                               OnClick="ToggleTheme"
-                               Class="mx-1" />
-                <MudIconButton Icon="@Icons.Material.Filled.Settings"
-                               Variant="Variant.Text"
-                               Color="Color.Inherit"
-                               Href="/settings"
-                               Class="mx-1" />
-                <MudIconButton Icon="@Icons.Material.Filled.Info"
-                               Variant="Variant.Text"
-                               Color="Color.Inherit"
-                               Href="/instructions"
-                               Class="mx-1" />
-                <MudIconButton Icon="@Icons.Material.Filled.Favorite"
-                               Variant="Variant.Text"
-                               Color="Color.Inherit"
-                               Href="/favorites"
-                               Class="mx-1" />
-                <MudIconButton Icon="@Icons.Material.Filled.History"
-                               Variant="Variant.Text"
-                               Color="Color.Inherit"
-                               Href="/history"
-                               Class="mx-1" />
-            </MudContainer>
-        </MudAppBar>
+                    <MudIconButton Icon="@ThemeToggleIcon"
+                                   Variant="Variant.Text"
+                                   Color="Color.Inherit"
+                                   OnClick="ToggleTheme"
+                                   Class="mx-1" />
+                    <MudIconButton Icon="@Icons.Material.Filled.Settings"
+                                   Variant="Variant.Text"
+                                   Color="Color.Inherit"
+                                   Href="/settings"
+                                   Class="mx-1" />
+                    <MudIconButton Icon="@Icons.Material.Filled.Info"
+                                   Variant="Variant.Text"
+                                   Color="Color.Inherit"
+                                   Href="/instructions"
+                                   Class="mx-1" />
+                    <MudIconButton Icon="@Icons.Material.Filled.Favorite"
+                                   Variant="Variant.Text"
+                                   Color="Color.Inherit"
+                                   Href="/favorites"
+                                   Class="mx-1" />
+                    <MudIconButton Icon="@Icons.Material.Filled.History"
+                                   Variant="Variant.Text"
+                                   Color="Color.Inherit"
+                                   Href="/history"
+                                   Class="mx-1" />
+                </MudContainer>
+            </MudAppBar>
+        </MudHidden>
 
         <MudMainContent Class="pa-4 mt-2">
             <div @key="_cultureRenderKey">

@@ -54,12 +54,14 @@
         <GenerateTestArtifacts>True</GenerateTestArtifacts>
         <GenerateTemporaryStoreCertificate>True</GenerateTemporaryStoreCertificate>
         <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
+        <AndroidSigningKeyStore>knowthecity-upload.keystore</AndroidSigningKeyStore>
     </PropertyGroup>
 
 	<PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">
 		<WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
 		<SelfContained>true</SelfContained>
 	</PropertyGroup>
+
 
     <ItemGroup>
         <!-- App Icon -->

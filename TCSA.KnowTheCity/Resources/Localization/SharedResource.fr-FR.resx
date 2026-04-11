@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Feedback.Nav" xml:space="preserve"><value>Commentaires</value></data>
+  <data name="Feedback.Tag" xml:space="preserve"><value>Suggestions et signalement de bugs</value></data>
+  <data name="Feedback.Title" xml:space="preserve"><value>Aidez-nous à améliorer Know The City</value></data>
+  <data name="Feedback.Subtitle" xml:space="preserve"><value>Vous pouvez demander de nouvelles fonctionnalités, de nouvelles villes, signaler des bugs ou des inexactitudes dans les images et/ou les noms.</value></data>
+  <data name="Feedback.FeatureRequests.Title" xml:space="preserve"><value>Nouvelles fonctionnalités et villes</value></data>
+  <data name="Feedback.FeatureRequests.Text" xml:space="preserve"><value>Dites-nous quelle fonctionnalité vous souhaitez ou quelle ville nous devrions ajouter.</value></data>
+  <data name="Feedback.BugReports.Title" xml:space="preserve"><value>Bugs et inexactitudes</value></data>
+  <data name="Feedback.BugReports.Text" xml:space="preserve"><value>Signalez les problèmes de l'application, les noms de monuments incorrects ou les images erronées pour une correction rapide.</value></data>
+  <data name="Feedback.EmailLabel" xml:space="preserve"><value>Envoyez votre message à</value></data>
+  <data name="Feedback.EmailValue" xml:space="preserve"><value>thecsharpacademy@gmail.com</value></data>
+  <data name="Feedback.EmailButton" xml:space="preserve"><value>Envoyer un e-mail</value></data>
+  <data name="Feedback.Note" xml:space="preserve"><value>Vos retours nous aident à prioriser ce que nous devons développer et corriger ensuite.</value></data>
+</root>

@@ -1,0 +1,94 @@
+@page "/feedback"
+@inject IStringLocalizer<SharedResource> Localizer
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="feedback-page pb-8">
+    <MudPaper Elevation="0" Class="feedback-hero mb-6">
+        <MudStack Spacing="3">
+            <MudChip T="string"
+                     Class="feedback-hero-chip"
+                     Variant="Variant.Filled"
+                     Icon="@Icons.Material.Filled.Feedback">
+                @Localizer["Feedback.Tag"]
+            </MudChip>
+
+            <MudText Typo="Typo.h4" Class="feedback-hero-title">
+                @Localizer["Feedback.Title"]
+            </MudText>
+
+            <MudText Typo="Typo.body1" Class="feedback-hero-subtitle">
+                @Localizer["Feedback.Subtitle"]
+            </MudText>
+
+            <MudStack Row="true" Spacing="2" Class="feedback-hero-actions">
+                <MudButton Variant="Variant.Filled"
+                           Color="Color.Warning"
+                           Href="mailto:thecsharpacademy@gmail.com?subject=Know%20The%20City%20Feedback"
+                           StartIcon="@Icons.Material.Filled.Email">
+                    @Localizer["Feedback.EmailButton"]
+                </MudButton>
+
+                <MudButton Variant="Variant.Outlined"
+                           Color="Color.Default"
+                           Href="/"
+                           StartIcon="@Icons.Material.Filled.Home">
+                    @Localizer["EndGame.Home"]
+                </MudButton>
+            </MudStack>
+        </MudStack>
+    </MudPaper>
+
+    <MudGrid Spacing="3" Class="mb-4">
+        <MudItem xs="12" md="6">
+            <MudPaper Elevation="0" Class="feedback-panel feedback-panel-feature h-100">
+                <MudStack Spacing="2">
+                    <MudStack Row="true" Spacing="1" AlignItems="AlignItems.Center">
+                        <MudIcon Icon="@Icons.Material.Filled.AutoAwesome" Class="feedback-panel-icon" />
+                        <MudText Typo="Typo.h6" Class="feedback-panel-title">
+                            @Localizer["Feedback.FeatureRequests.Title"]
+                        </MudText>
+                    </MudStack>
+
+                    <MudText Typo="Typo.body2" Class="feedback-panel-text">
+                        @Localizer["Feedback.FeatureRequests.Text"]
+                    </MudText>
+                </MudStack>
+            </MudPaper>
+        </MudItem>
+
+        <MudItem xs="12" md="6">
+            <MudPaper Elevation="0" Class="feedback-panel feedback-panel-bug h-100">
+                <MudStack Spacing="2">
+                    <MudStack Row="true" Spacing="1" AlignItems="AlignItems.Center">
+                        <MudIcon Icon="@Icons.Material.Filled.BugReport" Class="feedback-panel-icon" />
+                        <MudText Typo="Typo.h6" Class="feedback-panel-title">
+                            @Localizer["Feedback.BugReports.Title"]
+                        </MudText>
+                    </MudStack>
+
+                    <MudText Typo="Typo.body2" Class="feedback-panel-text">
+                        @Localizer["Feedback.BugReports.Text"]
+                    </MudText>
+                </MudStack>
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+
+    <MudPaper Elevation="0" Class="feedback-contact-shell">
+        <MudStack Spacing="2">
+            <MudText Typo="Typo.subtitle1" Class="feedback-contact-title">
+                @Localizer["Feedback.EmailLabel"]
+            </MudText>
+
+            <MudChip T="string"
+                     Class="brand-chip brand-chip-sky"
+                     Variant="Variant.Filled"
+                     Icon="@Icons.Material.Filled.AlternateEmail">
+                @Localizer["Feedback.EmailValue"]
+            </MudChip>
+
+            <MudText Typo="Typo.body2" Class="feedback-contact-note">
+                @Localizer["Feedback.Note"]
+            </MudText>
+        </MudStack>
+    </MudPaper>
+</MudContainer>

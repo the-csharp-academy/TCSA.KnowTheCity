@@ -186,4 +186,16 @@
   <data name="Study.LandmarkAdded" xml:space="preserve"><value>Ponto turístico adicionado aos favoritos</value></data>
   <data name="NotFound.Title" xml:space="preserve"><value>Não encontrado</value></data>
   <data name="NotFound.Text" xml:space="preserve"><value>Desculpe, o conteúdo que você procura não existe.</value></data>
+  <data name="Feedback.Nav" xml:space="preserve"><value>Feedback</value></data>
+  <data name="Feedback.Tag" xml:space="preserve"><value>Sugestões e relato de bugs</value></data>
+  <data name="Feedback.Title" xml:space="preserve"><value>Ajude-nos a melhorar o Know The City</value></data>
+  <data name="Feedback.Subtitle" xml:space="preserve"><value>Você pode pedir novos recursos, solicitar novas cidades, relatar bugs ou informar imprecisões nas fotos e/ou nomes dos pontos turísticos.</value></data>
+  <data name="Feedback.FeatureRequests.Title" xml:space="preserve"><value>Novos recursos e cidades</value></data>
+  <data name="Feedback.FeatureRequests.Text" xml:space="preserve"><value>Conte qual recurso você quer ver em seguida ou qual cidade você gostaria que fosse adicionada.</value></data>
+  <data name="Feedback.BugReports.Title" xml:space="preserve"><value>Bugs e imprecisões</value></data>
+  <data name="Feedback.BugReports.Text" xml:space="preserve"><value>Relate problemas no app, nomes incorretos de pontos turísticos ou divergências nas imagens para corrigirmos rapidamente.</value></data>
+  <data name="Feedback.EmailLabel" xml:space="preserve"><value>Envie sua mensagem para</value></data>
+  <data name="Feedback.EmailValue" xml:space="preserve"><value>thecsharpacademy@gmail.com</value></data>
+  <data name="Feedback.EmailButton" xml:space="preserve"><value>Enviar e-mail</value></data>
+  <data name="Feedback.Note" xml:space="preserve"><value>Seu feedback nos ajuda a priorizar o que construir e corrigir em seguida.</value></data>
 </root>

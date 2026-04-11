@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Feedback.Nav" xml:space="preserve"><value>Feedback</value></data>
+  <data name="Feedback.Tag" xml:space="preserve"><value>Suggerimenti e segnalazioni bug</value></data>
+  <data name="Feedback.Title" xml:space="preserve"><value>Aiutaci a migliorare Know The City</value></data>
+  <data name="Feedback.Subtitle" xml:space="preserve"><value>Puoi chiedere nuove funzionalità, nuove città, segnalare bug o imprecisioni nelle immagini e/o nei nomi.</value></data>
+  <data name="Feedback.FeatureRequests.Title" xml:space="preserve"><value>Nuove funzionalità e città</value></data>
+  <data name="Feedback.FeatureRequests.Text" xml:space="preserve"><value>Dicci quale funzionalità vorresti o quale città dovremmo aggiungere.</value></data>
+  <data name="Feedback.BugReports.Title" xml:space="preserve"><value>Bug e imprecisioni</value></data>
+  <data name="Feedback.BugReports.Text" xml:space="preserve"><value>Segnala problemi dell'app, nomi errati dei monumenti o immagini non corrette per aiutarci a risolvere rapidamente.</value></data>
+  <data name="Feedback.EmailLabel" xml:space="preserve"><value>Invia il tuo messaggio a</value></data>
+  <data name="Feedback.EmailValue" xml:space="preserve"><value>thecsharpacademy@gmail.com</value></data>
+  <data name="Feedback.EmailButton" xml:space="preserve"><value>Invia email</value></data>
+  <data name="Feedback.Note" xml:space="preserve"><value>Il tuo feedback ci aiuta a dare priorità a cosa sviluppare e correggere per primo.</value></data>
+</root>

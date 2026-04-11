@@ -29,26 +29,19 @@
             </MudStack>
         </MudPaper>
 
-        <MudGrid Class="mb-4">
-            <MudItem xs="4">
-                <MudPaper Elevation="0" Class="endgame-stat-card endgame-stat-card-score pa-4">
-                    <MudText Typo="Typo.overline" Class="endgame-stat-label">@Localizer["EndGame.ScoreLabel"]</MudText>
-                    <MudText Typo="Typo.h4" Class="endgame-stat-value">@_gameResult.CorrectCount/@_gameResult.TotalCount</MudText>
-                </MudPaper>
-            </MudItem>
-            <MudItem xs="4">
-                <MudPaper Elevation="0" Class="endgame-stat-card endgame-stat-card-accuracy pa-4">
-                    <MudText Typo="Typo.overline" Class="endgame-stat-label">@Localizer["EndGame.AccuracyLabel"]</MudText>
-                    <MudText Typo="Typo.h4" Class="endgame-stat-value">@GetAccuracyText()</MudText>
-                </MudPaper>
-            </MudItem>
-            <MudItem xs="4">
-                <MudPaper Elevation="0" Class="endgame-stat-card endgame-stat-card-city pa-4">
-                    <MudText Typo="Typo.overline" Class="endgame-stat-label">@Localizer["EndGame.CityLabel"]</MudText>
-                    <MudText Typo="Typo.h6" Class="endgame-stat-value">@CityDisplayName</MudText>
-                </MudPaper>
-            </MudItem>
-        </MudGrid>
+        <MudStack Row="true" Wrap="Wrap.Wrap" Spacing="2" Class="mb-4">
+            <MudChip T="string" Class="brand-chip brand-chip-gold" Variant="Variant.Filled">
+                @Localizer["EndGame.ScoreLabel"]: @_gameResult.CorrectCount/@_gameResult.TotalCount
+            </MudChip>
+
+            <MudChip T="string" Class="brand-chip brand-chip-sky" Variant="Variant.Filled">
+                @Localizer["EndGame.AccuracyLabel"]: @GetAccuracyText()
+            </MudChip>
+
+            <MudChip T="string" Class="brand-chip brand-chip-orange" Variant="Variant.Filled">
+                @Localizer["EndGame.CityLabel"]: @CityDisplayName
+            </MudChip>
+        </MudStack>
 
         <MudPaper Elevation="0" Class="endgame-results-shell pa-4">
             <MudText Typo="Typo.h6" Class="endgame-section-title mb-3">

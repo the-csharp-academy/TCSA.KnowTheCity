@@ -186,4 +186,16 @@
   <data name="Study.LandmarkAdded" xml:space="preserve"><value>Landmark added to favorites</value></data>
   <data name="NotFound.Title" xml:space="preserve"><value>Not found</value></data>
   <data name="NotFound.Text" xml:space="preserve"><value>Sorry, the content you are looking for does not exist.</value></data>
+  <data name="Feedback.Nav" xml:space="preserve"><value>Feedback</value></data>
+  <data name="Feedback.Tag" xml:space="preserve"><value>Suggestions and bug reports</value></data>
+  <data name="Feedback.Title" xml:space="preserve"><value>Help us improve Know The City</value></data>
+  <data name="Feedback.Subtitle" xml:space="preserve"><value>You can ask for new features, request new cities, report bugs, or report inaccuracies in landmark pictures and/or names.</value></data>
+  <data name="Feedback.FeatureRequests.Title" xml:space="preserve"><value>New features and cities</value></data>
+  <data name="Feedback.FeatureRequests.Text" xml:space="preserve"><value>Tell us what feature you want next, or which city you would like to see added.</value></data>
+  <data name="Feedback.BugReports.Title" xml:space="preserve"><value>Bugs and inaccuracies</value></data>
+  <data name="Feedback.BugReports.Text" xml:space="preserve"><value>Report app issues, incorrect landmark names, or picture mismatches so we can fix them quickly.</value></data>
+  <data name="Feedback.EmailLabel" xml:space="preserve"><value>Send your message to</value></data>
+  <data name="Feedback.EmailValue" xml:space="preserve"><value>thecsharpacademy@gmail.com</value></data>
+  <data name="Feedback.EmailButton" xml:space="preserve"><value>Send email</value></data>
+  <data name="Feedback.Note" xml:space="preserve"><value>Your feedback helps us prioritize what to build and fix next.</value></data>
 </root>

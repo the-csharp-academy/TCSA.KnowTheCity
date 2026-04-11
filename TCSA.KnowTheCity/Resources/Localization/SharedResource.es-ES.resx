@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Feedback.Nav" xml:space="preserve"><value>Comentarios</value></data>
+  <data name="Feedback.Tag" xml:space="preserve"><value>Sugerencias y reporte de errores</value></data>
+  <data name="Feedback.Title" xml:space="preserve"><value>Ayúdanos a mejorar Know The City</value></data>
+  <data name="Feedback.Subtitle" xml:space="preserve"><value>Puedes pedir nuevas funciones, solicitar nuevas ciudades, reportar errores o informar inexactitudes en las imágenes y/o nombres.</value></data>
+  <data name="Feedback.FeatureRequests.Title" xml:space="preserve"><value>Nuevas funciones y ciudades</value></data>
+  <data name="Feedback.FeatureRequests.Text" xml:space="preserve"><value>Cuéntanos qué función te gustaría ver o qué ciudad deberíamos añadir.</value></data>
+  <data name="Feedback.BugReports.Title" xml:space="preserve"><value>Errores e inexactitudes</value></data>
+  <data name="Feedback.BugReports.Text" xml:space="preserve"><value>Reporta fallos de la app, nombres incorrectos de monumentos o imágenes equivocadas para corregirlos rápido.</value></data>
+  <data name="Feedback.EmailLabel" xml:space="preserve"><value>Envía tu mensaje a</value></data>
+  <data name="Feedback.EmailValue" xml:space="preserve"><value>thecsharpacademy@gmail.com</value></data>
+  <data name="Feedback.EmailButton" xml:space="preserve"><value>Enviar correo</value></data>
+  <data name="Feedback.Note" xml:space="preserve"><value>Tus comentarios nos ayudan a priorizar lo próximo que construiremos y corregiremos.</value></data>
+</root>

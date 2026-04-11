@@ -240,6 +240,16 @@
       "imagePath": "/cities/istambul.webp",
       "dateAdded": "2026-03-28",
       "isActive": true
+    },
+    {
+      "remoteId": "bangkok-th",
+      "name": "Bangkok",
+      "country": "Thailand",
+      "continent": "Asia",
+      "manifestPath": "/manifests/bangkok.json",
+      "imagePath": "/cities/bangkok.webp",
+      "dateAdded": "2026-04-11",
+      "isActive": true
     }
   ]
 }

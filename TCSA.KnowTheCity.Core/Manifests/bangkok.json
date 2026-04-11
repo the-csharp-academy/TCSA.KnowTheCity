@@ -1,0 +1,202 @@
+﻿{
+  "cityRemoteId": "bangkok-th",
+  "version": "1.0",
+  "cityNames": [
+    {
+      "languageCode": "en-US",
+      "name": "Bangkok"
+    },
+    {
+      "languageCode": "es-ES",
+      "name": "Bangkok"
+    },
+    {
+      "languageCode": "pt-BR",
+      "name": "Bangkok"
+    },
+    {
+      "languageCode": "it-IT",
+      "name": "Bangkok"
+    },
+    {
+      "languageCode": "fr-FR",
+      "name": "Bangkok"
+    },
+    {
+      "languageCode": "de-DE",
+      "name": "Bangkok"
+    }
+  ],
+  "monuments": [
+    {
+      "remoteId": "grandpalace",
+      "name": "The Grand Palace",
+      "imagePath": "landmarks/bangkok-grandpalace.webp",
+      "mobileImagePath": "landmarks/bangkok-grandpalace-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "The Grand Palace"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Gran Palacio de Bangkok"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Grande Palácio de Bangkok"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Grande Palazzo Reale di Bangkok"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Grand Palais de Bangkok"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Großer Palast von Bangkok"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "watarun",
+      "name": "Wat Arun",
+      "imagePath": "landmarks/bangkok-watarun.webp",
+      "mobileImagePath": "landmarks/bangkok-watarun-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Wat Arun"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Wat Arun"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Wat Arun"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Wat Arun"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Wat Arun"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Wat Arun"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "watpho",
+      "name": "Wat Pho",
+      "imagePath": "landmarks/bangkok-watpho.webp",
+      "mobileImagePath": "landmarks/bangkok-watpho-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Wat Pho"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Wat Pho"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Wat Pho"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Wat Pho"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Wat Pho"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Wat Pho"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "watphrakaew",
+      "name": "Temple of the Emerald Buddha",
+      "imagePath": "landmarks/bangkok-watphrakaew.webp",
+      "mobileImagePath": "landmarks/bangkok-watphrakaew-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Temple of the Emerald Buddha"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Templo del Buda de Esmeralda"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Templo do Buda de Esmeralda"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Tempio del Buddha di Smeraldo"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Temple du Bouddha d'Émeraude"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Tempel des Smaragd-Buddha"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "chatuchakweekendmarket",
+      "name": "Chatuchak Weekend Market",
+      "imagePath": "landmarks/bangkok-chatuchakweekendmarket.webp",
+      "mobileImagePath": "landmarks/bangkok-chatuchakweekendmarket-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Chatuchak Weekend Market"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Mercado de fin de semana de Chatuchak"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Mercado de fim de semana de Chatuchak"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Mercato del fine settimana di Chatuchak"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Marché du week-end de Chatuchak"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Chatuchak-Wochenendmarkt"
+        }
+      ],
+      "isActive": true
+    }
+  ]
+}

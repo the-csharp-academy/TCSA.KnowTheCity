@@ -1,0 +1,202 @@
+﻿{
+  "cityRemoteId": "singapore-sg",
+  "version": "1.0",
+  "cityNames": [
+    {
+      "languageCode": "en-US",
+      "name": "Singapore"
+    },
+    {
+      "languageCode": "es-ES",
+      "name": "Singapur"
+    },
+    {
+      "languageCode": "pt-BR",
+      "name": "Singapura"
+    },
+    {
+      "languageCode": "it-IT",
+      "name": "Singapore"
+    },
+    {
+      "languageCode": "fr-FR",
+      "name": "Singapour"
+    },
+    {
+      "languageCode": "de-DE",
+      "name": "Singapur"
+    }
+  ],
+  "monuments": [
+    {
+      "remoteId": "marinabaysands",
+      "name": "Marina Bay Sands",
+      "imagePath": "landmarks/singapore-marinabaysands.webp",
+      "mobileImagePath": "landmarks/singapore-marinabaysands-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Marina Bay Sands"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Marina Bay Sands"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Marina Bay Sands"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Marina Bay Sands"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Marina Bay Sands"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Marina Bay Sands"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "gardensbythebay",
+      "name": "Gardens by the Bay",
+      "imagePath": "landmarks/singapore-gardensbythebay.webp",
+      "mobileImagePath": "landmarks/singapore-gardensbythebay-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Gardens by the Bay"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Gardens by the Bay"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Gardens by the Bay"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Gardens by the Bay"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Gardens by the Bay"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Gardens by the Bay"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "merlionpark",
+      "name": "Merlion Park",
+      "imagePath": "landmarks/singapore-merlionpark.webp",
+      "mobileImagePath": "landmarks/singapore-merlionpark-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Merlion Park"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Parque Merlion"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Parque Merlion"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Parco Merlion"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Parc Merlion"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Merlion-Park"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "singaporeflyer",
+      "name": "Singapore Flyer",
+      "imagePath": "landmarks/singapore-singaporeflyer.webp",
+      "mobileImagePath": "landmarks/singapore-singaporeflyer-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Singapore Flyer"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Singapore Flyer"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Singapore Flyer"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Singapore Flyer"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Singapore Flyer"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Singapore Flyer"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "singaporebotanicgardens",
+      "name": "Singapore Botanic Gardens",
+      "imagePath": "landmarks/singapore-singaporebotanicgardens.webp",
+      "mobileImagePath": "landmarks/singapore-singaporebotanicgardens-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Singapore Botanic Gardens"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Jardines Botánicos de Singapur"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Jardins Botânicos de Singapura"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Giardini Botanici di Singapore"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Jardins botaniques de Singapour"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Botanische Gärten von Singapur"
+        }
+      ],
+      "isActive": true
+    }
+  ]
+}

@@ -1,0 +1,202 @@
+﻿{
+  "cityRemoteId": "kualalumpur-my",
+  "version": "1.0",
+  "cityNames": [
+    {
+      "languageCode": "en-US",
+      "name": "Kuala Lumpur"
+    },
+    {
+      "languageCode": "es-ES",
+      "name": "Kuala Lumpur"
+    },
+    {
+      "languageCode": "pt-BR",
+      "name": "Kuala Lumpur"
+    },
+    {
+      "languageCode": "it-IT",
+      "name": "Kuala Lumpur"
+    },
+    {
+      "languageCode": "fr-FR",
+      "name": "Kuala Lumpur"
+    },
+    {
+      "languageCode": "de-DE",
+      "name": "Kuala Lumpur"
+    }
+  ],
+  "monuments": [
+    {
+      "remoteId": "petronastwintowers",
+      "name": "Petronas Twin Towers",
+      "imagePath": "landmarks/kualalumpur-petronastwintowers.webp",
+      "mobileImagePath": "landmarks/kualalumpur-petronastwintowers-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Petronas Twin Towers"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Torres Gemelas Petronas"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Torres Gêmeas Petronas"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Torri Gemelle Petronas"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Tours jumelles Petronas"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Petronas-Zwillingstürme"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "kltower",
+      "name": "KL Tower",
+      "imagePath": "landmarks/kualalumpur-kltower.webp",
+      "mobileImagePath": "landmarks/kualalumpur-kltower-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "KL Tower"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Torre KL"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Torre KL"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Torre KL"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Tour KL"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "KL Tower"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "batucaves",
+      "name": "Batu Caves",
+      "imagePath": "landmarks/kualalumpur-batucaves.webp",
+      "mobileImagePath": "landmarks/kualalumpur-batucaves-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Batu Caves"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Cuevas de Batu"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Cavernas de Batu"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Grotte di Batu"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Grottes de Batu"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Batu-Höhlen"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "sultanabdulsamadbuilding",
+      "name": "Sultan Abdul Samad Building",
+      "imagePath": "landmarks/kualalumpur-sultanabdulsamadbuilding.webp",
+      "mobileImagePath": "landmarks/kualalumpur-sultanabdulsamadbuilding-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Sultan Abdul Samad Building"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Edificio Sultan Abdul Samad"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Edifício Sultan Abdul Samad"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Edificio Sultan Abdul Samad"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Bâtiment Sultan Abdul Samad"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Sultan-Abdul-Samad-Gebäude"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "merdekasquare",
+      "name": "Merdeka Square",
+      "imagePath": "landmarks/kualalumpur-merdekasquare.webp",
+      "mobileImagePath": "landmarks/kualalumpur-merdekasquare-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Merdeka Square"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Plaza Merdeka"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Praça Merdeka"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Piazza Merdeka"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Place Merdeka"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Merdeka-Platz"
+        }
+      ],
+      "isActive": true
+    }
+  ]
+}

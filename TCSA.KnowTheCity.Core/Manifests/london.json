@@ -81,12 +81,98 @@
       "mobileImagePath": "landmarks/london-toweroflondon-mobile.webp",
       "imageVersion": "1",
       "names": [
-        { "languageCode": "en-US", "name": "Tower of London" },
-        { "languageCode": "es-ES", "name": "Torre de Londres" },
-        { "languageCode": "pt-BR", "name": "Torre de Londres" },
-        { "languageCode": "it-IT", "name": "Torre di Londra" },
-        { "languageCode": "fr-FR", "name": "Tour de Londres" },
-        { "languageCode": "de-DE", "name": "Tower of London" }
+        {
+          "languageCode": "en-US",
+          "name": "Tower of London"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Torre de Londres"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Torre de Londres"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Torre di Londra"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Tour de Londres"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Tower of London"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "stpaulscathedral",
+      "name": "St Paul's Cathedral",
+      "imagePath": "landmarks/london-stpaulscathedral.webp",
+      "mobileImagePath": "landmarks/london-stpaulscathedral-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "St Paul's Cathedral"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Catedral de San Pablo"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Catedral de São Paulo"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Cattedrale di San Paolo"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Cathédrale Saint-Paul"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "St.-Pauls-Kathedrale"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "westminsterabbey",
+      "name": "Westminster Abbey",
+      "imagePath": "landmarks/london-westminsterabbey.webp",
+      "mobileImagePath": "landmarks/london-westminsterabbey-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Westminster Abbey"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Abadía de Westminster"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Abadia de Westminster"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Abbazia di Westminster"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Abbaye de Westminster"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Westminster Abbey"
+        }
       ],
       "isActive": true
     }

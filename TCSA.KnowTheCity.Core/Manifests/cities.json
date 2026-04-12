@@ -250,6 +250,26 @@
       "imagePath": "/cities/bangkok.webp",
       "dateAdded": "2026-04-11",
       "isActive": true
+    },
+    {
+      "remoteId": "kualalumpur-my",
+      "name": "Kuala Lumpur",
+      "country": "Malaysia",
+      "continent": "Asia",
+      "manifestPath": "/manifests/kualalumpur.json",
+      "imagePath": "/cities/kualalumpur.webp",
+      "dateAdded": "2026-04-12",
+      "isActive": true
+    },
+    {
+      "remoteId": "singapore-sg",
+      "name": "Singapore",
+      "country": "Singapore",
+      "continent": "Asia",
+      "manifestPath": "/manifests/singapore.json",
+      "imagePath": "/cities/singapore.webp",
+      "dateAdded": "2026-04-13",
+      "isActive": true
     }
   ]
 }

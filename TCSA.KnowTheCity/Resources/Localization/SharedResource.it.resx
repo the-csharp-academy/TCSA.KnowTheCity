@@ -67,7 +67,6 @@
   <data name="Instructions.Title" xml:space="preserve"><value>Impara a giocare in meno di un minuto</value></data>
   <data name="Instructions.Subtitle" xml:space="preserve"><value>Sfoglia le città, usa la ricerca per trovare più velocemente il posto giusto, studia i monumenti prima di un quiz e salva i preferiti per poterli ripassare in seguito.</value></data>
   <data name="Instructions.ChooseCity" xml:space="preserve"><value>Scegli una città</value></data>
-  <data name="Instructions.StudyFirst" xml:space="preserve"><value>Studia prima</value></data>
   <data name="Instructions.OpenFavorites" xml:space="preserve"><value>Apri i preferiti</value></data>
   <data name="Instructions.HowToPlay.Title" xml:space="preserve"><value>Come si gioca</value></data>
   <data name="Instructions.HowToPlay.Subtitle" xml:space="preserve"><value>Avvia subito un quiz o fai prima un riscaldamento in modalità Studio.</value></data>

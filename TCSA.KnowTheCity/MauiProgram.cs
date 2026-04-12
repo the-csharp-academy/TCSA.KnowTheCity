@@ -1,10 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Components.WebView.Maui;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using MudBlazor.Services;
 using TCSA.KnowTheCity.Core.Clients;
 using TCSA.KnowTheCity.Core.Data;
-using TCSA.KnowTheCity.Core.Helpers;
 using TCSA.KnowTheCity.Core.Options;
 using TCSA.KnowTheCity.Core.Services;
 using TCSA.KnowTheCity.Localization;
@@ -74,6 +74,19 @@ public static class MauiProgram
         builder.Logging.AddDebug();
 #endif
 
+#if ANDROID
+        builder.Services.AddBlazorWebViewDeveloperTools();
+        builder.Logging.AddDebug();
+
+        BlazorWebViewHandler.BlazorWebViewMapper.AppendToMapping("EnableZoom", (handler, view) =>
+        {
+            var webView = handler.PlatformView;
+            webView.Settings.SetSupportZoom(true);
+            webView.Settings.BuiltInZoomControls = true;
+            webView.Settings.DisplayZoomControls = false;
+        });
+#endif
+
         var app = builder.Build();
 
         app.Services.GetRequiredService<AppLocalizationService>().Initialize();
@@ -86,18 +99,6 @@ public static class MauiProgram
         //db.Database.EnsureDeleted();
         db.Database.EnsureCreated();
 
-        //SeedCatalog(db);
-
         return app;
-    }
-
-    private static void SeedCatalog(KnowTheCityDbContext db)
-    {
-        if (db.Cities.Any())
-            return;
-
-        db.Configurations.Add(new() { LastSync = new DateTime(2026, 1, 1) });
-        db.Cities.AddRange(CityDataHelper.SeedData);
-        db.SaveChanges();
     }
 }

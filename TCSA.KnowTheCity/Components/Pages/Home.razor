@@ -34,10 +34,14 @@
         </div>
     </MudPaper>
 
-     @if (_isLoading)
-     {
-        <MudProgressLinear Indeterminate="true" Color="Color.Info" Class="mb-4" />
-     }
+    @if (_isLoading)
+    {
+        <div class="home-loading-overlay" role="status" aria-live="polite" aria-busy="true">
+            <div class="home-loading-bar">
+                <MudProgressLinear Indeterminate="true" Color="Color.Info" />
+            </div>
+        </div>
+    }
 
     <MudPaper Elevation="0" Class="mb-6 pa-4">
         <MudGrid Spacing="2">
@@ -182,7 +186,7 @@
     private string _citySearchTerm = string.Empty;
     private Country? _selectedCountry;
     private Continent? _selectedContinent;
-    private bool _isLoading;
+    private bool _isLoading = true;
     private int _totalCityCount;
     private int _totalLandmarkCount;
 
@@ -213,6 +217,7 @@
     private async Task LoadCitiesAsync()
     {
         _isLoading = true;
+        await InvokeAsync(StateHasChanged);
 
         try
         {
@@ -306,3 +311,19 @@
 
     private void NavigateToQuiz(int cityId) => Navigation.NavigateTo($"quiz/{cityId}");
 }
+
+<style>
+    .home-loading-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 1400;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.25);
+    }
+
+    .home-loading-bar {
+        width: min(560px, 80vw);
+    }
+</style>

@@ -1,0 +1,202 @@
+﻿{
+  "cityRemoteId": "seoul-kr",
+  "version": "1.0",
+  "cityNames": [
+    {
+      "languageCode": "en-US",
+      "name": "Seoul"
+    },
+    {
+      "languageCode": "es-ES",
+      "name": "Seúl"
+    },
+    {
+      "languageCode": "pt-BR",
+      "name": "Seul"
+    },
+    {
+      "languageCode": "it-IT",
+      "name": "Seul"
+    },
+    {
+      "languageCode": "fr-FR",
+      "name": "Séoul"
+    },
+    {
+      "languageCode": "de-DE",
+      "name": "Seoul"
+    }
+  ],
+  "monuments": [
+    {
+      "remoteId": "gyeongbokgungpalace",
+      "name": "Gyeongbokgung Palace",
+      "imagePath": "landmarks/seoul-gyeongbokgungpalace.webp",
+      "mobileImagePath": "landmarks/seoul-gyeongbokgungpalace-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Gyeongbokgung Palace"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Palacio Gyeongbokgung"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Palácio Gyeongbokgung"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Palazzo Gyeongbokgung"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Palais Gyeongbokgung"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Gyeongbokgung-Palast"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "nseoultower",
+      "name": "N Seoul Tower",
+      "imagePath": "landmarks/seoul-nseoultower.webp",
+      "mobileImagePath": "landmarks/seoul-nseoultower-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "N Seoul Tower"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Torre N de Seúl"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Torre N de Seul"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Torre N di Seul"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Tour N de Séoul"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "N Seoul Tower"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "bukchonhanokvillage",
+      "name": "Bukchon Hanok Village",
+      "imagePath": "landmarks/seoul-bukchonhanokvillage.webp",
+      "mobileImagePath": "landmarks/seoul-bukchonhanokvillage-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Bukchon Hanok Village"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Aldea Tradicional de Bukchon"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Vila Hanok de Bukchon"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Villaggio Hanok di Bukchon"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Village Hanok de Bukchon"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Bukchon-Hanok-Dorf"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "changdeokgungpalace",
+      "name": "Changdeokgung Palace",
+      "imagePath": "landmarks/seoul-changdeokgungpalace.webp",
+      "mobileImagePath": "landmarks/seoul-changdeokgungpalace-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Changdeokgung Palace"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Palacio Changdeokgung"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Palácio Changdeokgung"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Palazzo Changdeokgung"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Palais Changdeokgung"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Changdeokgung-Palast"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "dongdaemundesignplaza",
+      "name": "Dongdaemun Design Plaza",
+      "imagePath": "landmarks/seoul-dongdaemundesignplaza.webp",
+      "mobileImagePath": "landmarks/seoul-dongdaemundesignplaza-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Dongdaemun Design Plaza"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Dongdaemun Design Plaza"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Dongdaemun Design Plaza"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Dongdaemun Design Plaza"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Dongdaemun Design Plaza"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Dongdaemun Design Plaza"
+        }
+      ],
+      "isActive": true
+    }
+  ]
+}

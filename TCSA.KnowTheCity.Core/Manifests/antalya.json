@@ -1,0 +1,202 @@
+﻿{
+  "cityRemoteId": "antalya-tr",
+  "version": "1.0",
+  "cityNames": [
+    {
+      "languageCode": "en-US",
+      "name": "Antalya"
+    },
+    {
+      "languageCode": "es-ES",
+      "name": "Antalya"
+    },
+    {
+      "languageCode": "pt-BR",
+      "name": "Antalya"
+    },
+    {
+      "languageCode": "it-IT",
+      "name": "Antalya"
+    },
+    {
+      "languageCode": "fr-FR",
+      "name": "Antalya"
+    },
+    {
+      "languageCode": "de-DE",
+      "name": "Antalya"
+    }
+  ],
+  "monuments": [
+    {
+      "remoteId": "kaleicioldtown",
+      "name": "Kaleiçi Old Town",
+      "imagePath": "landmarks/antalya-kaleicioldtown.webp",
+      "mobileImagePath": "landmarks/antalya-kaleicioldtown-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Kaleiçi Old Town"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Casco antiguo de Kaleiçi"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Centro histórico de Kaleiçi"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Centro storico di Kaleiçi"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Vieille ville de Kaleiçi"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Altstadt von Kaleiçi"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "hadriansgate",
+      "name": "Hadrian's Gate",
+      "imagePath": "landmarks/antalya-hadriansgate.webp",
+      "mobileImagePath": "landmarks/antalya-hadriansgate-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Hadrian's Gate"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Puerta de Adriano"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Portão de Adriano"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Porta di Adriano"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Porte d'Hadrien"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Hadrianstor"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "yivliminaret",
+      "name": "Yivli Minaret",
+      "imagePath": "landmarks/antalya-yivliminaret.webp",
+      "mobileImagePath": "landmarks/antalya-yivliminaret-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Yivli Minaret"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Minarete Yivli"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Minarete Yivli"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Minareto Yivli"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Minaret Yivli"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Yivli-Minarett"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "dudenwaterfalls",
+      "name": "Düden Waterfalls",
+      "imagePath": "landmarks/antalya-dudenwaterfalls.webp",
+      "mobileImagePath": "landmarks/antalya-dudenwaterfalls-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Düden Waterfalls"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Cascadas de Düden"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Cachoeiras de Düden"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Cascate di Düden"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Chutes de Düden"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Düden-Wasserfälle"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "konyaaltibeach",
+      "name": "Konyaaltı Beach",
+      "imagePath": "landmarks/antalya-konyaaltibeach.webp",
+      "mobileImagePath": "landmarks/antalya-konyaaltibeach-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Konyaaltı Beach"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Playa de Konyaaltı"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Praia de Konyaaltı"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Spiaggia di Konyaaltı"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Plage de Konyaaltı"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Konyaaltı-Strand"
+        }
+      ],
+      "isActive": true
+    }
+  ]
+}

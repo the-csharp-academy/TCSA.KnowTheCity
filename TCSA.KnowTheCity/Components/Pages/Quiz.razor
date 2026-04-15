@@ -1,6 +1,5 @@
 @page "/quiz/favorites"
 @page "/quiz/{CityId:int}"
-@using System.Timers
 @using TCSA.KnowTheCity.Core.Helpers
 @using TCSA.KnowTheCity.Core.Models
 @using TCSA.KnowTheCity.Core.Models.Domain
@@ -32,64 +31,6 @@ else if (!_quizFinished && _quizLandmarks.Count > 0 && _currentIndex < _quizLand
                     </MudAlert>
                 }
             </MudStack>
-
-            <MudProgressLinear Color="@(_timeRemaining <= 10 ? Color.Error : Color.Primary)"
-                               Value="@((_timeRemaining / 60.0) * 100)"
-                               Class="@(_timeRemaining <= 10 ? "mb-4 quiz-progress-danger" : "mb-4 quiz-progress")"
-                               Rounded="true"
-                               Size="Size.Large" />
-
-            <MudPaper Elevation="0" Class="quiz-question-banner pa-4 mb-4">
-                <MudHidden Breakpoint="Breakpoint.MdAndUp">
-                    <MudStack Spacing="2" Justify="Justify.Center" AlignItems="AlignItems.Center" Wrap="Wrap.Wrap" Class="mb-3">
-                        <MudText Typo="Typo.h4" Class="study-landmark-title">
-                            @_quizTitle
-                        </MudText>
-                    </MudStack>
-                </MudHidden>
-                <MudStack Row="true" Spacing="2" AlignItems="AlignItems.Center" Wrap="Wrap.Wrap">
-                    <MudHidden Breakpoint="Breakpoint.SmAndDown">
-                        <MudChip T="string"
-                                 Class="quiz-city-chip"
-                                 Variant="Variant.Filled"
-                                 Size="Size.Large">
-                            @_quizTitle
-                        </MudChip>
-                    </MudHidden>
-
-                    @if (IsFavoritesQuiz)
-                    {
-                        <MudChip T="string"
-                                 Class="quiz-city-chip"
-                                 Variant="Variant.Filled"
-                                 Size="Size.Large">
-                            @CurrentLandmark.CityName
-                        </MudChip>
-                    }
-
-                    <MudChip T="string"
-                             Class="quiz-stage-chip"
-                             Variant="Variant.Filled"
-                             Size="Size.Large">
-                        @Localizer["Quiz.Progress", _currentIndex + 1, _quizLandmarks.Count]
-                    </MudChip>
-
-                    <MudChip T="string"
-                             Class="quiz-score-chip"
-                             Variant="Variant.Filled"
-                             Size="Size.Large">
-                        @Localizer["Quiz.Score", _correctCount]
-                    </MudChip>
-
-                    <MudChip T="string"
-                             Class="@(_timeRemaining <= 10 ? "quiz-timer-chip-danger" : "quiz-timer-chip")"
-                             Variant="Variant.Filled"
-                             Icon="@Icons.Material.Filled.Timer"
-                             Size="Size.Large">
-                        @TimeSpan.FromSeconds(_timeRemaining).ToString("m\\:ss")
-                    </MudChip>
-                </MudStack>
-            </MudPaper>
 
             <div class="quiz-image-frame mb-4">
                 @if (_cachedImagePaths.TryGetValue(GetImageCacheKey(CurrentLandmark), out var imgData) && !string.IsNullOrEmpty(imgData))
@@ -185,11 +126,9 @@ else
     private string _currentGuess = string.Empty;
     private string _feedbackMessage = string.Empty;
     private Severity _feedbackSeverity = Severity.Info;
-    private int _timeRemaining = 60;
     private bool _quizFinished;
     private bool _isLoading = true;
     private int _imagesLoaded;
-    private Timer? _timer;
     private CancellationTokenSource _cts = new();
 
     private bool IsFavoritesQuiz => !CityId.HasValue;
@@ -207,9 +146,6 @@ else
         await _cts.CancelAsync();
         _cts.Dispose();
 
-        _timer?.Stop();
-        _timer?.Dispose();
-
         _cts = new();
         _quizLandmarks = [];
         _results = [];
@@ -221,7 +157,6 @@ else
         _currentGuess = string.Empty;
         _feedbackMessage = string.Empty;
         _feedbackSeverity = Severity.Info;
-        _timeRemaining = 60;
         _quizFinished = false;
         _isLoading = true;
         _imagesLoaded = 0;
@@ -276,17 +211,9 @@ else
         if (_quizLandmarks.Count > 0)
         {
             await CacheAllImagesAsync();
-            StartTimer();
         }
 
         _isLoading = false;
-    }
-
-    private void StartTimer()
-    {
-        _timer = new Timer(1000);
-        _timer.Elapsed += OnTimerElapsed;
-        _timer.Start();
     }
 
     private async Task CacheAllImagesAsync()
@@ -326,19 +253,6 @@ else
     private static string GetImageCacheKey(QuizLandmarkItem landmark)
     {
         return $"{landmark.CityId}:{landmark.Landmark.Id}";
-    }
-
-    private async void OnTimerElapsed(object? sender, ElapsedEventArgs e)
-    {
-        if (_quizFinished)
-            return;
-
-        _timeRemaining--;
-
-        if (_timeRemaining <= 0)
-            await InvokeAsync(FinishQuizAsync);
-        else
-            await InvokeAsync(StateHasChanged);
     }
 
     private async void HandleKeyDown(KeyboardEventArgs e)
@@ -420,7 +334,6 @@ else
             return;
 
         _quizFinished = true;
-        _timer?.Stop();
 
         for (var i = _results.Count; i < _quizLandmarks.Count; i++)
         {
@@ -467,8 +380,6 @@ else
     {
         await _cts.CancelAsync();
         _cts.Dispose();
-        _timer?.Stop();
-        _timer?.Dispose();
     }
 
     private static bool IsMatchingLandmarkName(Landmark landmark, string guess)

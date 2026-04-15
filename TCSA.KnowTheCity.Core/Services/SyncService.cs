@@ -403,6 +403,7 @@ public class SyncService(
     {
         var hasChanges = false;
         var imagePath = NormalizePath(manifestItem.ImagePath);
+        var mobileImagePath = NormalizePath(manifestItem.MobileImagePath);
         var dateAdded = manifestItem.DateAdded ?? DefaultManifestDateAdded;
 
         if (!string.Equals(landmark.Name, manifestItem.Name, StringComparison.Ordinal))
@@ -414,6 +415,12 @@ public class SyncService(
         if (!string.Equals(landmark.ImagePath, imagePath, StringComparison.Ordinal))
         {
             landmark.ImagePath = imagePath;
+            hasChanges = true;
+        }
+
+        if (!string.Equals(landmark.MobileImagePath, mobileImagePath, StringComparison.Ordinal))
+        {
+            landmark.MobileImagePath = mobileImagePath;
             hasChanges = true;
         }
 

@@ -33,9 +33,25 @@ else if (!_quizFinished && _quizLandmarks.Count > 0 && _currentIndex < _quizLand
             </MudStack>
 
             <div class="quiz-image-frame mb-4">
-                @if (_cachedImagePaths.TryGetValue(GetImageCacheKey(CurrentLandmark), out var imgData) && !string.IsNullOrEmpty(imgData))
+                @{
+                    var key = GetImageCacheKey(CurrentLandmark);
+                    _cachedImagePaths.TryGetValue(key, out var desktopImgData);
+                    _cachedMobileImagePaths.TryGetValue(key, out var mobileImgData);
+
+                    var hasDesktop = !string.IsNullOrEmpty(desktopImgData);
+                    var hasMobile = !string.IsNullOrEmpty(mobileImgData);
+                    var fallbackImg = hasDesktop ? desktopImgData : mobileImgData;
+                }
+
+                @if (!string.IsNullOrEmpty(fallbackImg))
                 {
-                    <img src="@imgData" alt='@Localizer["Quiz.ImageAlt"]' class="quiz-image" />
+                    <picture>
+                        @if (hasMobile)
+                        {
+                            <source media="(orientation: portrait)" srcset="@mobileImgData" />
+                        }
+                        <img src="@fallbackImg" alt='@Localizer["Quiz.ImageAlt"]' class="quiz-image" />
+                    </picture>
                 }
                 else
                 {
@@ -43,7 +59,7 @@ else if (!_quizFinished && _quizLandmarks.Count > 0 && _currentIndex < _quizLand
                         <MudProgressCircular Indeterminate="true" Color="Color.Info" Size="Size.Small" />
                     </div>
                 }
-            </div>  
+            </div>
 
             <MudTextField @bind-Value="_currentGuess"
                           Label='@Localizer["Quiz.NameThisLandmark"]'
@@ -119,6 +135,7 @@ else
     private List<QuizLandmarkItem> _quizLandmarks = [];
     private List<GameResultItem> _results = [];
     private Dictionary<string, string> _cachedImagePaths = [];
+    private Dictionary<string, string> _cachedMobileImagePaths = [];
     private string _quizTitle = string.Empty;
     private int _resultCityId;
     private int _currentIndex;
@@ -150,6 +167,7 @@ else
         _quizLandmarks = [];
         _results = [];
         _cachedImagePaths = [];
+        _cachedMobileImagePaths = [];
         _quizTitle = string.Empty;
         _resultCityId = 0;
         _currentIndex = 0;
@@ -220,33 +238,43 @@ else
     {
         foreach (var landmark in _quizLandmarks)
         {
-            var imagePath = landmark.Landmark.ImagePath;
-
-            if (string.IsNullOrWhiteSpace(imagePath))
-            {
-                _cachedImagePaths[GetImageCacheKey(landmark)] = string.Empty;
-                _imagesLoaded++;
-                await InvokeAsync(StateHasChanged);
-                continue;
-            }
+            var key = GetImageCacheKey(landmark);
 
             try
             {
-                var localPath = await ImageCacheService.GetImagePathAsync(imagePath, _cts.Token);
-                _cachedImagePaths[GetImageCacheKey(landmark)] = ImageHelpers.ConvertToBase64DataUri(localPath);
+                _cachedImagePaths[key] = await CacheImageVariantAsync(landmark.Landmark.ImagePath, landmark.Landmark.Name, "desktop");
+                _cachedMobileImagePaths[key] = await CacheImageVariantAsync(landmark.Landmark.MobileImagePath, landmark.Landmark.Name, "mobile");
             }
             catch (OperationCanceledException)
             {
                 return;
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"[Quiz] Failed to cache image for {landmark.Landmark.Name}: {ex.Message}");
-                _cachedImagePaths[GetImageCacheKey(landmark)] = string.Empty;
-            }
 
             _imagesLoaded++;
             await InvokeAsync(StateHasChanged);
+        }
+    }
+
+    private async Task<string> CacheImageVariantAsync(string? imagePath, string landmarkName, string variant)
+    {
+        if (string.IsNullOrWhiteSpace(imagePath))
+        {
+            return string.Empty;
+        }
+
+        try
+        {
+            var localPath = await ImageCacheService.GetImagePathAsync(imagePath, _cts.Token);
+            return ImageHelpers.ConvertToBase64DataUri(localPath);
+        }
+        catch (OperationCanceledException)
+        {
+            throw;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"[Quiz] Failed to cache {variant} image for {landmarkName}: {ex.Message}");
+            return string.Empty;
         }
     }
 

@@ -23,16 +23,7 @@ else if (!_quizFinished && _quizLandmarks.Count > 0 && _currentIndex < _quizLand
 {
     <MudContainer MaxWidth="MaxWidth.Medium" Class="quiz-shell-container">
         <MudPaper Elevation="8" Class="quiz-shell py-4 px-6 rounded-xl overflow-hidden" Style="width:75%;margin:0 auto;">
-            <MudStack Spacing="3" Class="mb-3">
-                @if (!string.IsNullOrEmpty(_feedbackMessage))
-                {
-                    <MudAlert Severity="@_feedbackSeverity" Variant="Variant.Filled" Dense="true">
-                        @_feedbackMessage
-                    </MudAlert>
-                }
-            </MudStack>
-
-            <div class="quiz-image-frame mb-4">
+            <div class="quiz-image-frame mb-4" Style="@GetQuizImageFrameStyle()">
                 @{
                     var key = GetImageCacheKey(CurrentLandmark);
                     _cachedImagePaths.TryGetValue(key, out var desktopImgData);
@@ -61,33 +52,53 @@ else if (!_quizFinished && _quizLandmarks.Count > 0 && _currentIndex < _quizLand
                 }
             </div>
 
-            <MudTextField @bind-Value="_currentGuess"
-                          Label='@Localizer["Quiz.NameThisLandmark"]'
-                          Variant="Variant.Outlined"
-                          Immediate="true"
-                          Class="mb-4"
-                          OnKeyDown="HandleKeyDown" />
+            @if (!_isAnswered)
+            {
+                <MudTextField @bind-Value="_currentGuess"
+                              Label='@Localizer["Quiz.NameThisLandmark"]'
+                              Variant="Variant.Outlined"
+                              Immediate="true"
+                              Class="mb-4"
+                              OnKeyDown="HandleKeyDown" />
 
-            <MudGrid Class="mb-3">
-                <MudItem xs="6">
-                    <MudButton Variant="Variant.Filled"
-                               Color="Color.Primary"
-                               FullWidth="true"
-                               Class="quiz-action-button"
-                               OnClick="SubmitGuess">
-                        @Localizer["Quiz.Answer"]
-                    </MudButton>
-                </MudItem>
-                <MudItem xs="6">
-                    <MudButton Variant="Variant.Filled"
-                               Color="Color.Warning"
-                               FullWidth="true"
-                               Class="quiz-action-button"
-                               OnClick="SkipLandmark">
-                        @Localizer["Quiz.Skip"]
-                    </MudButton>
-                </MudItem>
-            </MudGrid>
+                <MudGrid Class="mb-3">
+                    <MudItem xs="6">
+                        <MudButton Variant="Variant.Filled"
+                                   Color="Color.Primary"
+                                   FullWidth="true"
+                                   Class="quiz-action-button"
+                                   OnClick="SubmitGuess">
+                            @Localizer["Quiz.Answer"]
+                        </MudButton>
+                    </MudItem>
+                    <MudItem xs="6">
+                        <MudButton Variant="Variant.Filled"
+                                   Color="Color.Warning"
+                                   FullWidth="true"
+                                   Class="quiz-action-button"
+                                   OnClick="SkipLandmark">
+                            @Localizer["Quiz.Skip"]
+                        </MudButton>
+                    </MudItem>
+                </MudGrid>
+            }
+            else
+            {
+                <MudAlert Severity="@_feedbackSeverity"
+                          Variant="Variant.Filled"
+                          Dense="true"
+                          Class="mb-4">
+                    @_feedbackMessage
+                </MudAlert>
+
+                <MudButton Variant="Variant.Filled"
+                           Color="@(IsLastLandmark ? Color.Success : Color.Primary)"
+                           FullWidth="true"
+                           Class="quiz-action-button mb-3"
+                           OnClick="MoveToNextAsync">
+                    @(IsLastLandmark ? "Finish" : "Next")
+                </MudButton>
+            }
         </MudPaper>
     </MudContainer>
 }
@@ -152,6 +163,9 @@ else
 
     private QuizLandmarkItem CurrentLandmark => _quizLandmarks[_currentIndex];
 
+    private bool _isAnswered;
+    private bool IsLastLandmark => _quizLandmarks.Count > 0 && _currentIndex == _quizLandmarks.Count - 1;
+
     protected override async Task OnParametersSetAsync()
     {
         await ResetQuizStateAsync();
@@ -178,6 +192,7 @@ else
         _quizFinished = false;
         _isLoading = true;
         _imagesLoaded = 0;
+        _isAnswered = false;
     }
 
     private async Task LoadQuizAsync()
@@ -202,8 +217,8 @@ else
             _quizLandmarks =
             [
                 .. landmarks
-                    .Select(landmark => new QuizLandmarkItem(city.Id, localizedCityName, landmark))
-                    .OrderBy(_ => Random.Shared.Next())
+                .Select(landmark => new QuizLandmarkItem(city.Id, localizedCityName, landmark))
+                .OrderBy(_ => Random.Shared.Next())
             ];
         }
         else
@@ -214,13 +229,13 @@ else
             _quizLandmarks =
             [
                 .. favoriteLandmarks
-                    .Select(favorite => new QuizLandmarkItem(
-                        favorite.CityId,
-                        citiesById.TryGetValue(favorite.CityId, out var city)
-                            ? city.GetLocalizedName()
-                            : favorite.CityId.ToString(),
-                        favorite.Landmark))
-                    .OrderBy(_ => Random.Shared.Next())
+                .Select(favorite => new QuizLandmarkItem(
+                    favorite.CityId,
+                    citiesById.TryGetValue(favorite.CityId, out var city)
+                        ? city.GetLocalizedName()
+                        : favorite.CityId.ToString(),
+                    favorite.Landmark))
+                .OrderBy(_ => Random.Shared.Next())
             ];
 
             _resultCityId = _quizLandmarks.FirstOrDefault()?.CityId ?? 0;
@@ -285,13 +300,21 @@ else
 
     private async void HandleKeyDown(KeyboardEventArgs e)
     {
-        if (e.Key == "Enter")
-            await SubmitGuess();
+        if (e.Key != "Enter")
+            return;
+
+        if (_isAnswered)
+        {
+            await MoveToNextAsync();
+            return;
+        }
+
+        await SubmitGuess();
     }
 
     private async Task SubmitGuess()
     {
-        if (string.IsNullOrWhiteSpace(_currentGuess) || _quizFinished)
+        if (string.IsNullOrWhiteSpace(_currentGuess) || _quizFinished || _isAnswered)
             return;
 
         var expected = CurrentLandmark;
@@ -306,7 +329,7 @@ else
             _feedbackMessage = IsFavoritesQuiz
                 ? Localizer["Quiz.Feedback.CorrectWithCity", localizedLandmarkName, expected.CityName].Value
                 : Localizer["Quiz.Feedback.Correct", localizedLandmarkName].Value;
-            _feedbackSeverity = Severity.Success;
+            _feedbackSeverity = Severity.Success; // green
         }
         else
         {
@@ -324,11 +347,16 @@ else
         }
 
         _currentGuess = string.Empty;
-        await MoveToNextAsync();
+        _isAnswered = true;
+
+        await Task.CompletedTask;
     }
 
     private async Task SkipLandmark()
     {
+        if (_quizFinished || _isAnswered)
+            return;
+
         var expected = CurrentLandmark;
         var localizedLandmarkName = expected.Landmark.GetLocalizedName();
 
@@ -344,16 +372,32 @@ else
             : Localizer["Quiz.Feedback.Skipped", localizedLandmarkName].Value;
         _feedbackSeverity = Severity.Error;
         _currentGuess = string.Empty;
+        _isAnswered = true;
 
-        await MoveToNextAsync();
+        await Task.CompletedTask;
     }
 
     private async Task MoveToNextAsync()
     {
-        _currentIndex++;
+        if (_quizFinished || !_isAnswered)
+            return;
 
-        if (_currentIndex >= _quizLandmarks.Count)
+        if (IsLastLandmark)
+        {
             await FinishQuizAsync();
+            return;
+        }
+
+        _currentIndex++;
+        ResetCurrentQuestionState();
+    }
+
+    private void ResetCurrentQuestionState()
+    {
+        _currentGuess = string.Empty;
+        _feedbackMessage = string.Empty;
+        _feedbackSeverity = Severity.Info;
+        _isAnswered = false;
     }
 
     private async Task FinishQuizAsync()
@@ -432,6 +476,20 @@ else
         }
 
         return false;
+    }
+
+    private string? GetQuizImageFrameStyle()
+    {
+        if (!_isAnswered)
+        {
+            return null;
+        }
+
+        // Requested mapping:
+        // Correct => red, Wrong/Skipped => green
+        return _feedbackSeverity == Severity.Success
+            ? "border-color:#2e7d32 !important; box-shadow:0 0 0 2px rgba(46,125,50,.35), 0 14px 28px rgba(17,20,95,.12);"
+            : "border-color:#e84a1c !important; box-shadow:0 0 0 2px rgba(232,74,28,.35), 0 14px 28px rgba(17,20,95,.12);";
     }
 
     private sealed record QuizLandmarkItem(int CityId, string CityName, Landmark Landmark);

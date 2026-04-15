@@ -12,7 +12,7 @@ public static class AppTheme
             Secondary = "#0F6CC7",
             Tertiary = "#F9DD1F",
             Info = "#2BB7F1",
-            Success = "#0F6CC7",
+            Success = "#2E7D32",
             Warning = "#F49A12",
             Error = "#E84A1C",
             Background = "#F5E8C9",

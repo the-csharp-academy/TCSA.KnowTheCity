@@ -270,6 +270,66 @@
       "imagePath": "/cities/singapore.webp",
       "dateAdded": "2026-04-13",
       "isActive": true
+    },
+    {
+      "remoteId": "newdelhi-in",
+      "name": "New Delhi",
+      "country": "India",
+      "continent": "Asia",
+      "manifestPath": "/manifests/newdelhi.json",
+      "imagePath": "/cities/newdelhi.webp",
+      "dateAdded": "2026-04-05",
+      "isActive": true
+    },
+    {
+      "remoteId": "seoul-kr",
+      "name": "Seoul",
+      "country": "SouthKorea",
+      "continent": "Asia",
+      "manifestPath": "/manifests/seoul.json",
+      "imagePath": "/cities/seoul.webp",
+      "dateAdded": "2026-04-14",
+      "isActive": true
+    },
+    {
+      "remoteId": "antalya-tr",
+      "name": "Antalya",
+      "country": "Turkey",
+      "continent": "Asia",
+      "manifestPath": "/manifests/antalya.json",
+      "imagePath": "/cities/antalya.webp",
+      "dateAdded": "2026-04-14",
+      "isActive": true
+    },
+    {
+      "remoteId": "barcelona-es",
+      "name": "Barcelona",
+      "country": "Spain",
+      "continent": "Europe",
+      "manifestPath": "/manifests/barcelona.json",
+      "imagePath": "/cities/barcelona.webp",
+      "dateAdded": "2026-04-18",
+      "isActive": true
+    },
+    {
+      "remoteId": "toronto-ca",
+      "name": "Toronto",
+      "country": "Canada",
+      "continent": "NorthAmerica",
+      "manifestPath": "/manifests/toronto.json",
+      "imagePath": "/cities/toronto.webp",
+      "dateAdded": "2026-04-18",
+      "isActive": true
+    },
+    {
+      "remoteId": "hongkong-hk",
+      "name": "Hong Kong",
+      "country": "HongKong",
+      "continent": "Asia",
+      "manifestPath": "/manifests/hongkong.json",
+      "imagePath": "/cities/hongkong.webp",
+      "dateAdded": "2026-04-20",
+      "isActive": true
     }
   ]
 }

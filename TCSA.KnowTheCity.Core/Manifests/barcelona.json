@@ -1,0 +1,202 @@
+﻿{
+  "cityRemoteId": "barcelona-es",
+  "version": "1.0",
+  "cityNames": [
+    {
+      "languageCode": "en-US",
+      "name": "Barcelona"
+    },
+    {
+      "languageCode": "es-ES",
+      "name": "Barcelona"
+    },
+    {
+      "languageCode": "pt-BR",
+      "name": "Barcelona"
+    },
+    {
+      "languageCode": "it-IT",
+      "name": "Barcellona"
+    },
+    {
+      "languageCode": "fr-FR",
+      "name": "Barcelone"
+    },
+    {
+      "languageCode": "de-DE",
+      "name": "Barcelona"
+    }
+  ],
+  "monuments": [
+    {
+      "remoteId": "sagradafamilia",
+      "name": "Sagrada Família",
+      "imagePath": "landmarks/barcelona-sagradafamilia.webp",
+      "mobileImagePath": "landmarks/barcelona-sagradafamilia-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Sagrada Família"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Sagrada Familia"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Sagrada Família"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Sagrada Família"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Sagrada Família"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Sagrada Família"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "parkguell",
+      "name": "Park Güell",
+      "imagePath": "landmarks/barcelona-parkguell.webp",
+      "mobileImagePath": "landmarks/barcelona-parkguell-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Park Güell"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Parque Güell"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Parque Güell"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Parco Güell"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Parc Güell"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Park Güell"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "casabatllo",
+      "name": "Casa Batlló",
+      "imagePath": "landmarks/barcelona-casabatllo.webp",
+      "mobileImagePath": "landmarks/barcelona-casabatllo-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Casa Batlló"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Casa Batlló"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Casa Batlló"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Casa Batlló"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Casa Batlló"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Casa Batlló"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "larambla",
+      "name": "La Rambla",
+      "imagePath": "landmarks/barcelona-larambla.webp",
+      "mobileImagePath": "landmarks/barcelona-larambla-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "La Rambla"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "La Rambla"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "La Rambla"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "La Rambla"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "La Rambla"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "La Rambla"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "gothicquarter",
+      "name": "Gothic Quarter",
+      "imagePath": "landmarks/barcelona-gothicquarter.webp",
+      "mobileImagePath": "landmarks/barcelona-gothicquarter-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Gothic Quarter"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Barrio Gótico"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Bairro Gótico"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Quartiere Gotico"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Quartier gothique"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Gotisches Viertel"
+        }
+      ],
+      "isActive": true
+    }
+  ]
+}

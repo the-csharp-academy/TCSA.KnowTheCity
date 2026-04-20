@@ -1,0 +1,202 @@
+﻿{
+  "cityRemoteId": "newdelhi-in",
+  "version": "1.0",
+  "cityNames": [
+    {
+      "languageCode": "en-US",
+      "name": "New Delhi"
+    },
+    {
+      "languageCode": "es-ES",
+      "name": "Nueva Delhi"
+    },
+    {
+      "languageCode": "pt-BR",
+      "name": "Nova Délhi"
+    },
+    {
+      "languageCode": "it-IT",
+      "name": "Nuova Delhi"
+    },
+    {
+      "languageCode": "fr-FR",
+      "name": "New Delhi"
+    },
+    {
+      "languageCode": "de-DE",
+      "name": "Neu-Delhi"
+    }
+  ],
+  "monuments": [
+    {
+      "remoteId": "indiagate",
+      "name": "India Gate",
+      "imagePath": "landmarks/newdelhi-indiagate.webp",
+      "mobileImagePath": "landmarks/newdelhi-indiagate-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "India Gate"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Puerta de la India"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Portão da Índia"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Porta dell'India"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "India Gate"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "India Gate"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "qutubminar",
+      "name": "Qutub Minar",
+      "imagePath": "landmarks/newdelhi-qutubminar.webp",
+      "mobileImagePath": "landmarks/newdelhi-qutubminar-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Qutub Minar"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Qutub Minar"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Qutub Minar"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Qutub Minar"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Qutub Minar"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Qutub Minar"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "humayunstomb",
+      "name": "Humayun's Tomb",
+      "imagePath": "landmarks/newdelhi-humayunstomb.webp",
+      "mobileImagePath": "landmarks/newdelhi-humayunstomb-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Humayun's Tomb"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Tumba de Humayun"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Túmulo de Humayun"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Tomba di Humayun"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Tombe de Humayun"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Humayuns Grabmal"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "redfort",
+      "name": "Red Fort",
+      "imagePath": "landmarks/newdelhi-redfort.webp",
+      "mobileImagePath": "landmarks/newdelhi-redfort-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Red Fort"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Fuerte Rojo"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Forte Vermelho"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Forte Rosso"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Fort Rouge"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Rotes Fort"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "lotustemple",
+      "name": "Lotus Temple",
+      "imagePath": "landmarks/newdelhi-lotustemple.webp",
+      "mobileImagePath": "landmarks/newdelhi-lotustemple-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Lotus Temple"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Templo del Loto"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Templo de Lótus"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Tempio del Loto"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Temple du Lotus"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Lotustempel"
+        }
+      ],
+      "isActive": true
+    }
+  ]
+}

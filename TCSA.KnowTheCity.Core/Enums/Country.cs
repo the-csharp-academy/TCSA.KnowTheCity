@@ -76,6 +76,7 @@ public enum Country
     Guyana,
     Haiti,
     HolySee,
+    HongKong,
     Honduras,
     Hungary,
     Iceland,

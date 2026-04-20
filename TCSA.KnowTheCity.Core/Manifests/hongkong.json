@@ -1,0 +1,202 @@
+{
+  "cityRemoteId": "hongkong-hk",
+  "version": "1.0",
+  "cityNames": [
+    {
+      "languageCode": "en-US",
+      "name": "Hong Kong"
+    },
+    {
+      "languageCode": "es-ES",
+      "name": "Hong Kong"
+    },
+    {
+      "languageCode": "pt-BR",
+      "name": "Hong Kong"
+    },
+    {
+      "languageCode": "it-IT",
+      "name": "Hong Kong"
+    },
+    {
+      "languageCode": "fr-FR",
+      "name": "Hong Kong"
+    },
+    {
+      "languageCode": "de-DE",
+      "name": "Hongkong"
+    }
+  ],
+  "monuments": [
+    {
+      "remoteId": "thepeak",
+      "name": "The Peak",
+      "imagePath": "landmarks/hongkong-thepeak.webp",
+      "mobileImagePath": "landmarks/hongkong-thepeak-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "The Peak"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "The Peak"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "The Peak"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "The Peak"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "The Peak"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "The Peak"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "tiantanbuddha",
+      "name": "Tian Tan Buddha",
+      "imagePath": "landmarks/hongkong-tiantanbuddha.webp",
+      "mobileImagePath": "landmarks/hongkong-tiantanbuddha-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Tian Tan Buddha"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Buda Tian Tan"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Buda Tian Tan"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Buddha Tian Tan"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Bouddha Tian Tan"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Tian-Tan-Buddha"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "starferry",
+      "name": "Star Ferry",
+      "imagePath": "landmarks/hongkong-starferry.webp",
+      "mobileImagePath": "landmarks/hongkong-starferry-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Star Ferry"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Star Ferry"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Star Ferry"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Star Ferry"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Star Ferry"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Star Ferry"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "clocktower",
+      "name": "Clock Tower",
+      "imagePath": "landmarks/hongkong-clocktower.webp",
+      "mobileImagePath": "landmarks/hongkong-clocktower-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Clock Tower"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Torre del Reloj"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Torre do Relógio"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Torre dell'Orologio"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Tour de l'Horloge"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Uhrturm"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "wongtaisintemple",
+      "name": "Wong Tai Sin Temple",
+      "imagePath": "landmarks/hongkong-wongtaisintemple.webp",
+      "mobileImagePath": "landmarks/hongkong-wongtaisintemple-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Wong Tai Sin Temple"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Templo Wong Tai Sin"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Templo Wong Tai Sin"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Tempio Wong Tai Sin"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Temple Wong Tai Sin"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Wong-Tai-Sin-Tempel"
+        }
+      ],
+      "isActive": true
+    }
+  ]
+}

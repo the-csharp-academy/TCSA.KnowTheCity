@@ -1,0 +1,202 @@
+﻿{
+  "cityRemoteId": "toronto-ca",
+  "version": "1.0",
+  "cityNames": [
+    {
+      "languageCode": "en-US",
+      "name": "Toronto"
+    },
+    {
+      "languageCode": "es-ES",
+      "name": "Toronto"
+    },
+    {
+      "languageCode": "pt-BR",
+      "name": "Toronto"
+    },
+    {
+      "languageCode": "it-IT",
+      "name": "Toronto"
+    },
+    {
+      "languageCode": "fr-FR",
+      "name": "Toronto"
+    },
+    {
+      "languageCode": "de-DE",
+      "name": "Toronto"
+    }
+  ],
+  "monuments": [
+    {
+      "remoteId": "cntower",
+      "name": "CN Tower",
+      "imagePath": "landmarks/toronto-cntower.webp",
+      "mobileImagePath": "landmarks/toronto-cntower-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "CN Tower"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Torre CN"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Torre CN"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Torre CN"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Tour CN"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "CN Tower"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "casaloma",
+      "name": "Casa Loma",
+      "imagePath": "landmarks/toronto-casaloma.webp",
+      "mobileImagePath": "landmarks/toronto-casaloma-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Casa Loma"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Casa Loma"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Casa Loma"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Casa Loma"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Casa Loma"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Casa Loma"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "royalontariomuseum",
+      "name": "Royal Ontario Museum",
+      "imagePath": "landmarks/toronto-royalontariomuseum.webp",
+      "mobileImagePath": "landmarks/toronto-royalontariomuseum-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Royal Ontario Museum"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Museo Real de Ontario"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Museu Real de Ontário"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Museo Reale dell'Ontario"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Musée royal de l'Ontario"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Royal Ontario Museum"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "stlawrencemarket",
+      "name": "St. Lawrence Market",
+      "imagePath": "landmarks/toronto-stlawrencemarket.webp",
+      "mobileImagePath": "landmarks/toronto-stlawrencemarket-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "St. Lawrence Market"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Mercado de St. Lawrence"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Mercado de St. Lawrence"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Mercato di St. Lawrence"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Marché St-Lawrence"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "St.-Lawrence-Markt"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "distilleryhistoricdistrict",
+      "name": "Distillery Historic District",
+      "imagePath": "landmarks/toronto-distilleryhistoricdistrict.webp",
+      "mobileImagePath": "landmarks/toronto-distilleryhistoricdistrict-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Distillery Historic District"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Distrito Histórico de la Destilería"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Distrito Histórico da Destilaria"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Distretto Storico della Distilleria"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Quartier historique de la Distillerie"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Historisches Distillery District"
+        }
+      ],
+      "isActive": true
+    }
+  ]
+}

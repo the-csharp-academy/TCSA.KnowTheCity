@@ -1,0 +1,202 @@
+﻿{
+  "cityRemoteId": "buenosaires-ar",
+  "version": "1.0",
+  "cityNames": [
+    {
+      "languageCode": "en-US",
+      "name": "Buenos Aires"
+    },
+    {
+      "languageCode": "es-ES",
+      "name": "Buenos Aires"
+    },
+    {
+      "languageCode": "pt-BR",
+      "name": "Buenos Aires"
+    },
+    {
+      "languageCode": "it-IT",
+      "name": "Buenos Aires"
+    },
+    {
+      "languageCode": "fr-FR",
+      "name": "Buenos Aires"
+    },
+    {
+      "languageCode": "de-DE",
+      "name": "Buenos Aires"
+    }
+  ],
+  "monuments": [
+    {
+      "remoteId": "obelisco",
+      "name": "Obelisco",
+      "imagePath": "landmarks/buenosaires-obelisco.webp",
+      "mobileImagePath": "landmarks/buenosaires-obelisco-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Obelisk"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Obelisco"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Obelisco"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Obelisco"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Obélisque"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Obelisk"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "casarosada",
+      "name": "Casa Rosada",
+      "imagePath": "landmarks/buenosaires-casarosada.webp",
+      "mobileImagePath": "landmarks/buenosaires-casarosada-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Casa Rosada"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Casa Rosada"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Casa Rosada"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Casa Rosada"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Casa Rosada"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Casa Rosada"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "teatrocolon",
+      "name": "Teatro Colón",
+      "imagePath": "landmarks/buenosaires-teatrocolon.webp",
+      "mobileImagePath": "landmarks/buenosaires-teatrocolon-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Colón Theatre"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Teatro Colón"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Teatro Colón"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Teatro Colón"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Théâtre Colón"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Teatro Colón"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "caminito",
+      "name": "Caminito",
+      "imagePath": "landmarks/buenosaires-caminito.webp",
+      "mobileImagePath": "landmarks/buenosaires-caminito-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Caminito"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Caminito"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Caminito"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Caminito"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Caminito"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Caminito"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "cementeriodelarecoleta",
+      "name": "Cementerio de la Recoleta",
+      "imagePath": "landmarks/buenosaires-cementeriodelarecoleta.webp",
+      "mobileImagePath": "landmarks/buenosaires-cementeriodelarecoleta-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Recoleta Cemetery"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Cementerio de la Recoleta"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Cemitério da Recoleta"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Cimitero della Recoleta"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Cimetière de la Recoleta"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Friedhof La Recoleta"
+        }
+      ],
+      "isActive": true
+    }
+  ]
+}

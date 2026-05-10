@@ -1,0 +1,94 @@
+﻿{
+  "cityRemoteId": "bogota-co",
+  "version": "1.0",
+  "cityNames": [
+    { "languageCode": "en-US", "name": "Bogotá" },
+    { "languageCode": "es-ES", "name": "Bogotá" },
+    { "languageCode": "pt-BR", "name": "Bogotá" },
+    { "languageCode": "it-IT", "name": "Bogotá" },
+    { "languageCode": "fr-FR", "name": "Bogotá" },
+    { "languageCode": "de-DE", "name": "Bogotá" }
+  ],
+  "monuments": [
+    {
+      "remoteId": "monserrate",
+      "name": "Monserrate",
+      "imagePath": "landmarks/bogota-monserrate.webp",
+      "mobileImagePath": "landmarks/bogota-monserrate-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Monserrate" },
+        { "languageCode": "es-ES", "name": "Monserrate" },
+        { "languageCode": "pt-BR", "name": "Monserrate" },
+        { "languageCode": "it-IT", "name": "Monserrate" },
+        { "languageCode": "fr-FR", "name": "Monserrate" },
+        { "languageCode": "de-DE", "name": "Monserrate" }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "plazabolivar",
+      "name": "Plaza Bolívar",
+      "imagePath": "landmarks/bogota-plazabolivar.webp",
+      "mobileImagePath": "landmarks/bogota-plazabolivar-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Plaza Bolívar" },
+        { "languageCode": "es-ES", "name": "Plaza Bolívar" },
+        { "languageCode": "pt-BR", "name": "Praça Bolívar" },
+        { "languageCode": "it-IT", "name": "Piazza Bolívar" },
+        { "languageCode": "fr-FR", "name": "Place Bolívar" },
+        { "languageCode": "de-DE", "name": "Bolívar-Platz" }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "goldmuseum",
+      "name": "Gold Museum",
+      "imagePath": "landmarks/bogota-goldmuseum.webp",
+      "mobileImagePath": "landmarks/bogota-goldmuseum-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Gold Museum" },
+        { "languageCode": "es-ES", "name": "Museo del Oro" },
+        { "languageCode": "pt-BR", "name": "Museu do Ouro" },
+        { "languageCode": "it-IT", "name": "Museo dell'Oro" },
+        { "languageCode": "fr-FR", "name": "Musée de l'Or" },
+        { "languageCode": "de-DE", "name": "Goldmuseum" }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "lacandelaria",
+      "name": "La Candelaria",
+      "imagePath": "landmarks/bogota-lacandelaria.webp",
+      "mobileImagePath": "landmarks/bogota-lacandelaria-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "La Candelaria" },
+        { "languageCode": "es-ES", "name": "La Candelaria" },
+        { "languageCode": "pt-BR", "name": "La Candelaria" },
+        { "languageCode": "it-IT", "name": "La Candelaria" },
+        { "languageCode": "fr-FR", "name": "La Candelaria" },
+        { "languageCode": "de-DE", "name": "La Candelaria" }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "simonbolivarpark",
+      "name": "Simón Bolívar Park",
+      "imagePath": "landmarks/bogota-simonbolivarpark.webp",
+      "mobileImagePath": "landmarks/bogota-simonbolivarpark-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Simón Bolívar Park" },
+        { "languageCode": "es-ES", "name": "Parque Simón Bolívar" },
+        { "languageCode": "pt-BR", "name": "Parque Simón Bolívar" },
+        { "languageCode": "it-IT", "name": "Parco Simón Bolívar" },
+        { "languageCode": "fr-FR", "name": "Parc Simón Bolívar" },
+        { "languageCode": "de-DE", "name": "Simón-Bolívar-Park" }
+      ],
+      "isActive": true
+    }
+  ]
+}

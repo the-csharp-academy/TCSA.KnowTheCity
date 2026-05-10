@@ -1,0 +1,94 @@
+﻿{
+  "cityRemoteId": "budapest-hu",
+  "version": "1.0",
+  "cityNames": [
+    { "languageCode": "en-US", "name": "Budapest" },
+    { "languageCode": "es-ES", "name": "Budapest" },
+    { "languageCode": "pt-BR", "name": "Budapeste" },
+    { "languageCode": "it-IT", "name": "Budapest" },
+    { "languageCode": "fr-FR", "name": "Budapest" },
+    { "languageCode": "de-DE", "name": "Budapest" }
+  ],
+  "monuments": [
+    {
+      "remoteId": "hungarianparliamentbuilding",
+      "name": "Hungarian Parliament Building",
+      "imagePath": "landmarks/budapest-hungarianparliamentbuilding.webp",
+      "mobileImagePath": "landmarks/budapest-hungarianparliamentbuilding-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Hungarian Parliament Building" },
+        { "languageCode": "es-ES", "name": "Parlamento de Hungría" },
+        { "languageCode": "pt-BR", "name": "Parlamento Húngaro" },
+        { "languageCode": "it-IT", "name": "Parlamento ungherese" },
+        { "languageCode": "fr-FR", "name": "Parlement hongrois" },
+        { "languageCode": "de-DE", "name": "Ungarisches Parlamentsgebäude" }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "budacastle",
+      "name": "Buda Castle",
+      "imagePath": "landmarks/budapest-budacastle.webp",
+      "mobileImagePath": "landmarks/budapest-budacastle-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Buda Castle" },
+        { "languageCode": "es-ES", "name": "Castillo de Buda" },
+        { "languageCode": "pt-BR", "name": "Castelo de Buda" },
+        { "languageCode": "it-IT", "name": "Castello di Buda" },
+        { "languageCode": "fr-FR", "name": "Château de Buda" },
+        { "languageCode": "de-DE", "name": "Burgpalast" }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "fishermansbastion",
+      "name": "Fisherman's Bastion",
+      "imagePath": "landmarks/budapest-fishermansbastion.webp",
+      "mobileImagePath": "landmarks/budapest-fishermansbastion-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Fisherman's Bastion" },
+        { "languageCode": "es-ES", "name": "Bastión de los Pescadores" },
+        { "languageCode": "pt-BR", "name": "Bastião dos Pescadores" },
+        { "languageCode": "it-IT", "name": "Bastione dei Pescatori" },
+        { "languageCode": "fr-FR", "name": "Bastion des pêcheurs" },
+        { "languageCode": "de-DE", "name": "Fischerbastei" }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "ststephensbasilica",
+      "name": "St. Stephen's Basilica",
+      "imagePath": "landmarks/budapest-ststephensbasilica.webp",
+      "mobileImagePath": "landmarks/budapest-ststephensbasilica-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "St. Stephen's Basilica" },
+        { "languageCode": "es-ES", "name": "Basílica de San Esteban" },
+        { "languageCode": "pt-BR", "name": "Basílica de Santo Estêvão" },
+        { "languageCode": "it-IT", "name": "Basilica di Santo Stefano" },
+        { "languageCode": "fr-FR", "name": "Basilique Saint-Étienne" },
+        { "languageCode": "de-DE", "name": "St.-Stephans-Basilika" }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "heroessquare",
+      "name": "Heroes' Square",
+      "imagePath": "landmarks/budapest-heroessquare.webp",
+      "mobileImagePath": "landmarks/budapest-heroessquare-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Heroes' Square" },
+        { "languageCode": "es-ES", "name": "Plaza de los Héroes" },
+        { "languageCode": "pt-BR", "name": "Praça dos Heróis" },
+        { "languageCode": "it-IT", "name": "Piazza degli Eroi" },
+        { "languageCode": "fr-FR", "name": "Place des Héros" },
+        { "languageCode": "de-DE", "name": "Heldenplatz" }
+      ],
+      "isActive": true
+    }
+  ]
+}

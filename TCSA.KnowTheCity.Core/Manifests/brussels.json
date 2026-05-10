@@ -1,0 +1,94 @@
+﻿{
+  "cityRemoteId": "brussels-be",
+  "version": "1.0",
+  "cityNames": [
+    { "languageCode": "en-US", "name": "Brussels" },
+    { "languageCode": "es-ES", "name": "Bruselas" },
+    { "languageCode": "pt-BR", "name": "Bruxelas" },
+    { "languageCode": "it-IT", "name": "Bruxelles" },
+    { "languageCode": "fr-FR", "name": "Bruxelles" },
+    { "languageCode": "de-DE", "name": "Brüssel" }
+  ],
+  "monuments": [
+    {
+      "remoteId": "grandplace",
+      "name": "Grand Place",
+      "imagePath": "landmarks/brussels-grandplace.webp",
+      "mobileImagePath": "landmarks/brussels-grandplace-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Grand Place" },
+        { "languageCode": "es-ES", "name": "Grand Place" },
+        { "languageCode": "pt-BR", "name": "Grand Place" },
+        { "languageCode": "it-IT", "name": "Grand Place" },
+        { "languageCode": "fr-FR", "name": "Grand-Place" },
+        { "languageCode": "de-DE", "name": "Grand-Place" }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "atomium",
+      "name": "Atomium",
+      "imagePath": "landmarks/brussels-atomium.webp",
+      "mobileImagePath": "landmarks/brussels-atomium-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Atomium" },
+        { "languageCode": "es-ES", "name": "Atomium" },
+        { "languageCode": "pt-BR", "name": "Atomium" },
+        { "languageCode": "it-IT", "name": "Atomium" },
+        { "languageCode": "fr-FR", "name": "Atomium" },
+        { "languageCode": "de-DE", "name": "Atomium" }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "cathedralofstmichaelandstgudula",
+      "name": "Cathedral of St. Michael and St. Gudula",
+      "imagePath": "landmarks/brussels-cathedralofstmichaelandstgudula.webp",
+      "mobileImagePath": "landmarks/brussels-cathedralofstmichaelandstgudula-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Cathedral of St. Michael and St. Gudula" },
+        { "languageCode": "es-ES", "name": "Catedral de San Miguel y Santa Gúdula" },
+        { "languageCode": "pt-BR", "name": "Catedral de São Miguel e Santa Gúdula" },
+        { "languageCode": "it-IT", "name": "Cattedrale di San Michele e Santa Gudula" },
+        { "languageCode": "fr-FR", "name": "Cathédrale Saints-Michel-et-Gudule" },
+        { "languageCode": "de-DE", "name": "Kathedrale St. Michael und St. Gudula" }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "royalpalaceofbrussels",
+      "name": "Royal Palace of Brussels",
+      "imagePath": "landmarks/brussels-royalpalaceofbrussels.webp",
+      "mobileImagePath": "landmarks/brussels-royalpalaceofbrussels-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Royal Palace of Brussels" },
+        { "languageCode": "es-ES", "name": "Palacio Real de Bruselas" },
+        { "languageCode": "pt-BR", "name": "Palácio Real de Bruxelas" },
+        { "languageCode": "it-IT", "name": "Palazzo Reale di Bruxelles" },
+        { "languageCode": "fr-FR", "name": "Palais royal de Bruxelles" },
+        { "languageCode": "de-DE", "name": "Königlicher Palast von Brüssel" }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "montdesarts",
+      "name": "Mont des Arts",
+      "imagePath": "landmarks/brussels-montdesarts.webp",
+      "mobileImagePath": "landmarks/brussels-montdesarts-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        { "languageCode": "en-US", "name": "Mont des Arts" },
+        { "languageCode": "es-ES", "name": "Monte de las Artes" },
+        { "languageCode": "pt-BR", "name": "Monte das Artes" },
+        { "languageCode": "it-IT", "name": "Monte delle Arti" },
+        { "languageCode": "fr-FR", "name": "Mont des Arts" },
+        { "languageCode": "de-DE", "name": "Kunstberg" }
+      ],
+      "isActive": true
+    }
+  ]
+}

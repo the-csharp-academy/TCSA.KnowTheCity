@@ -330,6 +330,66 @@
       "imagePath": "/cities/hongkong.webp",
       "dateAdded": "2026-04-20",
       "isActive": true
+    },
+    {
+      "remoteId": "bali-id",
+      "name": "Bali",
+      "country": "Indonesia",
+      "continent": "Asia",
+      "manifestPath": "/manifests/bali.json",
+      "imagePath": "/cities/bali.webp",
+      "dateAdded": "2026-04-21",
+      "isActive": true
+    },
+    {
+      "remoteId": "makkah-sa",
+      "name": "Makkah",
+      "country": "SaudiArabia",
+      "continent": "Asia",
+      "manifestPath": "/manifests/makkah.json",
+      "imagePath": "/cities/makkah.webp",
+      "dateAdded": "2026-04-22",
+      "isActive": true
+    },
+    {
+      "remoteId": "buenosaires-ar",
+      "name": "Buenos Aires",
+      "country": "Argentina",
+      "continent": "SouthAmerica",
+      "manifestPath": "/manifests/buenosaires.json",
+      "imagePath": "/cities/buenosaires.webp",
+      "dateAdded": "2026-04-23",
+      "isActive": true
+    },
+    {
+      "remoteId": "bogota-co",
+      "name": "Bogotá",
+      "country": "Colombia",
+      "continent": "SouthAmerica",
+      "manifestPath": "/manifests/bogota.json",
+      "imagePath": "/cities/bogota.webp",
+      "dateAdded": "2026-04-24",
+      "isActive": true
+    },
+    {
+      "remoteId": "budapest-hu",
+      "name": "Budapest",
+      "country": "Hungary",
+      "continent": "Europe",
+      "manifestPath": "/manifests/budapest.json",
+      "imagePath": "/cities/budapest.webp",
+      "dateAdded": "2026-04-26",
+      "isActive": true
+    },
+    {
+      "remoteId": "brussels-be",
+      "name": "Brussels",
+      "country": "Belgium",
+      "continent": "Europe",
+      "manifestPath": "/manifests/brussels.json",
+      "imagePath": "/cities/brussels.webp",
+      "dateAdded": "2026-04-27",
+      "isActive": true
     }
   ]
 }

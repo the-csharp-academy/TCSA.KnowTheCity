@@ -1,0 +1,202 @@
+{
+  "cityRemoteId": "makkah-sa",
+  "version": "1.0",
+  "cityNames": [
+    {
+      "languageCode": "en-US",
+      "name": "Makkah"
+    },
+    {
+      "languageCode": "es-ES",
+      "name": "La Meca"
+    },
+    {
+      "languageCode": "pt-BR",
+      "name": "Meca"
+    },
+    {
+      "languageCode": "it-IT",
+      "name": "La Mecca"
+    },
+    {
+      "languageCode": "fr-FR",
+      "name": "La Mecque"
+    },
+    {
+      "languageCode": "de-DE",
+      "name": "Mekka"
+    }
+  ],
+  "monuments": [
+    {
+      "remoteId": "masjidalharam",
+      "name": "Masjid al-Haram",
+      "imagePath": "landmarks/makkah-masjidalharam.webp",
+      "mobileImagePath": "landmarks/makkah-masjidalharam-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Masjid al-Haram"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Masjid al-Haram"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Masjid al-Haram"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Masjid al-Haram"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Masjid al-Haram"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Masjid al-Haram"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "kaaba",
+      "name": "Kaaba",
+      "imagePath": "landmarks/makkah-kaaba.webp",
+      "mobileImagePath": "landmarks/makkah-kaaba-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Kaaba"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Kaaba"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Caaba"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Kaaba"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Kaaba"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Kaaba"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "abrajalbaitclocktower",
+      "name": "Abraj Al Bait Clock Tower",
+      "imagePath": "landmarks/makkah-abrajalbaitclocktower.webp",
+      "mobileImagePath": "landmarks/makkah-abrajalbaitclocktower-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Abraj Al Bait Clock Tower"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Torre del Reloj Abraj Al Bait"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Torre do Relógio Abraj Al Bait"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Torre dell'Orologio Abraj Al Bait"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Tour de l'horloge Abraj Al Bait"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Abraj Al Bait Uhrturm"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "jabalalnour",
+      "name": "Jabal al-Nour",
+      "imagePath": "landmarks/makkah-jabalalnour.webp",
+      "mobileImagePath": "landmarks/makkah-jabalalnour-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Jabal al-Nour"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Jabal al-Nour"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Jabal al-Nour"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Jabal al-Nour"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Jabal al-Nour"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Jabal al-Nour"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "mountarafat",
+      "name": "Mount Arafat",
+      "imagePath": "landmarks/makkah-mountarafat.webp",
+      "mobileImagePath": "landmarks/makkah-mountarafat-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Mount Arafat"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Monte Arafat"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Monte Arafat"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Monte Arafat"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Mont Arafat"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Berg Arafat"
+        }
+      ],
+      "isActive": true
+    }
+  ]
+}

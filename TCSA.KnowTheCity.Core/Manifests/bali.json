@@ -1,0 +1,202 @@
+﻿{
+  "cityRemoteId": "bali-id",
+  "version": "1.0",
+  "cityNames": [
+    {
+      "languageCode": "en-US",
+      "name": "Bali"
+    },
+    {
+      "languageCode": "es-ES",
+      "name": "Bali"
+    },
+    {
+      "languageCode": "pt-BR",
+      "name": "Bali"
+    },
+    {
+      "languageCode": "it-IT",
+      "name": "Bali"
+    },
+    {
+      "languageCode": "fr-FR",
+      "name": "Bali"
+    },
+    {
+      "languageCode": "de-DE",
+      "name": "Bali"
+    }
+  ],
+  "monuments": [
+    {
+      "remoteId": "tanahlot",
+      "name": "Tanah Lot",
+      "imagePath": "landmarks/bali-tanahlot.webp",
+      "mobileImagePath": "landmarks/bali-tanahlot-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Tanah Lot"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Tanah Lot"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Tanah Lot"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Tanah Lot"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Tanah Lot"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Tanah Lot"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "uluwatutemple",
+      "name": "Uluwatu Temple",
+      "imagePath": "landmarks/bali-uluwatutemple.webp",
+      "mobileImagePath": "landmarks/bali-uluwatutemple-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Uluwatu Temple"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Templo de Uluwatu"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Templo de Uluwatu"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Tempio di Uluwatu"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Temple d'Uluwatu"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Uluwatu-Tempel"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "ulundanuberatan",
+      "name": "Ulun Danu Beratan Temple",
+      "imagePath": "landmarks/bali-ulundanuberatan.webp",
+      "mobileImagePath": "landmarks/bali-ulundanuberatan-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Ulun Danu Beratan Temple"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Templo Ulun Danu Beratan"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Templo Ulun Danu Beratan"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Tempio Ulun Danu Beratan"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Temple d'Ulun Danu Beratan"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Ulun-Danu-Beratan-Tempel"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "tirtaempul",
+      "name": "Tirta Empul",
+      "imagePath": "landmarks/bali-tirtaempul.webp",
+      "mobileImagePath": "landmarks/bali-tirtaempul-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Tirta Empul"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Tirta Empul"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Tirta Empul"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Tirta Empul"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Tirta Empul"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Tirta Empul"
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "remoteId": "jatiluwihriceterraces",
+      "name": "Jatiluwih Rice Terraces",
+      "imagePath": "landmarks/bali-jatiluwihriceterraces.webp",
+      "mobileImagePath": "landmarks/bali-jatiluwihriceterraces-mobile.webp",
+      "imageVersion": "1",
+      "names": [
+        {
+          "languageCode": "en-US",
+          "name": "Jatiluwih Rice Terraces"
+        },
+        {
+          "languageCode": "es-ES",
+          "name": "Terrazas de Arroz de Jatiluwih"
+        },
+        {
+          "languageCode": "pt-BR",
+          "name": "Terraços de Arroz de Jatiluwih"
+        },
+        {
+          "languageCode": "it-IT",
+          "name": "Terrazze di Riso di Jatiluwih"
+        },
+        {
+          "languageCode": "fr-FR",
+          "name": "Rizières en terrasses de Jatiluwih"
+        },
+        {
+          "languageCode": "de-DE",
+          "name": "Reisterrassen von Jatiluwih"
+        }
+      ],
+      "isActive": true
+    }
+  ]
+}
